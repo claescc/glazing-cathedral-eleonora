@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta name="theme-color" content="#FFF9EF"><title>The Glazing Cathedral of Eleonora</title><meta name="description" content="A personal ceramic universe of real fired surfaces, sourced recipes, history, materials and firing."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&amp;family=Google+Sans+Flex:opsz,wght@6..144,400..700&amp;family=Material+Symbols+Rounded&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=20260831-pastel-m3-rebuild"><link rel="stylesheet" href="material3.css?v=20260831-m3-system-1"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to the collection</a>
+<header class="threshold" id="top"><nav aria-label="Primary navigation"><a class="seal" href="#top"><b>EC</b><span>The Glazing Cathedral</span></a><button id="roomsButton" type="button" aria-expanded="false" aria-controls="roomMenu">Explore the rooms <span class="material-symbols-rounded" aria-hidden="true">expand_more</span></button><a class="notebook-link" href="#notebook">Notebook · <i id="savedCount">0</i></a></nav><div class="room-menu" id="roomMenu"></div>
+<div class="hero"><p class="eyebrow">A ceramic universe for Eleonora</p><h1>Enter through<br><em>colour.</em></h1><p>Walk from a fired surface into its recipe, chemistry, kiln atmosphere, history and lineage. Every corridor leads to another experiment.</p><a href="#atlas">Enter the Atlas ↓</a></div>
+<div class="window" id="window"></div><p class="dedication">For Eleonora—my oldest friend, my sister, and the person who was kind when kindness mattered most.</p></header>
+<main id="main-content">
+<section class="floor dark" id="rooms"><p class="eyebrow">The floor plan</p><h2>Eight rooms. One connected craft.</h2><div class="rooms" id="roomGrid"></div></section>
+<section class="exhibitions light" id="exhibitions">
+  <div class="head"><div><p class="eyebrow">Curated routes through the collection</p><h2>What brought you here today?</h2></div><p>Like a museum, the cathedral has more than one entrance. Begin with wonder, a practical job, a failure, or a question.</p></div>
+  <div class="exhibition-grid">
+    <a class="exhibition hero-exhibition" href="#atlas"><img src="assets/glazes/tile_chun.jpg" alt="Real opalescent Jun glaze detail"><span><small>COLOUR FIRST · 10 MINUTES</small><h3>I saw a surface I cannot forget.</h3><p>Walk the colour wall, open a glaze book, then follow its related family.</p><b>Enter the Stained-Glass Atlas →</b></span></a>
+    <a class="exhibition" href="#layering"><img src="assets/recipes/tenmoku-gold.jpg" alt="Real fired Tenmoku Gold glaze detail"><span><small>MAKE A TEST · 20 MINUTES</small><h3>I want to layer two glazes.</h3><p>Build a six-tile comparison that separates chemistry from guesswork.</p><b>Open the Layering Laboratory →</b></span></a>
+    <a class="exhibition" href="#restoration"><img src="assets/recipes/fs-lichen-crawl.jpg" alt="Real fired Lichen Crawl test surface"><span><small>READ THE EVIDENCE · 8 MINUTES</small><h3>Something went wrong in the kiln.</h3><p>Identify the defect, understand its mechanism, and choose one useful next test.</p><b>Visit the Restoration Room →</b></span></a>
+    <a class="exhibition wide-exhibition" href="#path"><img src="assets/glazes/tile_celadon.jpg" alt="Real crackled celadon glaze detail"><span><small>LEARN THE CRAFT · A LIFETIME</small><h3>I want to become a ceramic wizard.</h3><p>Follow the apprentice path from clay geology to chemistry, firing, diagnosis and durable functional ware.</p><b>Begin the learning path →</b></span></a>
+  </div>
+</section>
+<section class="atlas dark" id="atlas"><div class="head"><div><p class="eyebrow">Room I · The Stained-Glass Atlas</p><h2><span id="totalCount">0</span> surface and recipe records<br>to open.</h2></div><p>Begin without knowing a technical word. Every recipe record pairs a published formula with its fired test; every historic-family record identifies the pictured object and tells you when a modern reconstruction is only experimental.</p></div>
+<div class="filters"><label class="search-field"><span class="material-symbols-rounded" aria-hidden="true">search</span><span class="sr-only">Search the glaze collection</span><input id="search" type="search" autocomplete="off" placeholder="Search colour, glaze, cone, atmosphere…"></label><div id="kindTabs" role="group" aria-label="Record type"><button class="on" data-kind="all" aria-pressed="true">Entire collection</button><button data-kind="recipe" aria-pressed="false">Sourced recipes</button><button data-kind="family" aria-pressed="false">Historic families</button></div><div class="hues" id="hues" role="group" aria-label="Filter by colour"></div><div id="viewTabs" role="group" aria-label="Collection view"><button class="on" data-view="mosaic" aria-pressed="true">Mosaic</button><button data-view="index" aria-pressed="false">Index</button></div></div><p class="result" aria-live="polite"><span id="resultCount"></span> records in this corridor</p><div class="wall" id="wall"></div>
+  <section class="type-map" id="typeMap"><div class="type-map-head"><p class="eyebrow">The Glazy map · 69-page source indexed</p><h3>One colour can hide several chemistries.</h3><p>Glazy deliberately mixes colour, oxide mechanism, historic family, surface and firing process: 21 root glaze types, 79 nodes and 64 terminal categories. This museum map gathers them into 16 visual galleries without pretending they are one mutually exclusive scale. Click a term to search the Cathedral’s verified records; an empty result marks a real catalogue gap. Page ranges refer to the supplied <i>Clay &amp; Glaze Types</i> PDF.</p></div><div class="type-grid" id="typeGrid"></div><p class="type-source">Adapted with attribution from <a href="https://help.glazy.org/concepts/types" target="_blank" rel="noopener">Glazy · Clay &amp; Glaze Types ↗</a>, CC BY-NC-SA 4.0.</p></section>
+</section>
+<section class="cookbook light" id="recipes"><div class="head"><div><p class="eyebrow">Room II · The Recipe Library</p><h2>A cookbook that remembers where every recipe came from.</h2></div><p>Published formulas with fired photographs, exact book pages, working notes, safety status and an automatic batch calculator.</p></div>
+  <button class="glazy-feature" id="featuredGlazy">
+    <img src="assets/recipes/june-perry-pink-glazy-27852.jpg" alt="June Perry Pink fired glaze by Joe Thompson">
+    <span><small>NEW GLAZY RECORD · #27852 · PRODUCTION</small><h3>June Perry Pink</h3><p>A tin-rich cone 5–6 oxidation glaze that can develop directional pink-to-purple flashing when chrome is nearby. Open the complete formula, exact UMF, author method, evidence boundaries and five-step test matrix.</p><b>Open this glaze book →</b></span>
+  </button>
+  <div class="rail" id="recipeRail"></div><a href="#atlas" class="under">Browse all sourced recipes in the Atlas →</a>
+</section>
+<section class="layer-lab light" id="layering">
+  <div class="head"><div><p class="eyebrow">A study wing of the Recipe Library</p><h2>The Layering Laboratory.</h2></div><p>A glaze over another glaze is a new chemical system—not paint mixing. Plan both directions, vary thickness deliberately, and let fired evidence decide.</p></div>
+  <div class="lab-shell">
+    <div class="lab-controls">
+      <p class="lab-number">01 · CHOOSE TWO COMPATIBLE GLAZES</p>
+      <label>First glaze · against the clay<select id="layerA"></select></label>
+      <label>Second glaze · upper layer<select id="layerB"></select></label>
+      <div class="lab-pair">
+        <label>First layer<select id="thicknessA"><option>Thin</option><option selected>Medium</option><option>Thick</option></select></label>
+        <label>Second layer<select id="thicknessB"><option selected>Thin</option><option>Medium</option><option>Thick</option></select></label>
+      </div>
+      <label>Application<select id="layerMethod"><option>Dip</option><option>Brush</option><option>Pour</option><option>Spray</option></select></label>
+      <div class="compatibility" id="compatibility" aria-live="polite"></div>
+      <button class="lab-save" id="saveLayerPlan">Save this test plan in the Notebook</button>
+    </div>
+    <div class="lab-visual">
+      <div class="chosen-glazes">
+        <figure><img id="layerAImage" alt=""><figcaption><b id="layerAName"></b><span>base layer · touches clay</span></figcaption></figure>
+        <div class="layer-arrow">then<br>↓</div>
+        <figure><img id="layerBImage" alt=""><figcaption><b id="layerBName"></b><span>upper layer · melts into A</span></figcaption></figure>
+      </div>
+      <p class="not-prediction">These are real photographs of each glaze fired alone. The overlap diagram below records application order; it does not pretend to predict the fired result.</p>
+      <div class="test-matrix" id="testMatrix"></div>
+    </div>
+  </div>
+  <div class="layer-principles">
+    <article><b>Colour is chemistry</b><p>Yellow over blue is not automatically green. Oxides dissolve, crystallise, volatilise and change oxidation state inside the combined melt.</p></article>
+    <article><b>Order is a variable</b><p>A over B can behave differently from B over A because the layers contact clay, air and each other differently.</p></article>
+    <article><b>Fusibility creates movement</b><p>A fluid layer can pull, pool, break or push through a stiffer one. Added thickness can also make a previously stable glaze run.</p></article>
+    <article><b>Make witnesses</b><p>Always fire each glaze alone beside both overlap directions. Without witnesses, you cannot tell what the interaction changed.</p></article>
+  </div>
+  <p class="method-credit">Method inspiration: Matthieu Liévois’ visual planning and systematic layering practice at <a href="https://creamik.com/overlay-glazing-techniques/?lang=en" target="_blank" rel="noopener">Créamik ↗</a>. This laboratory is an original teaching interface, not a reproduction of his page.</p>
+</section>
+<section class="path light" id="path"><div class="head"><div><p class="eyebrow">The Apprentice Path</p><h2>Learn in the order the material demands.</h2></div><p>Every lesson ends with something Eleonora can test, recognise and remember.</p></div><div id="lessons"></div></section>
+<section class="kiln dark" id="kiln"><p class="eyebrow">Room III · The Kiln Chapel</p><h2>The atmosphere is an ingredient.</h2><div class="six" id="atmospheres"></div>
+  <article class="copper-reduction" id="copper-reduction">
+    <div class="copper-heading"><p class="eyebrow">Focused lesson · Copper reduction</p><h3>Green copper can become ruby red—but “more reduction” is not the recipe.</h3><p>Oxidation, reduction and later reoxidation change copper’s chemical state and the particles that form inside the glaze. Base chemistry, glaze thickness, clay, reduction onset, peak heatwork and cooling all decide whether copper reads green, clear, liver-brown, blush pink or red.</p></div>
+    <div class="copper-comparison">
+      <figure><img src="assets/glazes/tile_oribe.jpg" alt="Real Oribe copper-green glaze"><figcaption><small>OXYGEN AVAILABLE</small><b>Oribe green</b><span>Copper commonly remains green in an oxidising alkaline glaze.</span></figcaption></figure>
+      <figure><img src="assets/glazes/tile_copperred.jpg" alt="Real copper-red Langyao vase"><figcaption><small>REDUCING FIRING</small><b>Sang-de-boeuf</b><span>Small copper additions can form ruby-red particles in a suitable high-fire base.</span></figcaption></figure>
+      <figure><img src="assets/glazes/tile_peachbloom_met.jpg" alt="Met Museum peach-bloom water pot"><figcaption><small>REDUCTION + LOCAL VARIATION</small><b>Peach bloom</b><span>Red, blush and moss-green passages record an unusually sensitive copper-red process.</span></figcaption></figure>
+    </div>
+    <div class="copper-steps">
+      <section><small>01</small><h4>What reduction means</h4><p>A fuel-burning kiln has less available oxygen than the flame requires. The atmosphere draws oxygen from glaze and body compounds. Electric kilns normally oxidise unless they are specifically designed for another atmosphere.</p></section>
+      <section><small>02</small><h4>What to record</h4><p>Use witness cones. Log reduction onset and strength, pressure or oxygen reading, kiln position, glaze thickness, clay body, peak heatwork and the whole cooling path.</p></section>
+      <section><small>03</small><h4>What to test</h4><p>Use separate firings to compare reduction onset. Keep a green oxidation witness. Change copper or tin only after the atmosphere comparison, never all variables together.</p></section>
+      <section><small>04</small><h4>What can go wrong</h4><p>Too little reduction may leave green; excessive or badly timed reduction can muddy or liver the red. Reoxidation and cooling can erase, shift or develop colour. There is no universal schedule.</p></section>
+    </div>
+    <p class="copper-source">Continue with <a href="https://ceramicartsnetwork.org/ceramic-recipes/recipe/Experiments-in-Peach-Bloom" target="_blank" rel="noopener">John Britt’s Peach Bloom experiments ↗</a> and <a href="https://help.glazy.org/concepts/types" target="_blank" rel="noopener">Glazy’s atmosphere and glaze-type concepts ↗</a>.</p>
+  </article>
+  <div class="heatwork" id="heatwork"></div>
+</section>
+<section class="materials dark" id="materials"><div class="head"><div><p class="eyebrow">Room IV · The Materials Archive</p><h2>Stop memorising bags.<br>Learn what they contribute.</h2></div><p>A recipe lists materials; a glaze balances oxides. The bridge between those views is where control begins.</p></div><div class="four" id="materialsGrid"></div></section>
+<section class="repair light" id="restoration"><p class="eyebrow">Room V · The Restoration Room</p><h2>Read a failure as evidence.</h2><div class="diagnostic"><div><small>Start with what you can actually see</small><label>I see…<select id="symptom"><option value="crazing">a network of fine glaze cracks</option><option value="shivering">sharp glaze flakes at a rim or edge</option><option value="crawling">bare clay between islands of glaze</option><option value="pinholes">small open pits</option><option value="blisters">large frozen bubbles</option><option value="dunting">a clean crack through the clay body</option></select></label></div><div id="diagnosticAnswer" aria-live="polite"></div></div><div class="six" id="defects"></div></section>
+<section class="masters dark" id="masters"><div class="head"><div><p class="eyebrow">Room VI · The Hall of Masters</p><h2>No glaze arrives without a lineage.</h2></div><p>Some surfaces belong to communities and kiln traditions rather than one inventor. Where attribution is uncertain, the cathedral says so.</p></div><div id="timeline"></div></section>
+<section class="notebook dark" id="notebook"><p class="eyebrow">Room VII · Eleonora’s Notebook</p><h2 id="notebookTitle">Your own collection begins with one surface.</h2><p>Save glaze books and layering plans. Favourites remain on this device, ready to become labelled test tiles and kiln notes.</p><div class="saved" id="saved"></div><div class="layer-plans" id="layerPlans"></div></section>
+<section class="reading light" id="reading"><div class="head"><div><p class="eyebrow">Room VIII · The Reading Room</p><h2><span id="bookCount"></span> sources. <span id="pageCount"></span> pages. One navigable memory.</h2></div><p>The source ledger is visible. “Inventoried” means present and readable; “recipe-indexed” means a formula has been structured and cited; “taxonomy-indexed” means its knowledge hierarchy is navigable. The cathedral never calls a source absorbed before it has earned the word.</p></div><div class="stats" id="stats"></div><div class="reading-tools"><label class="search-field"><span class="material-symbols-rounded" aria-hidden="true">search</span><span class="sr-only">Search the source library</span><input id="bookSearch" type="search" autocomplete="off" placeholder="Find a title, author or subject…"></label><div id="bookFilters" role="group" aria-label="Filter the source library"><button class="on" data-book-filter="all" aria-pressed="true">All</button><button data-book-filter="indexed" aria-pressed="false">Deeply indexed</button><button data-book-filter="practice" aria-pressed="false">Studio practice</button><button data-book-filter="history" aria-pressed="false">History</button><button data-book-filter="science" aria-pressed="false">Science</button></div></div><p class="result" aria-live="polite"><span id="bookResultCount"></span> sources on these shelves</p><div class="shelves" id="shelves"></div></section>
+</main>
+<footer><p class="seal"><b>EC</b><span>THE GLAZING CATHEDRAL</span></p><blockquote>“A library at the hands of her fingertips.”</blockquote><p>Built from Eleonora’s attached ceramic library, attributed public references and museum records. Every firing still begins with a test.</p><a href="#top">Return to the threshold ↑</a></footer>
+<nav class="mobile-nav" aria-label="Primary mobile navigation">
+  <a href="#top" data-nav-section="top"><span><span class="material-symbols-rounded" aria-hidden="true">home</span></span><b>Home</b></a>
+  <a href="#atlas" data-nav-section="atlas"><span><span class="material-symbols-rounded" aria-hidden="true">palette</span></span><b>Atlas</b></a>
+  <a href="#recipes" data-nav-section="recipes"><span><span class="material-symbols-rounded" aria-hidden="true">menu_book</span></span><b>Recipes</b></a>
+  <a href="#path" data-nav-section="path"><span><span class="material-symbols-rounded" aria-hidden="true">school</span></span><b>Learn</b></a>
+  <a href="#notebook" data-nav-section="notebook"><span><span class="material-symbols-rounded" aria-hidden="true">favorite</span></span><b>Saved</b></a>
+</nav>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden><article><button class="close" id="close" type="button" aria-label="Close glaze book"><span class="material-symbols-rounded" aria-hidden="true">close</span></button><div class="hero-image"><img id="modalImage" alt=""><span id="recordType"></span></div><div class="book"><p class="eyebrow" id="modalEyebrow"></p><h2 id="modalTitle"></h2><p class="intro" id="modalIntro"></p><div class="facts" id="facts"></div><div id="recognitionBlock"></div><div id="formulaBlock"></div><div id="relatedBlock"></div><button class="save-button" id="saveButton"></button><p class="caution">A photograph and published formula do not guarantee the same result. Test clay, thickness, application, heatwork, atmosphere and cooling. Food-contact use requires a stable glaze/body system and appropriate testing.</p></div></article></div>
+<script src="library-data.js?v=20260922-complete-recipes"></script><script src="glazy-data.js?v=20260922-complete-recipes"></script><script src="glazy-imports.js?v=20260922-complete-recipes"></script><script src="app.js?v=20260922-complete-recipes"></script></body></html>
