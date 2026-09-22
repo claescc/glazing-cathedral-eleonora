@@ -155,11 +155,11 @@ Object.assign(peachBloom,{
   sourceUrl:"https://www.lindaarbuckle.com/handouts/highfire-glaze-recipes.htm"
  }
 });
-const recipes=[...(window.GLAZY_RECIPES||[]),...(window.GLAZY_IMPORTED_RECIPES||[]),...RECIPES].map(r=>({...r,kind:"recipe",origin:r.author,history:r.history||`Published in ${r.source} by ${r.author}, page ${r.page}. The cathedral preserves the named source and does not invent an earlier attribution.`}));
+const recipes=[...(window.GLAZY_RECIPES||[]),...(window.GLAZY_IMPORTED_RECIPES||[]),...RECIPES,...(window.BOOK_RECIPES||[])].map(r=>({...r,kind:"recipe",origin:r.author,history:r.history||`Published in ${r.source} by ${r.author}, page ${r.page}. The cathedral preserves the named source and does not invent an earlier attribution.`}));
 const collection=[...recipes,...families];let activeKind="all",activeHue="all",activeView="mosaic",selected=null,saved=JSON.parse(localStorage.getItem("eleonora-saved")||"[]");
 const $=s=>document.querySelector(s),all=s=>[...document.querySelectorAll(s)];
 const assetVersion="20260831-pastel-m3-rebuild";
-const imageSrc=src=>`${src}?v=${assetVersion}`;
+const imageSrc=src=>src?`${src}?v=${assetVersion}`:"";
 const hueDefinitions=[
  {key:"all",label:"All colours",color:"conic-gradient(#934047,#c9a45c,#4f745a,#416c86,#715270,#934047)"},
  {key:"red",label:"Red & pink",color:"#934047",pattern:/\b(red|pink|rose|blush|cranberry|peach|maroon|magenta|oxblood|sang-de-boeuf)\b/i},
@@ -190,16 +190,25 @@ document.addEventListener("pointerdown",e=>{
 $("#window").innerHTML=families.slice(0,9).map(x=>`<img src="${imageSrc(x.image)}" alt="">`).join("");
 $("#hues").innerHTML=hueDefinitions.map((h,i)=>`<button data-hue="${h.key}" class="${i?"":"on"}" aria-pressed="${i===0}" title="${h.label}"><i style="background:${h.color}"></i><span>${h.label}</span></button>`).join("");
 function tile(x){
- const verifiedLabel=x.kind==="recipe"?(x.platform==="Glazy"?"GLAZY RECORD · FORMULA + FIRED PHOTO":x.imageVerified?`SOURCE PAGE ${x.imageSourcePage} · FORMULA + FIRED TEST`:"FORMULA · PHOTO NOT VERIFIED"):"ATTRIBUTED FIRED PHOTOGRAPH";
- const zoom=x.zoom||(x.kind==="recipe"?1.18:1.08),hover=x.hoverZoom||(zoom+.1);
- return `<button class="tile" data-id="${x.id}"><span class="image"><img src="${imageSrc(x.image)}" alt="Fired ceramic surface: ${x.name}" style="--tile-zoom:${zoom};--tile-hover:${hover};object-position:${x.position||"50% 50%"}"></span><small>${verifiedLabel}</small><strong>${x.name}</strong><i>${x.kind==="recipe"?x.color+" · "+x.surface:x.origin+" · "+x.surface}</i></button>`;
+ const label=x.kind==="recipe" ? "RECIPE" : "HISTORIC FAMILY";
+ return `<button class="tile" data-id="${x.id}"><span class="image">${x.image?`<img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="${escapeHtml(x.name)} · source photograph">`:`<span class="no-photo">Photograph not supplied</span>`}</span><span class="tile-copy"><small>${label} · CONE ${escapeHtml(x.cone)}</small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source||x.origin)}</span></span></button>`;
 }
-function render(){
- let q=$("#search").value.toLowerCase();let list=collection.filter(x=>(activeKind==="all"||x.kind===activeKind)&&(activeHue==="all"||huesFor(x).includes(activeHue))&&JSON.stringify(x).toLowerCase().includes(q));
+let atlasLimit=30;
+function render(expand=false){
+ if(expand!==true)atlasLimit=30;
+ let q=$("#search").value.toLowerCase();let list=collection.filter(x=>(activeKind==="all"||x.kind===activeKind)&&(activeHue==="all"||huesFor(x).includes(activeHue))&&($("#photoFilter").value==="all"||x.image)&&JSON.stringify(x).toLowerCase().includes(q)&&(!$("#coneFilter").value||String(x.cone)===$("#coneFilter").value)&&(!$("#sourceFilter").value||(x.source||x.origin)===$("#sourceFilter").value));
+ const order=$("#sortFilter").value; const rank=x=>{const h=huesFor(x)[0];return h?hueDefinitions.findIndex(v=>v.key===h):99};list.sort((a,b)=>order==="name"?a.name.localeCompare(b.name):order==="source"?(a.source||a.origin).localeCompare(b.source||b.origin)||a.name.localeCompare(b.name):rank(a)-rank(b)||a.name.localeCompare(b.name));
+ const matchedCount=list.length;list=list.slice(0,atlasLimit);
+ $("#atlasMore").hidden=atlasLimit>=matchedCount;
  $("#wall").classList.toggle("index-view",activeView==="index");
- $("#wall").innerHTML=!list.length?`<div class="empty-corridor"><small>CATALOGUE GAP</small><h3>No complete record yet for “${escapeHtml($("#search").value||activeHue)}”.</h3><p>The taxonomy recognises this branch, but the Cathedral does not yet hold a fully attributed record with a fired photograph and enough evidence to teach it responsibly.</p></div>`:activeView==="mosaic"?list.map(tile).join(""):list.map((x,i)=>`<button class="index-row tile" data-id="${x.id}"><span>${String(i+1).padStart(2,"0")}</span><img src="${imageSrc(x.image)}" alt="Fired ceramic surface: ${x.name}"><strong>${x.name}</strong><i>${x.color}</i><i>${x.surface}</i><i>${x.cone}</i><i>${x.atmosphere}</i><small>${x.kind==="recipe"?"OPEN RECIPE":"OPEN HISTORY"}</small></button>`).join("");
- $("#resultCount").textContent=list.length;all(".tile").forEach(b=>b.onclick=()=>openBook(collection.find(x=>x.id===b.dataset.id)));
+ $("#wall").innerHTML=!list.length?`<div class="empty-corridor"><small>CATALOGUE GAP</small><h3>No records match “${escapeHtml($("#search").value||activeHue)}”.</h3><p>Try including text-only formulas, clearing the source or cone filter, or searching inside the books.</p></div>`:activeView==="mosaic"?list.map(tile).join(""):list.map((x,i)=>`<button class="index-row tile" data-id="${x.id}"><span>${String(i+1).padStart(2,"0")}</span>${x.image?`<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired ceramic surface: ${x.name}">`:`<span class="no-photo">Formula</span>`}<strong>${x.name}</strong><i>${x.color}</i><i>${x.surface}</i><i>${x.cone}</i><i>${x.atmosphere}</i><small>${x.kind==="recipe"?"OPEN RECIPE":"OPEN HISTORY"}</small></button>`).join("");
+ $("#resultCount").textContent=`${matchedCount} matching · showing ${list.length}`;all(".tile").forEach(b=>b.onclick=()=>openBook(collection.find(x=>x.id===b.dataset.id)));
 }
+for(const [id,values] of [["coneFilter",collection.map(x=>String(x.cone))],["sourceFilter",collection.map(x=>x.source||x.origin)]]){
+ const el=document.getElementById(id);[...new Set(values)].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true})).forEach(v=>el.add(new Option(v,v)));el.onchange=render;
+}
+$("#atlasMore").onclick=()=>{atlasLimit+=30;render(true)};
+ $("#sortFilter").onchange=render;$("#photoFilter").onchange=render;
 $("#totalCount").textContent=collection.length;$("#search").oninput=render;
 all("#kindTabs button").forEach(b=>b.onclick=()=>{activeKind=b.dataset.kind;all("#kindTabs button").forEach(x=>{const on=x===b;x.classList.toggle("on",on);x.setAttribute("aria-pressed",String(on))});render()});
 all("#hues button").forEach(b=>b.onclick=()=>{activeHue=b.dataset.hue;all("#hues button").forEach(x=>{x.classList.toggle("on",x===b);x.setAttribute("aria-pressed",String(x===b))});render()});
@@ -207,7 +216,8 @@ all("#viewTabs button").forEach(b=>b.onclick=()=>{activeView=b.dataset.view;all(
 const typeGroups=window.GLAZY_TYPE_GROUPS||[];
 $("#typeGrid").innerHTML=typeGroups.map(g=>`<article class="type-card"><img src="${imageSrc(g.image)}" alt="One fired gallery-cover reference for ${g.name}"><div><small>GALLERY GUIDE · GLAZY PDF PP. ${g.pages}</small><h4>${g.name}</h4><p>${g.description}</p><span class="type-visual-note">Cover image only—each named subtype may look different.</span><nav>${g.types.map(t=>`<button data-type-query="${t}">${t}</button>`).join("")}</nav></div></article>`).join("");
 all("[data-type-query]").forEach(b=>b.onclick=()=>{activeKind="all";activeHue="all";all("#kindTabs button").forEach(x=>{const on=x.dataset.kind==="all";x.classList.toggle("on",on);x.setAttribute("aria-pressed",String(on))});all("#hues button").forEach(x=>{const on=x.dataset.hue==="all";x.classList.toggle("on",on);x.setAttribute("aria-pressed",String(on))});$("#search").value=b.dataset.typeQuery;render();$("#atlas .filters").scrollIntoView({behavior:"smooth",block:"start"})});
-$("#recipeRail").innerHTML=recipes.map(x=>`<button data-id="${x.id}"><img src="${imageSrc(x.image)}" alt="Fired test for ${x.name}"><span><small>CONE ${x.cone} · ${x.atmosphere}</small><strong>${x.name}</strong></span></button>`).join("");all("#recipeRail button").forEach(b=>b.onclick=()=>openBook(recipes.find(x=>x.id===b.dataset.id)));
+document.querySelector('#recipes .under').onclick=()=>{$('#photoFilter').value='all';activeKind='recipe';activeHue='all';$('#search').value='';$('#sourceFilter').value='';$('#coneFilter').value='';all('#kindTabs button').forEach(b=>{const on=b.dataset.kind==='recipe';b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))});all('#hues button').forEach(b=>{const on=b.dataset.hue==='all';b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))});render()};
+$('#recipeRail').innerHTML=recipes.map(x=>`<button data-id="${x.id}">${x.image?`<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${x.name}">`:`<span class="no-photo">Source formula</span>`}<span><small>CONE ${x.cone} · ${x.atmosphere}</small><strong>${x.name}</strong></span></button>`).join("");all("#recipeRail button").forEach(b=>b.onclick=()=>openBook(recipes.find(x=>x.id===b.dataset.id)));
 $("#featuredGlazy").onclick=()=>openBook(recipes.find(x=>x.id==="glazy-27852"));
 let layerPlans=JSON.parse(localStorage.getItem("eleonora-layer-plans")||"[]");
 const layerRecipes=recipes.filter(r=>r.image);
@@ -327,26 +337,26 @@ function ingredientClues(x){
 }
 function relatedFor(x){
  const targetHues=huesFor(x);
- return collection.filter(y=>y.id!==x.id&&(huesFor(y).some(h=>targetHues.includes(h))||String(y.surface).toLowerCase()===String(x.surface).toLowerCase())).slice(0,4);
+ return collection.filter(y=>y.image&&y.id!==x.id&&(huesFor(y).some(h=>targetHues.includes(h))||String(y.surface).toLowerCase()===String(x.surface).toLowerCase())).slice(0,4);
 }
 function openBook(x){
- selected=x;$("#modalImage").src=imageSrc(x.image);$("#modalImage").alt=`Real fired ceramic surface: ${x.name}`;
+ selected=x;$("#modalImage").hidden=!x.image;$("#modalImage").parentElement.classList.toggle("without-photo",!x.image);if(x.image)$("#modalImage").src=imageSrc(x.image);$("#modalImage").alt=`Real fired ceramic surface: ${x.name}`;
  $("#modalImage").classList.toggle("contain",x.objectFit==="contain");
  $("#modalImage").style.objectPosition=x.position||"50% 50%";
- $("#modalImage").style.transform=x.objectFit==="contain"?"none":`scale(${x.zoom||(x.kind==="recipe"?1.18:1.08)})`;
- $("#recordType").textContent=x.platform==="Glazy"?`GLAZY ${String(x.sourceStatus||"RECIPE").toUpperCase()} RECORD`:x.kind==="recipe"?"FIRED RECIPE STUDY":"HISTORICAL SURFACE FAMILY";
+ $("#modalImage").style.transform="none";
+ $("#recordType").textContent=!x.image?"SOURCE FORMULA · NO MATCHED PHOTOGRAPH":x.platform==="Glazy"?`GLAZY ${String(x.sourceStatus||"RECIPE").toUpperCase()} RECORD`:x.kind==="recipe"?"FIRED RECIPE STUDY":"HISTORICAL SURFACE FAMILY";
  $("#modalEyebrow").textContent=x.kind==="recipe"?`CONE ${x.cone} · ${x.atmosphere}`:x.origin;
  $("#modalTitle").textContent=x.name;$("#modalIntro").textContent=x.history;
- const facts=x.kind==="family"&&x.date?[["DATE",x.date],["HISTORIC NAME",x.aliases],["RARITY",x.rarity],["OBJECT",x.objectRecord],["MODERN TEST RANGE",x.cone],["MECHANISM",x.atmosphere]]:x.platform==="Glazy"?[["GLAZY CATEGORY",x.glazyClassification||"Glaze"],...(x.studyClassification?[["STUDY PATH",x.studyClassification]]:[]),["COLOUR",x.color],["SURFACE / OPACITY",`${x.surface} · ${x.transparency}`],["CONE / ATMOSPHERE",`${x.cone} · ${x.atmosphere}`],["PUBLISHED",x.created||"See source"],["RECORD STATE",`${x.sourceStatus||"See source"} · supplied snapshot`],...(x.galleryEvidence?[["COMMUNITY EVIDENCE",x.galleryEvidence]]:[]),["SELECTED PHOTOGRAPH",x.imageCredit]]:[["COLOUR",x.color],["SURFACE",x.surface],["CONE / HEAT",x.cone],["ATMOSPHERE",x.atmosphere]];
+ const facts=x.kind==="family"&&x.date?[["DATE",x.date],["HISTORIC NAME",x.aliases],["RARITY",x.rarity],["OBJECT",x.objectRecord],["MODERN TEST RANGE",x.cone],["MECHANISM",x.atmosphere]]:x.platform==="Glazy"?[["GLAZY CATEGORY",x.glazyClassification||"Glaze"],...(x.studyClassification?[["STUDY PATH",x.studyClassification]]:[]),["COLOUR",x.color],["SURFACE / OPACITY",`${x.surface} · ${x.transparency}`],["CONE / ATMOSPHERE",`${x.cone} · ${x.atmosphere}`],["PUBLISHED",x.created||"See source"],["RECORD STATE",`${x.sourceStatus||"See source"} · supplied snapshot`],...(x.galleryEvidence?[["COMMUNITY EVIDENCE",x.galleryEvidence]]:[]),["SELECTED PHOTOGRAPH",x.imageCredit]]:[["COLOUR",x.color],["SURFACE",x.surface],["CONE / HEAT",x.cone],...(x.firingTemperature?[["PUBLISHED TEMPERATURE",x.firingTemperature]]:[]),["ATMOSPHERE",x.atmosphere]];
  $("#facts").innerHTML=facts.map(v=>`<span><small>${v[0]}</small>${v[1]}</span>`).join("");
  $("#recognitionBlock").innerHTML=x.kind==="family"?`
   <section class="book-section"><small>01 · RECOGNISE IT</small><h3>What your eye should notice</h3>${x.reconstruction?`<figure class="surface-zoom"><img src="${imageSrc(x.image)}" alt="Close view of the peach-bloom glaze on the Met water pot"><figcaption>Surface close-up · the Atlas crops the same museum object so the mottled glaze, not merely the vessel silhouette, becomes recognisable.</figcaption></figure>`:""}<p>${x.recognition}</p></section>
   <section class="book-section"><small>02 · UNDERSTAND IT</small><h3>Why the surface happens</h3><p>${x.mechanism}</p></section>
   <section class="book-section"><small>03 · TEST IT</small><h3>Turn resemblance into evidence</h3><p>${x.practice}</p>${x.concept?`<a class="concept-jump" href="#${x.concept}">Open the copper-reduction lesson →</a>`:""}</section>`:`
-  <section class="book-section"><small>01 · RECOGNISE IT</small><h3>${x.color} · ${x.surface}</h3><p>${x.recognition||"The photograph is the published fired example attached to this formula. Compare colour where the glaze is thin, pooled and crossing texture before judging your own test."}</p></section>
+  <section class="book-section"><small>01 · RECOGNISE IT</small><h3>${x.color} · ${x.surface}</h3><p>${x.recognition||"Read the source photograph and recipe together. Where a photograph is unavailable, no substitute colour is supplied."}</p></section>
   <section class="book-section"><small>02 · READ THE MATERIAL CLUES</small><h3>A formula is a set of hypotheses</h3><p>${ingredientClues(x)}</p></section>`;
  if(x.kind==="recipe"){
-  const baseTotal=x.ingredients.reduce((n,v)=>n+v.amount,0), publishedTotal=x.publishedTotal||baseTotal+x.additions.reduce((n,v)=>n+v.amount,0), divisor=x.calculationBasis==="total"?publishedTotal:100;
+  const baseTotal=x.ingredients.reduce((n,v)=>n+v.amount,0), publishedTotal=x.publishedTotal||baseTotal+x.additions.reduce((n,v)=>n+v.amount,0), divisor=x.calculationBasis==="total"?publishedTotal:baseTotal;
   let sectionNo=4;
   const umfSection=x.umf?`<section class="book-section"><small>${String(sectionNo++).padStart(2,"0")} · READ THE UMF</small><h3>The oxide balance behind the recipe</h3><div class="umf-grid"><span><small>FLUXES</small>${x.umf.fluxes}</span><span><small>STABILISERS</small>${x.umf.stabilizers}</span><span><small>GLASS FORMERS</small>${x.umf.glassFormers}</span><span><small>RATIOS</small>${x.umf.ratio}</span>${x.umf.trace?`<span><small>TRACE OXIDES</small>${x.umf.trace}</span>`:""}${x.umf.thermalExpansion?`<span><small>THERMAL EXPANSION</small>${x.umf.thermalExpansion}</span>`:""}</div><p>The UMF is a comparison tool, not a firing prediction. Material analyses vary and glaze fit still belongs to the clay-and-firing system.</p></section>`:"";
   const techniqueSection=x.technique?`<section class="book-section experiment-plan"><small>${String(sectionNo++).padStart(2,"0")} · RECREATE THE FLASHING</small><h3>${x.technique.title}</h3><ol>${x.technique.steps.map(v=>`<li>${v}</li>`).join("")}</ol><div class="status danger"><b>Chromium studio caution</b><br>${x.technique.caution}</div></section>`:"";
@@ -354,7 +364,7 @@ function openBook(x){
   const sourceSectionNo=String(sectionNo++).padStart(2,"0");
   x._relatedSectionNo=String(sectionNo).padStart(2,"0");
   const weight=a=>(a/divisor*100).toFixed(1);
-  $("#formulaBlock").innerHTML=`<section class="book-section"><small>03 · WEIGH THE RECIPE</small><h3>Published formula</h3><label class="batch">Dry batch size <input id="batch" type="number" value="100" min="10"> g</label><table class="formula"><thead><tr><th>Material</th><th>Parts / %</th><th>Weight</th></tr></thead><tbody>${x.ingredients.map(a=>`<tr><td>${a.material}</td><td>${a.amount}</td><td data-pct="${a.amount}" data-divisor="${divisor}">${weight(a.amount)} g</td></tr>`).join("")}${x.additions.length?`<tr><th colspan="3">ADDITIONS · published beyond the ${baseTotal.toFixed(1)} base</th></tr>`:""}${x.additions.map(a=>`<tr><td>+ ${a.material}</td><td>${a.amount}</td><td data-pct="${a.amount}" data-divisor="${divisor}">${weight(a.amount)} g</td></tr>`).join("")}</tbody></table><p><b>Published total: ${publishedTotal.toFixed(1)}</b> · ${x.calculationBasis==="total"?"all printed parts are scaled together to the chosen dry batch":"base "+baseTotal.toFixed(1)+" plus additions; the calculator preserves this structure"}.</p></section>${umfSection}${techniqueSection}${testSection}<section class="book-section"><small>${sourceSectionNo} · SOURCE NOTES & EVIDENCE BOUNDARIES</small><h3>What the publication records and what it does not</h3><div class="status ${/failed|decorative/i.test(x.status)?"danger":""}"><b>${x.status}</b></div>${x.notes?`<p>${x.notes}</p>`:""}${x.sourceNotes?`<p>${x.sourceNotes}</p>`:""}${x.missingFields?`<div class="missing-fields"><b>Not supplied by this Glazy record</b><ul>${x.missingFields.map(v=>`<li>${v}</li>`).join("")}</ul></div>`:""}<div class="source"><b>${x.source}</b><br>${x.author} · formula on supplied PDF p. ${x.page}${x.imageSourcePage?`<br>Fired photograph: supplied PDF p. ${x.imageSourcePage} · matched to this formula during the source-page audit`:""}${x.imageCredit?`<br>Selected photograph: ${x.imageCredit}`:""}${x.sourceUrl?`<br><a href="${x.sourceUrl}" target="_blank" rel="noopener">Open the live Glazy record ↗</a>`:""}${x.relatedSourceUrl?`<br><a href="${x.relatedSourceUrl}" target="_blank" rel="noopener">Read the maker’s atmospheric-colour notes ↗</a>`:""}${x.license?`<br><br>${x.license}${x.licenseUrl?` · <a href="${x.licenseUrl}" target="_blank" rel="noopener">licence ↗</a>`:""}`:""}</div></section>`;
+  $("#formulaBlock").innerHTML=`<section class="book-section"><small>03 · WEIGH THE RECIPE</small><h3>Published formula</h3><label class="batch">${x.calculationBasis==="total"?"Total dry batch size":"Base batch size (additions extra)"} <input id="batch" type="number" value="100" min="10"> g</label><table class="formula"><thead><tr><th>Material</th><th>Parts / %</th><th>Weight</th></tr></thead><tbody>${x.ingredients.map(a=>`<tr><td>${a.material}</td><td>${a.amount}</td><td data-pct="${a.amount}" data-divisor="${divisor}">${weight(a.amount)} g</td></tr>`).join("")}${x.additions.length?`<tr><th colspan="3">ADDITIONS · published beyond the ${baseTotal.toFixed(1)} base</th></tr>`:""}${x.additions.map(a=>`<tr><td>+ ${a.material}</td><td>${a.amount}</td><td data-pct="${a.amount}" data-divisor="${divisor}">${weight(a.amount)} g</td></tr>`).join("")}</tbody></table><p><b>Published total: ${publishedTotal.toFixed(1)}</b> · ${x.calculationBasis==="total"?"all printed parts are scaled together to the chosen dry batch":"base "+baseTotal.toFixed(1)+" plus additions; the calculator preserves this structure"}.</p></section>${umfSection}${techniqueSection}${testSection}<section class="book-section"><small>${sourceSectionNo} · SOURCE NOTES & EVIDENCE BOUNDARIES</small><h3>What the publication records and what it does not</h3><div class="status ${/failed|decorative/i.test(x.status)?"danger":""}"><b>${x.status}</b></div>${x.notes?`<p>${x.notes}</p>`:""}${x.sourceNotes?`<p>${x.sourceNotes}</p>`:""}${x.missingFields?`<div class="missing-fields"><b>Not supplied by this Glazy record</b><ul>${x.missingFields.map(v=>`<li>${v}</li>`).join("")}</ul></div>`:""}<div class="source"><b>${x.source}</b><br>${x.author} · formula on supplied PDF p. ${x.page}${x.imageSourcePage?`<br>Fired photograph: supplied PDF p. ${x.imageSourcePage} · matched to this formula during the source-page audit`:""}${x.imageCredit?`<br>Selected photograph: ${x.imageCredit}`:""}${x.sourceUrl?`<br><a href="${x.sourceUrl}" target="_blank" rel="noopener">Open the live Glazy record ↗</a>`:""}${x.relatedSourceUrl?`<br><a href="${x.relatedSourceUrl}" target="_blank" rel="noopener">Read the maker’s atmospheric-colour notes ↗</a>`:""}${x.license?`<br><br>${x.license}${x.licenseUrl?` · <a href="${x.licenseUrl}" target="_blank" rel="noopener">licence ↗</a>`:""}`:""}</div></section>`;
  }else if(x.reconstruction){
   const r=x.reconstruction,baseTotal=r.ingredients.reduce((n,v)=>n+v.amount,0);
   x._relatedSectionNo="07";
@@ -384,6 +394,7 @@ document.addEventListener("keydown",e=>{
   $("#roomsButton").focus();
   return;
  }
+ if(document.getElementById("sourceReader")?.open)return;
  if($("#modal").hidden)return;
  if(e.key==="Escape"){$("#close").click();return}
  if(e.key==="Tab"){
@@ -397,7 +408,7 @@ document.addEventListener("keydown",e=>{
 function renderSaved(){
  $("#savedCount").textContent=saved.length;
  $("#notebookTitle").textContent=saved.length||layerPlans.length?`${saved.length} surfaces and ${layerPlans.length} layer plans are waiting for you.`:"Your own collection begins with one surface.";
- $("#saved").innerHTML=saved.length?collection.filter(x=>saved.includes(x.id)).map(x=>`<button data-id="${x.id}"><img src="${imageSrc(x.image)}" alt="Fired surface: ${x.name}"><strong>${x.name}</strong></button>`).join(""):`<a href="#atlas">Return to the Atlas and choose what calls to you →</a>`;
+ $("#saved").innerHTML=saved.length?collection.filter(x=>saved.includes(x.id)).map(x=>`<button data-id="${x.id}">${x.image?`<img src="${imageSrc(x.image)}" alt="Fired surface: ${x.name}">`:`<span class="no-photo">Source formula</span>`}<strong>${x.name}</strong></button>`).join(""):`<a href="#atlas">Return to the Atlas and choose what calls to you →</a>`;
  all("#saved button").forEach(b=>b.onclick=()=>openBook(collection.find(x=>x.id===b.dataset.id)));
 }
 function renderLayerPlans(){

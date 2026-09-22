@@ -12,7 +12,10 @@ for (const file of [
   "app.js",
   "library-data.js",
   "glazy-data.js",
-  "glazy-imports.js"
+  "glazy-imports.js",
+  "book-recipes.js",
+  "source-library.js",
+  "library.css"
 ]) {
   cpSync(new URL(`./${file}`, import.meta.url), new URL(`./dist/${file}`, import.meta.url));
 }
