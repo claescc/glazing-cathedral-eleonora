@@ -176,6 +176,11 @@ function huesFor(value){
  return hueDefinitions.filter(h=>h.pattern?.test(searchable)).map(h=>h.key);
 }
 const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const coneLabel=value=>{
+ const raw=String(value??"Not specified").trim();
+ return raw.replace(/^cone\s*/i,"")||"Not specified";
+};
+const atlasFocus=value=>/^\d+(?:\.\d+)?%\s+\d+(?:\.\d+)?%$/.test(String(value||""))?String(value):"50% 50%";
 $("#roomGrid").innerHTML=rooms.map((r,i)=>`<a href="#${r[0]}"><small>${String(i+1).padStart(2,"0")}</small><h3>${r[1]}</h3><p>${["Browse real fired surfaces by colour and behaviour.","Weighable formulas with exact sources.","Atmosphere, heatwork and cooling.","Clay, oxides, minerals and substitutions.","Diagnose defects and choose the next test.","People, kilns, places and traditions.","Save favourites and plan tests.","The attached books and their citations."][i]}</p></a>`).join("");
 $("#roomMenu").innerHTML=rooms.map(r=>`<a href="#${r[0]}">${r[1]}</a>`).join("");
 $("#roomsButton").onclick=()=>{const open=$("#roomMenu").classList.toggle("open");$("#roomsButton").setAttribute("aria-expanded",String(open))};
@@ -191,7 +196,8 @@ $("#window").innerHTML=families.slice(0,9).map(x=>`<img src="${imageSrc(x.image)
 $("#hues").innerHTML=hueDefinitions.map((h,i)=>`<button data-hue="${h.key}" class="${i?"":"on"}" aria-pressed="${i===0}" title="${h.label}"><i style="background:${h.color}"></i><span>${h.label}</span></button>`).join("");
 function tile(x){
  const label=x.kind==="recipe" ? "RECIPE" : "HISTORIC FAMILY";
- return `<button class="tile" data-id="${x.id}"><span class="image">${x.image?`<img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="${escapeHtml(x.name)} · source photograph">`:`<span class="no-photo">Photograph not supplied</span>`}</span><span class="tile-copy"><small>${label} · CONE ${escapeHtml(x.cone)}</small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source||x.origin)}</span></span></button>`;
+ const focus=atlasFocus(x.position);
+ return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${x.image?`<img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Fired glaze specimen: ${escapeHtml(x.name)}" style="--atlas-focus:${focus}">`:`<span class="no-photo">Photograph not supplied</span>`}</span><span class="tile-copy"><small>${label} · CONE ${escapeHtml(coneLabel(x.cone))}</small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source||x.origin)}</span></span></button>`;
 }
 let atlasLimit=30;
 function render(expand=false){
