@@ -196,8 +196,11 @@ $("#window").innerHTML=families.slice(0,9).map(x=>`<img src="${imageSrc(x.image)
 $("#hues").innerHTML=hueDefinitions.map((h,i)=>`<button data-hue="${h.key}" class="${i?"":"on"}" aria-pressed="${i===0}" title="${h.label}"><i style="background:${h.color}"></i><span>${h.label}</span></button>`).join("");
 function tile(x){
  const label=x.kind==="recipe" ? "RECIPE" : "HISTORIC FAMILY";
- const focus=atlasFocus(x.position);
- return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${x.image?`<img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Fired glaze specimen: ${escapeHtml(x.name)}" style="--atlas-focus:${focus}">`:`<span class="no-photo">Photograph not supplied</span>`}</span><span class="tile-copy"><small>${label} · CONE ${escapeHtml(coneLabel(x.cone))}</small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source||x.origin)}</span></span></button>`;
+ const focus=atlasFocus(({"glazy-27852":"50% 63%","glazy-844452":"37% 28%"})[x.id]||x.position);
+ const [fx,fy]=focus.split(" ").map(parseFloat);
+ const firing=coneLabel(x.cone);
+ const firingLabel=/^\d/.test(firing)?`Cone ${firing}`:firing;
+ return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${x.image?`<span class="cone-surface"><img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Digital cone visualisation of ${escapeHtml(x.name)}, based on a cropped source photograph" style="--cone-left:${50-fx*4}%;--cone-top:${50-fy*4}%"></span><span class="cone-caption">Digital cone preview</span>`:`<span class="no-photo">Photograph not supplied</span>`}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source||x.origin)}</span></span></button>`;
 }
 let atlasLimit=30;
 function render(expand=false){

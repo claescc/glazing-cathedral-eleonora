@@ -7,8 +7,8 @@
 :root {
   color-scheme: light;
 
-  --md-ref-typeface-brand: "Google Sans Flex", "Google Sans", Roboto, system-ui, sans-serif;
-  --md-ref-typeface-plain: "Google Sans Flex", "Google Sans", Roboto, system-ui, sans-serif;
+  --md-ref-typeface-brand: "Montserrat", system-ui, sans-serif;
+  --md-ref-typeface-plain: "Montserrat", system-ui, sans-serif;
   --md-ref-typeface-code: "Google Sans Code", "Roboto Mono", ui-monospace, monospace;
   --md-ref-typeface-weight-regular: 400;
   --md-ref-typeface-weight-medium: 500;
