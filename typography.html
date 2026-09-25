@@ -1,326 +1,277 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Typography specimen and component mapping for Eleonora Ceramics.">
-  <title>Typography · Eleonora Ceramics</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&amp;family=Google+Sans+Flex:opsz,wght@6..144,400..700&amp;family=Material+Symbols+Rounded&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="typography.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to typography specimens</a>
-
-  <header class="top-app-bar">
-    <a class="brand" href="index.html" aria-label="Return to Eleonora Ceramics">
-      <span class="brand-mark" aria-hidden="true">E</span>
-      <span>
-        <strong>Eleonora Ceramics</strong>
-        <small>Design system · Typography</small>
-      </span>
-    </a>
-    <nav aria-label="Style-guide sections">
-      <a href="#roles">Type roles</a>
-      <a href="#components">Components</a>
-      <a href="#technical">Technical text</a>
-      <a href="#rules">Rules</a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="intro" aria-labelledby="page-title">
-      <div>
-        <p class="overline">Typography foundation · v1</p>
-        <h1 id="page-title">Material typography for the ceramic universe</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Design system · Eleonora Ceramics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Google+Sans+Code:wght@400;500;600&amp;family=Material+Symbols+Rounded&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="material3.css?v=20260925-system" />
+    <link rel="stylesheet" href="styles.css?v=20260925-system" />
+    <link rel="stylesheet" href="typography.css?v=20260925-system" />
+  </head>
+  <body class="system-guide">
+    <a class="skip-link" href="#main-content">Skip to specimens</a>
+    <header class="threshold">
+      <nav>
+        <a class="seal" href="index.html"
+          ><img
+            src="assets/brand/ejl-sunflower-seal.svg"
+            width="48"
+            height="48"
+            alt=""
+          /><span>Eleonora Ceramics · Design system</span></a
+        ><a href="index.html">Return to the library</a>
+      </nav>
+      <div class="hero">
+        <p class="eyebrow">Shared foundations and components</p>
+        <h1>One visual language.</h1>
+        <p>
+          Montserrat for reading and interface text. Google Sans Code for
+          formula numbers. Material Symbols Rounded at 24 px. The specimens
+          below consume the same tokens and components as the website.
+        </p>
       </div>
-      <p class="intro-copy">One type family, fifteen semantic roles and one technical companion. Every heading, explanation, recipe, label and number receives a documented purpose before it receives a size.</p>
-      <dl class="foundation-summary" aria-label="Typography foundation">
-        <div><dt>Brand and reading</dt><dd>Google Sans Flex</dd></div>
-        <div><dt>Formula and code</dt><dd>Google Sans Code</dd></div>
-        <div><dt>Interface symbols</dt><dd>Material Symbols Rounded</dd></div>
-      </dl>
-    </section>
-
-    <section class="section" id="roles" aria-labelledby="roles-title">
-      <header class="section-heading">
-        <div>
-          <p class="overline">01 · System tokens</p>
-          <h2 id="roles-title">The complete type scale</h2>
-        </div>
-        <p>Material roles are preserved. Small reading and label roles are enlarged for this educational website.</p>
-      </header>
-
-      <div class="role-group" aria-labelledby="display-title">
-        <div class="role-group-label">
-          <span class="material-symbols-rounded" aria-hidden="true">format_size</span>
-          <h3 id="display-title">Display</h3>
-          <p>Short, important text and collection numbers.</p>
-        </div>
-        <div class="role-stack">
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Display large</strong><code>57 / 64 · 400</code></div>
-            <p class="display-large">A cathedral of clay</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Display medium</strong><code>45 / 52 · 400</code></div>
-            <p class="display-medium">The Stained-Glass Atlas</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Display small</strong><code>36 / 44 · 400</code></div>
-            <p class="display-small">88 glaze families</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="role-group" aria-labelledby="headline-title">
-        <div class="role-group-label">
-          <span class="material-symbols-rounded" aria-hidden="true">title</span>
-          <h3 id="headline-title">Headline</h3>
-          <p>Rooms, chapters, dialogs and major subsections.</p>
-        </div>
-        <div class="role-stack">
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Headline large</strong><code>32 / 40 · 400</code></div>
-            <p class="headline-large">The Chemistry</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Headline medium</strong><code>28 / 36 · 400</code></div>
-            <p class="headline-medium">Copper in reduction</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Headline small</strong><code>24 / 32 · 400</code></div>
-            <p class="headline-small">Open glaze book</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="role-group" aria-labelledby="title-title">
-        <div class="role-group-label">
-          <span class="material-symbols-rounded" aria-hidden="true">view_agenda</span>
-          <h3 id="title-title">Title</h3>
-          <p>Cards, lists, tabs and compact content groups.</p>
-        </div>
-        <div class="role-stack">
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Title large</strong><code>22 / 28 · 400</code></div>
-            <p class="title-large">Peach bloom</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Title medium</strong><code>16 / 24 · 500</code></div>
-            <p class="title-medium">Firing schedule and cooling</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Title small</strong><code>14 / 20 · 500</code></div>
-            <p class="title-small">Recipe · History · Tests</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="role-group" aria-labelledby="body-title">
-        <div class="role-group-label">
-          <span class="material-symbols-rounded" aria-hidden="true">subject</span>
-          <h3 id="body-title">Body</h3>
-          <p>Long-form education, supporting explanations and captions.</p>
-        </div>
-        <div class="role-stack">
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Body large</strong><code>16 / 24 · 400</code></div>
-            <p class="body-large">During reduction, the kiln receives less oxygen than complete combustion requires. This changes how certain metallic oxides behave and can transform copper from green toward red.</p>
-          </article>
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Body medium</strong><code>14 / 20 · 400</code></div>
-            <p class="body-medium">The result still depends on glaze thickness, clay body, heatwork, atmosphere and cooling.</p>
-          </article>
-          <article class="type-specimen adjusted">
-            <div class="specimen-meta"><strong>Body small · adjusted</strong><code>14 / 20 · 400</code></div>
-            <p class="body-small">Source caption or concise secondary note. The M3 baseline of 12 px is not used here.</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="role-group" aria-labelledby="label-title">
-        <div class="role-group-label">
-          <span class="material-symbols-rounded" aria-hidden="true">label</span>
-          <h3 id="label-title">Label</h3>
-          <p>Buttons, chips, controls, metadata and navigation.</p>
-        </div>
-        <div class="role-stack">
-          <article class="type-specimen">
-            <div class="specimen-meta"><strong>Label large</strong><code>14 / 20 · 500</code></div>
-            <p class="label-large">Open recipe</p>
-          </article>
-          <article class="type-specimen adjusted">
-            <div class="specimen-meta"><strong>Label medium · adjusted</strong><code>14 / 20 · 500</code></div>
-            <p class="label-medium">Cone 9 · Reduction</p>
-          </article>
-          <article class="type-specimen adjusted">
-            <div class="specimen-meta"><strong>Label small · adjusted</strong><code>14 / 20 · 500</code></div>
-            <p class="label-small">Historical copper-red family</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="components" aria-labelledby="components-title">
-      <header class="section-heading">
-        <div>
-          <p class="overline">02 · Context</p>
-          <h2 id="components-title">Typography inside components</h2>
-        </div>
-        <p>The same tokens remain legible inside navigation, filters, cards, forms, lists and dialogs.</p>
-      </header>
-
-      <div class="component-grid">
-        <article class="component-panel atlas-panel">
-          <div class="panel-label"><span>Atlas card</span><code>title-large + body-medium</code></div>
-          <div class="glaze-swatch" role="img" aria-label="Close-up colour specimen representing a peach bloom glaze"></div>
-          <div class="card-copy">
-            <div class="card-meta"><span>Rose · Copper red</span><span>Cone 9–10</span></div>
-            <h3>Peach bloom</h3>
-            <p>A mottled copper-red glaze associated with Qing dynasty porcelain and the Kangxi period.</p>
-            <button class="text-button" type="button">Open glaze book <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button>
-          </div>
-        </article>
-
-        <article class="component-panel controls-panel">
-          <div class="panel-label"><span>Search and filters</span><code>body-large + label-large</code></div>
-          <label class="search-field">
-            <span class="material-symbols-rounded" aria-hidden="true">search</span>
-            <span class="sr-only">Search the glaze atlas</span>
-            <input type="search" placeholder="Search glazes, colours or materials">
-          </label>
-          <div class="chip-set" aria-label="Example glaze filters">
-            <button class="chip selected" type="button" aria-pressed="true">All surfaces</button>
-            <button class="chip" type="button" aria-pressed="false">Glossy</button>
-            <button class="chip" type="button" aria-pressed="false">Satin</button>
-            <button class="chip" type="button" aria-pressed="false">Crystalline</button>
-          </div>
-          <div class="button-row">
-            <button class="button filled" type="button">Save to notebook</button>
-            <button class="button tonal" type="button">Compare glazes</button>
-            <button class="icon-button" type="button" aria-label="More options"><span class="material-symbols-rounded" aria-hidden="true">more_vert</span></button>
-          </div>
-        </article>
-
-        <article class="component-panel list-panel">
-          <div class="panel-label"><span>Knowledge list</span><code>title-medium + body-medium</code></div>
-          <ul class="knowledge-list">
-            <li>
-              <span class="list-icon material-symbols-rounded" aria-hidden="true">local_fire_department</span>
-              <span><strong>Firing atmosphere</strong><small>Oxidation, neutral and reduction</small></span>
-              <span class="material-symbols-rounded" aria-hidden="true">chevron_right</span>
-            </li>
-            <li>
-              <span class="list-icon material-symbols-rounded" aria-hidden="true">science</span>
-              <span><strong>Glaze chemistry</strong><small>Flux, glass former and stabiliser</small></span>
-              <span class="material-symbols-rounded" aria-hidden="true">chevron_right</span>
-            </li>
-            <li>
-              <span class="list-icon material-symbols-rounded" aria-hidden="true">troubleshoot</span>
-              <span><strong>Defect diagnosis</strong><small>Crazing, shivering and pinholes</small></span>
-              <span class="material-symbols-rounded" aria-hidden="true">chevron_right</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="component-panel dialog-panel">
-          <div class="panel-label"><span>Dialog</span><code>headline-small + body-medium</code></div>
-          <div class="dialog-preview" role="group" aria-labelledby="dialog-title">
-            <span class="material-symbols-rounded dialog-icon" aria-hidden="true">bookmark_add</span>
-            <h3 id="dialog-title">Save this glaze?</h3>
-            <p>Add Peach bloom to Eleonora’s Notebook and record the clay body, firing and test result after the next kiln opening.</p>
-            <div class="dialog-actions">
-              <button class="text-button" type="button">Cancel</button>
-              <button class="text-button" type="button">Save glaze</button>
+    </header>
+    <main id="main-content">
+      <section class="light">
+        <h2>Typography catalogue</h2>
+        <p>
+          M3 role names with project adaptations: small body and label roles use
+          a 14 px reading floor; headings and prominent titles use semibold.
+          These are brand choices, not Google's unmodified defaults.
+        </p>
+        <div class="type-specimens">
+          <article>
+            <div>
+              <h3>display large</h3>
+              <code>--md-sys-typescale-display-large</code>
             </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="technical" aria-labelledby="technical-title">
-      <header class="section-heading">
-        <div>
-          <p class="overline">03 · Precision</p>
-          <h2 id="technical-title">Recipes, formulas and numbers</h2>
+            <p class="specimen-display-large">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="display-large"></small>
+          </article>
+          <article>
+            <div>
+              <h3>display medium</h3>
+              <code>--md-sys-typescale-display-medium</code>
+            </div>
+            <p class="specimen-display-medium">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="display-medium"></small>
+          </article>
+          <article>
+            <div>
+              <h3>display small</h3>
+              <code>--md-sys-typescale-display-small</code>
+            </div>
+            <p class="specimen-display-small">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="display-small"></small>
+          </article>
+          <article>
+            <div>
+              <h3>headline large</h3>
+              <code>--md-sys-typescale-headline-large</code>
+            </div>
+            <p class="specimen-headline-large">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="headline-large"></small>
+          </article>
+          <article>
+            <div>
+              <h3>headline medium</h3>
+              <code>--md-sys-typescale-headline-medium</code>
+            </div>
+            <p class="specimen-headline-medium">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="headline-medium"></small>
+          </article>
+          <article>
+            <div>
+              <h3>headline small</h3>
+              <code>--md-sys-typescale-headline-small</code>
+            </div>
+            <p class="specimen-headline-small">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="headline-small"></small>
+          </article>
+          <article>
+            <div>
+              <h3>title large</h3>
+              <code>--md-sys-typescale-title-large</code>
+            </div>
+            <p class="specimen-title-large">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="title-large"></small>
+          </article>
+          <article>
+            <div>
+              <h3>title medium</h3>
+              <code>--md-sys-typescale-title-medium</code>
+            </div>
+            <p class="specimen-title-medium">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="title-medium"></small>
+          </article>
+          <article>
+            <div>
+              <h3>title small</h3>
+              <code>--md-sys-typescale-title-small</code>
+            </div>
+            <p class="specimen-title-small">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="title-small"></small>
+          </article>
+          <article>
+            <div>
+              <h3>body large</h3>
+              <code>--md-sys-typescale-body-large</code>
+            </div>
+            <p class="specimen-body-large">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="body-large"></small>
+          </article>
+          <article>
+            <div>
+              <h3>body medium</h3>
+              <code>--md-sys-typescale-body-medium</code>
+            </div>
+            <p class="specimen-body-medium">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="body-medium"></small>
+          </article>
+          <article>
+            <div>
+              <h3>body small</h3>
+              <code>--md-sys-typescale-body-small</code>
+            </div>
+            <p class="specimen-body-small">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="body-small"></small>
+          </article>
+          <article>
+            <div>
+              <h3>label large</h3>
+              <code>--md-sys-typescale-label-large</code>
+            </div>
+            <p class="specimen-label-large">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="label-large"></small>
+          </article>
+          <article>
+            <div>
+              <h3>label medium</h3>
+              <code>--md-sys-typescale-label-medium</code>
+            </div>
+            <p class="specimen-label-medium">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="label-medium"></small>
+          </article>
+          <article>
+            <div>
+              <h3>label small</h3>
+              <code>--md-sys-typescale-label-small</code>
+            </div>
+            <p class="specimen-label-small">Colour. Material. Fire.</p>
+            <small class="type-value" data-role="label-small"></small>
+          </article>
         </div>
-        <p>Technical notation uses Google Sans Code. Descriptions and material names remain Google Sans Flex.</p>
-      </header>
-
-      <div class="technical-grid">
-        <article class="recipe-card">
-          <div class="recipe-heading">
-            <div><p class="overline">Representative test recipe</p><h3>Copper-red base</h3></div>
-            <span class="status-chip"><span class="material-symbols-rounded" aria-hidden="true">science</span> Test first</span>
-          </div>
-          <table>
-            <caption class="sr-only">Representative copper-red test recipe</caption>
-            <thead><tr><th scope="col">Material</th><th scope="col">Parts</th></tr></thead>
-            <tbody>
-              <tr><td>Potash feldspar</td><td>45.00</td></tr>
-              <tr><td>Silica</td><td>25.00</td></tr>
-              <tr><td>Whiting</td><td>20.00</td></tr>
-              <tr><td>Kaolin</td><td>10.00</td></tr>
-            </tbody>
-            <tfoot><tr><th scope="row">Base total</th><td>100.00</td></tr></tfoot>
-          </table>
-          <p class="recipe-note">Example typography only. This specimen is not presented as a validated production recipe.</p>
-        </article>
-
-        <article class="formula-card">
-          <p class="overline">Unity molecular formula</p>
-          <h3>Readable chemistry</h3>
-          <div class="formula" aria-label="Example unity molecular formula">
-            <div><span>Na₂O</span><strong>0.28</strong></div>
-            <div><span>CaO</span><strong>0.52</strong></div>
-            <div><span>K₂O</span><strong>0.20</strong></div>
-            <div class="formula-divider"><span>Al₂O₃</span><strong>0.42</strong></div>
-            <div><span>SiO₂</span><strong>4.10</strong></div>
-          </div>
-          <dl class="firing-data">
-            <div><dt>Target</dt><dd>1,280 °C</dd></div>
-            <div><dt>Ramp</dt><dd>100 °C/h</dd></div>
-            <div><dt>Hold</dt><dd>20 min</dd></div>
-            <div><dt>Atmosphere</dt><dd>Reduction</dd></div>
-          </dl>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="rules" aria-labelledby="rules-title">
-      <header class="section-heading">
-        <div>
-          <p class="overline">04 · Governance</p>
-          <h2 id="rules-title">Non-negotiable rules</h2>
+      </section>
+      <section class="light">
+        <h2>Colour roles</h2>
+        <p>
+          Light sand foundations, restrained mint supporting surfaces, sunflower
+          accents. Source photograph colours are not recoloured.
+        </p>
+        <div class="token-grid">
+          <article class="swatch swatch-background">
+            <strong>background</strong><code>--md-sys-color-background</code>
+          </article>
+          <article class="swatch swatch-surface">
+            <strong>surface</strong><code>--md-sys-color-surface</code>
+          </article>
+          <article class="swatch swatch-surface-container">
+            <strong>surface-container</strong
+            ><code>--md-sys-color-surface-container</code>
+          </article>
+          <article class="swatch swatch-primary">
+            <strong>primary</strong><code>--md-sys-color-primary</code>
+          </article>
+          <article class="swatch swatch-primary-container">
+            <strong>primary-container</strong
+            ><code>--md-sys-color-primary-container</code>
+          </article>
+          <article class="swatch swatch-secondary-container">
+            <strong>secondary-container</strong
+            ><code>--md-sys-color-secondary-container</code>
+          </article>
+          <article class="swatch swatch-error-container">
+            <strong>error-container</strong
+            ><code>--md-sys-color-error-container</code>
+          </article>
         </div>
-        <p>Component styling may consume these tokens. It may not silently redefine them.</p>
-      </header>
-      <div class="rules-grid">
-        <article class="rule-card do">
-          <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
-          <div><h3>Use semantic roles</h3><p>Choose a role from meaning and component context, then use its documented token.</p></div>
-        </article>
-        <article class="rule-card do">
-          <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
-          <div><h3>Keep reading text generous</h3><p>Educational body text remains at least 16 px with sufficient line height and a controlled measure.</p></div>
-        </article>
-        <article class="rule-card dont">
-          <span class="material-symbols-rounded" aria-hidden="true">cancel</span>
-          <div><h3>No local font inventions</h3><p>A component cannot introduce an undocumented family, size, weight, tracking value or text colour.</p></div>
-        </article>
-        <article class="rule-card dont">
-          <span class="material-symbols-rounded" aria-hidden="true">cancel</span>
-          <div><h3>No tiny functional text</h3><p>Label small remains 14 px here. Instructions, warnings and interactive labels never use 11 or 12 px.</p></div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Typography specimen · Eleonora Ceramics design system</p>
-    <a href="#main">Back to top <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span></a>
-  </footer>
-</body>
+      </section>
+      <section class="light">
+        <h2>Interactive atoms</h2>
+        <div class="component-specimens">
+          <button class="under">Primary action</button
+          ><button>Outlined action</button
+          ><button aria-pressed="true">Selected filter</button
+          ><button disabled>Disabled action</button
+          ><label class="search-field"
+            ><span class="material-symbols-rounded" aria-hidden="true"
+              >search</span
+            ><span class="sr-only">Specimen search</span
+            ><input type="search" placeholder="Search the collection" /></label
+          ><label
+            >Outlined field<select>
+              <option>Choose a firing cone</option>
+              <option>Cone 6</option>
+            </select></label
+          >
+          <details>
+            <summary>Expandable information</summary>
+            <p>
+              Native disclosure supports keyboard activation and exposes its
+              expanded state.
+            </p>
+          </details>
+        </div>
+        <p>
+          Tab through the controls to inspect focus states. Minimum primary
+          control target: 48 CSS px. No component requires hover to expose its
+          action.
+        </p>
+      </section>
+      <section class="light">
+        <h2>Technical text</h2>
+        <table class="formula">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Parts</th>
+              <th>Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Example material</td>
+              <td>25.0</td>
+              <td>25.0 g</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>This is a typography specimen, not a glaze formula.</p>
+      </section>
+      <section class="light">
+        <h2>Responsive contract</h2>
+        <p>
+          Design baseline: 375 × 667 CSS px. Reflow checks also cover 320 px.
+          Layout enhancements begin at 600, 840 and 1200 px. Cards wrap their
+          content; controls do not shrink text to force a fit.
+        </p>
+        <p>
+          <a href="https://m3.material.io/styles/typography/overview"
+            >Material Design typography</a
+          >
+          ·
+          <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html"
+            >W3C reflow guidance</a
+          >
+        </p>
+      </section>
+    </main>
+    <script src="design-system.js"></script>
+  </body>
 </html>
