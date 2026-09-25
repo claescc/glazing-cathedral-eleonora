@@ -973,11 +973,135 @@ textarea {
   margin-top: 1rem;
   color: var(--brown);
 }
-.notebook,
-.source-library,
-.floor,
-.kiln {
-  background: var(--md-sys-color-surface-container-low);
+/* Room identities use extended brand tokens, not specimen/photo colour coding. */
+#atlas,
+#path,
+#masters,
+.candy-lilac {
+  --room-colour: var(--candy-lilac);
+  --room-ink: var(--candy-on-lilac);
+  --room-wash: var(--candy-lilac-wash);
+}
+#recipes,
+#kiln,
+.candy-peach {
+  --room-colour: var(--candy-peach);
+  --room-ink: var(--candy-on-peach);
+  --room-wash: var(--candy-peach-wash);
+}
+#source-library,
+#materials,
+.candy-aqua {
+  --room-colour: var(--candy-aqua);
+  --room-ink: var(--candy-on-aqua);
+  --room-wash: var(--candy-aqua-wash);
+}
+#layering,
+#notebook,
+.candy-pink {
+  --room-colour: var(--candy-pink);
+  --room-ink: var(--candy-on-pink);
+  --room-wash: var(--candy-pink-wash);
+}
+#exhibitions,
+#restoration,
+.candy-sky {
+  --room-colour: var(--candy-sky);
+  --room-ink: var(--candy-on-sky);
+  --room-wash: var(--candy-sky-wash);
+}
+#rooms,
+#reading,
+.candy-lemon {
+  --room-colour: var(--candy-lemon);
+  --room-ink: var(--candy-on-lemon);
+  --room-wash: var(--candy-lemon-wash);
+}
+main > section[id] {
+  background: var(--room-wash, var(--canvas));
+}
+main > section > .head {
+  padding: var(--space-5);
+  background: var(--room-colour, var(--surface));
+  border-radius: var(--radius-large);
+}
+main > section > h2,
+main > section > .eyebrow,
+main > section > .head h2,
+main > section > .head .eyebrow {
+  color: var(--room-ink, var(--text));
+}
+.hero-colour {
+  color: var(--candy-on-pink);
+}
+.hero-material {
+  color: var(--candy-on-aqua);
+}
+.hero-fire {
+  color: var(--candy-on-lilac);
+}
+.hero .eyebrow {
+  color: var(--candy-on-lilac);
+}
+.library-shortcuts a:nth-child(2) {
+  background: var(--candy-aqua);
+  color: var(--candy-on-aqua);
+  border-color: var(--candy-on-aqua);
+}
+.library-shortcuts a:nth-child(3) {
+  background: var(--candy-pink);
+  color: var(--candy-on-pink);
+  border-color: var(--candy-on-pink);
+}
+.rooms a:nth-child(6n + 1),
+.exhibition:nth-child(4n + 1) {
+  --card-colour: var(--candy-lilac);
+  --card-ink: var(--candy-on-lilac);
+}
+.rooms a:nth-child(6n + 2),
+.exhibition:nth-child(4n + 2) {
+  --card-colour: var(--candy-pink);
+  --card-ink: var(--candy-on-pink);
+}
+.rooms a:nth-child(6n + 3),
+.exhibition:nth-child(4n + 3) {
+  --card-colour: var(--candy-peach);
+  --card-ink: var(--candy-on-peach);
+}
+.rooms a:nth-child(6n + 4),
+.exhibition:nth-child(4n + 4) {
+  --card-colour: var(--candy-aqua);
+  --card-ink: var(--candy-on-aqua);
+}
+.rooms a:nth-child(6n + 5) {
+  --card-colour: var(--candy-sky);
+  --card-ink: var(--candy-on-sky);
+}
+.rooms a:nth-child(6n + 6) {
+  --card-colour: var(--candy-lemon);
+  --card-ink: var(--candy-on-lemon);
+}
+.rooms a,
+.exhibition {
+  background: var(--card-colour, var(--surface));
+}
+.rooms a h3,
+.rooms a > span,
+.exhibition h3,
+.exhibition small,
+.exhibition b {
+  color: var(--card-ink);
+}
+.lesson > span,
+.event time {
+  color: var(--room-ink);
+}
+.lesson aside {
+  background: var(--room-colour);
+}
+.swatch[class*="candy-"] {
+  background: var(--room-colour);
+  color: var(--room-ink);
 }
 .saved {
   margin-top: 1.5rem;

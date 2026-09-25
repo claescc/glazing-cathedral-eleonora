@@ -166,6 +166,25 @@
   --font-body: var(--md-ref-typeface-plain);
   --type-code: var(--md-ref-typeface-code);
   --specimen-background: #eae7e1;
+  /* Extended brand colours: pastel containers paired with readable accent inks. */
+  --candy-pink: #ffe0ed;
+  --candy-on-pink: #9b2460;
+  --candy-pink-wash: #fff2f7;
+  --candy-lilac: #ede2ff;
+  --candy-on-lilac: #6330a3;
+  --candy-lilac-wash: #faf6ff;
+  --candy-sky: #deefff;
+  --candy-on-sky: #185b96;
+  --candy-sky-wash: #f2f8ff;
+  --candy-aqua: #d6f5f1;
+  --candy-on-aqua: #076c65;
+  --candy-aqua-wash: #effbf8;
+  --candy-peach: #ffe3d0;
+  --candy-on-peach: #9a461c;
+  --candy-peach-wash: #fff5ed;
+  --candy-lemon: #fff2b8;
+  --candy-on-lemon: #705800;
+  --candy-lemon-wash: #fffbed;
 }
 @media (min-width: 600px) {
   :root {

@@ -18,7 +18,7 @@ Updated 25 September 2026. This documents the local refactor, not a production d
 - Baseline 375 × 667 CSS px; also check 320 px reflow. Single-column base, two columns at 600 px, expanded layouts at 840 px and four-column collections at 1200 px.
 - Montserrat 400 for body, 500 for supporting controls, 600 for prominent titles and labels. Technical numbers use Google Sans Code.
 - Brand-adapted Material 3 role names and scale. Semibold headings and a 14 px small-body/label floor are project choices, not unmodified Google defaults. The compact navigation uses 12 px labels with 24 px icons and large targets.
-- Light sand/canvas dominates; mint supports grouped areas and selected states; sunflower `#FEC125` is the accent. The 60/30/10 direction is compositional, not a pixel quota or accessibility standard.
+- Light sand/canvas and pastel washes support reading; candy-pastel panels identify rooms; sunflower `#FEC125` remains the signature action accent. The 60/30/10 direction is compositional, not a pixel quota or accessibility standard.
 - Controls target at least 48 px height; navigation icons remain 24 px, distinct from touch target size.
 - Text wraps. Cards do not hide long names with ellipses. Shared desktop card rows align metadata, title, description and source.
 - Digital cone previews remain visibly labelled. Original photographs remain in the detail view. Missing photographs are identified, not fabricated.
@@ -26,6 +26,21 @@ Updated 25 September 2026. This documents the local refactor, not a production d
 - Source materials and ceramic evidence are outside this presentation refactor's factual-review scope.
 
 ## Components and states
+
+### Candy-pastel extension, 25 September 2026
+
+User-approved direction: happy, vibrant text and special sections, inspired by the supplied palette reference. Extended brand tokens live in `material3.css`; section and card assignments live in `styles.css`. They do not change semantic error colours or photographic evidence. Room names remain explicit; colour is not the only identifier.
+
+| Pastel container | Companion ink | Measured contrast | Use |
+| --- | --- | --- | --- |
+| Lilac #EDE2FF | Violet #6330A3 | 6.82:1 | Atlas, learning path, masters |
+| Peach #FFE3D0 | Burnt orange #9A461C | 5.25:1 | Recipes, kiln |
+| Aqua #D6F5F1 | Teal #076C65 | 5.44:1 | Source search, materials |
+| Pink #FFE0ED | Berry #9B2460 | 6.09:1 | Layering, notebook |
+| Sky #DEEFFF | Blue #185B96 | 6.01:1 | Routes, restoration |
+| Lemon #FFF2B8 | Golden ink #705800 | 6.04:1 | Floor plan, reading room |
+
+Contrast calculated from rendered solid sRGB heading/container pairs. Browser checks at 320, 375, 840 and 1280 px found no page-width overflow after this colour update. Mobile opening and desktop Atlas/Recipe panels were visually inspected. Recipe and source data were not edited.
 
 | Family | Behaviour and states |
 | --- | --- |
