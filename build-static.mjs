@@ -10,6 +10,7 @@ for (const file of [
   "typography.html",
   "typography.css",
   "design-system.js",
+  "theme.js",
   "CNAME",
   "styles.css",
   "material3.css",

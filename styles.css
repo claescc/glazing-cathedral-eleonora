@@ -1807,3 +1807,100 @@ main > section > h2 {
     outline: 2px solid CanvasText;
   }
 }
+
+/* Calm editorial presentation. The reference palette lives in the design guide,
+   while semantic M3 roles carry the interface in all three modes. */
+.threshold { border-top: 0; }
+.hero-colour, .hero-material, .hero-fire, .hero .eyebrow { color: var(--text); }
+.hero .eyebrow { color: var(--brown); }
+main > section[id] { background: var(--canvas); }
+main > section > .head {
+  padding: 0 0 var(--space-5);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--outline-soft);
+  border-radius: 0;
+}
+main > section > h2, main > section > .eyebrow,
+main > section > .head h2, main > section > .head .eyebrow {
+  color: var(--text);
+}
+main > section > .head .eyebrow { color: var(--brown); }
+main > section > h2 { border-inline-start: 0; padding-inline-start: 0; }
+.count { background: var(--surface-soft); color: var(--text); }
+.library-shortcuts a:nth-child(2),
+.library-shortcuts a:nth-child(3) {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--outline);
+}
+.library-shortcuts a:first-child { color: var(--on-sunflower); }
+.rooms a, .exhibition { background: var(--surface); }
+.rooms a h3, .rooms a > span, .exhibition h3,
+.exhibition small, .exhibition b { color: var(--text); }
+.rooms a small, .exhibition small { color: var(--text-secondary); }
+.rooms a:nth-child(n), .lesson:nth-child(n), .event:nth-child(n) {
+  border-top-color: var(--outline-soft);
+}
+.lesson > span, .event time {
+  background: var(--surface-soft);
+  color: var(--text);
+  border: 1px solid var(--outline-soft);
+}
+.lesson aside { background: var(--surface-soft); color: var(--text); }
+#kindTabs button[aria-pressed="true"],
+#viewTabs button[aria-pressed="true"] {
+  background: var(--mint);
+  color: var(--on-mint);
+  border-color: var(--outline);
+}
+.mobile-nav a.active > span { background: var(--mint); }
+::selection { background: var(--sunflower); color: var(--on-sunflower); }
+
+.appearance-control {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: var(--text-secondary);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+.appearance-control select {
+  min-height: 48px;
+  max-width: 9rem;
+  padding: .5rem 1.5rem .5rem .6rem;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+:root[data-theme="contrast"] :where(button, a, input, select, textarea) {
+  border-color: var(--outline);
+}
+:root[data-theme="contrast"] :where(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--surface), 0 0 0 7px var(--text);
+}
+:root[data-theme="contrast"] .mobile-nav a.active > span {
+  background: var(--text);
+  color: var(--surface);
+}
+:root[data-theme="contrast"] button[aria-pressed="true"] {
+  background: var(--text) !important;
+  color: var(--surface) !important;
+  border-color: var(--text) !important;
+}
+@media (max-width: 599px) {
+  .threshold nav { gap: .5rem; }
+  .threshold nav .seal { flex: 0 0 100%; }
+  .threshold nav .seal span { overflow-wrap: normal; }
+  .threshold nav button { margin-left: 0; }
+  .appearance-control { margin-left: auto; }
+  .appearance-control > span { display: none; }
+  .appearance-control select { width: 9.75rem; max-width: 100%; }
+}
+@media (min-width: 840px) {
+  .lesson ol, .lesson aside { grid-column: 2 / -1; }
+}

@@ -1,10 +1,11 @@
 # Ceramics Cathedral design system
 
-Updated 25 September 2026. This documents the local refactor, not a production deployment or accessibility certification.
+Updated 25 September 2026. This documents the theme and layout work; it is not an accessibility certification.
 
 ## Ownership
 
 - `material3.css`: shared colour, type, shape, elevation, spacing and motion tokens.
+- `theme.js`: shared System, Light, Dark and High contrast preference, including operating-system changes and local persistence.
 - `styles.css`: site components and responsive behaviour, mobile base first.
 - `typography.css`: specimen layout only, not another theme.
 - `typography.html` and `design-system.js`: live catalogue of shared roles and computed values.
@@ -18,7 +19,8 @@ Updated 25 September 2026. This documents the local refactor, not a production d
 - Baseline 375 × 667 CSS px; also check 320 px reflow. Single-column base, two columns at 600 px, expanded layouts at 840 px and four-column collections at 1200 px.
 - Montserrat 400 for body, 500 for supporting controls, 600 for prominent titles and labels. Technical numbers use Google Sans Code.
 - Brand-adapted Material 3 role names and scale. Semibold headings and a 14 px small-body/label floor are project choices, not unmodified Google defaults. The compact navigation uses 12 px labels with 24 px icons and large targets.
-- Light sand/canvas and pastel washes support reading; candy-pastel panels identify rooms; sunflower `#FEC125` remains the signature action accent. The 60/30/10 direction is compositional, not a pixel quota or accessibility standard.
+- Warm neutral reading surfaces and one sunflower `#FEC125` action accent carry the live interface. The supplied 17-colour reference palette is retained for the catalogue and later editorial use, not sprayed across section backgrounds and controls. The 60/30/10 direction is compositional, not a pixel quota or accessibility standard.
+- Light, Dark and High contrast remap semantic roles. System follows operating-system dark/contrast preferences. A visible Appearance select lets readers override that choice on both pages.
 - Controls target at least 48 px height; navigation icons remain 24 px, distinct from touch target size.
 - Text wraps. Cards do not hide long names with ellipses. Shared desktop card rows align metadata, title, description and source.
 - Digital cone previews remain visibly labelled. Original photographs remain in the detail view. Missing photographs are identified, not fabricated.
@@ -29,7 +31,7 @@ Updated 25 September 2026. This documents the local refactor, not a production d
 
 ### Exact reference highlights, 25 September 2026
 
-Added all 17 printed hex codes supplied in the three reference images as `--highlight-*` tokens. Used for room header strips, room-card edges, selected record/view filters, counts, and lesson/history badges. These are interface accents, not glaze-colour evidence or new error semantics. Sunflower remains the primary action colour.
+The 17 supplied hex codes remain `--highlight-*` reference tokens. The initial treatment used them for strips, controls, counts and badges; this was visually noisy and has been withdrawn from the live interface. The design catalogue still displays the exact reference colours. Sunflower remains the primary action colour.
 
 Palette: #00418D, #00C2DE, #00BA71, #FAD717, #FA8901, #F43545, #FF70A6, #FFD670, #70D6FF, #9B5DE5, #B7EFC5, #FA6977, #F0B967, #FAF278, #9AE66E, #87D5F8, #CE81F8.
 
