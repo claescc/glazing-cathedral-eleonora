@@ -1427,6 +1427,214 @@ footer > a {
   align-items: center;
   min-height: 48px;
 }
+/* Exact reference highlights. Decorative accents never recolour glaze evidence. */
+.threshold {
+  border-top: 8px solid var(--highlight-pink);
+}
+#atlas {
+  --room-highlight: var(--highlight-purple);
+}
+#recipes {
+  --room-highlight: var(--highlight-orange);
+}
+#source-library {
+  --room-highlight: var(--highlight-cyan);
+}
+#layering {
+  --room-highlight: var(--highlight-pink);
+}
+#rooms {
+  --room-highlight: var(--highlight-yellow);
+}
+#exhibitions {
+  --room-highlight: var(--highlight-sky);
+}
+#path {
+  --room-highlight: var(--highlight-orchid);
+}
+#kiln {
+  --room-highlight: var(--highlight-red);
+}
+#materials {
+  --room-highlight: var(--highlight-green);
+}
+#restoration {
+  --room-highlight: var(--highlight-blue);
+}
+#masters {
+  --room-highlight: var(--highlight-purple);
+}
+#notebook {
+  --room-highlight: var(--highlight-coral);
+}
+#reading {
+  --room-highlight: var(--highlight-butter);
+}
+main > section > .head {
+  border-top: 8px solid var(--room-highlight);
+}
+main > section > h2 {
+  border-inline-start: 8px solid var(--room-highlight);
+  padding-inline-start: 1rem;
+}
+.count {
+  background: var(--highlight-yellow);
+  color: var(--highlight-ink);
+}
+#kindTabs button[aria-pressed="true"],
+#viewTabs button[aria-pressed="true"] {
+  background: var(--highlight-sky);
+  color: var(--highlight-ink);
+  border-color: var(--highlight-blue);
+}
+.mobile-nav a.active > span {
+  background: var(--highlight-mint);
+}
+::selection {
+  background: var(--highlight-butter);
+  color: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 1),
+.lesson:nth-child(17n + 1),
+.event:nth-child(17n + 1),
+.highlight-blue {
+  --highlight: var(--highlight-blue);
+  --on-highlight: var(--highlight-on-blue);
+}
+.rooms a:nth-child(17n + 2),
+.lesson:nth-child(17n + 2),
+.event:nth-child(17n + 2),
+.highlight-cyan {
+  --highlight: var(--highlight-cyan);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 3),
+.lesson:nth-child(17n + 3),
+.event:nth-child(17n + 3),
+.highlight-green {
+  --highlight: var(--highlight-green);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 4),
+.lesson:nth-child(17n + 4),
+.event:nth-child(17n + 4),
+.highlight-yellow {
+  --highlight: var(--highlight-yellow);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 5),
+.lesson:nth-child(17n + 5),
+.event:nth-child(17n + 5),
+.highlight-orange {
+  --highlight: var(--highlight-orange);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 6),
+.lesson:nth-child(17n + 6),
+.event:nth-child(17n + 6),
+.highlight-red {
+  --highlight: var(--highlight-red);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 7),
+.lesson:nth-child(17n + 7),
+.event:nth-child(17n + 7),
+.highlight-pink {
+  --highlight: var(--highlight-pink);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 8),
+.lesson:nth-child(17n + 8),
+.event:nth-child(17n + 8),
+.highlight-butter {
+  --highlight: var(--highlight-butter);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 9),
+.lesson:nth-child(17n + 9),
+.event:nth-child(17n + 9),
+.highlight-sky {
+  --highlight: var(--highlight-sky);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 10),
+.lesson:nth-child(17n + 10),
+.event:nth-child(17n + 10),
+.highlight-purple {
+  --highlight: var(--highlight-purple);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 11),
+.lesson:nth-child(17n + 11),
+.event:nth-child(17n + 11),
+.highlight-mint {
+  --highlight: var(--highlight-mint);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 12),
+.lesson:nth-child(17n + 12),
+.event:nth-child(17n + 12),
+.highlight-coral {
+  --highlight: var(--highlight-coral);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 13),
+.lesson:nth-child(17n + 13),
+.event:nth-child(17n + 13),
+.highlight-apricot {
+  --highlight: var(--highlight-apricot);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 14),
+.lesson:nth-child(17n + 14),
+.event:nth-child(17n + 14),
+.highlight-lemon {
+  --highlight: var(--highlight-lemon);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 15),
+.lesson:nth-child(17n + 15),
+.event:nth-child(17n + 15),
+.highlight-lime {
+  --highlight: var(--highlight-lime);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 16),
+.lesson:nth-child(17n + 16),
+.event:nth-child(17n + 16),
+.highlight-ice {
+  --highlight: var(--highlight-ice);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a:nth-child(17n + 17),
+.lesson:nth-child(17n + 17),
+.event:nth-child(17n + 17),
+.highlight-orchid {
+  --highlight: var(--highlight-orchid);
+  --on-highlight: var(--highlight-ink);
+}
+.rooms a {
+  border-top: 8px solid var(--highlight);
+}
+.lesson > span,
+.event time {
+  background: var(--highlight);
+  color: var(--on-highlight);
+  border-radius: var(--radius-small);
+  padding: 0.5rem;
+  width: fit-content;
+  align-self: start;
+  font-size: 0.875rem;
+}
+.highlight-swatch {
+  background: var(--highlight);
+  color: var(--on-highlight);
+  padding: 1.5rem;
+  border-radius: var(--radius-medium);
+  display: grid;
+  gap: 0.75rem;
+}
+
 @media (min-width: 600px) {
   .wall,
   .rail,

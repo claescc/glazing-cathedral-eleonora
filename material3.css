@@ -166,6 +166,25 @@
   --font-body: var(--md-ref-typeface-plain);
   --type-code: var(--md-ref-typeface-code);
   --specimen-background: #eae7e1;
+  --highlight-blue: #00418d;
+  --highlight-cyan: #00c2de;
+  --highlight-green: #00ba71;
+  --highlight-yellow: #fad717;
+  --highlight-orange: #fa8901;
+  --highlight-red: #f43545;
+  --highlight-pink: #ff70a6;
+  --highlight-butter: #ffd670;
+  --highlight-sky: #70d6ff;
+  --highlight-purple: #9b5de5;
+  --highlight-mint: #b7efc5;
+  --highlight-coral: #fa6977;
+  --highlight-apricot: #f0b967;
+  --highlight-lemon: #faf278;
+  --highlight-lime: #9ae66e;
+  --highlight-ice: #87d5f8;
+  --highlight-orchid: #ce81f8;
+  --highlight-ink: #0d0b10;
+  --highlight-on-blue: #ffffff;
   /* Extended brand colours: pastel containers paired with readable accent inks. */
   --candy-pink: #ffe0ed;
   --candy-on-pink: #9b2460;

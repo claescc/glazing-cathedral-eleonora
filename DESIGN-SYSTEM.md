@@ -27,6 +27,14 @@ Updated 25 September 2026. This documents the local refactor, not a production d
 
 ## Components and states
 
+### Exact reference highlights, 25 September 2026
+
+Added all 17 printed hex codes supplied in the three reference images as `--highlight-*` tokens. Used for room header strips, room-card edges, selected record/view filters, counts, and lesson/history badges. These are interface accents, not glaze-colour evidence or new error semantics. Sunflower remains the primary action colour.
+
+Palette: #00418D, #00C2DE, #00BA71, #FAD717, #FA8901, #F43545, #FF70A6, #FFD670, #70D6FF, #9B5DE5, #B7EFC5, #FA6977, #F0B967, #FAF278, #9AE66E, #87D5F8, #CE81F8.
+
+Text pairing: white on #00418D; #0D0B10 on the other highlights. All 17 solid-colour pairings calculate above 4.5:1. The public design guide contains every exact swatch. Browser inspection verified all 17 rendered history badge values and the 375 px Atlas layout without horizontal overflow. This is not a full accessibility recertification.
+
 ### Candy-pastel extension, 25 September 2026
 
 User-approved direction: happy, vibrant text and special sections, inspired by the supplied palette reference. Extended brand tokens live in `material3.css`; section and card assignments live in `styles.css`. They do not change semantic error colours or photographic evidence. Room names remain explicit; colour is not the only identifier.
