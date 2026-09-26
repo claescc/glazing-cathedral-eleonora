@@ -1,6 +1,14 @@
 # Ceramics Cathedral design system
 
-Updated 25 September 2026. This documents the theme and layout work; it is not an accessibility certification.
+Updated 26 September 2026. The 25 September observations below are retained as a historical snapshot and are superseded by the new eight-section palette wherever colours differ. This document is not an accessibility certification.
+
+## Ceramic Cathedral palette, 26 September 2026
+
+The supplied `CeramicsCathedral_Pallete8sections_LDC.pdf` is the source for the eight base colours and 24 mode mappings. `ceramic-palette.css` stores its exact hex values as reference tokens and exposes mode-specific section roles. A small number of operational accent values are adjusted to clear a calculated 7:1 text-contrast threshold; reference tokens remain unchanged. The eight rows are assigned in page order to Atlas, Recipes, Layering, Rooms, Exhibitions, Path, Kiln and Materials. Restoration, Masters, Notebook and Reading reuse rows 5–8. This is a temporary content mapping pending a named eight-section information architecture.
+
+The site is plain CSS, without a Tailwind build dependency. The palette follows the same separation as a Tailwind token setup: immutable source values, theme-aware semantic roles and component use through variables. `node tools/check-palette.mjs` checks 96 foreground/background or border/background role pairs across all modes. Browser inspection at 375 CSS px checked initial visible text pairs in all three modes and found no sub-7:1 flat pairs after correction. It does not cover every interaction state, photograph, transparency, typography setting or assistive technology.
+
+This is a colour and initial rendered-state audit, not a WCAG AAA certification or legal compliance finding. W3C WCAG 2.2 SC 1.4.6 requires 7:1 for ordinary text and 4.5:1 for large text; SC 1.4.11 requires 3:1 for essential non-text visual information. EU applicability depends on the site and service category. EN 301 549 v3.2.1 follows WCAG 2.1 AA for web content. Relevant primary sources: [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/), [ETSI EN 301 549 v3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf), [Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj).
 
 ## Ownership
 
@@ -19,7 +27,7 @@ Updated 25 September 2026. This documents the theme and layout work; it is not a
 - Baseline 375 × 667 CSS px; also check 320 px reflow. Single-column base, two columns at 600 px, expanded layouts at 840 px and four-column collections at 1200 px.
 - Montserrat 400 for body, 500 for supporting controls, 600 for prominent titles and labels. Technical numbers use Google Sans Code.
 - Brand-adapted Material 3 role names and scale. Semibold headings and a 14 px small-body/label floor are project choices, not unmodified Google defaults. The compact navigation uses 12 px labels with 24 px icons and large targets.
-- Warm neutral reading surfaces and one sunflower `#FEC125` action accent carry the live interface. The supplied 17-colour reference palette is retained for the catalogue and later editorial use, not sprayed across section backgrounds and controls. The 60/30/10 direction is compositional, not a pixel quota or accessibility standard.
+- The active eight-section palette and its three theme mappings are defined in `ceramic-palette.css`. Earlier colours described below were replaced in the live interface. The 60/30/10 direction is compositional, not a pixel quota or accessibility standard.
 - Light, Dark and High contrast remap semantic roles. System follows operating-system dark/contrast preferences. A visible Appearance select lets readers override that choice on both pages.
 - Controls target at least 48 px height; navigation icons remain 24 px, distinct from touch target size.
 - Text wraps. Cards do not hide long names with ellipses. Shared desktop card rows align metadata, title, description and source.
@@ -31,11 +39,11 @@ Updated 25 September 2026. This documents the theme and layout work; it is not a
 
 ### Exact reference highlights, 25 September 2026
 
-The 17 supplied hex codes remain `--highlight-*` reference tokens. The initial treatment used them for strips, controls, counts and badges; this was visually noisy and has been withdrawn from the live interface. The design catalogue still displays the exact reference colours. Sunflower remains the primary action colour.
+This 17-colour treatment is a historical record. The `--highlight-*` component aliases now resolve to the eight-section palette. The initial treatment used them for strips, controls, counts and badges; this was visually noisy and has been withdrawn from the live interface. The design catalogue still displays the exact reference colours. Sunflower remains the primary action colour.
 
 Palette: #00418D, #00C2DE, #00BA71, #FAD717, #FA8901, #F43545, #FF70A6, #FFD670, #70D6FF, #9B5DE5, #B7EFC5, #FA6977, #F0B967, #FAF278, #9AE66E, #87D5F8, #CE81F8.
 
-Text pairing: white on #00418D; #0D0B10 on the other highlights. All 17 solid-colour pairings calculate above 4.5:1. The public design guide contains every exact swatch. Browser inspection verified all 17 rendered history badge values and the 375 px Atlas layout without horizontal overflow. This is not a full accessibility recertification.
+Text pairing: white on #00418D; #0D0B10 on the other highlights. All 17 solid-colour pairings calculate above 4.5:1. The public design guide now presents the eight current base colours. Browser inspection verified all 17 rendered history badge values and the 375 px Atlas layout without horizontal overflow. This is not a full accessibility recertification.
 
 ### Candy-pastel extension, 25 September 2026
 

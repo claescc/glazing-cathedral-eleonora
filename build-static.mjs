@@ -14,6 +14,7 @@ for (const file of [
   "CNAME",
   "styles.css",
   "material3.css",
+  "ceramic-palette.css",
   "app.js",
   "library-data.js",
   "glazy-data.js",

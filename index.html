@@ -25,6 +25,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260925-themes" />
     <link rel="stylesheet" href="styles.css?v=20260925-themes" />
+    <link rel="stylesheet" href="ceramic-palette.css?v=20260926" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -76,7 +77,7 @@
       <div class="window" id="window" hidden></div>
     </header>
     <main id="main-content">
-      <section class="atlas dark" id="atlas">
+      <section class="atlas dark" id="atlas" data-palette-section="1">
         <div class="head">
           <div>
             <p class="eyebrow">Room I · The Stained-Glass Atlas</p>
@@ -185,7 +186,7 @@
         </details>
       </section>
 
-      <section class="cookbook light" id="recipes">
+      <section class="cookbook light" id="recipes" data-palette-section="2">
         <div class="head">
           <div>
             <p class="eyebrow">Room II · The Recipe Library</p>
@@ -220,7 +221,7 @@
           >Browse all sourced recipes in the Atlas →</a
         >
       </section>
-      <section class="layer-lab light" id="layering">
+      <section class="layer-lab light" id="layering" data-palette-section="3">
         <div class="head">
           <div>
             <p class="eyebrow">A study wing of the Recipe Library</p>
@@ -341,12 +342,12 @@
           reproduction of his page.
         </p>
       </section>
-      <section class="floor dark" id="rooms">
+      <section class="floor dark" id="rooms" data-palette-section="4">
         <p class="eyebrow">The floor plan</p>
         <h2>Eight rooms. One connected craft.</h2>
         <div class="rooms" id="roomGrid"></div>
       </section>
-      <section class="exhibitions light" id="exhibitions">
+      <section class="exhibitions light" id="exhibitions" data-palette-section="5">
         <div class="head">
           <div>
             <p class="eyebrow">Curated routes through the collection</p>
@@ -416,7 +417,7 @@
           >
         </div>
       </section>
-      <section class="path light" id="path">
+      <section class="path light" id="path" data-palette-section="6">
         <div class="head">
           <div>
             <p class="eyebrow">The Apprentice Path</p>
@@ -429,7 +430,7 @@
         </div>
         <div id="lessons"></div>
       </section>
-      <section class="kiln dark" id="kiln">
+      <section class="kiln dark" id="kiln" data-palette-section="7">
         <p class="eyebrow">Room III · The Kiln Chapel</p>
         <h2>The atmosphere is an ingredient.</h2>
         <div class="six" id="atmospheres"></div>
@@ -548,7 +549,7 @@
         </article>
         <div class="heatwork" id="heatwork"></div>
       </section>
-      <section class="materials dark" id="materials">
+      <section class="materials dark" id="materials" data-palette-section="8">
         <div class="head">
           <div>
             <p class="eyebrow">Room IV · The Materials Archive</p>
@@ -561,7 +562,7 @@
         </div>
         <div class="four" id="materialsGrid"></div>
       </section>
-      <section class="repair light" id="restoration">
+      <section class="repair light" id="restoration" data-palette-section="5">
         <p class="eyebrow">Room V · The Restoration Room</p>
         <h2>Read a failure as evidence.</h2>
         <div class="diagnostic">
@@ -588,7 +589,7 @@
         </div>
         <div class="six" id="defects"></div>
       </section>
-      <section class="masters dark" id="masters">
+      <section class="masters dark" id="masters" data-palette-section="6">
         <div class="head">
           <div>
             <p class="eyebrow">Room VI · The Hall of Masters</p>
@@ -601,7 +602,7 @@
         </div>
         <div id="timeline"></div>
       </section>
-      <section class="notebook dark" id="notebook">
+      <section class="notebook dark" id="notebook" data-palette-section="7">
         <p class="eyebrow">Room VII · Eleonora’s Notebook</p>
         <h2 id="notebookTitle">Your own collection begins with one surface.</h2>
         <p>
@@ -611,7 +612,7 @@
         <div class="saved" id="saved"></div>
         <div class="layer-plans" id="layerPlans"></div>
       </section>
-      <section class="reading light" id="reading">
+      <section class="reading light" id="reading" data-palette-section="8">
         <div class="head">
           <div>
             <p class="eyebrow">Room VIII · The Reading Room</p>

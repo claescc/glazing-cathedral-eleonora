@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260925-themes" />
     <link rel="stylesheet" href="styles.css?v=20260925-themes" />
+    <link rel="stylesheet" href="ceramic-palette.css?v=20260926" />
     <link rel="stylesheet" href="typography.css?v=20260925-highlights" />
   </head>
   <body class="system-guide">
@@ -170,91 +171,21 @@
         </div>
       </section>
       <section class="light">
-        <h2>Reference highlight colours</h2>
-        <p>
-          Exact hex values supplied by Chloé. Use for decorative highlights and
-          badges with the paired ink, not as untested body-text colours.
-        </p>
+        <h2>Eight-section colour palette</h2>
+        <p>Current mode changes each section’s background, text, border and accent. The base values below remain exact source references.</p>
         <div class="token-grid">
-          <article class="highlight-swatch highlight-blue">
-            <strong>blue</strong><code>#00418D</code>
-          </article>
-          <article class="highlight-swatch highlight-cyan">
-            <strong>cyan</strong><code>#00C2DE</code>
-          </article>
-          <article class="highlight-swatch highlight-green">
-            <strong>green</strong><code>#00BA71</code>
-          </article>
-          <article class="highlight-swatch highlight-yellow">
-            <strong>yellow</strong><code>#FAD717</code>
-          </article>
-          <article class="highlight-swatch highlight-orange">
-            <strong>orange</strong><code>#FA8901</code>
-          </article>
-          <article class="highlight-swatch highlight-red">
-            <strong>red</strong><code>#F43545</code>
-          </article>
-          <article class="highlight-swatch highlight-pink">
-            <strong>pink</strong><code>#FF70A6</code>
-          </article>
-          <article class="highlight-swatch highlight-butter">
-            <strong>butter</strong><code>#FFD670</code>
-          </article>
-          <article class="highlight-swatch highlight-sky">
-            <strong>sky</strong><code>#70D6FF</code>
-          </article>
-          <article class="highlight-swatch highlight-purple">
-            <strong>purple</strong><code>#9B5DE5</code>
-          </article>
-          <article class="highlight-swatch highlight-mint">
-            <strong>mint</strong><code>#B7EFC5</code>
-          </article>
-          <article class="highlight-swatch highlight-coral">
-            <strong>coral</strong><code>#FA6977</code>
-          </article>
-          <article class="highlight-swatch highlight-apricot">
-            <strong>apricot</strong><code>#F0B967</code>
-          </article>
-          <article class="highlight-swatch highlight-lemon">
-            <strong>lemon</strong><code>#FAF278</code>
-          </article>
-          <article class="highlight-swatch highlight-lime">
-            <strong>lime</strong><code>#9AE66E</code>
-          </article>
-          <article class="highlight-swatch highlight-ice">
-            <strong>ice</strong><code>#87D5F8</code>
-          </article>
-          <article class="highlight-swatch highlight-orchid">
-            <strong>orchid</strong><code>#CE81F8</code>
-          </article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s1-bg); --sample-text: var(--cc-s1-text); --sample-border: var(--cc-s1-border); --sample-accent: var(--cc-s1-accent)"><strong>1. Sunflower Yellow</strong><code>base #FBC439</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s2-bg); --sample-text: var(--cc-s2-text); --sample-border: var(--cc-s2-border); --sample-accent: var(--cc-s2-accent)"><strong>2. Golden Khaki</strong><code>base #979967</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s3-bg); --sample-text: var(--cc-s3-text); --sample-border: var(--cc-s3-border); --sample-accent: var(--cc-s3-accent)"><strong>3. Olive Moss</strong><code>base #56611F</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s4-bg); --sample-text: var(--cc-s4-text); --sample-border: var(--cc-s4-border); --sample-accent: var(--cc-s4-accent)"><strong>4. Forest Green</strong><code>base #25300E</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s5-bg); --sample-text: var(--cc-s5-text); --sample-border: var(--cc-s5-border); --sample-accent: var(--cc-s5-accent)"><strong>5. Mandarin Orange</strong><code>base #D96C00</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s6-bg); --sample-text: var(--cc-s6-text); --sample-border: var(--cc-s6-border); --sample-accent: var(--cc-s6-accent)"><strong>6. Burnt Sienna</strong><code>base #C1440E</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s7-bg); --sample-text: var(--cc-s7-text); --sample-border: var(--cc-s7-border); --sample-accent: var(--cc-s7-accent)"><strong>7. Burgundy Garnet</strong><code>base #630304</code><span>Theme accent</span></article>
+          <article class="palette-swatch" style="--sample-bg: var(--cc-s8-bg); --sample-text: var(--cc-s8-text); --sample-border: var(--cc-s8-border); --sample-accent: var(--cc-s8-accent)"><strong>8. Chocolate Brown</strong><code>base #2C1310</code><span>Theme accent</span></article>
         </div>
-        <h2>Colour roles</h2>
-        <p>
-          Light sand foundations and sunflower accents, with candy-pastel room
-          colours and deeper companion inks for readable headings. Source
-          photograph colours are not recoloured.
-        </p>
+        <h2>Shared colour roles</h2>
+        <p>Components consume semantic variables from the active theme. The eight section roles are defined in <code>ceramic-palette.css</code>.</p>
         <div class="token-grid">
-          <article class="swatch candy-pink">
-            <strong>Blush pink · berry ink</strong
-            ><code>#FFE0ED / #9B2460</code>
-          </article>
-          <article class="swatch candy-lilac">
-            <strong>Lilac · violet ink</strong><code>#EDE2FF / #6330A3</code>
-          </article>
-          <article class="swatch candy-sky">
-            <strong>Sky blue · blue ink</strong><code>#DEEFFF / #185B96</code>
-          </article>
-          <article class="swatch candy-aqua">
-            <strong>Aqua · teal ink</strong><code>#D6F5F1 / #076C65</code>
-          </article>
-          <article class="swatch candy-peach">
-            <strong>Peach · burnt-orange ink</strong
-            ><code>#FFE3D0 / #9A461C</code>
-          </article>
-          <article class="swatch candy-lemon">
-            <strong>Lemon · golden ink</strong><code>#FFF2B8 / #705800</code>
-          </article>
           <article class="swatch swatch-background">
             <strong>background</strong><code>--md-sys-color-background</code>
           </article>
