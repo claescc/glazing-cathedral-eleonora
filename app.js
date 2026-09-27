@@ -800,11 +800,12 @@ const atlasFocus = (value) =>
 $("#roomGrid").innerHTML = rooms
   .map(
     (r, i) =>
-      `<a href="#${r[0]}"><small>${String(i + 1).padStart(2, "0")}</small><h3>${r[1]}</h3><p>${["Browse real fired surfaces by colour and behaviour.", "Weighable formulas with exact sources.", "Atmosphere, heatwork and cooling.", "Clay, oxides, minerals and substitutions.", "Diagnose defects and choose the next test.", "People, kilns, places and traditions.", "Save favourites and plan tests.", "The attached books and their citations."][i]}</p></a>`,
+      `<a href="${r[0] === "reading" ? "reading" : r[0]}.html"><small>${String(i + 1).padStart(2, "0")}</small><h3>${r[1]}</h3><p>${["Browse real fired surfaces by colour and behaviour.", "Weighable formulas with exact sources.", "Atmosphere, heatwork and cooling.", "Clay, oxides, minerals and substitutions.", "Diagnose defects and choose the next test.", "People, kilns, places and traditions.", "Save favourites and plan tests.", "The attached books and their citations."][i]}</p></a>`,
   )
   .join("");
 $("#roomMenu").innerHTML = rooms
-  .map((r) => `<a href="#${r[0]}">${r[1]}</a>`)
+  .map((r) => `<a href="${r[0]}.html">${r[1]}</a>`)
+  .concat('<a href="learn.html">Learn</a><a href="layering.html">Layering Laboratory</a>')
   .join("");
 $("#roomsButton").onclick = () => {
   const open = $("#roomMenu").classList.toggle("open");
@@ -849,9 +850,7 @@ function tile(x, view = "photos") {
       : `<span class="cone-surface"><img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Digital cone visualisation of ${escapeHtml(x.name)}, based on a cropped source photograph" style="--cone-left:${50 - fx * 4}%;--cone-top:${50 - fy * 4}%"></span><span class="cone-caption">Digital cone preview</span>`;
   return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${visual}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source || x.origin)}</span></span></button>`;
 }
-let atlasLimit = 30;
-function render(expand = false) {
-  if (expand !== true) atlasLimit = 30;
+function render() {
   let q = $("#search").value.toLowerCase();
   let list = collection.filter(
     (x) =>
@@ -880,8 +879,7 @@ function render(expand = false) {
         : rank(a) - rank(b) || a.name.localeCompare(b.name),
   );
   const matchedCount = list.length;
-  list = list.slice(0, atlasLimit);
-  $("#atlasMore").hidden = atlasLimit >= matchedCount;
+  $("#atlasMore").hidden = true;
   $("#wall").classList.toggle("index-view", activeView === "index");
   $("#wall").innerHTML = !list.length
     ? `<div class="empty-corridor"><small>CATALOGUE GAP</small><h3>No records match “${escapeHtml($("#search").value || activeHue)}”.</h3><p>Try including text-only formulas, clearing the source or cone filter, or searching inside the books.</p></div>`
@@ -911,10 +909,6 @@ for (const [id, values] of [
     .forEach((v) => el.add(new Option(v, v)));
   el.onchange = render;
 }
-$("#atlasMore").onclick = () => {
-  atlasLimit += 30;
-  render(true);
-};
 $("#sortFilter").onchange = render;
 $("#photoFilter").onchange = render;
 $("#totalCount").textContent = collection.length;
@@ -987,6 +981,7 @@ all("[data-type-query]").forEach(
     }),
 );
 document.querySelector("#recipes .under").onclick = () => {
+  if (!$("#atlas").getClientRects().length) return;
   $("#photoFilter").value = "all";
   activeKind = "recipe";
   activeHue = "all";
@@ -1005,26 +1000,20 @@ document.querySelector("#recipes .under").onclick = () => {
   });
   render();
 };
-let recipeLimit = 12;
 function renderRecipeLibrary() {
   $("#recipeRail").innerHTML = recipes
-    .slice(0, recipeLimit)
     .map(
       (x) =>
         `<button data-id="${x.id}">${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${escapeHtml(x.name)}">` : '<span class="no-photo">Source formula</span>'}<span><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong></span></button>`,
     )
     .join("");
   $("#recipeCount").textContent =
-    `Showing ${Math.min(recipeLimit, recipes.length)} of ${recipes.length} recipes`;
-  $("#recipeMore").hidden = recipeLimit >= recipes.length;
+    `Showing all ${recipes.length} recipes`;
+  $("#recipeMore").hidden = true;
 }
 $("#recipeRail").onclick = (event) => {
   const button = event.target.closest("[data-id]");
   if (button) openBook(recipes.find((x) => x.id === button.dataset.id));
-};
-$("#recipeMore").onclick = () => {
-  recipeLimit += 12;
-  renderRecipeLibrary();
 };
 renderRecipeLibrary();
 $("#featuredGlazy").onclick = () =>
@@ -1619,7 +1608,7 @@ function openBook(x) {
       ? `
   <section class="book-section"><small>01 · RECOGNISE IT</small><h3>What your eye should notice</h3>${x.reconstruction ? `<figure class="surface-zoom"><img src="${imageSrc(x.image)}" alt="Close view of the peach-bloom glaze on the Met water pot"><figcaption>Surface close-up · the Atlas crops the same museum object so the mottled glaze, not merely the vessel silhouette, becomes recognisable.</figcaption></figure>` : ""}<p>${x.recognition}</p></section>
   <section class="book-section"><small>02 · UNDERSTAND IT</small><h3>Why the surface happens</h3><p>${x.mechanism}</p></section>
-  <section class="book-section"><small>03 · TEST IT</small><h3>Turn resemblance into evidence</h3><p>${x.practice}</p>${x.concept ? `<a class="concept-jump" href="#${x.concept}">Open the copper-reduction lesson →</a>` : ""}</section>`
+  <section class="book-section"><small>03 · TEST IT</small><h3>Turn resemblance into evidence</h3><p>${x.practice}</p>${x.concept ? `<a class="concept-jump" href="learn.html#${x.concept}">Open the copper-reduction lesson →</a>` : ""}</section>`
       : `
   <section class="book-section"><small>01 · RECOGNISE IT</small><h3>${x.color} · ${x.surface}</h3><p>${x.recognition || "Read the source photograph and recipe together. Where a photograph is unavailable, no substitute colour is supplied."}</p></section>
   <section class="book-section"><small>02 · READ THE MATERIAL CLUES</small><h3>A formula is a set of hypotheses</h3><p>${ingredientClues(x)}</p></section>`;
@@ -1780,7 +1769,7 @@ function renderSaved() {
             `<button data-id="${x.id}">${x.image ? `<img src="${imageSrc(x.image)}" alt="Fired surface: ${x.name}">` : `<span class="no-photo">Source formula</span>`}<strong>${x.name}</strong></button>`,
         )
         .join("")
-    : `<a href="#atlas">Return to the Atlas and choose what calls to you →</a>`;
+    : `<a href="atlas.html">Return to the Atlas and choose what calls to you →</a>`;
   all("#saved button").forEach(
     (b) =>
       (b.onclick = () =>
@@ -1844,11 +1833,12 @@ function setMobileNav(id) {
       : a.removeAttribute("aria-current");
   });
 }
-setMobileNav(location.hash.replace("#", "") || "top");
+const currentPage = document.body.dataset.page || "home";
+setMobileNav(({ home: "top", learn: "path" })[currentPage] || currentPage);
 mobileNavLinks.forEach((a) =>
   a.addEventListener("click", () => setMobileNav(a.dataset.navSection)),
 );
-if ("IntersectionObserver" in window) {
+if (currentPage === "home" && "IntersectionObserver" in window) {
   const navObserver = new IntersectionObserver(
     (entries) => {
       const visible = entries

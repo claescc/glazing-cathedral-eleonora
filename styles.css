@@ -1913,3 +1913,28 @@ main > section > h2 { border-inline-start: 0; padding-inline-start: 0; }
 @media (min-width: 840px) {
   .lesson ol, .lesson aside { grid-column: 2 / -1; }
 }
+
+/* Separate site routes share the catalogue data but expose one destination each. */
+body[data-page] main > section,
+body[data-page] main > .source-library { display: none; }
+body[data-page="home"] #rooms,
+body[data-page="home"] #exhibitions,
+body[data-page="atlas"] #atlas,
+body[data-page="recipes"] #recipes,
+body[data-page="layering"] #layering,
+body[data-page="learn"] #path,
+body[data-page="kiln"] #kiln,
+body[data-page="materials"] #materials,
+body[data-page="restoration"] #restoration,
+body[data-page="masters"] #masters,
+body[data-page="notebook"] #notebook,
+body[data-page="reading"] #reading,
+body[data-page="reading"] #source-library { display: block; }
+body:not([data-page="home"]) .hero,
+body:not([data-page="home"]) .window { display: none; }
+body:not([data-page="home"]) main { min-height: 55vh; }
+body:not([data-page="home"]) .threshold { padding-bottom: 0; }
+.desktop-pages { display: none; gap: 1rem; align-items: center; }
+.desktop-pages a { color: var(--text); text-decoration: none; font-weight: 600; }
+.desktop-pages a:hover, .desktop-pages a[aria-current="page"] { text-decoration: underline; text-underline-offset: .35em; }
+@media (min-width: 900px) { .desktop-pages { display: flex; } }

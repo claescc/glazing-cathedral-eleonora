@@ -1,4 +1,5 @@
 import { cpSync, mkdirSync, rmSync } from "node:fs";
+import "./page-routes.mjs";
 import { join } from "node:path";
 
 const output = new URL("./dist/", import.meta.url);
@@ -7,6 +8,16 @@ mkdirSync(output, { recursive: true });
 
 for (const file of [
   "index.html",
+  "atlas.html",
+  "recipes.html",
+  "layering.html",
+  "learn.html",
+  "kiln.html",
+  "materials.html",
+  "restoration.html",
+  "masters.html",
+  "notebook.html",
+  "reading.html",
   "typography.html",
   "typography.css",
   "design-system.js",

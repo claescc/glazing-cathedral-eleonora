@@ -26,7 +26,7 @@
   let books = [],
     corpus = null,
     loading = null,
-    limit = 30,
+    limit = Infinity,
     found = [],
     readerPages = [],
     readerBook = null,
@@ -170,7 +170,7 @@
             (p.text + " " + bookMap.get(p.book).name).toLowerCase().includes(w),
           ),
       );
-      limit = 30;
+      limit = Infinity;
       paintResults();
     } catch (e) {
       $("sourceCount").textContent =
