@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
-    <link rel="stylesheet" href="styles.css?v=20260927-density" />
+    <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
     <link rel="stylesheet" href="ceramic-palette.css?v=20260926" />
     <link
       rel="icon"
@@ -86,9 +86,8 @@
             </h2>
           </div>
           <p>
-            Explore glaze photographs and sourced formulas. Choose a card to
-            see its photograph, recipe and history. Where no photograph was
-            supplied, the record is labelled clearly.
+            Browse fired surfaces and sourced formulas. Open a glaze for its
+            photograph, recipe and history.
           </p>
         </div>
         <p class="result" id="photoCoverage"></p>
@@ -103,6 +102,8 @@
               autocomplete="off"
               placeholder="Search colour, glaze, cone, atmosphere…"
           /></label>
+          <details class="atlas-filter-panel" id="atlasFilterPanel" open>
+            <summary>Filters and views</summary>
           <div id="kindTabs" role="group" aria-label="Record type">
             <button class="on" data-kind="all" aria-pressed="true">
               Entire collection</button
@@ -152,6 +153,7 @@
             ><button data-view="mosaic" aria-pressed="false">Cone previews</button
             ><button data-view="index" aria-pressed="false">Index</button>
           </div>
+          </details>
         </div>
         <p class="result" aria-live="polite">
           <span id="resultCount"></span> records in this corridor
@@ -881,7 +883,7 @@
     <script src="glazy-data.js?v=20260925-highlights"></script>
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20260925-highlights"></script>
-    <script src="app.js?v=20260927-hall"></script>
+    <script src="app.js?v=20260927-mobile-density"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

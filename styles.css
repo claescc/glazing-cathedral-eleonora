@@ -1987,3 +1987,64 @@ body:not([data-page="home"]) .threshold { padding-bottom: 0; }
 .masters-feature strong { font-size: clamp(1.7rem, 4vw, 3rem); line-height: 1.1; }
 .masters-feature b { text-decoration: underline; text-underline-offset: .25em; }
 .masters-feature:hover, .masters-feature:focus-visible { outline: 3px solid var(--sunflower); outline-offset: 3px; }
+
+/* Phone density: content and controls stay legible while more of each page fits. */
+.atlas-filter-panel[open] { display: grid; gap: .75rem; }
+@media (min-width: 600px) {
+  .atlas-filter-panel > summary { display: none; }
+}
+@media (max-width: 599px) {
+  .threshold nav { flex-wrap: nowrap; gap: .5rem; padding-block: .5rem; }
+  .threshold nav .seal { flex: 0 0 40px; min-width: 40px; }
+  .threshold nav .seal img { width: 40px; height: 40px; }
+  .threshold nav .seal span {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+  .threshold nav button { min-height: 44px; padding-inline: .5rem; margin-left: auto; }
+  .appearance-control { margin-left: 0; }
+  .appearance-control select { min-height: 44px; width: 7.75rem; padding-right: 1.25rem; }
+  .room-menu { inset-block-start: 3.75rem; }
+  .hero { padding-block: 1.25rem; }
+  .hero .eyebrow { margin-bottom: .5rem; }
+  .hero > p:not(.eyebrow) { margin-block: .5rem; }
+  .library-shortcuts { gap: .5rem; margin-top: 1rem; }
+  .library-shortcuts a { min-height: 44px; padding: .5rem 1rem; }
+  .dark, .light, .source-library { padding-block: 1.25rem; }
+  .head, .type-map-head, .heatwork-head { gap: .5rem; margin-bottom: 1rem; }
+  .head > p { font-size: .875rem; line-height: 1.45; }
+  .head h2 { font-size: 1.25rem; line-height: 1.55rem; }
+  .eyebrow { margin-bottom: .4rem; }
+  main > section > .head { padding-bottom: 1rem; }
+  #photoCoverage { margin-block: .5rem; }
+  .filters { gap: .5rem; margin-block: .75rem; }
+  .search-field, .search-field input { min-height: 48px; }
+  .atlas-filter-panel > summary { min-height: 44px; padding: .6rem .75rem; border: 1px solid var(--outline); border-radius: var(--radius-small); background: var(--surface); }
+  .atlas-filter-panel[open] { padding-bottom: .5rem; }
+  .wall, .rail, .saved, .rooms, .exhibition-grid, .type-grid,
+  .six, .four, .plan-grid, .shelves, .source-results, .heat-line { gap: .75rem; }
+  .wall:not(.index-view) > .tile { display: grid; grid-template-columns: 38% minmax(0, 1fr); min-height: 9.5rem; }
+  .wall:not(.index-view) .tile .image { width: 100%; height: 100%; aspect-ratio: auto; }
+  .wall:not(.index-view) .tile-copy { gap: .3rem; padding: .65rem; align-content: center; }
+  .wall:not(.index-view) .tile-copy > strong { font-size: 1rem; line-height: 1.25; }
+  .wall:not(.index-view) .tile-copy > small,
+  .wall:not(.index-view) .tile-copy > i,
+  .wall:not(.index-view) .tile-source { font-size: .75rem; line-height: 1.3; }
+  .wall:not(.index-view) .tile-source { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .wall:not(.index-view) .tile .no-photo { min-height: 100%; padding: .5rem; font-size: .75rem; }
+  .rail button, .saved button { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); min-height: 6.5rem; }
+  .rail img, .saved img { width: 6.5rem; height: 100%; min-height: 6.5rem; object-fit: cover; }
+  .rail button > span:not(.no-photo), .saved strong { align-self: center; padding: .75rem; }
+  .rail .no-photo, .saved .no-photo { min-height: 6.5rem; padding: .5rem; font-size: .75rem; }
+  .rooms a, .plan-card, .shelves article, .heat-line article { padding: 1rem; }
+  .rooms a h3, .shelves h3, .heat-line h4 { margin-block: .4rem; }
+  .rooms a p { margin-block: .4rem 0; }
+  .exhibition img { aspect-ratio: 2 / 1; }
+  .exhibition > span { padding: 1rem; }
+  .lesson, .event { gap: .75rem; padding-block: 1rem; }
+  .lesson figure img, .event > img { aspect-ratio: 2 / 1; }
+  .hero-image { height: 12rem; }
+  .book { padding-top: 1rem; }
+  .mobile-nav { height: calc(68px + env(safe-area-inset-bottom)); padding-top: 3px; }
+  body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+}

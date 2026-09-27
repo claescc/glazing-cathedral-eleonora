@@ -835,6 +835,11 @@ $("#hues").innerHTML = hueDefinitions
       `<button data-hue="${h.key}" class="${i ? "" : "on"}" aria-pressed="${i === 0}" title="${h.label}"><i style="background:${h.color}"></i><span>${h.label}</span></button>`,
   )
   .join("");
+const atlasFilterPanel = $("#atlasFilterPanel");
+const wideAtlas = matchMedia("(min-width: 600px)");
+const syncAtlasFilters = () => { atlasFilterPanel.open = wideAtlas.matches; };
+syncAtlasFilters();
+wideAtlas.addEventListener("change", syncAtlasFilters);
 function tile(x, view = "photos") {
   const label = x.kind === "recipe" ? "RECIPE" : "HISTORIC FAMILY";
   const focus = atlasFocus(
@@ -913,7 +918,7 @@ $("#sortFilter").onchange = render;
 $("#photoFilter").onchange = render;
 $("#totalCount").textContent = collection.length;
 const photographedCount = collection.filter((x) => x.image).length;
-$("#photoCoverage").textContent = `${photographedCount} records have an associated photograph; ${collection.length - photographedCount} do not. Photographs are shown first by default.`;
+$("#photoCoverage").textContent = `${photographedCount} with source photographs · ${collection.length - photographedCount} without.`;
 $("#search").oninput = render;
 all("#kindTabs button").forEach(
   (b) =>
