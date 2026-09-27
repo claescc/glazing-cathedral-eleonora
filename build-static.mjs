@@ -16,6 +16,7 @@ for (const file of [
   "materials.html",
   "restoration.html",
   "masters.html",
+  "tribute.html",
   "notebook.html",
   "reading.html",
   "typography.html",

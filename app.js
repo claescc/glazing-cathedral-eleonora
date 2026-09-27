@@ -805,7 +805,7 @@ $("#roomGrid").innerHTML = rooms
   .join("");
 $("#roomMenu").innerHTML = rooms
   .map((r) => `<a href="${r[0]}.html">${r[1]}</a>`)
-  .concat('<a href="learn.html">Learn</a><a href="layering.html">Layering Laboratory</a>')
+  .concat('<a href="learn.html">Learn</a><a href="layering.html">Layering Laboratory</a><a href="tribute.html">Judith’s tribute</a>')
   .join("");
 $("#roomsButton").onclick = () => {
   const open = $("#roomMenu").classList.toggle("open");
