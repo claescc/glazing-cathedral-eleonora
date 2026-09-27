@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="material3.css?v=20260925-themes" />
-    <link rel="stylesheet" href="styles.css?v=20260925-themes" />
+    <link rel="stylesheet" href="styles.css?v=20260927-photographs" />
     <link rel="stylesheet" href="ceramic-palette.css?v=20260926" />
     <link
       rel="icon"
@@ -86,12 +86,12 @@
             </h2>
           </div>
           <p>
-            Explore colours on digital cone previews made from cropped source
-            photographs. Open a card for the original photograph, recipe and
-            history. Previews illustrate a surface; they are not photographs of
-            fired cones.
+            Explore glaze photographs and sourced formulas. Choose a card to
+            see its photograph, recipe and history. Where no photograph was
+            supplied, the record is labelled clearly.
           </p>
         </div>
+        <p class="result" id="photoCoverage"></p>
         <div class="filters">
           <label class="search-field"
             ><span class="material-symbols-rounded" aria-hidden="true"
@@ -138,6 +138,7 @@
                 </select></label
               ><label
                 >Order<select id="sortFilter">
+                  <option value="photographs">Photographs first</option>
                   <option value="colour">Colour families</option>
                   <option value="name">Name A–Z</option>
                   <option value="source">Source</option>
@@ -146,8 +147,9 @@
             </div>
           </details>
           <div id="viewTabs" role="group" aria-label="Collection view">
-            <button class="on" data-view="mosaic" aria-pressed="true">
-              Cone previews</button
+            <button class="on" data-view="photos" aria-pressed="true">
+              Photographs</button
+            ><button data-view="mosaic" aria-pressed="false">Cone previews</button
             ><button data-view="index" aria-pressed="false">Index</button>
           </div>
         </div>
@@ -765,7 +767,7 @@
     <script src="glazy-data.js?v=20260925-highlights"></script>
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20260925-highlights"></script>
-    <script src="app.js?v=20260925-highlights"></script>
+    <script src="app.js?v=20260927-photographs"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

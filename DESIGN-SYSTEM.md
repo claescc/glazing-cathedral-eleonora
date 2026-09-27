@@ -10,6 +10,10 @@ The site is plain CSS, without a Tailwind build dependency. The palette follows 
 
 This is a colour and initial rendered-state audit, not a WCAG AAA certification or legal compliance finding. W3C WCAG 2.2 SC 1.4.6 requires 7:1 for ordinary text and 4.5:1 for large text; SC 1.4.11 requires 3:1 for essential non-text visual information. EU applicability depends on the site and service category. EN 301 549 v3.2.1 follows WCAG 2.1 AA for web content. Relevant primary sources: [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/), [ETSI EN 301 549 v3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf), [Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj).
 
+## Atlas photographs, 27 September 2026
+
+The published collection contains 291 records: 156 have an associated image and 135 have no image field. The former sort exposed several text-only formulas before photographs, while the mosaic cropped source photos into digital cone previews. The default Atlas view now shows the associated photographs in a uniform, uncropped frame and places photographed records first. Cone previews and the index remain selectable; all records stay available, and text-only records retain an explicit “Photograph not supplied” label. This change does not assign images to records lacking source evidence.
+
 ## Ownership
 
 - `material3.css`: shared colour, type, shape, elevation, spacing and motion tokens.

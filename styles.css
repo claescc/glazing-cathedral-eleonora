@@ -548,6 +548,12 @@ textarea {
   overflow: hidden;
   background: var(--specimen-background);
 }
+.atlas-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .cone-surface {
   position: absolute;
   inset: 8% 18% 20%;
@@ -597,6 +603,9 @@ textarea {
   font-size: 0.875rem;
   text-align: center;
   color: var(--text);
+  background: var(--surface);
+  border-radius: var(--radius-small);
+  padding: 0.25rem 0.5rem;
 }
 .tile-copy {
   display: grid;

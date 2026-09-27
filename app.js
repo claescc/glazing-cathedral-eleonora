@@ -706,7 +706,7 @@ function readStoredArray(key) {
 const collection = [...recipes, ...families];
 let activeKind = "all",
   activeHue = "all",
-  activeView = "mosaic",
+  activeView = "photos",
   selected = null,
   saved = readStoredArray("eleonora-saved");
 const $ = (s) => document.querySelector(s),
@@ -834,7 +834,7 @@ $("#hues").innerHTML = hueDefinitions
       `<button data-hue="${h.key}" class="${i ? "" : "on"}" aria-pressed="${i === 0}" title="${h.label}"><i style="background:${h.color}"></i><span>${h.label}</span></button>`,
   )
   .join("");
-function tile(x) {
+function tile(x, view = "photos") {
   const label = x.kind === "recipe" ? "RECIPE" : "HISTORIC FAMILY";
   const focus = atlasFocus(
     { "glazy-27852": "50% 63%", "glazy-844452": "37% 28%" }[x.id] || x.position,
@@ -842,7 +842,12 @@ function tile(x) {
   const [fx, fy] = focus.split(" ").map(parseFloat);
   const firing = coneLabel(x.cone);
   const firingLabel = /^\d/.test(firing) ? `Cone ${firing}` : firing;
-  return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${x.image ? `<span class="cone-surface"><img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Digital cone visualisation of ${escapeHtml(x.name)}, based on a cropped source photograph" style="--cone-left:${50 - fx * 4}%;--cone-top:${50 - fy * 4}%"></span><span class="cone-caption">Digital cone preview</span>` : `<span class="no-photo">Photograph not supplied</span>`}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source || x.origin)}</span></span></button>`;
+  const visual = !x.image
+    ? `<span class="no-photo">Photograph not supplied</span>`
+    : view === "photos"
+      ? `<img class="atlas-photo" loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt=""><span class="cone-caption">Source photograph</span>`
+      : `<span class="cone-surface"><img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Digital cone visualisation of ${escapeHtml(x.name)}, based on a cropped source photograph" style="--cone-left:${50 - fx * 4}%;--cone-top:${50 - fy * 4}%"></span><span class="cone-caption">Digital cone preview</span>`;
+  return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${visual}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source || x.origin)}</span></span></button>`;
 }
 let atlasLimit = 30;
 function render(expand = false) {
@@ -864,7 +869,10 @@ function render(expand = false) {
     return h ? hueDefinitions.findIndex((v) => v.key === h) : 99;
   };
   list.sort((a, b) =>
-    order === "name"
+    order === "photographs"
+      ? Number(Boolean(b.image)) - Number(Boolean(a.image)) ||
+        rank(a) - rank(b) || a.name.localeCompare(b.name)
+      : order === "name"
       ? a.name.localeCompare(b.name)
       : order === "source"
         ? (a.source || a.origin).localeCompare(b.source || b.origin) ||
@@ -877,8 +885,8 @@ function render(expand = false) {
   $("#wall").classList.toggle("index-view", activeView === "index");
   $("#wall").innerHTML = !list.length
     ? `<div class="empty-corridor"><small>CATALOGUE GAP</small><h3>No records match “${escapeHtml($("#search").value || activeHue)}”.</h3><p>Try including text-only formulas, clearing the source or cone filter, or searching inside the books.</p></div>`
-    : activeView === "mosaic"
-      ? list.map(tile).join("")
+    : activeView !== "index"
+      ? list.map((x) => tile(x, activeView)).join("")
       : list
           .map(
             (x, i) =>
@@ -910,6 +918,8 @@ $("#atlasMore").onclick = () => {
 $("#sortFilter").onchange = render;
 $("#photoFilter").onchange = render;
 $("#totalCount").textContent = collection.length;
+const photographedCount = collection.filter((x) => x.image).length;
+$("#photoCoverage").textContent = `${photographedCount} records have an associated photograph; ${collection.length - photographedCount} do not. Photographs are shown first by default.`;
 $("#search").oninput = render;
 all("#kindTabs button").forEach(
   (b) =>
