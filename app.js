@@ -1834,6 +1834,16 @@ function setMobileNav(id) {
   });
 }
 const currentPage = document.body.dataset.page || "home";
+const tributeVideoPlay = document.getElementById("tributeVideoPlay");
+if (tributeVideoPlay) tributeVideoPlay.addEventListener("click", () => {
+  const frame = document.createElement("iframe");
+  frame.src = "https://www.youtube-nocookie.com/embed/WG-PhxQyw3s?autoplay=1";
+  frame.title = "XON · Mooi zo Special: De gelukkige olifant (6 January 2014)";
+  frame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = "strict-origin-when-cross-origin";
+  document.getElementById("tributeVideoFrame").replaceChildren(frame);
+});
 setMobileNav(({ home: "top", learn: "path" })[currentPage] || currentPage);
 mobileNavLinks.forEach((a) =>
   a.addEventListener("click", () => setMobileNav(a.dataset.navSection)),

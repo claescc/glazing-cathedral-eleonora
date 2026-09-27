@@ -22,8 +22,8 @@ source = source.replace(/<body(?: data-page="[^"]+")?>/, '<body data-page="home"
 source = source.replace(/href="#([a-z-]+)"/g, (whole, id) => routes[id] ? `href="${routes[id]}"` : whole);
 source = source.replace(/href="index\.html"(\s+data-nav-section="top")/g, 'href="index.html"$1');
 source = source.replace(/<title>[^<]*<\/title>/, '<title>Home · Ceramics Cathedral of Eleonora</title>');
-source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20260927-tribute"');
-source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-tribute"');
+source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20260927-film"');
+source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-film"');
 source = source.replace(/(<div class="desktop-pages"[^>]*>)([\s\S]*?)(<\/div>)/, (all, open, links, close) => open + links.replace(/ aria-current="page"/g, '').replace('href="index.html"', 'href="index.html" aria-current="page"') + close);
 writeFileSync(new URL('./index.html', import.meta.url), source);
 for (const [page, title] of Object.entries(titles)) {
