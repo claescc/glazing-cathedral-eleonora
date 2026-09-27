@@ -15,8 +15,8 @@
   --md-ref-typeface-weight-medium: 500;
   --md-ref-typeface-weight-bold: 700;
 
-  --md-sys-typescale-display-large-size: 3.5625rem;
-  --md-sys-typescale-display-large-line-height: 4rem;
+  --md-sys-typescale-display-large-size: 3rem;
+  --md-sys-typescale-display-large-line-height: 3.375rem;
   --md-sys-typescale-display-large-weight: 600;
   --md-sys-typescale-display-medium-size: 2.8125rem;
   --md-sys-typescale-display-medium-line-height: 3.25rem;
@@ -24,11 +24,11 @@
   --md-sys-typescale-display-small-size: 2.25rem;
   --md-sys-typescale-display-small-line-height: 2.75rem;
   --md-sys-typescale-display-small-weight: 600;
-  --md-sys-typescale-headline-large-size: 2rem;
-  --md-sys-typescale-headline-large-line-height: 2.5rem;
+  --md-sys-typescale-headline-large-size: 1.75rem;
+  --md-sys-typescale-headline-large-line-height: 2.25rem;
   --md-sys-typescale-headline-large-weight: 600;
-  --md-sys-typescale-headline-medium-size: 1.75rem;
-  --md-sys-typescale-headline-medium-line-height: 2.25rem;
+  --md-sys-typescale-headline-medium-size: 1.5rem;
+  --md-sys-typescale-headline-medium-line-height: 2rem;
   --md-sys-typescale-headline-medium-weight: 600;
   --md-sys-typescale-headline-small-size: 1.5rem;
   --md-sys-typescale-headline-small-line-height: 2rem;
@@ -231,10 +231,10 @@
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
+  --space-7: 2rem;
+  --space-8: 3rem;
   --page-gutter: 1rem;
-  --content: 90rem;
+  --content: 78rem;
   --reading: 65ch;
   --motion-duration: 160ms;
   --motion-easing: cubic-bezier(0.2, 0, 0, 1);
