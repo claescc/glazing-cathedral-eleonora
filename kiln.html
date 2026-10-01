@@ -22,7 +22,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261001" />
+    <link rel="stylesheet" href="m3-site.css?v=20261001-window-stories" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -64,11 +64,10 @@
             <a href="reading.html#source-library"><span class="material-symbols-rounded" aria-hidden="true">search</span> Search sources</a>
           </div>
         </div>
-        <div class="hero-gallery" aria-label="Ceramic surfaces from the collection">
-          <img src="assets/recipes/oribe.jpg" alt="Green Oribe glazed ceramic surface">
-          <img src="assets/recipes/piepenburg-red-bronze.jpg" alt="Red bronze glazed ceramic surface">
-          <img src="assets/recipes/bloomfield-165-matt-grey.jpeg" alt="Matt grey glazed ceramic surface">
-        </div>
+        <figure class="ceramic-mural">
+          <img src="assets/artwork/ceramic-window-stories.jpg" width="2172" height="724" fetchpriority="high" alt="Decorative stained-glass illustration: mineral earth, hands shaping clay, a glowing kiln, flowing glazes and a pottery sketchbook.">
+          <figcaption>Earth · Hands · Fire · Colour · Knowledge</figcaption>
+        </figure>
       </div>
       <div class="window" id="window" hidden></div>
     </header>
@@ -345,6 +344,7 @@
       <section class="floor dark" id="rooms" data-palette-section="4">
         <p class="eyebrow">The floor plan</p>
         <h2>Eight rooms. One connected craft.</h2>
+        <p class="floor-intro">Follow the colour. Each window opens a different part of the ceramic story.</p>
         <div class="rooms" id="roomGrid"></div>
       </section>
       <section class="exhibitions light" id="exhibitions" data-palette-section="5">
@@ -543,8 +543,10 @@
         <div id="lessons"></div>
       </section>
       <section class="kiln dark" id="kiln" data-palette-section="7">
-        <p class="eyebrow">Room III · The Kiln Chapel</p>
-        <h2>The atmosphere is an ingredient.</h2>
+        <div class="head"><div>
+          <p class="eyebrow">Room III · The Kiln Chapel</p>
+          <h2>The atmosphere is an ingredient.</h2>
+        </div></div>
         <div class="six" id="atmospheres"></div>
         <article class="copper-reduction" id="copper-reduction">
           <div class="copper-heading">
@@ -675,8 +677,10 @@
         <div class="four" id="materialsGrid"></div>
       </section>
       <section class="repair light" id="restoration" data-palette-section="5">
-        <p class="eyebrow">Room V · The Restoration Room</p>
-        <h2>Read a failure as evidence.</h2>
+        <div class="head"><div>
+          <p class="eyebrow">Room V · The Restoration Room</p>
+          <h2>Read a failure as evidence.</h2>
+        </div></div>
         <div class="diagnostic">
           <div>
             <small>Start with what you can actually see</small
@@ -716,12 +720,15 @@
         <div id="timeline"></div>
       </section>
       <section class="notebook dark" id="notebook" data-palette-section="7">
-        <p class="eyebrow">Room VII · Eleonora’s Notebook</p>
-        <h2 id="notebookTitle">Your own collection begins with one surface.</h2>
+        <div class="head"><div>
+          <p class="eyebrow">Room VII · Eleonora’s Notebook</p>
+          <h2 id="notebookTitle">Your own collection begins with one surface.</h2>
+        </div>
         <p>
           Save glaze books and layering plans. Favourites remain on this device,
           ready to become labelled test tiles and kiln notes.
         </p>
+        </div>
         <div class="saved" id="saved"></div>
         <div class="layer-plans" id="layerPlans"></div>
       </section>
@@ -879,7 +886,7 @@
     <script src="glazy-data.js?v=20260925-highlights"></script>
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20260925-highlights"></script>
-    <script src="app.js?v=20260927-mobile-density"></script>
+    <script src="app.js?v=20261001-window-stories"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

@@ -797,10 +797,25 @@ const atlasFocus = (value) =>
   /^\d+(?:\.\d+)?%\s+\d+(?:\.\d+)?%$/.test(String(value || ""))
     ? String(value)
     : "50% 50%";
+const roomStories = [
+  { theme: "cobalt", word: "Colour", image: "assets/glazes/tile_chun.jpg" },
+  { theme: "rose", word: "Formula", image: "assets/recipes/june-perry-pink-glazy-27852.jpg" },
+  { theme: "ember", word: "Fire", position: "50%" },
+  { theme: "ochre", word: "Earth", position: "0%" },
+  { theme: "jade", word: "Repair", image: "assets/glazes/tile_celadon.jpg" },
+  { theme: "amethyst", word: "Hands", position: "25%" },
+  { theme: "terracotta", word: "Practice", position: "100%" },
+  { theme: "teal", word: "Knowledge", position: "100%" },
+];
 $("#roomGrid").innerHTML = rooms
   .map(
-    (r, i) =>
-      `<a href="${r[0] === "reading" ? "reading" : r[0]}.html"><small>${String(i + 1).padStart(2, "0")}</small><h3>${r[1]}</h3><p>${["Browse real fired surfaces by colour and behaviour.", "Weighable formulas with exact sources.", "Atmosphere, heatwork and cooling.", "Clay, oxides, minerals and substitutions.", "Diagnose defects and choose the next test.", "People, kilns, places and traditions.", "Save favourites and plan tests.", "The attached books and their citations."][i]}</p></a>`,
+    (r, i) => {
+      const story = roomStories[i];
+      const picture = story.image
+        ? `<span class="room-picture"><img src="${story.image}" alt="" loading="lazy" width="400" height="400"></span>`
+        : `<span class="room-picture room-illustration" style="--window-position:${story.position}" aria-hidden="true"></span>`;
+      return `<a class="room-card" data-room-tone="${story.theme}" href="${r[0]}.html">${picture}<span class="room-copy"><span class="room-kicker">${String(i + 1).padStart(2, "0")} · ${story.word}</span><h3>${r[1]}</h3><p>${["Browse real fired surfaces by colour and behaviour.", "Weighable formulas with exact sources.", "Atmosphere, heatwork and cooling.", "Clay, oxides, minerals and substitutions.", "Diagnose defects and choose the next test.", "People, kilns, places and traditions.", "Save favourites and plan tests.", "The attached books and their citations."][i]}</p><span class="room-enter">Enter the room <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></span></span></a>`;
+    },
   )
   .join("");
 $("#roomMenu").innerHTML = rooms

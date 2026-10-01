@@ -251,3 +251,167 @@ footer { background: var(--md-sys-color-surface-container); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* Ceramic window stories: expressive colour within the shared M3 components. */
+body[data-page], main > section {
+  --story-accent: #17695d;
+  --story-light: #8cdfc9;
+  --story-position: 75%;
+}
+body[data-page="atlas"], #atlas, [data-room-tone="cobalt"] { --story-accent: #245394; --story-light: #b1ceff; --story-position: 75%; }
+body[data-page="recipes"], #recipes, [data-room-tone="rose"] { --story-accent: #95375d; --story-light: #ffb2cc; --story-position: 75%; }
+body[data-page="kiln"], #kiln, [data-room-tone="ember"] { --story-accent: #993b15; --story-light: #ffb18a; --story-position: 50%; }
+body[data-page="materials"], #materials, [data-room-tone="ochre"] { --story-accent: #78511a; --story-light: #edc478; --story-position: 0%; }
+body[data-page="restoration"], #restoration, [data-room-tone="jade"] { --story-accent: #216751; --story-light: #8bdcba; --story-position: 75%; }
+body[data-page="masters"], body[data-page="tribute"], #masters, #tribute, [data-room-tone="amethyst"] { --story-accent: #704592; --story-light: #ddb7fa; --story-position: 25%; }
+body[data-page="notebook"], #notebook, [data-room-tone="terracotta"] { --story-accent: #914c35; --story-light: #ffc0a8; --story-position: 100%; }
+body[data-page="reading"], #reading, #source-library, [data-room-tone="teal"] { --story-accent: #096773; --story-light: #8cdae4; --story-position: 100%; }
+body[data-page="layering"], #layering { --story-accent: #803c84; --story-light: #efb0ed; --story-position: 75%; }
+body[data-page="learn"], #path { --story-accent: #66531b; --story-light: #e7ce83; --story-position: 25%; }
+body[data-page], main > section {
+  --story-ink: var(--story-accent);
+  --story-container: color-mix(in srgb, var(--story-accent) 12%, var(--surface));
+  --md-sys-color-primary: var(--story-ink);
+  --md-sys-color-on-primary: #fff;
+  --md-sys-color-primary-container: var(--story-container);
+  --md-sys-color-on-primary-container: var(--text);
+  --md-sys-color-secondary-container: var(--story-container);
+  --md-sys-color-on-secondary-container: var(--text);
+  --brown: var(--story-ink);
+  --on-brown: #fff;
+  --sunflower: var(--story-accent);
+  --on-sunflower: #fff;
+  --mint: var(--story-container);
+  --on-mint: var(--text);
+  --focus: var(--story-ink);
+}
+:root[data-theme="dark"] body[data-page], :root[data-theme="dark"] main > section {
+  --story-ink: var(--story-light);
+  --story-container: color-mix(in srgb, var(--story-accent) 28%, var(--surface));
+  --md-sys-color-on-primary: #111b21;
+}
+body[data-page="home"] .threshold { background: var(--story-container); }
+.threshold .seal img, footer .seal img { background: #efd393; }
+body[data-page="home"] .hero {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: 2rem;
+}
+.hero-content { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+.hero-content .eyebrow { grid-column: 1 / -1; }
+.hero-content h1 { grid-row: span 2; max-width: 19ch; font-size: clamp(2.25rem, 4.3vw, 4rem); }
+.hero-content .library-shortcuts { margin-top: .75rem; }
+.hero-content > p:not(.eyebrow) { margin-top: 0; }
+.ceramic-mural { margin: 0; min-width: 0; }
+.ceramic-mural img { width: 100%; height: auto; border-radius: var(--radius-large); border: 2px solid #374f48; box-shadow: var(--md-sys-elevation-level2); }
+.ceramic-mural figcaption { padding-top: .75rem; color: var(--story-ink); font-size: .8125rem; letter-spacing: .08em; text-align: center; }
+
+body[data-page="home"] #rooms {
+  max-width: none;
+  background: #172e35;
+  color: #fff7e8;
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+}
+body[data-page="home"] #rooms > h2 { color: #fff7e8; }
+body[data-page="home"] #rooms > .eyebrow { color: #efc875; }
+.floor-intro { color: #d0e0df; max-width: 60ch; }
+#roomGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+#roomGrid .room-card {
+  display: flex;
+  flex-direction: column;
+  padding: .75rem;
+  border: 1px solid color-mix(in srgb, var(--story-light) 45%, #243b40);
+  border-radius: var(--radius-large);
+  background: color-mix(in srgb, var(--story-accent) 65%, #122a32);
+  color: #fff9ef;
+  text-decoration: none;
+  overflow: hidden;
+}
+#roomGrid .room-card:hover { border-color: var(--story-light); box-shadow: 0 6px 22px #0005; }
+#roomGrid .room-card:focus-visible { outline-color: #fff3c8; }
+.room-picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 50% 50% 12px 12px;
+  border: 2px solid var(--story-light);
+  background-color: #152e35;
+}
+.room-picture img { width: 100%; height: 100%; object-fit: cover; }
+.room-illustration { background-image: url("assets/artwork/ceramic-window-stories.jpg"); background-size: 500% auto; background-position: var(--window-position) center; }
+[data-room-tone="terracotta"] .room-illustration { background-position: 100% 100%; }
+[data-room-tone="teal"] .room-illustration { background-position: 100% 0%; }
+#roomGrid .room-copy { display: flex; flex: 1; flex-direction: column; padding: 1rem .25rem .25rem; color: #fff9ef; }
+.room-kicker { color: var(--story-light); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+#roomGrid .room-card h3 { margin: .6rem 0; color: #fff9ef; font-size: 1.25rem; line-height: 1.2; }
+#roomGrid .room-card p { margin: 0 0 1rem; color: #f1e9e0; font-size: .875rem; line-height: 1.45; }
+.room-enter { display: flex; gap: .5rem; align-items: center; justify-content: space-between; margin-top: auto; padding-top: .75rem; border-top: 1px solid #ffffff40; color: var(--story-light); font-size: .8125rem; font-weight: 500; }
+.room-enter .material-symbols-rounded { font-size: 20px; width: 20px; height: 20px; }
+
+/* Chapter headers carry a piece of the same decorative ceramic story. */
+body:not([data-page="home"]) main > section > .head {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding: 1.5rem;
+  border: 0;
+  border-inline-start: 6px solid var(--story-accent);
+  border-radius: var(--radius-large);
+  background: var(--story-container);
+  overflow: hidden;
+}
+body:not([data-page="home"]) main > section > .head::before {
+  content: "";
+  display: block;
+  grid-column: 1 / -1;
+  height: 120px;
+  border-radius: 20px;
+  background: url("assets/artwork/ceramic-window-stories.jpg") var(--story-position) 50% / cover;
+}
+main > section > .head h2 { color: var(--text); }
+main > section > .head .eyebrow { color: var(--story-ink); }
+.tile, .rail button, .material-card, .plan-card, .shelves article, .heat-line article { border-color: color-mix(in srgb, var(--story-ink) 36%, var(--outline-soft)); }
+.tile-copy, .rail button > span:not(.no-photo), .shelves article { background: var(--story-container); }
+.exhibition:nth-child(4n + 1) { --story-accent: #704592; }
+.exhibition:nth-child(4n + 2) { --story-accent: #245394; }
+.exhibition:nth-child(4n + 3) { --story-accent: #993b15; }
+.exhibition:nth-child(4n + 4) { --story-accent: #216751; }
+.exhibition { background: color-mix(in srgb, var(--story-accent) 10%, var(--surface)); border-color: color-mix(in srgb, var(--story-accent) 40%, var(--outline-soft)); }
+.exhibition h3, .exhibition small { color: var(--text); }
+.exhibition b { color: var(--text); }
+.tribute-entry-mark { background: #704592; color: #fff0ce; }
+.tribute-monogram { background: var(--story-container); border-color: var(--story-accent); color: var(--story-ink); }
+.tribute-head { padding: 1.5rem; border-radius: var(--radius-large); background: var(--story-container); border: 1px solid color-mix(in srgb, var(--story-ink) 35%, var(--outline-soft)); }
+.lesson > span, .event time { background: var(--story-container); color: var(--story-ink); }
+.lesson, .event { border-color: color-mix(in srgb, var(--story-ink) 30%, var(--outline-soft)); }
+.heat-line article { background: var(--story-container); }
+body > footer { border-top: 6px solid #ad7d39; background: #172e35; color: #fff7e8; }
+body > footer a, body > footer .seal { color: #f3d793; }
+
+@media (min-width: 840px) {
+  #roomGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  body:not([data-page="home"]) main > section > .head { grid-template-columns: 130px minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 1.5rem; }
+  body:not([data-page="home"]) main > section > .head::before { grid-column: auto; width: 130px; height: 160px; border-radius: 65px 65px 12px 12px; background-size: 500% auto; }
+  body:not([data-page="home"]) main > section > .head > div:only-child { grid-column: 2 / -1; }
+}
+@media (max-width: 759px) {
+  .hero-content { display: block; }
+  .hero-content h1 { max-width: 18ch; font-size: clamp(2rem, 8vw, 3rem); }
+  .hero-content > p:not(.eyebrow) { margin-top: .75rem; }
+  .ceramic-mural img { min-height: 175px; object-fit: cover; object-position: center; }
+  .ceramic-mural figcaption { font-size: .7rem; letter-spacing: .03em; }
+}
+@media (max-width: 599px) {
+  #roomGrid { gap: .65rem; }
+  #roomGrid .room-card { padding: .5rem; border-radius: 20px; }
+  #roomGrid .room-copy { padding-top: .75rem; }
+  #roomGrid .room-card h3 { font-size: 1.05rem; }
+  #roomGrid .room-card p { font-size: .8125rem; }
+  .room-enter { font-size: .75rem; }
+  body:not([data-page="home"]) main > section > .head { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+  body:not([data-page="home"]) main > section > .head::before { height: 88px; }
+}
+:root[data-theme="contrast"] body[data-page], :root[data-theme="contrast"] main > section { --story-ink: #000; --story-container: #fff; --md-sys-color-primary: #000; --md-sys-color-on-primary: #fff; --focus: #000; }
+:root[data-theme="contrast"] #roomGrid .room-card { background: #000; border-color: #fff; }
+:root[data-theme="contrast"] #roomGrid .room-card :is(h3,p,.room-kicker,.room-enter) { color: #fff; }
