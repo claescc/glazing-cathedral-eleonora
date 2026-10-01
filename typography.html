@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Google+Sans+Code:wght@400;500;600&amp;family=Material+Symbols+Rounded&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Google+Sans+Code:wght@400;500;600&amp;family=Material+Symbols+Rounded&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="material3.css?v=20260925-themes" />
     <link rel="stylesheet" href="styles.css?v=20260925-themes" />
-    <link rel="stylesheet" href="ceramic-palette.css?v=20260926" />
+    <link rel="stylesheet" href="m3-site.css?v=20261001" />
     <link rel="stylesheet" href="typography.css?v=20260925-highlights" />
   </head>
   <body class="system-guide">
@@ -33,7 +33,7 @@
         <p class="eyebrow">Shared foundations and components</p>
         <h1>One visual language.</h1>
         <p>
-          Montserrat for reading and interface text. Google Sans Code for
+          Roboto for reading and interface text. Google Sans Code for
           formula numbers. Material Symbols Rounded at 24 px. The specimens
           below consume the same tokens and components as the website.
         </p>
@@ -171,20 +171,8 @@
         </div>
       </section>
       <section class="light">
-        <h2>Eight-section colour palette</h2>
-        <p>Current mode changes each section’s background, text, border and accent. The base values below remain exact source references.</p>
-        <div class="token-grid">
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s1-bg); --sample-text: var(--cc-s1-text); --sample-border: var(--cc-s1-border); --sample-accent: var(--cc-s1-accent)"><strong>1. Sunflower Yellow</strong><code>base #FBC439</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s2-bg); --sample-text: var(--cc-s2-text); --sample-border: var(--cc-s2-border); --sample-accent: var(--cc-s2-accent)"><strong>2. Golden Khaki</strong><code>base #979967</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s3-bg); --sample-text: var(--cc-s3-text); --sample-border: var(--cc-s3-border); --sample-accent: var(--cc-s3-accent)"><strong>3. Olive Moss</strong><code>base #56611F</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s4-bg); --sample-text: var(--cc-s4-text); --sample-border: var(--cc-s4-border); --sample-accent: var(--cc-s4-accent)"><strong>4. Forest Green</strong><code>base #25300E</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s5-bg); --sample-text: var(--cc-s5-text); --sample-border: var(--cc-s5-border); --sample-accent: var(--cc-s5-accent)"><strong>5. Mandarin Orange</strong><code>base #D96C00</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s6-bg); --sample-text: var(--cc-s6-text); --sample-border: var(--cc-s6-border); --sample-accent: var(--cc-s6-accent)"><strong>6. Burnt Sienna</strong><code>base #C1440E</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s7-bg); --sample-text: var(--cc-s7-text); --sample-border: var(--cc-s7-border); --sample-accent: var(--cc-s7-accent)"><strong>7. Burgundy Garnet</strong><code>base #630304</code><span>Theme accent</span></article>
-          <article class="palette-swatch" style="--sample-bg: var(--cc-s8-bg); --sample-text: var(--cc-s8-text); --sample-border: var(--cc-s8-border); --sample-accent: var(--cc-s8-accent)"><strong>8. Chocolate Brown</strong><code>base #2C1310</code><span>Theme accent</span></article>
-        </div>
-        <h2>Shared colour roles</h2>
-        <p>Components consume semantic variables from the active theme. The eight section roles are defined in <code>ceramic-palette.css</code>.</p>
+        <h2>Material 3 colour roles</h2>
+        <p>Components use Material 3 semantic colour roles in light and dark modes. The website theme is defined in <code>m3-site.css</code>.</p>
         <div class="token-grid">
           <article class="swatch swatch-background">
             <strong>background</strong><code>--md-sys-color-background</code>

@@ -17,12 +17,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Google+Sans+Code:wght@400;500;600&amp;family=Material+Symbols+Rounded&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Google+Sans+Code:wght@400;500;600&amp;family=Material+Symbols+Rounded&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="ceramic-palette.css?v=20260926" />
+    <link rel="stylesheet" href="m3-site.css?v=20261001" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -32,7 +32,7 @@
   <body data-page="recipes">
     <a class="skip-link" href="#main-content">Skip to the collection</a>
     <header class="threshold" id="top">
-      <nav aria-label="Primary navigation">
+      <nav aria-label="Top app bar">
         <a class="seal" href="index.html"
           ><img
             src="assets/brand/ejl-sunflower-seal.svg"
@@ -40,35 +40,34 @@
             height="56"
             alt="Eleonora’s EJL sunflower seal"
           /><span>Ceramics Cathedral of Eleonora</span></a
-        ><div class="desktop-pages" aria-label="Main pages"><a href="index.html">Home</a><a href="atlas.html">Atlas</a><a href="recipes.html" aria-current="page">Recipes</a><a href="learn.html">Learn</a><a href="tribute.html">Tribute</a></div><button
+        ><a class="appbar-search" href="reading.html#source-library" aria-label="Search the library"><span class="material-symbols-rounded" aria-hidden="true">search</span><span>Search the library</span></a><button
           id="roomsButton"
           type="button"
           aria-expanded="false"
           aria-controls="roomMenu"
         >
-          Rooms
-          <span class="material-symbols-rounded" aria-hidden="true"
-            >expand_more</span
-          ></button
+          <span class="material-symbols-rounded" aria-hidden="true">apps</span>
+          <span>All rooms</span></button
         ><label class="appearance-control"><span>Appearance</span><select class="theme-select" aria-label="Appearance"><option value="auto">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="contrast">High contrast</option></select></label><a class="notebook-link" href="notebook.html"
           >Notebook · <i id="savedCount">0</i></a
         >
       </nav>
       <div class="room-menu" id="roomMenu"></div>
       <div class="hero">
-        <p class="eyebrow">Eleonora’s working library</p>
-        <h1>
-          <span class="hero-colour">Colour.</span>
-          <span class="hero-material">Material.</span>
-          <span class="hero-fire">Fire.</span>
-        </h1>
-        <p>
-          Explore the glaze collection, open a formula, or search the books.
-        </p>
-        <div class="library-shortcuts">
-          <a href="atlas.html">Glaze atlas</a
-          ><a href="reading.html#source-library">Search the books</a
-          ><a href="notebook.html">My notebook</a>
+        <div class="hero-content">
+          <p class="eyebrow">Eleonora’s ceramic library</p>
+          <h1>Colour, material and fire.<br><span>All in one place.</span></h1>
+          <p>Explore real fired surfaces, open sourced recipes, and follow the craft from raw materials to the kiln.</p>
+          <div class="library-shortcuts">
+            <a href="atlas.html"><span class="material-symbols-rounded" aria-hidden="true">palette</span> Explore the atlas</a>
+            <a href="recipes.html" aria-current="page"><span class="material-symbols-rounded" aria-hidden="true">menu_book</span> Open recipes</a>
+            <a href="reading.html#source-library"><span class="material-symbols-rounded" aria-hidden="true">search</span> Search sources</a>
+          </div>
+        </div>
+        <div class="hero-gallery" aria-label="Ceramic surfaces from the collection">
+          <img src="assets/recipes/oribe.jpg" alt="Green Oribe glazed ceramic surface">
+          <img src="assets/recipes/piepenburg-red-bronze.jpg" alt="Red bronze glazed ceramic surface">
+          <img src="assets/recipes/bloomfield-165-matt-grey.jpeg" alt="Matt grey glazed ceramic surface">
         </div>
       </div>
       <div class="window" id="window" hidden></div>
