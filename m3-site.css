@@ -585,6 +585,52 @@ body:not([data-page="home"]) main > section > .head > div:only-child { grid-colu
 #recipeJumps button { padding: .6rem 1rem; border-radius: 24px; }
 #modal :is(#recipeWeights,#recipeSafety,#recipeMixing,#recipeFiring) { scroll-margin-top: 72px; }
 #modal .workbench-heading > .material-symbols-rounded { min-width: 52px; font-size: 28px; }
+/* Safety is the first task in every formula; icons always have adjacent text. */
+.studio-alert { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 1rem; padding: 1.2rem; margin: 1.5rem 0; border: 2px solid #67301b; border-radius: 24px; background: #ffe3a8; color: #28180f; }
+.studio-alert > .material-symbols-rounded { font-size: 2.5rem; color: #612714; }
+.studio-alert strong { display: block; font-size: 1.05rem; }
+.studio-alert p { margin: .3rem 0 0; color: #28180f; }
+.studio-alert a { color: #35102b; font-weight: 700; text-decoration: underline; }
+.studio-alert-dark { background: #ffe3a8; color: #28180f; }
+#modal .studio-safety { background: #fff0d2; color: #28180f; border: 3px solid #75300d; }
+#modal .studio-safety :is(p,h3,h4,small,summary) { color: #28180f; }
+#modal .safety-title { display: flex; gap: .85rem; align-items: flex-start; }
+#modal .safety-title > .material-symbols-rounded { display: grid; place-items: center; width: 3.5rem; min-width: 3.5rem; height: 3.5rem; background: #74300d; color: #fff; border-radius: 18px; font-size: 2rem; }
+#modal .safety-title h3 { margin: .2rem 0; }
+#modal .safety-lead { font-size: 1.08rem; font-weight: 600; line-height: 1.55; }
+#modal .safety-no-kit { display: flex; gap: .8rem; align-items: center; padding: 1rem; background: #4c1720; color: #fff; border-radius: 16px; line-height: 1.45; }
+#modal .safety-no-kit .material-symbols-rounded { font-size: 2rem; flex: none; }
+#modal .studio-safety h4 { margin: 1.6rem 0 .7rem; font-size: 1.1rem; }
+#modal .safety-kit { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .7rem; list-style: none; margin: 0; padding: 0; }
+#modal .safety-kit li { display: grid; grid-template-columns: auto 1fr; column-gap: .55rem; align-content: start; padding: .8rem; border: 1px solid #755123; border-radius: 16px; background: #fff8e9; color: #28180f; }
+#modal .safety-kit .material-symbols-rounded { grid-row: span 2; color: #67301b; font-size: 1.8rem; }
+#modal .safety-kit b { line-height: 1.2; }
+#modal .safety-kit span:not(.material-symbols-rounded) { font-size: .84rem; line-height: 1.35; margin-top: .3rem; }
+#modal .safety-priority { display: flex; gap: .7rem; align-items: flex-start; padding: 1rem; margin-top: 1rem; border-radius: 16px; background: #4c1720; color: #fff; }
+#modal .safety-priority .material-symbols-rounded { font-size: 2rem; }
+#modal .safety-priority p { margin: .2rem 0 0; color: #fff; }
+#modal .safety-key, #modal .safety-fine { font-size: .9rem; }
+#modal .hazard-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .6rem; }
+#modal .hazard-list li { padding: .8rem; border: 1px solid #846140; border-radius: 14px; background: #fff8e9; }
+#modal .hazard-list li.hazard-priority { border-width: 2px; border-color: #682333; background: #ffe1d4; }
+#modal .hazard-item-head { display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
+#modal .hazard-item-head .material-symbols-rounded { color: #5c2031; }
+#modal .hazard-item-head > span:last-child { padding: .15rem .45rem; border-radius: 100px; background: #4c1720; color: #fff; font-size: .72rem; font-weight: 700; }
+#modal .hazard-list p { margin: .45rem 0; }
+#modal .ingredient-cue { display: inline-flex; align-items: center; gap: .2rem; padding: .2rem .4rem; margin: .3rem 0 0; border-radius: 9px; background: #dcebd4; color: #1f351a; font-size: .7rem; font-weight: 700; line-height: 1.2; }
+#modal .ingredient-cue.cue-priority { background: #f6c4af; color: #442018; }
+#modal .ingredient-cue.cue-review { background: #f9dca4; color: #3b270b; }
+#modal .ingredient-cue .material-symbols-rounded { font-size: 1rem; }
+#modal .mix-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+#modal .mix-steps li { display: flex; gap: .7rem; padding: 1rem; border: 1px solid #755123; border-radius: 16px; background: #fff2d8; color: #28180f; }
+#modal .mix-steps li:nth-child(3n + 2) { background: #e4eed9; border-color: #496433; }
+#modal .mix-steps li:nth-child(3n) { background: #e3e8f6; border-color: #495775; }
+#modal .mix-steps .material-symbols-rounded { font-size: 2rem; color: #4c1720; flex: none; }
+#modal .mix-steps b { display: block; }
+#modal .mix-steps p { margin: .35rem 0 0; font-size: .88rem; line-height: 1.45; }
+#recipeJumps button:first-child { background: #4c1720; color: #fff; border-color: #4c1720; font-weight: 700; }
+@media (max-width: 720px) { .studio-alert { grid-template-columns: auto minmax(0,1fr); } .studio-alert a { grid-column: 2; } #modal .safety-kit { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 520px) { #modal .safety-kit, #modal .hazard-list, #modal .mix-steps { grid-template-columns: minmax(0,1fr); } .studio-alert { gap: .6rem; } }
 /* One container gutter: legacy full-viewport padding must not compound with max-width. */
 body[data-page] main > section:not(#rooms) { width: 100%; max-width: 88rem; margin-inline: auto; padding-inline: clamp(1rem, 3vw, 3rem); }
 #exhibitions .exhibition-grid { grid-template-columns: minmax(0, 1fr); }

@@ -1581,7 +1581,7 @@ function openBook(x) {
   $("#modalTitle").textContent = x.name;
   $("#modalIntro").textContent = x.history;
   $("#recipeJumps")?.remove();
-  if (x.kind === "recipe") $("#modalIntro").insertAdjacentHTML("afterend", '<nav id="recipeJumps" aria-label="Recipe sections"><button data-book-jump="recipeWeights">Weigh a batch</button><button data-book-jump="recipeSafety">Safety</button><button data-book-jump="recipeMixing">Mixing steps</button><button data-book-jump="recipeFiring">Kiln &amp; cones</button></nav>');
+  if (x.kind === "recipe") $("#modalIntro").insertAdjacentHTML("afterend", '<nav id="recipeJumps" aria-label="Recipe sections"><button data-book-jump="recipeSafety">⚠ Safety first</button><button data-book-jump="recipeWeights">Weigh a batch</button><button data-book-jump="recipeMixing">Mixing steps</button><button data-book-jump="recipeFiring">Kiln &amp; cones</button></nav>');
   const facts =
     x.kind === "family" && x.date
       ? [
