@@ -1,7 +1,7 @@
 {
   "sourceSha256": "9fc921aea44d83801dddd7d27652a4ff34a973eb7c7f6a980021cb8e021f2f53",
   "recipes": 128,
-  "photographs": 23,
+  "photographs": 68,
   "withheld": [
     {
       "page": 140,
@@ -71,84 +71,84 @@
       "page": 73,
       "endPage": 73,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-73-cobalt-blue-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-73-blue-runny-transparent",
       "page": 73,
       "endPage": 74,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-73-blue-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-74-barium-blue-matt-not-food-safe",
       "page": 74,
       "endPage": 74,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-74-barium-blue-matt-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-74-blue-stiff-transparent",
       "page": 74,
       "endPage": 74,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-74-blue-stiff-transparent.jpg"
     },
     {
       "id": "bloomfield-74-cobalt-chrome-teal-blue",
       "page": 74,
       "endPage": 75,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-74-cobalt-chrome-teal-blue.jpg"
     },
     {
       "id": "bloomfield-75-cobalt-chrome-barium-blue-not-food-safe",
       "page": 75,
       "endPage": 75,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-75-cobalt-chrome-barium-blue-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-76-blue-pink-magnesium-crystalline-matt",
       "page": 76,
       "endPage": 77,
       "baseTotal": 102.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-76-blue-pink-magnesium-crystalline-matt.jpg"
     },
     {
       "id": "bloomfield-77-rutile-cobalt-blue",
       "page": 77,
       "endPage": 77,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-77-rutile-cobalt-blue.jpg"
     },
     {
       "id": "bloomfield-77-blue-magnesium-crystalline-matt",
       "page": 77,
       "endPage": 77,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-77-blue-magnesium-crystalline-matt.jpg"
     },
     {
       "id": "bloomfield-78-grey-blue-transparent",
       "page": 78,
       "endPage": 78,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-78-grey-blue-transparent.jpg"
     },
     {
       "id": "bloomfield-78-blue-crystalline-glossy",
       "page": 78,
       "endPage": 78,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-78-blue-crystalline-glossy.jpg"
     },
     {
       "id": "bloomfield-78-midnight-blue-black",
       "page": 78,
       "endPage": 78,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-78-midnight-blue-black.jpg"
     },
     {
       "id": "bloomfield-84-celadon",
@@ -183,84 +183,84 @@
       "page": 89,
       "endPage": 90,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-89-celadon-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-90-copper-green-stiff-transparent",
       "page": 90,
       "endPage": 90,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-90-copper-green-stiff-transparent.jpg"
     },
     {
       "id": "bloomfield-90-chrome-green-runny-transparent",
       "page": 90,
       "endPage": 90,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-90-chrome-green-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-90-chrome-green-stiff-transparent",
       "page": 90,
       "endPage": 90,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-90-chrome-green-stiff-transparent.jpg"
     },
     {
       "id": "bloomfield-91-barium-matt-chartreuse-not-food-safe",
       "page": 91,
       "endPage": 91,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-91-barium-matt-chartreuse-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-91-magnesium-matt-green",
       "page": 91,
       "endPage": 91,
       "baseTotal": 99.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-91-magnesium-matt-green.jpg"
     },
     {
       "id": "bloomfield-92-pale-green-runny-transparent",
       "page": 92,
       "endPage": 93,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-92-pale-green-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-93-chrome-chartreuse-transparent-not-food-safe",
       "page": 93,
       "endPage": 93,
       "baseTotal": 98.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-93-chrome-chartreuse-transparent-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-93-pale-chrome-green-runny-transparent",
       "page": 93,
       "endPage": 93,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-93-pale-chrome-green-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-93-nickel-titanium-green-satin-matt",
       "page": 93,
       "endPage": 94,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-93-nickel-titanium-green-satin-matt.jpg"
     },
     {
       "id": "bloomfield-94-bright-chrome-green-runny-transparent",
       "page": 94,
       "endPage": 94,
       "baseTotal": 97.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-94-bright-chrome-green-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-94-dark-copper-green-runny-transparent",
       "page": 94,
       "endPage": 94,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-94-dark-copper-green-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-95-chrome-green-glaze",
@@ -302,21 +302,21 @@
       "page": 98,
       "endPage": 99,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-98-matt-duck-egg-blue.jpeg"
     },
     {
       "id": "bloomfield-99-matt-turquoise",
       "page": 99,
       "endPage": 99,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-99-matt-turquoise.jpeg"
     },
     {
       "id": "bloomfield-99-matt-olive-green",
       "page": 99,
       "endPage": 99,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-99-matt-olive-green.jpeg"
     },
     {
       "id": "bloomfield-99-matt-blue-green",
@@ -330,84 +330,84 @@
       "page": 102,
       "endPage": 102,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-102-barium-matt-turquoise-opaque-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-102-barium-matt-turquoise-translucent-not-food-safe",
       "page": 102,
       "endPage": 102,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-102-barium-matt-turquoise-translucent-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-102-magnesium-matt-blue-green",
       "page": 102,
       "endPage": 103,
       "baseTotal": 99.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-102-magnesium-matt-blue-green.jpg"
     },
     {
       "id": "bloomfield-103-cobalt-chrome-blue-green",
       "page": 103,
       "endPage": 103,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-103-cobalt-chrome-blue-green.jpg"
     },
     {
       "id": "bloomfield-103-chrome-green-runny-transparent",
       "page": 103,
       "endPage": 103,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-103-chrome-green-runny-transparent.jpg"
     },
     {
       "id": "bloomfield-103-teal-green-runny",
       "page": 103,
       "endPage": 103,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-103-teal-green-runny.jpg"
     },
     {
       "id": "bloomfield-104-pale-duck-egg-blue-runny-on-stoneware",
       "page": 104,
       "endPage": 105,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-104-pale-duck-egg-blue-runny-on-stoneware.jpg"
     },
     {
       "id": "bloomfield-105-turquoise-opaque-runny",
       "page": 105,
       "endPage": 105,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-105-turquoise-opaque-runny.jpg"
     },
     {
       "id": "bloomfield-105-turquoise-transparent-runny",
       "page": 105,
       "endPage": 105,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-105-turquoise-transparent-runny.jpg"
     },
     {
       "id": "bloomfield-105-sea-green-crystalline-matt",
       "page": 105,
       "endPage": 106,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-105-sea-green-crystalline-matt.jpg"
     },
     {
       "id": "bloomfield-106-barium-turquoise-satin-matt-not-food-safe",
       "page": 106,
       "endPage": 106,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-106-barium-turquoise-satin-matt-not-food-safe.jpg"
     },
     {
       "id": "bloomfield-106-sea-green-transparent-runny",
       "page": 106,
       "endPage": 106,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-106-sea-green-transparent-runny.jpg"
     },
     {
       "id": "bloomfield-109-red-purple-glaze",
@@ -694,42 +694,42 @@
       "page": 146,
       "endPage": 147,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-146-yellow-cream-transparent.jpg"
     },
     {
       "id": "bloomfield-147-bright-yellow",
       "page": 147,
       "endPage": 147,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-147-bright-yellow.jpg"
     },
     {
       "id": "bloomfield-147-orange-yellow-opaque",
       "page": 147,
       "endPage": 147,
       "baseTotal": 99.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-147-orange-yellow-opaque.jpg"
     },
     {
       "id": "bloomfield-147-barium-yellow-matt",
       "page": 147,
       "endPage": 148,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-147-barium-yellow-matt.jpg"
     },
     {
       "id": "bloomfield-148-tan-yellow-transparent",
       "page": 148,
       "endPage": 148,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-148-tan-yellow-transparent.jpg"
     },
     {
       "id": "bloomfield-148-nickel-titanium-yellow-matt",
       "page": 148,
       "endPage": 148,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-148-nickel-titanium-yellow-matt.jpg"
     },
     {
       "id": "bloomfield-152-yellow-brown-glaze",
