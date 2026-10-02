@@ -864,7 +864,7 @@ function tile(x, view = "photos") {
   const firing = coneLabel(x.cone);
   const firingLabel = /^\d/.test(firing) ? `Cone ${firing}` : firing;
   const visual = !x.image
-    ? `<span class="no-photo">Photograph not supplied</span>`
+    ? `<span class="no-photo">Recipe photograph not yet linked</span>`
     : view === "photos"
       ? `<img class="atlas-photo" loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt=""><span class="cone-caption">Source photograph</span>`
       : `<span class="cone-surface"><img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Digital cone visualisation of ${escapeHtml(x.name)}, based on a cropped source photograph" style="--cone-left:${50 - fx * 4}%;--cone-top:${50 - fy * 4}%"></span><span class="cone-caption">Digital cone preview</span>`;
@@ -1023,7 +1023,7 @@ document.querySelector("#recipes .under").onclick = () => {
 function renderRecipeLibrary() {
   const query = $("#recipeSearch").value.trim().toLocaleLowerCase();
   const matches = recipes.filter(x => [x.name, x.source, x.cone, x.atmosphere].join(" ").toLocaleLowerCase().includes(query));
-  $("#recipeRail").innerHTML = matches.map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${escapeHtml(x.name)}">` : '<span class="no-photo">Source formula<br>Photograph not supplied</span>'}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
+  $("#recipeRail").innerHTML = matches.map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${escapeHtml(x.name)}">` : '<span class="no-photo">Source formula<br>Recipe photograph not yet linked</span>'}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
   $("#recipeCount").textContent = matches.length ? `Showing ${matches.length} of ${recipes.length} recipes` : "No matching recipes. Try another name, source or cone.";
   $("#recipeMore").hidden = true;
 }
@@ -1570,7 +1570,7 @@ function openBook(x) {
   $("#modalImage").style.objectPosition = x.position || "50% 50%";
   $("#modalImage").style.transform = "none";
   $("#recordType").textContent = !x.image
-    ? "SOURCE FORMULA · NO MATCHED PHOTOGRAPH"
+    ? "RECIPE PHOTOGRAPH NOT YET LINKED"
     : x.platform === "Glazy"
       ? `GLAZY ${String(x.sourceStatus || "RECIPE").toUpperCase()} RECORD`
       : x.kind === "recipe"
@@ -1580,6 +1580,8 @@ function openBook(x) {
     x.kind === "recipe" ? `CONE ${x.cone} · ${x.atmosphere}` : x.origin;
   $("#modalTitle").textContent = x.name;
   $("#modalIntro").textContent = x.history;
+  $("#recipeJumps")?.remove();
+  if (x.kind === "recipe") $("#modalIntro").insertAdjacentHTML("afterend", '<nav id="recipeJumps" aria-label="Recipe sections"><button data-book-jump="recipeWeights">Weigh a batch</button><button data-book-jump="recipeSafety">Safety</button><button data-book-jump="recipeMixing">Mixing steps</button><button data-book-jump="recipeFiring">Kiln &amp; cones</button></nav>');
   const facts =
     x.kind === "family" && x.date
       ? [
@@ -1650,7 +1652,7 @@ function openBook(x) {
     x._relatedSectionNo = String(sectionNo).padStart(2, "0");
     const weight = (a) => ((a / divisor) * 100).toFixed(1);
     $("#formulaBlock").innerHTML =
-      `<section class="book-section"><small>03 · WEIGH THE RECIPE</small><h3>Published formula</h3><label class="batch">${x.calculationBasis === "total" ? "Total dry batch size" : "Base batch size (additions extra)"} <input id="batch" type="number" value="100" min="10"> g</label><table class="formula"><thead><tr><th>Material</th><th>Parts / %</th><th>Weight</th></tr></thead><tbody>${x.ingredients.map((a) => `<tr><td>${a.material}</td><td>${a.amount}</td><td data-pct="${a.amount}" data-divisor="${divisor}">${weight(a.amount)} g</td></tr>`).join("")}${x.additions.length ? `<tr><th colspan="3">ADDITIONS · published beyond the ${baseTotal.toFixed(1)} base</th></tr>` : ""}${x.additions.map((a) => `<tr><td>+ ${a.material}</td><td>${a.amount}</td><td data-pct="${a.amount}" data-divisor="${divisor}">${weight(a.amount)} g</td></tr>`).join("")}</tbody></table><p><b>Published total: ${publishedTotal.toFixed(1)}</b> · ${x.calculationBasis === "total" ? "all printed parts are scaled together to the chosen dry batch" : "base " + baseTotal.toFixed(1) + " plus additions; the calculator preserves this structure"}.</p></section>${umfSection}${techniqueSection}${testSection}<section class="book-section"><small>${sourceSectionNo} · SOURCE NOTES & EVIDENCE BOUNDARIES</small><h3>What the publication records and what it does not</h3><div class="status ${/failed|decorative/i.test(x.status) ? "danger" : ""}"><b>${x.status}</b></div>${x.notes ? `<p>${x.notes}</p>` : ""}${x.sourceNotes ? `<p>${x.sourceNotes}</p>` : ""}${x.missingFields ? `<div class="missing-fields"><b>Not supplied by this Glazy record</b><ul>${x.missingFields.map((v) => `<li>${v}</li>`).join("")}</ul></div>` : ""}<div class="source"><b>${x.source}</b><br>${x.author} · formula on supplied PDF p. ${x.page}${x.imageSourcePage ? `<br>Fired photograph: supplied PDF p. ${x.imageSourcePage} · matched to this formula during the source-page audit` : ""}${x.imageCredit ? `<br>Selected photograph: ${x.imageCredit}` : ""}${x.sourceUrl ? `<br><a href="${x.sourceUrl}" target="_blank" rel="noopener">Open the live Glazy record ↗</a>` : ""}${x.relatedSourceUrl ? `<br><a href="${x.relatedSourceUrl}" target="_blank" rel="noopener">Read the maker’s atmospheric-colour notes ↗</a>` : ""}${x.license ? `<br><br>${x.license}${x.licenseUrl ? ` · <a href="${x.licenseUrl}" target="_blank" rel="noopener">licence ↗</a>` : ""}` : ""}</div></section>`;
+      `${RecipeWorkbench.html(x)}${umfSection}${techniqueSection}${testSection}<section class="book-section"><small>${sourceSectionNo} · SOURCE NOTES & EVIDENCE BOUNDARIES</small><h3>What the publication records and what it does not</h3><div class="status ${/failed|decorative/i.test(x.status) ? "danger" : ""}"><b>${x.status}</b></div>${x.notes ? `<p>${x.notes}</p>` : ""}${x.sourceNotes ? `<p>${x.sourceNotes}</p>` : ""}${x.missingFields ? `<div class="missing-fields"><b>Not supplied by this Glazy record</b><ul>${x.missingFields.map((v) => `<li>${v}</li>`).join("")}</ul></div>` : ""}<div class="source"><b>${x.source}</b><br>${x.author} · formula on supplied PDF p. ${x.page}${x.imageSourcePage ? `<br>Fired photograph: supplied PDF p. ${x.imageSourcePage} · matched to this formula during the source-page audit` : ""}${x.imageCredit ? `<br>Selected photograph: ${x.imageCredit}` : ""}${x.sourceUrl ? `<br><a href="${x.sourceUrl}" target="_blank" rel="noopener">Open the live Glazy record ↗</a>` : ""}${x.relatedSourceUrl ? `<br><a href="${x.relatedSourceUrl}" target="_blank" rel="noopener">Read the maker’s atmospheric-colour notes ↗</a>` : ""}${x.license ? `<br><br>${x.license}${x.licenseUrl ? ` · <a href="${x.licenseUrl}" target="_blank" rel="noopener">licence ↗</a>` : ""}` : ""}</div></section>`;
   } else if (x.reconstruction) {
     const r = x.reconstruction,
       baseTotal = r.ingredients.reduce((n, v) => n + v.amount, 0);
@@ -1666,7 +1668,9 @@ function openBook(x) {
   $("#relatedBlock").innerHTML =
     `<section class="book-section"><small>${x._relatedSectionNo || "05"} · CONTINUE THROUGH THE COLLECTION</small><h3>Related surfaces</h3><div class="related-books">${rel.map((r) => `<button data-related="${r.id}"><img src="${imageSrc(r.image)}" alt="Fired surface: ${r.name}"><b>${r.name}</b></button>`).join("")}</div></section>`;
   let batch = $("#batch");
-  if (batch) {
+  if (batch && x.kind === "recipe") {
+    RecipeWorkbench.bind(x, $("#modal"));
+  } else if (batch) {
     const error = document.createElement("p");
     error.id = "batchError";
     error.className = "field-error";
@@ -1701,6 +1705,14 @@ function openBook(x) {
         openBook(collection.find((r) => r.id === b.dataset.related))),
   );
   all(".concept-jump").forEach((a) => (a.onclick = () => $("#close").click()));
+  all("[data-book-jump]").forEach(button => button.onclick = () => {
+    const section = document.getElementById(button.dataset.bookJump);
+    section.setAttribute("tabindex", "-1");
+    section.focus({preventScroll: true});
+    section.scrollIntoView({block: "start"});
+  });
+  const textWalker = document.createTreeWalker($("#modal .book"), NodeFilter.SHOW_TEXT);
+  while (textWalker.nextNode()) textWalker.currentNode.textContent = RecipeWorkbench.metric(textWalker.currentNode.textContent);
   updateSaveButton();
   $("#modal").hidden = false;
   document.body.style.overflow = "hidden";
@@ -1722,7 +1734,7 @@ $("#saveButton").onclick = () => {
 };
 let modalReturnFocus = null;
 const originalOpenBook = openBook;
-const pageSurfaces = all(".threshold, main, body > footer, .mobile-nav");
+const pageSurfaces = all(".threshold, .room-frontispiece, main, body > footer, .mobile-nav");
 function setPageInert(inert) {
   pageSurfaces.forEach((el) => {
     el.inert = inert;
@@ -1759,11 +1771,12 @@ document.addEventListener("keydown", (e) => {
   }
   if (e.key === "Tab") {
     const focusable = all(
-      '#modal a[href],#modal button:not([disabled]),#modal input:not([disabled]),#modal select:not([disabled]),#modal [tabindex]:not([tabindex="-1"])',
+      '#modal a[href],#modal button:not([disabled]),#modal input:not([disabled]),#modal select:not([disabled]),#modal summary,#modal [tabindex]:not([tabindex="-1"])',
     );
-    if (!focusable.length) return;
-    const first = focusable[0],
-      last = focusable[focusable.length - 1];
+    const visibleFocusable = focusable.filter(el => el.getClientRects().length);
+    if (!visibleFocusable.length) return;
+    const first = visibleFocusable[0],
+      last = visibleFocusable[visibleFocusable.length - 1];
     if (e.shiftKey && document.activeElement === first) {
       e.preventDefault();
       last.focus();

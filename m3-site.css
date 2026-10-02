@@ -495,3 +495,98 @@ body:not([data-page="home"]) main > section > .head > div:only-child { grid-colu
 :root[data-theme="contrast"] .frontispiece-caption { background: #000; }
 :root[data-theme="contrast"] .chapter-book { background: #fff; color: #000; }
 :root[data-theme="contrast"] .chapter-book :is(small,b) { color: #000; }
+
+/* A readable manuscript with a distinct, live chemistry workbench. */
+#modal { --folio-paper: #fff5df; --folio-ink: #302517; --folio-muted: #59442e; --folio-rose: #682340; --folio-teal: #174c49; --folio-line: #aa8b61; }
+#modal article, #modal .book { background: var(--folio-paper); color: var(--folio-ink); }
+#modal article { border: 2px solid #b78f52; }
+#modal .book { background-image: linear-gradient(90deg, #b38a3f12 0, transparent 4%, transparent 96%, #b38a3f12 100%); }
+#modal :is(h2,h3,h4,p,li,td,th,label,dt,dd,.caution,.intro) { color: var(--folio-ink); }
+#modal :is(h2,h3) { font-family: Georgia, serif; }
+#modal h2 { font-size: clamp(1.8rem, 4vw, 2.75rem); }
+#modal :is(.eyebrow,.book-section > small,.facts small,.formula th small) { color: var(--folio-rose); }
+#modal :is(.status,.source,.facts,.umf-grid > span) { background: #f4e4c6; color: var(--folio-ink); border-color: var(--folio-line); }
+#modal .facts > span { border-color: var(--folio-line); }
+#modal a { color: #54203d; text-decoration: underline; text-underline-offset: .2em; }
+#modal :is(button,.save-button,.save-button.on) { background: #55203d; color: #fff7e5; border: 2px solid #55203d; min-height: 48px; }
+#modal button:hover { background: #371128; color: #fff7e5; }
+#modal :is(input,select) { background: #fffdfa; color: #302517; border: 2px solid #735636; min-height: 48px; border-radius: 12px; font: inherit; padding: .6rem; max-width: 100%; }
+#modal :is(input,select,button,a,summary):focus-visible { outline: 3px solid #102e69; outline-offset: 3px; box-shadow: 0 0 0 6px #fff5df; }
+#modal #close { background: #fff5df; color: #302517; border-color: #59442e; width: 48px; z-index: 5; }
+#modal .hero-image.without-photo { min-height: 160px; background: url('assets/artwork/recipe-manuscript.jpg') center / cover; }
+#modal #recordType { background: #55203d; color: #fff7e5; max-width: calc(100% - 85px); font-size: .7rem; line-height: 1.5; }
+#modal .hero-image.without-photo::after { content: 'Decorative manuscript illustration'; position: absolute; bottom: .5rem; right: .5rem; background: #fff5df; color: #302517; font-size: .65rem; padding: .3rem .5rem; border-radius: 4px; }
+#modal .book-section { border-color: var(--folio-line); }
+#modal .recipe-workbench { border: 2px solid #174c49; border-radius: 24px; padding: 1.5rem; margin: 2rem 0; background: #f8edcf; box-shadow: 5px 6px 0 #c6a973; }
+.workbench-heading { display: flex; gap: 1rem; align-items: center; border-bottom: 2px solid #b78f52; padding-bottom: 1rem; }
+#modal .workbench-heading > span { display: grid; place-items: center; background: #174c49; color: #fff7e5; border-radius: 50%; width: 52px; height: 52px; flex-shrink: 0; }
+#modal .workbench-heading small { color: #174c49; font-weight: 700; }
+#modal .workbench-heading h3 { margin: .3rem 0; }
+#modal .batch { display: grid; grid-template-columns: 1.2fr 1fr 1.2fr; gap: .8rem; align-items: end; margin-top: 1.25rem; }
+#modal .batch label, #modal .water-log label { display: grid; gap: .5rem; font-weight: 600; font-size: .85rem; }
+#modal .batch input { width: 100%; font-size: 1.4rem; }
+#modal .batch select { width: 100%; }
+.batch-presets { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+#modal .batch-presets button { padding: .5rem 1rem; border-radius: 24px; background: #174c49; border-color: #174c49; }
+.weight-dashboard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin-top: 1rem; }
+#modal .weight-dashboard > div { padding: 1rem; border-radius: 16px; background: #174c49; color: #fff7e5; }
+#modal .weight-dashboard > div:nth-child(2) { background: #682340; }
+#modal .weight-dashboard > div:nth-child(3) { background: #383367; }
+.weight-dashboard small { display: block; font-size: .65rem; line-height: 1.5; }
+.weight-dashboard strong { display: block; font-size: clamp(1.1rem, 3vw, 1.75rem); margin-top: .5rem; overflow-wrap: anywhere; }
+#modal #batchError, #modal .scale-warning { background: #f9d9c4; color: #5b220a; font-weight: 600; padding: .8rem; border-left: 4px solid #7c3412; }
+#modal #batchError:empty { display: none; }
+#modal .weigh-hint, #modal .formula-basis, #modal #scaleAdvice { font-size: .85rem; line-height: 1.6; }
+#modal .weighing-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.weighing-table caption { text-align: left; font-weight: 600; padding: .75rem 0; }
+#modal .weighing-table th:first-child, #modal .weighing-table td:first-child { width: 56px; }
+#modal .weighing-table th:last-child { width: 29%; }
+#modal .weighing-table :is(th,td) { padding: .7rem .35rem; border-color: #b79a70; overflow-wrap: anywhere; }
+#modal .weighing-table th[scope="row"] { text-align: left; font-weight: 500; }
+#modal .weighing-table th small { display: block; font-size: .7rem; margin-top: .35rem; }
+#modal .weighed { width: 28px; height: 28px; min-height: 28px; accent-color: #174c49; cursor: pointer; margin: 8px; }
+#modal .weighing-table output { display: block; background: #e0efcf; color: #243b15; border: 1px solid #446331; border-radius: 10px; padding: .6rem .35rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+#modal .weighing-table .is-weighed { background: #dfebd4; }
+.weigh-progress { margin-top: 1rem; display: grid; gap: .5rem; }
+.weigh-progress progress { width: 100%; height: 16px; accent-color: #174c49; }
+#modal .studio-safety { border: 2px solid #763613; border-radius: 20px; padding: 1.5rem; background: #f8e4c3; }
+#modal .safety-banner { padding: 1rem; border-radius: 16px; background: #71320f; color: #fff8ea; }
+#modal .safety-banner :is(p,a) { color: #fff8ea; }
+#modal summary { cursor: pointer; min-height: 48px; padding: 1rem 0; font-weight: 700; color: #54203d; }
+#modal .hazard-list { list-style: none; padding: 0; }
+#modal .hazard-list li { border-top: 1px solid #aa8b61; padding: 1rem 0; }
+#modal .hazard-list p { font-size: .9rem; }
+#modal .mixing-guide ol { padding-left: 1.5rem; }
+#modal .mixing-guide li { padding: .6rem 0 .6rem .5rem; }
+#modal .mixing-guide li::marker { color: #174c49; font-weight: 700; }
+#modal .water-log { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; padding: 1rem; background: #dcedeb; border: 1px solid #174c49; border-radius: 16px; }
+.water-log p { grid-column: 1 / -1; margin: 0; font-size: .8rem; }
+#modal .firing-card { padding: 1.5rem; border: 2px solid #683916; border-radius: 20px; background: #f5dfbf; }
+.firing-card dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.firing-card dt { font-size: .8rem; font-weight: 700; }
+.firing-card dd { margin: .5rem 0 0; }
+#modal .kiln-link { display: inline-block; padding: .8rem 1rem; background: #55203d; color: #fff7e5; border-radius: 24px; }
+#modal .related-books button { background: #f4e4c6; color: #302517; border-color: #735636; }
+#modal .related-books button:hover { background: #e8d2ab; }
+@media (max-width: 599px) {
+  #modal .recipe-workbench, #modal .studio-safety, #modal .firing-card { padding: .8rem; }
+  #modal .batch { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  #modal .batch label:last-child { grid-column: 1 / -1; }
+  .weight-dashboard { grid-template-columns: minmax(0,1fr); }
+  #modal .weight-dashboard > div { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .75rem; }
+  .weight-dashboard strong { margin: 0; }
+  #modal .water-log { grid-template-columns: minmax(0,1fr); }
+  .firing-card dl { grid-template-columns: minmax(0,1fr); }
+  #modal .weighing-table th:first-child, #modal .weighing-table td:first-child { width: 40px; padding-left: 0; padding-right: 0; }
+  #modal .weighed { margin: 5px; width: 26px; }
+  #modal .weighing-table th:last-child { width: 33%; }
+}
+#recipeJumps { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1.25rem 0; }
+#recipeJumps button { padding: .6rem 1rem; border-radius: 24px; }
+#modal :is(#recipeWeights,#recipeSafety,#recipeMixing,#recipeFiring) { scroll-margin-top: 72px; }
+#modal .workbench-heading > .material-symbols-rounded { min-width: 52px; font-size: 28px; }
+/* One container gutter: legacy full-viewport padding must not compound with max-width. */
+body[data-page] main > section:not(#rooms) { width: 100%; max-width: 88rem; margin-inline: auto; padding-inline: clamp(1rem, 3vw, 3rem); }
+#exhibitions .exhibition-grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 600px) { #exhibitions .exhibition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { #exhibitions .exhibition-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

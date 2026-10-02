@@ -28,6 +28,7 @@ for (const file of [
   "material3.css",
   "m3-site.css",
   "app.js",
+  "recipe-workbench.js",
   "library-data.js",
   "glazy-data.js",
   "glazy-imports.js",
