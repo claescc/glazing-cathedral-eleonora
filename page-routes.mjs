@@ -39,7 +39,7 @@ source = source.replace(/<body(?: data-page="[^"]+")?>/, '<body data-page="home"
 source = source.replace(/href="#([a-z-]+)"/g, (whole, id) => routes[id] ? `href="${routes[id]}"` : whole);
 source = source.replace(/href="index\.html"(\s+data-nav-section="top")/g, 'href="index.html"$1');
 source = source.replace(/<title>[^<]*<\/title>/, '<title>Home · Ceramics Cathedral of Eleonora</title>');
-source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261002-manuscript');
+source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261002-nav-vibrant');
 source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261002-manuscript"');
 source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-mobile-density"');
 source = source.replace(/(<div class="desktop-pages"[^>]*>)([\s\S]*?)(<\/div>)/, (all, open, links, close) => open + links.replace(/ aria-current="page"/g, '').replace('href="index.html"', 'href="index.html" aria-current="page"') + close);

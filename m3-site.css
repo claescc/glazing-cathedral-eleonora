@@ -208,8 +208,9 @@ footer { background: var(--md-sys-color-surface-container); }
 
 .mobile-nav { background: var(--md-sys-color-surface-container); border-color: var(--outline-soft); }
 .mobile-nav a { color: var(--text-secondary); }
-.mobile-nav a.active > span { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
-.mobile-nav a.active { color: var(--md-sys-color-on-secondary-container); }
+.mobile-nav a.active > span { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+.mobile-nav a.active { color: var(--md-sys-color-primary); }
+.mobile-nav a.active b { font-weight: 700; }
 
 @media (min-width: 760px) {
   .hero { grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr); }
