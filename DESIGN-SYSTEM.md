@@ -35,3 +35,7 @@ The same story colours map to M3 semantic roles on each destination, with light 
 ## Verification
 
 Run `node build-static.mjs`, `node tools/check-site.mjs` and `git diff --check`. The checker validates JavaScript syntax, tracked JSON, static IDs and local references. Browser checks should cover 320 px and 375 px phone widths, an expanded desktop width, all public routes, the Atlas dialog and the room menu. These checks do not constitute a complete accessibility certification or a factual review of ceramic source material.
+
+## Interior libraries and gallery · 2 October 2026
+
+Every interior route opens with a full-width decorative ceramic illustration and a separate, high-contrast title panel. Recipes use searchable parchment book cards with actual source photographs; Learn has eight chapter links and reading panels; Masters uses arched surface-reference gallery cards. Georgia is the editorial display face on these book and gallery titles, while M3 controls retain Roboto. Generated artwork is labelled as decorative; historical attribution is never inferred from it. Asset prompts and provenance are recorded in `assets/artwork/README.md`.

@@ -1,5 +1,22 @@
 # Ceramic window stories
 
+## Interior library and gallery illustrations · 2 October 2026
+
+Generated decorative companion art: `recipe-manuscript.jpg`, `ceramic-library.jpg`, and `masters-gallery.jpg`. Each is an optimised 2172 × 724 JPEG. These imagined spaces and objects are not historical documents, portraits, or works attributed to any named ceramic artist. Recipe photographs and gallery reference images retain their separate source context.
+
+### recipes
+
+Use case: illustration-story. Website decorative art, one wide panoramic landscape 3:1 composition, no text, letters, numbers, logos, captions, UI, or religious figures. Luminous stained-glass illustration with elegant dark leadwork, amber light, rich cobalt, emerald, turquoise, garnet and terracotta glass, irregular translucent glass texture. Mature intricate craftsmanship, readable central subjects, edge-to-edge artwork, front-on illustrated composition. Match the spirit of a cathedral of ceramics, storytelling through clay and craft. This is imaginative decoration, not a historical document or a technical diagram. An old abbey recipe archive for ceramics: an open illuminated manuscript of glaze knowledge lies on a carved oak desk in the foreground, pages have abstract glaze swatches and ingredient diagrams WITHOUT letters or numbers. A brass balance with small mineral bowls, ceramic test tiles, glaze jars, a mortar and brush surround it. Behind, arched shelves of richly coloured leather books and fired pottery, a glowing rose window made of ceramic glaze colours. An inviting warm ochre and garnet palette, parchment ivory, cobalt corners. The open book and ceramic test tiles dominate.
+
+### library
+
+Use case: illustration-story. Website decorative art, one wide panoramic landscape 3:1 composition, no text, letters, numbers, logos, captions, UI, or religious figures. Luminous stained-glass illustration with elegant dark leadwork, amber light, rich cobalt, emerald, turquoise, garnet and terracotta glass, irregular translucent glass texture. Mature intricate craftsmanship, readable central subjects, edge-to-edge artwork, front-on illustrated composition. Match the spirit of a cathedral of ceramics, storytelling through clay and craft. This is imaginative decoration, not a historical document or a technical diagram. A magnificent quiet vaulted library devoted to pottery: tall arched bookshelves filled with jewel-coloured books, ceramic vessels arranged between volumes, a central oak reading table with an open illustrated ceramic sketchbook, clay samples, bowls and a reading lamp. Tall stained-glass windows show hands making clay vessels and leafy mineral forms. A warm pool of amber light, emerald and deep teal shadows, cobalt vaults. A welcoming library with a strong sense of depth and discovery, no people, no text.
+
+### masters
+
+Use case: illustration-story. Website decorative art, one wide panoramic landscape 3:1 composition, no text, letters, numbers, logos, captions, UI, or religious figures. Luminous stained-glass illustration with elegant dark leadwork, amber light, rich cobalt, emerald, turquoise, garnet and terracotta glass, irregular translucent glass texture. Mature intricate craftsmanship, readable central subjects, edge-to-edge artwork, front-on illustrated composition. Match the spirit of a cathedral of ceramics, storytelling through clay and craft. This is imaginative decoration, not a historical document or a technical diagram. A ceremonial gallery celebrating the anonymous craft of ceramic makers: a sequence of graceful arched niches holding varied ceramic forms, bowls, vases, sculptural vessels and a large abstract ceramic wall relief. Include a foreground scene of hands carving and turning clay and another pair of hands brushing glaze, no faces or identifiable artists. Warm amber illuminated pedestals, deep amethyst vaults, cobalt and emerald stained-glass arches. A connected rich story of human craftsmanship through forms and surfaces, not copies of specific artworks, no portraits, no text.
+
+
 Created 1 October 2026 with the built-in image generation tool for the user's requested cathedral-window ceramic storytelling. `ceramic-window-stories.jpg` is decorative generated artwork, not a historical window, source photograph or technical kiln diagram. Catalogue photographs remain separate.
 
 The JPEG is an optimised copy of the generated 2172 × 724 PNG. The original is retained in the session's generated_images folder.

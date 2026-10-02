@@ -1021,16 +1021,13 @@ document.querySelector("#recipes .under").onclick = () => {
   render();
 };
 function renderRecipeLibrary() {
-  $("#recipeRail").innerHTML = recipes
-    .map(
-      (x) =>
-        `<button data-id="${x.id}">${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${escapeHtml(x.name)}">` : '<span class="no-photo">Source formula</span>'}<span><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong></span></button>`,
-    )
-    .join("");
-  $("#recipeCount").textContent =
-    `Showing all ${recipes.length} recipes`;
+  const query = $("#recipeSearch").value.trim().toLocaleLowerCase();
+  const matches = recipes.filter(x => [x.name, x.source, x.cone, x.atmosphere].join(" ").toLocaleLowerCase().includes(query));
+  $("#recipeRail").innerHTML = matches.map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${escapeHtml(x.name)}">` : '<span class="no-photo">Source formula<br>Photograph not supplied</span>'}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
+  $("#recipeCount").textContent = matches.length ? `Showing ${matches.length} of ${recipes.length} recipes` : "No matching recipes. Try another name, source or cone.";
   $("#recipeMore").hidden = true;
 }
+$("#recipeSearch").addEventListener("input", renderRecipeLibrary);
 $("#recipeRail").onclick = (event) => {
   const button = event.target.closest("[data-id]");
   if (button) openBook(recipes.find((x) => x.id === button.dataset.id));
@@ -1225,10 +1222,11 @@ const lessonData = [
     "assets/glazes/tile_raku.jpg",
   ],
 ];
+$("#chapterShelf").innerHTML = lessonData.map((l, i) => `<a class="chapter-book" href="#lesson-${i + 1}"><img loading="lazy" src="${l[4]}" alt=""><span><small>CHAPTER ${String(i + 1).padStart(2, "0")}</small><strong>${l[0]}</strong><b aria-hidden="true">Read chapter →</b></span></a>`).join("");
 $("#lessons").innerHTML = lessonData
   .map(
     (l, i) =>
-      `<article class="lesson"><span>${String(i + 1).padStart(2, "0")}</span><figure><img src="${l[4]}" alt="Visual reference for ${l[0]}"></figure><div><h3>${l[0]}</h3><p>${l[1]}</p></div><ol>${l[2].map((x) => `<li>${x}</li>`).join("")}</ol><aside><b>READ FURTHER</b><p>${l[3]}</p></aside></article>`,
+      `<article class="lesson" id="lesson-${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><figure><img src="${l[4]}" alt="Visual reference for ${l[0]}"></figure><div><h3>${l[0]}</h3><p>${l[1]}</p></div><ol>${l[2].map((x) => `<li>${x}</li>`).join("")}</ol><aside><b>READ FURTHER</b><p>${l[3]}</p></aside></article>`,
   )
   .join("");
 const atmos = [
@@ -1526,7 +1524,7 @@ const lineages = [
 $("#timeline").innerHTML = lineages
   .map(
     (x) =>
-      `<article class="event"><time>${x[0]}</time><img src="assets/glazes/${x[3]}" alt="Ceramic lineage reference for ${x[1]}"><div><h3>${x[1]}</h3><p>${x[2]}</p></div></article>`,
+      `<article class="event"><figure><img loading="lazy" src="assets/glazes/${x[3]}" alt="Illustrative ceramic glaze surface"><figcaption>Glaze-surface reference</figcaption></figure><time>${x[0]}</time><div><h3>${x[1]}</h3><p>${x[2]}</p></div></article>`,
   )
   .join("");
 function ingredientClues(x) {

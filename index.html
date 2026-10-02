@@ -25,7 +25,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261001-window-stories" />
+    <link rel="stylesheet" href="m3-site.css?v=20261002-interior-stories" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -216,8 +216,9 @@
             <b>Open this glaze book →</b></span
           >
         </button>
-        <div class="rail" id="recipeRail"></div>
+        <div class="recipe-library-tools"><label for="recipeSearch">Find a recipe<input id="recipeSearch" type="search" placeholder="Search name, source or cone…" autocomplete="off"></label></div>
         <p id="recipeCount" class="result" role="status"></p>
+        <div class="rail" id="recipeRail"></div>
         <button id="recipeMore" type="button">Show more recipes</button>
         <a href="atlas.html" class="under"
           >Browse all sourced recipes in the Atlas →</a
@@ -543,7 +544,7 @@
             remember.
           </p>
         </div>
-        <div id="lessons"></div>
+        <nav id="chapterShelf" class="chapter-shelf" aria-label="Learning chapters"></nav><div id="lessons"></div>
       </section>
       <section class="kiln dark" id="kiln" data-palette-section="7">
         <div class="head"><div>
@@ -720,7 +721,7 @@
           </p>
         </div>
         <a class="masters-feature" href="tribute.html"><span class="eyebrow">Featured artist</span><strong>Judith Laqueur-Révész</strong><span>Vessels, sculpture and two enduring public reliefs. Explore her work and the records that preserve it.</span><b>Enter her hall →</b></a>
-        <div id="timeline"></div>
+        <p class="gallery-note">The gallery images are illustrative glaze-surface references, not attributed works by the named makers or historical objects from the periods shown.</p><div id="timeline"></div>
       </section>
       <section class="notebook dark" id="notebook" data-palette-section="7">
         <div class="head"><div>
@@ -889,7 +890,7 @@
     <script src="glazy-data.js?v=20260925-highlights"></script>
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20260925-highlights"></script>
-    <script src="app.js?v=20261001-window-stories"></script>
+    <script src="app.js?v=20261002-interior-stories"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

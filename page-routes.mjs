@@ -16,19 +16,38 @@ const titles = {
   restoration: 'Restoration Room', masters: 'Hall of Masters', tribute: 'Judith Laqueur-Révész',
   notebook: 'Eleonora’s Notebook', reading: 'Reading Room',
 };
+const openings = {
+  atlas: ['ceramic-window-stories', 'A treasury of colour, surface and fire.'],
+  recipes: ['recipe-manuscript', 'The Recipe Library', 'Open a volume. Study the formula. Begin a test.'],
+  layering: ['recipe-manuscript', 'Layering Laboratory', 'Where glaze recipes meet on the same surface.'],
+  learn: ['ceramic-library', 'The Learning Library', 'Eight chapters, from workable clay to a considered finished surface.'],
+  kiln: ['ceramic-window-stories', 'The Kiln Chapel', 'Follow the transformation through heat, atmosphere and cooling.'],
+  materials: ['ceramic-window-stories', 'The Materials Archive', 'The earth behind every vessel and glaze.'],
+  restoration: ['masters-gallery', 'The Restoration Room', 'Look closely. Understand the surface. Care for the object.'],
+  masters: ['masters-gallery', 'The Hall of Masters', 'A gallery of ceramic traditions, makers and shared knowledge.'],
+  tribute: ['masters-gallery', 'Judith Laqueur-Révész', 'An artist’s hall of vessels, sculpture and surviving records.'],
+  notebook: ['ceramic-library', 'Eleonora’s Notebook', 'Gather surfaces, observations and the questions for your next firing.'],
+  reading: ['ceramic-library', 'The Reading Room', 'Books, source pages and paths into ceramic knowledge.'],
+};
+function opening(page, title) {
+  const [art, heading, description] = openings[page];
+  return `<section class="room-frontispiece" aria-label="${title} introduction"><img src="assets/artwork/${art}.jpg" alt="" fetchpriority="high" width="2172" height="724"><div class="frontispiece-caption"><p class="eyebrow">THE CERAMICS CATHEDRAL · ${title.toUpperCase()}</p><h1>${description ? heading : title}</h1><p>${description || heading}</p><small>Imagined ceramic window · decorative illustration</small></div></section>`;
+}
 let source = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
 // Keep the source route as Home and regenerate sibling pages from it.
 source = source.replace(/<body(?: data-page="[^"]+")?>/, '<body data-page="home">');
 source = source.replace(/href="#([a-z-]+)"/g, (whole, id) => routes[id] ? `href="${routes[id]}"` : whole);
 source = source.replace(/href="index\.html"(\s+data-nav-section="top")/g, 'href="index.html"$1');
 source = source.replace(/<title>[^<]*<\/title>/, '<title>Home · Ceramics Cathedral of Eleonora</title>');
-source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261001-window-stories"');
+source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261002-interior-stories');
+source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261002-interior-stories"');
 source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-mobile-density"');
 source = source.replace(/(<div class="desktop-pages"[^>]*>)([\s\S]*?)(<\/div>)/, (all, open, links, close) => open + links.replace(/ aria-current="page"/g, '').replace('href="index.html"', 'href="index.html" aria-current="page"') + close);
 writeFileSync(new URL('./index.html', import.meta.url), source);
 for (const [page, title] of Object.entries(titles)) {
   if (page === 'home') continue;
   const html = source.replace('data-page="home"', `data-page="${page}"`)
+    .replace('<main id="main-content">', `${opening(page, title)}<main id="main-content">`)
     .replace('<title>Home ·', `<title>${title} ·`)
     .replace('href="index.html" aria-current="page"', 'href="index.html"')
     .replace(`href="${page}.html"`, `href="${page}.html" aria-current="page"`)
