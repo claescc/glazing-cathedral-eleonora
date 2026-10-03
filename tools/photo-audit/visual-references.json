@@ -1,0 +1,44 @@
+[
+  {
+    "id": "bloomfield-38-crystalline-glaze",
+    "image": "assets/recipes/photographs/bloomfield-38-crystalline-glaze-reference.jpeg",
+    "kind": "Coloured variation",
+    "evidence": "Avril Farley crystalline glaze detail (2004), photographed by Martin Avery. This coloured example contains cobalt and erbium, fired to 1255°C then refired to 800°C. The base formula does not include those additions or the refiring.",
+    "sourceUrl": "assets/recipes/photographs/bloomfield-38-crystalline-glaze-source.jpg"
+  },
+  {
+    "id": "bloomfield-133-copper-red-glaze",
+    "image": "assets/recipes/photographs/bloomfield-133-copper-red-glaze-reference.jpeg",
+    "kind": "Colour reference",
+    "evidence": "Bridget Drakeford copper-red porcelain bottle (2009), photographed by Irene Sanderson. Published beside her copper-red recipe; the caption does not confirm that exact formula.",
+    "sourceUrl": "assets/recipes/photographs/bloomfield-133-copper-red-glaze-source.jpg"
+  },
+  {
+    "id": "rogers-ash-10",
+    "image": "assets/recipes/photographs/rogers-ash-10-reference.jpeg",
+    "kind": "Nuka reference",
+    "evidence": "William Marshall Nuka yunomi, photographed by Anthony Shorthouse. The caption supplies 50 wood ash, 60 feldspar OR Cornish stone, 40 quartz. The appendix recipe uses feldspar; the photographed choice is not stated.",
+    "sourceUrl": "assets/recipes/photographs/rogers-ash-10-source.jpg"
+  },
+  {
+    "id": "bloomfield-40-crater-glaze",
+    "image": "assets/glazes/tile_crater_glazy.png",
+    "kind": "Related formula",
+    "evidence": "Kenneth Ibbett, Akiko’s crater glaze, Glazy #4454. Related formula uses 2 parts rutile instead of the book’s 2 parts titanium dioxide. This photograph is a surface reference, not a verified result of the book formula.",
+    "sourceUrl": "https://glazy.org/recipes/4454/akikos-crater-glaze"
+  },
+  {
+    "id": "jones-pv-base",
+    "image": "assets/recipes/photographs/elecfiring_02-1.jpg",
+    "kind": "Coloured + layered example",
+    "evidence": "Jonathan Kaplan Disk Vase: coloured VC Blue/Green/Purple with PV Black sprayed over it. Shows a layered use of this base after colourant additions, not the appearance of the uncoloured base.",
+    "sourceUrl": "https://ceramicartsnetwork.org/daily/article/Cone-6-Pottery-Glazes-and-Firing-Tips-for-Creating-Exciting-Surfaces-in-Electric-Kilns"
+  },
+  {
+    "id": "jones-vc-glaze",
+    "image": "assets/recipes/photographs/elecfiring_02-1.jpg",
+    "kind": "Coloured + layered example",
+    "evidence": "Jonathan Kaplan Disk Vase: coloured VC Blue/Green/Purple with PV Black sprayed over it. Shows a layered use of this base after colourant additions, not the appearance of the uncoloured base.",
+    "sourceUrl": "https://ceramicartsnetwork.org/daily/article/Cone-6-Pottery-Glazes-and-Firing-Tips-for-Creating-Exciting-Surfaces-in-Electric-Kilns"
+  }
+]

@@ -21,6 +21,6 @@ reasons={
  'rogers-ash-10':'William Marshall Nuka caption on PDF p.28 allows feldspar OR Cornish stone; the photographed material choice is not specified.',
  'jones-pv-base':'Published Disk Vase uses coloured, layered derivatives, not this uncoloured base.',
  'jones-vc-glaze':'Published Disk Vase uses coloured, layered derivatives, not this uncoloured base.'}
-unresolved=[{'id':r['id'],'name':r['name'],'source':r['source'],'formulaPage':r['page'],'status':'Photograph not yet verified','reason':reasons.get(r['id'],'Book and online candidates did not establish this exact formula, material selection and firing. Generic photographs of the named maker are insufficient.')} for r in recipes if not r.get('image')]
+unresolved=[{'id':r['id'],'name':r['name'],'source':r['source'],'formulaPage':r['page'],'status':'Photograph not yet verified','reason':reasons.get(r['id'],'Book and online candidates did not establish this exact formula, material selection and firing. Generic photographs of the named maker are insufficient.')} for r in recipes if not r.get('image') or r.get('visualReference')]
 (ROOT/'tools/photo-audit/unresolved.json').write_text(json.dumps(unresolved,ensure_ascii=False,indent=2)+'\n')
-print(json.dumps({'bookRecipes':len(recipes),'photographed':len(recipes)-len(unresolved),'unresolved':len(unresolved),'bloomfieldPhotographs':coverage['photographs']}))
+print(json.dumps({'bookRecipes':len(recipes),'photographed':sum(bool(r.get('image')) for r in recipes),'unresolved':len(unresolved),'bloomfieldPhotographs':coverage['photographs']}))

@@ -876,7 +876,7 @@ function render() {
     (x) =>
       (activeKind === "all" || x.kind === activeKind) &&
       (activeHue === "all" || huesFor(x).includes(activeHue)) &&
-      ($("#photoFilter").value === "all" || x.image) &&
+      Boolean(x.image) && ($("#photoFilter").value !== "exact" || !x.visualReference) &&
       JSON.stringify(x).toLowerCase().includes(q) &&
       (!$("#coneFilter").value || String(x.cone) === $("#coneFilter").value) &&
       (!$("#sourceFilter").value ||
@@ -933,7 +933,7 @@ $("#sortFilter").onchange = render;
 $("#photoFilter").onchange = render;
 $("#totalCount").textContent = collection.length;
 const photographedCount = collection.filter((x) => x.image).length;
-$("#photoCoverage").textContent = `${photographedCount} with source photographs · ${collection.length - photographedCount} formulas awaiting a verified photograph. Showing photographs by default; all formulas remain available in Recipes and the Photograph filter.`;
+$("#photoCoverage").textContent = `${photographedCount} photographic swatches. Colour references and variations are labelled. ${collection.length - photographedCount} text-only formulas are available in Recipes.`;
 $("#search").oninput = render;
 all("#kindTabs button").forEach(
   (b) =>
@@ -1023,7 +1023,7 @@ document.querySelector("#recipes .under").onclick = () => {
 function renderRecipeLibrary() {
   const query = $("#recipeSearch").value.trim().toLocaleLowerCase();
   const matches = recipes.filter(x => [x.name, x.source, x.cone, x.atmosphere].join(" ").toLocaleLowerCase().includes(query));
-  $("#recipeRail").innerHTML = matches.map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="Fired test for ${escapeHtml(x.name)}">` : '<span class="no-photo">Source formula<br>Recipe photograph not yet linked</span>'}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
+  $("#recipeRail").innerHTML = matches.map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="${escapeHtml(x.imageKind || "Source photograph")}: ${escapeHtml(x.name)}">${x.imageKind ? `<span class="recipe-photo-label">${escapeHtml(x.imageKind)}</span>` : ""}` : ''}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
   $("#recipeCount").textContent = matches.length ? `Showing ${matches.length} of ${recipes.length} recipes` : "No matching recipes. Try another name, source or cone.";
   $("#recipeMore").hidden = true;
 }
@@ -1581,7 +1581,7 @@ function openBook(x) {
   $("#modalEyebrow").textContent =
     x.kind === "recipe" ? `CONE ${x.cone} · ${x.atmosphere}` : x.origin;
   $("#modalTitle").textContent = x.name;
-  $("#modalIntro").textContent = x.history;
+  $("#modalIntro").textContent = x.visualReference ? `${x.imageKind}: ${x.imageCredit}` : x.history;
   $("#recipeJumps")?.remove();
   if (x.kind === "recipe") $("#modalIntro").insertAdjacentHTML("afterend", '<nav id="recipeJumps" aria-label="Recipe sections"><button data-book-jump="recipeSafety">⚠ Safety first</button><button data-book-jump="recipeWeights">Weigh a batch</button><button data-book-jump="recipeMixing">Mixing steps</button><button data-book-jump="recipeFiring">Kiln &amp; cones</button></nav>');
   const facts =

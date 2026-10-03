@@ -1,7 +1,7 @@
 {
   "sourceSha256": "9fc921aea44d83801dddd7d27652a4ff34a973eb7c7f6a980021cb8e021f2f53",
   "recipes": 128,
-  "photographs": 122,
+  "photographs": 125,
   "withheld": [
     {
       "page": 140,
@@ -22,14 +22,14 @@
       "page": 38,
       "endPage": 38,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-38-crystalline-glaze-reference.jpeg"
     },
     {
       "id": "bloomfield-40-crater-glaze",
       "page": 40,
       "endPage": 40,
       "baseTotal": 99.0,
-      "image": null
+      "image": "assets/glazes/tile_crater_glazy.png"
     },
     {
       "id": "bloomfield-42-shrink-and-crawl-glaze",
@@ -631,7 +631,7 @@
       "page": 133,
       "endPage": 134,
       "baseTotal": 100.0,
-      "image": null
+      "image": "assets/recipes/photographs/bloomfield-133-copper-red-glaze-reference.jpeg"
     },
     {
       "id": "bloomfield-134-tangerine-glaze",

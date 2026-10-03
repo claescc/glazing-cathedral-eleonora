@@ -28,3 +28,7 @@ The Kaplan extraction reuses committed assets; if absent, it retrieves the docum
 ## Atlas presentation
 
 The default photo filter and reset action display photographed records. The coverage line states the outstanding count; all formulas remain accessible through the Photograph filter and the Recipe Library. This removes blank panels from the default atlas without representing unresolved recipes as completed.
+
+## Visual references · 3 October 2026
+
+Six additional records now use documented photographs of related formulas, coloured variations or layered use. These carry `visualReference: true`, `imageVerified: false`, visible labels and the specific differences in the introductory caption. Run `add_visual_references.py` before `finalize.py` when rebuilding. The unresolved ledger continues to track exact-recipe evidence gaps, including records with a useful visual reference. All atlas filter states require an image; text-only recipe records are presented without empty photo panels in the Recipe Library.
