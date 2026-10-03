@@ -866,7 +866,7 @@ function tile(x, view = "photos") {
   const visual = !x.image
     ? `<span class="no-photo">Recipe photograph not yet linked</span>`
     : view === "photos"
-      ? `<img class="atlas-photo" loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt=""><span class="cone-caption">Source photograph</span>`
+      ? `<img class="atlas-photo" loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="${escapeHtml(x.imageKind || "Source photograph")}: ${escapeHtml(x.name)}"><span class="cone-caption">${escapeHtml(x.imageKind || "Source photograph")}</span>`
       : `<span class="cone-surface"><img loading="lazy" decoding="async" src="${imageSrc(x.image)}" alt="Digital cone visualisation of ${escapeHtml(x.name)}, based on a cropped source photograph" style="--cone-left:${50 - fx * 4}%;--cone-top:${50 - fy * 4}%"></span><span class="cone-caption">Digital cone preview</span>`;
   return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${visual}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source || x.origin)}</span></span></button>`;
 }
@@ -933,7 +933,7 @@ $("#sortFilter").onchange = render;
 $("#photoFilter").onchange = render;
 $("#totalCount").textContent = collection.length;
 const photographedCount = collection.filter((x) => x.image).length;
-$("#photoCoverage").textContent = `${photographedCount} with source photographs · ${collection.length - photographedCount} without.`;
+$("#photoCoverage").textContent = `${photographedCount} with source photographs · ${collection.length - photographedCount} formulas awaiting a verified photograph. Showing photographs by default; all formulas remain available in Recipes and the Photograph filter.`;
 $("#search").oninput = render;
 all("#kindTabs button").forEach(
   (b) =>
@@ -1002,7 +1002,7 @@ all("[data-type-query]").forEach(
 );
 document.querySelector("#recipes .under").onclick = () => {
   if (!$("#atlas").getClientRects().length) return;
-  $("#photoFilter").value = "all";
+  $("#photoFilter").value = "yes";
   activeKind = "recipe";
   activeHue = "all";
   $("#search").value = "";
@@ -1565,12 +1565,14 @@ function openBook(x) {
   $("#modalImage").hidden = !x.image;
   $("#modalImage").parentElement.classList.toggle("without-photo", !x.image);
   if (x.image) $("#modalImage").src = imageSrc(x.image);
-  $("#modalImage").alt = `Real fired ceramic surface: ${x.name}`;
+  $("#modalImage").alt = `${x.imageKind || "Source photograph"}: ${x.name}`;
   $("#modalImage").classList.toggle("contain", x.objectFit === "contain");
   $("#modalImage").style.objectPosition = x.position || "50% 50%";
   $("#modalImage").style.transform = "none";
   $("#recordType").textContent = !x.image
     ? "RECIPE PHOTOGRAPH NOT YET LINKED"
+    : x.imageKind
+      ? x.imageKind.toUpperCase()
     : x.platform === "Glazy"
       ? `GLAZY ${String(x.sourceStatus || "RECIPE").toUpperCase()} RECORD`
       : x.kind === "recipe"
@@ -1652,7 +1654,7 @@ function openBook(x) {
     x._relatedSectionNo = String(sectionNo).padStart(2, "0");
     const weight = (a) => ((a / divisor) * 100).toFixed(1);
     $("#formulaBlock").innerHTML =
-      `${RecipeWorkbench.html(x)}${umfSection}${techniqueSection}${testSection}<section class="book-section"><small>${sourceSectionNo} · SOURCE NOTES & EVIDENCE BOUNDARIES</small><h3>What the publication records and what it does not</h3><div class="status ${/failed|decorative/i.test(x.status) ? "danger" : ""}"><b>${x.status}</b></div>${x.notes ? `<p>${x.notes}</p>` : ""}${x.sourceNotes ? `<p>${x.sourceNotes}</p>` : ""}${x.missingFields ? `<div class="missing-fields"><b>Not supplied by this Glazy record</b><ul>${x.missingFields.map((v) => `<li>${v}</li>`).join("")}</ul></div>` : ""}<div class="source"><b>${x.source}</b><br>${x.author} · formula on supplied PDF p. ${x.page}${x.imageSourcePage ? `<br>Fired photograph: supplied PDF p. ${x.imageSourcePage} · matched to this formula during the source-page audit` : ""}${x.imageCredit ? `<br>Selected photograph: ${x.imageCredit}` : ""}${x.sourceUrl ? `<br><a href="${x.sourceUrl}" target="_blank" rel="noopener">Open the live Glazy record ↗</a>` : ""}${x.relatedSourceUrl ? `<br><a href="${x.relatedSourceUrl}" target="_blank" rel="noopener">Read the maker’s atmospheric-colour notes ↗</a>` : ""}${x.license ? `<br><br>${x.license}${x.licenseUrl ? ` · <a href="${x.licenseUrl}" target="_blank" rel="noopener">licence ↗</a>` : ""}` : ""}</div></section>`;
+      `${RecipeWorkbench.html(x)}${umfSection}${techniqueSection}${testSection}<section class="book-section"><small>${sourceSectionNo} · SOURCE NOTES & EVIDENCE BOUNDARIES</small><h3>What the publication records and what it does not</h3><div class="status ${/failed|decorative/i.test(x.status) ? "danger" : ""}"><b>${x.status}</b></div>${x.notes ? `<p>${x.notes}</p>` : ""}${x.sourceNotes ? `<p>${x.sourceNotes}</p>` : ""}${x.missingFields ? `<div class="missing-fields"><b>Not supplied by this Glazy record</b><ul>${x.missingFields.map((v) => `<li>${v}</li>`).join("")}</ul></div>` : ""}<div class="source"><b>${x.source}</b><br>${x.author} · formula on supplied PDF p. ${x.page}${x.imageSourcePage ? `<br>Fired photograph: supplied PDF p. ${x.imageSourcePage} · see the photograph credit below for its documented relationship to this formula` : ""}${x.imageCredit ? `<br>Selected photograph: ${escapeHtml(x.imageCredit)}` : ""}${x.imageEvidenceUrl ? `<br><a href="${escapeHtml(x.imageEvidenceUrl)}" target="_blank" rel="noopener">View the photograph’s source evidence ↗</a>` : ""}${x.sourceUrl ? `<br><a href="${x.sourceUrl}" target="_blank" rel="noopener">Open the live Glazy record ↗</a>` : ""}${x.relatedSourceUrl ? `<br><a href="${x.relatedSourceUrl}" target="_blank" rel="noopener">Read the maker’s atmospheric-colour notes ↗</a>` : ""}${x.license ? `<br><br>${x.license}${x.licenseUrl ? ` · <a href="${x.licenseUrl}" target="_blank" rel="noopener">licence ↗</a>` : ""}` : ""}</div></section>`;
   } else if (x.reconstruction) {
     const r = x.reconstruction,
       baseTotal = r.ingredients.reduce((n, v) => n + v.amount, 0);

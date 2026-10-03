@@ -1,0 +1,733 @@
+[
+  {
+    "id": "bloomfield-111-pale-violet-blue-transparent",
+    "formulaPages": [
+      111,
+      111
+    ],
+    "platePage": 114,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-114.jpg",
+    "cropPixels": [
+      125,
+      75,
+      404,
+      435
+    ],
+    "image": "assets/recipes/photographs/bloomfield-111-pale-violet-blue-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-112-pale-lavender-blue-transparent",
+    "formulaPages": [
+      112,
+      112
+    ],
+    "platePage": 114,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-114.jpg",
+    "cropPixels": [
+      419,
+      76,
+      696,
+      444
+    ],
+    "image": "assets/recipes/photographs/bloomfield-112-pale-lavender-blue-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-112-violet-blue-magnesium-matt",
+    "formulaPages": [
+      112,
+      112
+    ],
+    "platePage": 114,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-114.jpg",
+    "cropPixels": [
+      120,
+      445,
+      404,
+      807
+    ],
+    "image": "assets/recipes/photographs/bloomfield-112-violet-blue-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-112-lavender-blue-magnesium-matt",
+    "formulaPages": [
+      112,
+      112
+    ],
+    "platePage": 114,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-114.jpg",
+    "cropPixels": [
+      416,
+      449,
+      679,
+      812
+    ],
+    "image": "assets/recipes/photographs/bloomfield-112-lavender-blue-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-112-grey-magnesium-matt",
+    "formulaPages": [
+      112,
+      113
+    ],
+    "platePage": 114,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-114.jpg",
+    "cropPixels": [
+      129,
+      817,
+      388,
+      1174
+    ],
+    "image": "assets/recipes/photographs/bloomfield-112-grey-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-113-purple-grey-matt",
+    "formulaPages": [
+      113,
+      113
+    ],
+    "platePage": 114,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-114.jpg",
+    "cropPixels": [
+      411,
+      817,
+      678,
+      1176
+    ],
+    "image": "assets/recipes/photographs/bloomfield-113-purple-grey-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-114-pale-purple-blue-runny",
+    "formulaPages": [
+      114,
+      115
+    ],
+    "platePage": 117,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-117.jpg",
+    "cropPixels": [
+      119,
+      59,
+      415,
+      462
+    ],
+    "image": "assets/recipes/photographs/bloomfield-114-pale-purple-blue-runny.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-115-pale-violet-runny",
+    "formulaPages": [
+      115,
+      115
+    ],
+    "platePage": 117,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-117.jpg",
+    "cropPixels": [
+      429,
+      71,
+      718,
+      425
+    ],
+    "image": "assets/recipes/photographs/bloomfield-115-pale-violet-runny.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-115-lavender-blue-magnesium-matt",
+    "formulaPages": [
+      115,
+      115
+    ],
+    "platePage": 117,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-117.jpg",
+    "cropPixels": [
+      116,
+      468,
+      396,
+      822
+    ],
+    "image": "assets/recipes/photographs/bloomfield-115-lavender-blue-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-115-rutile-tin-cobalt-purple-runny",
+    "formulaPages": [
+      115,
+      116
+    ],
+    "platePage": 117,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-117.jpg",
+    "cropPixels": [
+      441,
+      424,
+      697,
+      837
+    ],
+    "image": "assets/recipes/photographs/bloomfield-115-rutile-tin-cobalt-purple-runny.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-116-cobalt-manganese-purple-matt",
+    "formulaPages": [
+      116,
+      116
+    ],
+    "platePage": 117,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-117.jpg",
+    "cropPixels": [
+      117,
+      822,
+      414,
+      1158
+    ],
+    "image": "assets/recipes/photographs/bloomfield-116-cobalt-manganese-purple-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-116-nickel-purple-matt-not-food-safe",
+    "formulaPages": [
+      116,
+      116
+    ],
+    "platePage": 117,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-117.jpg",
+    "cropPixels": [
+      422,
+      850,
+      734,
+      1172
+    ],
+    "image": "assets/recipes/photographs/bloomfield-116-nickel-purple-matt-not-food-safe.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-124-rutile-tin-pink-runny-opaque-1240",
+    "formulaPages": [
+      124,
+      124
+    ],
+    "platePage": 127,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-127.jpg",
+    "cropPixels": [
+      125,
+      62,
+      403,
+      439
+    ],
+    "image": "assets/recipes/photographs/bloomfield-124-rutile-tin-pink-runny-opaque-1240.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-125-cream-magnesium-matt",
+    "formulaPages": [
+      125,
+      125
+    ],
+    "platePage": 127,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-127.jpg",
+    "cropPixels": [
+      415,
+      70,
+      680,
+      439
+    ],
+    "image": "assets/recipes/photographs/bloomfield-125-cream-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-125-chrome-tin-pink",
+    "formulaPages": [
+      125,
+      125
+    ],
+    "platePage": 127,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-127.jpg",
+    "cropPixels": [
+      122,
+      439,
+      397,
+      799
+    ],
+    "image": "assets/recipes/photographs/bloomfield-125-chrome-tin-pink.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-125-speckled-cream-magnesium-matt",
+    "formulaPages": [
+      125,
+      125
+    ],
+    "platePage": 127,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-127.jpg",
+    "cropPixels": [
+      411,
+      446,
+      678,
+      807
+    ],
+    "image": "assets/recipes/photographs/bloomfield-125-speckled-cream-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-125-copper-red",
+    "formulaPages": [
+      125,
+      126
+    ],
+    "platePage": 127,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-127.jpg",
+    "cropPixels": [
+      117,
+      798,
+      398,
+      1157
+    ],
+    "image": "assets/recipes/photographs/bloomfield-125-copper-red.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-126-pale-orange-barium-matt-not-food-safe",
+    "formulaPages": [
+      126,
+      126
+    ],
+    "platePage": 127,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-127.jpg",
+    "cropPixels": [
+      409,
+      806,
+      686,
+      1170
+    ],
+    "image": "assets/recipes/photographs/bloomfield-126-pale-orange-barium-matt-not-food-safe.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-127-erbium-pink-runny-transparent-1240",
+    "formulaPages": [
+      127,
+      128
+    ],
+    "platePage": 131,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-131.jpg",
+    "cropPixels": [
+      117,
+      139,
+      407,
+      500
+    ],
+    "image": "assets/recipes/photographs/bloomfield-127-erbium-pink-runny-transparent-1240.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-128-chrome-tin-red-pink",
+    "formulaPages": [
+      128,
+      128
+    ],
+    "platePage": 131,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-131.jpg",
+    "cropPixels": [
+      451,
+      174,
+      686,
+      513
+    ],
+    "image": "assets/recipes/photographs/bloomfield-128-chrome-tin-red-pink.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-128-rutile-tin-pink",
+    "formulaPages": [
+      128,
+      128
+    ],
+    "platePage": 131,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-131.jpg",
+    "cropPixels": [
+      86,
+      519,
+      412,
+      811
+    ],
+    "image": "assets/recipes/photographs/bloomfield-128-rutile-tin-pink.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-128-manganese-brown-pink-not-food-safe",
+    "formulaPages": [
+      128,
+      129
+    ],
+    "platePage": 131,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-131.jpg",
+    "cropPixels": [
+      421,
+      515,
+      727,
+      829
+    ],
+    "image": "assets/recipes/photographs/bloomfield-128-manganese-brown-pink-not-food-safe.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-129-chrome-tin-pink-runny",
+    "formulaPages": [
+      129,
+      129
+    ],
+    "platePage": 131,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-131.jpg",
+    "cropPixels": [
+      126,
+      832,
+      380,
+      1122
+    ],
+    "image": "assets/recipes/photographs/bloomfield-129-chrome-tin-pink-runny.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-129-nickel-pink-matt-not-food-safe",
+    "formulaPages": [
+      129,
+      129
+    ],
+    "platePage": 131,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-131.jpg",
+    "cropPixels": [
+      419,
+      824,
+      678,
+      1146
+    ],
+    "image": "assets/recipes/photographs/bloomfield-129-nickel-pink-matt-not-food-safe.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-139-orange-glaze",
+    "formulaPages": [
+      139,
+      139
+    ],
+    "platePage": 141,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-141.jpg",
+    "cropPixels": [
+      135,
+      64,
+      339,
+      337
+    ],
+    "image": "assets/recipes/photographs/bloomfield-139-orange-glaze.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-139-red-glaze",
+    "formulaPages": [
+      139,
+      139
+    ],
+    "platePage": 141,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-141.jpg",
+    "cropPixels": [
+      454,
+      65,
+      653,
+      339
+    ],
+    "image": "assets/recipes/photographs/bloomfield-139-red-glaze.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-139-coral-red",
+    "formulaPages": [
+      139,
+      139
+    ],
+    "platePage": 141,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-141.jpg",
+    "cropPixels": [
+      111,
+      464,
+      398,
+      768
+    ],
+    "image": "assets/recipes/photographs/bloomfield-139-coral-red.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-140-iron-red-on-stoneware",
+    "formulaPages": [
+      140,
+      140
+    ],
+    "platePage": 141,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-141.jpg",
+    "cropPixels": [
+      417,
+      390,
+      648,
+      759
+    ],
+    "image": "assets/recipes/photographs/bloomfield-140-iron-red-on-stoneware.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-140-chrome-tin-red",
+    "formulaPages": [
+      140,
+      140
+    ],
+    "platePage": 141,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-141.jpg",
+    "cropPixels": [
+      402,
+      794,
+      610,
+      1120
+    ],
+    "image": "assets/recipes/photographs/bloomfield-140-chrome-tin-red.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-154-yellow-brown-transparent",
+    "formulaPages": [
+      154,
+      154
+    ],
+    "platePage": 157,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-157.jpg",
+    "cropPixels": [
+      195,
+      141,
+      422,
+      433
+    ],
+    "image": "assets/recipes/photographs/bloomfield-154-yellow-brown-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-154-speckled-cream-matt",
+    "formulaPages": [
+      154,
+      155
+    ],
+    "platePage": 157,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-157.jpg",
+    "cropPixels": [
+      445,
+      62,
+      717,
+      429
+    ],
+    "image": "assets/recipes/photographs/bloomfield-154-speckled-cream-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-155-pale-brown-transparent",
+    "formulaPages": [
+      155,
+      155
+    ],
+    "platePage": 157,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-157.jpg",
+    "cropPixels": [
+      194,
+      462,
+      418,
+      750
+    ],
+    "image": "assets/recipes/photographs/bloomfield-155-pale-brown-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-155-dark-brown-transparent",
+    "formulaPages": [
+      155,
+      155
+    ],
+    "platePage": 157,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-157.jpg",
+    "cropPixels": [
+      481,
+      461,
+      696,
+      750
+    ],
+    "image": "assets/recipes/photographs/bloomfield-155-dark-brown-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-155-brown-matt",
+    "formulaPages": [
+      155,
+      156
+    ],
+    "platePage": 157,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-157.jpg",
+    "cropPixels": [
+      194,
+      773,
+      424,
+      1130
+    ],
+    "image": "assets/recipes/photographs/bloomfield-155-brown-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-156-red-brown-matt",
+    "formulaPages": [
+      156,
+      156
+    ],
+    "platePage": 157,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-157.jpg",
+    "cropPixels": [
+      459,
+      799,
+      703,
+      1123
+    ],
+    "image": "assets/recipes/photographs/bloomfield-156-red-brown-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-167-crystalline-matt-white",
+    "formulaPages": [
+      167,
+      168
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      67,
+      97,
+      398,
+      313
+    ],
+    "image": "assets/recipes/photographs/bloomfield-167-crystalline-matt-white.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-168-pale-grey-satin-matt-translucent",
+    "formulaPages": [
+      168,
+      168
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      443,
+      95,
+      726,
+      318
+    ],
+    "image": "assets/recipes/photographs/bloomfield-168-pale-grey-satin-matt-translucent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-168-satin-matt-translucent",
+    "formulaPages": [
+      168,
+      168
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      50,
+      329,
+      440,
+      607
+    ],
+    "image": "assets/recipes/photographs/bloomfield-168-satin-matt-translucent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-168-grey-transparent",
+    "formulaPages": [
+      168,
+      169
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      451,
+      360,
+      732,
+      583
+    ],
+    "image": "assets/recipes/photographs/bloomfield-168-grey-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-169-glossy-transparent",
+    "formulaPages": [
+      169,
+      169
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      49,
+      593,
+      423,
+      840
+    ],
+    "image": "assets/recipes/photographs/bloomfield-169-glossy-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-169-blue-grey-magnesium-matt",
+    "formulaPages": [
+      169,
+      169
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      439,
+      607,
+      741,
+      832
+    ],
+    "image": "assets/recipes/photographs/bloomfield-169-blue-grey-magnesium-matt.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-169-alkaline-transparent",
+    "formulaPages": [
+      169,
+      169
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      91,
+      849,
+      394,
+      1162
+    ],
+    "image": "assets/recipes/photographs/bloomfield-169-alkaline-transparent.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  },
+  {
+    "id": "bloomfield-169-glossy-black",
+    "formulaPages": [
+      169,
+      170
+    ],
+    "platePage": 171,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-171.jpg",
+    "cropPixels": [
+      421,
+      846,
+      754,
+      1043
+    ],
+    "image": "assets/recipes/photographs/bloomfield-169-glossy-black.jpg",
+    "evidence": "Publication formula / plate sequence; withheld maroon occupies row 3 column 1 on p.141"
+  }
+]

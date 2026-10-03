@@ -1,0 +1,41 @@
+[
+  {
+    "id": "rogers-ash-1",
+    "image": "assets/recipes/photographs/rogers-ash-1.jpg",
+    "platePage": 112,
+    "plateImage": "assets/recipes/photographs/rogers-source-112.jpg",
+    "cropPdfPoints": [
+      365,
+      80,
+      485,
+      176
+    ],
+    "evidence": "Phil Rogers standard ash glaze: upper bowl in Colour test 9. The caption explicitly identifies the standard appendix formula; the lower bowl uses an ash substitute and is excluded."
+  },
+  {
+    "id": "rogers-ash-4",
+    "image": "assets/recipes/photographs/rogers-ash-4.jpg",
+    "platePage": 93,
+    "plateImage": "assets/recipes/photographs/rogers-source-93.jpg",
+    "cropPdfPoints": [
+      222,
+      138,
+      349,
+      276
+    ],
+    "evidence": "Phil Rogers straw ash glaze: right bowl in Colour test 8, normal reduction. The text explicitly refers to the straw ash recipe on printed p.182. The left salt-fired bowl is excluded."
+  },
+  {
+    "id": "rogers-ash-17",
+    "image": "assets/recipes/photographs/rogers-ash-17.jpg",
+    "platePage": 91,
+    "plateImage": "assets/recipes/photographs/rogers-source-91.jpg",
+    "cropPdfPoints": [
+      63,
+      59,
+      271,
+      241
+    ],
+    "evidence": "Phil Rogers, Model of a blanket chest (1973), wood ash 50 / red earthenware clay 50, oxidised at 1280°C. The caption gives the same 50/50 formula as recipe 17; this is Rogers’s Etruria marl example, not a photograph of a Mick Casson pot."
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "id": "bloomfield-84-celadon",
+    "image": "assets/recipes/photographs/bloomfield-84-celadon.jpg",
+    "platePage": 84,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-84-0.jpg",
+    "cropPixels": [
+      372,
+      36,
+      514,
+      447
+    ],
+    "evidence": "Mirka Golden-Hann’s labelled iron series: first groove is the published 0.4% iron addition; the separate L-shaped tile is the uncoloured base and is not used."
+  },
+  {
+    "id": "bloomfield-87-copper-iron-green",
+    "image": "assets/recipes/photographs/bloomfield-87-copper-iron-green.jpg",
+    "platePage": 86,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-86-0.jpg",
+    "cropPixels": [
+      132,
+      6,
+      368,
+      754
+    ],
+    "evidence": "Lok Ming Fung: left test tile, copper 0.75% and iron 8%; formula and tile corroborated by the publisher’s labelled green-glazes excerpt."
+  },
+  {
+    "id": "bloomfield-87-copper-chrome-green",
+    "image": "assets/recipes/photographs/bloomfield-87-copper-chrome-green.jpg",
+    "platePage": 86,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-86-0.jpg",
+    "cropPixels": [
+      463,
+      140,
+      705,
+      753
+    ],
+    "evidence": "Lok Ming Fung: right test tile, copper 1.5% and chromium 0.4%; formula and tile corroborated by the publisher’s labelled green-glazes excerpt."
+  },
+  {
+    "id": "bloomfield-88-copper-ilmenite-green",
+    "image": "assets/recipes/photographs/bloomfield-88-copper-ilmenite-green.jpg",
+    "platePage": 87,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-87-0.jpg",
+    "cropPixels": [
+      0,
+      0,
+      470,
+      718
+    ],
+    "evidence": "Lok Ming Fung: copper-ilmenite test tile; formula and photograph labelled together in the publisher’s green-glazes excerpt."
+  },
+  {
+    "id": "bloomfield-95-chrome-green-glaze",
+    "image": "assets/recipes/photographs/bloomfield-95-chrome-green-glaze.jpg",
+    "platePage": 97,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-97-0.jpg",
+    "cropPixels": [
+      116,
+      51,
+      415,
+      463
+    ],
+    "evidence": "John Solly earthenware test tiles; left-to-right recipe order on supplied PDF pp.95–96."
+  },
+  {
+    "id": "bloomfield-96-duck-egg-blue-glaze",
+    "image": "assets/recipes/photographs/bloomfield-96-duck-egg-blue-glaze.jpg",
+    "platePage": 97,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-97-0.jpg",
+    "cropPixels": [
+      466,
+      51,
+      745,
+      463
+    ],
+    "evidence": "John Solly earthenware test tiles; left-to-right recipe order on supplied PDF pp.95–96."
+  },
+  {
+    "id": "bloomfield-96-turquoise-glaze",
+    "image": "assets/recipes/photographs/bloomfield-96-turquoise-glaze.jpg",
+    "platePage": 97,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-97-0.jpg",
+    "cropPixels": [
+      772,
+      52,
+      1091,
+      466
+    ],
+    "evidence": "John Solly earthenware test tiles; left-to-right recipe order on supplied PDF pp.95–96."
+  },
+  {
+    "id": "bloomfield-97-bright-turquoise",
+    "image": "assets/recipes/photographs/bloomfield-97-bright-turquoise.jpg",
+    "platePage": 98,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-98-0.jpg",
+    "cropPixels": [
+      0,
+      0,
+      352,
+      960
+    ],
+    "evidence": "Lok Ming Fung: bright turquoise on the left, dark turquoise on the right, identified by the left-to-right caption on supplied PDF p.97. The discs below are pooling tests."
+  },
+  {
+    "id": "bloomfield-97-dark-turquoise",
+    "image": "assets/recipes/photographs/bloomfield-97-dark-turquoise.jpg",
+    "platePage": 98,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-98-0.jpg",
+    "cropPixels": [
+      366,
+      0,
+      718,
+      960
+    ],
+    "evidence": "Lok Ming Fung: bright turquoise on the left, dark turquoise on the right, identified by the left-to-right caption on supplied PDF p.97. The discs below are pooling tests."
+  },
+  {
+    "id": "bloomfield-109-red-purple-glaze",
+    "image": "assets/recipes/photographs/bloomfield-109-red-purple-glaze.jpg",
+    "platePage": 109,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-109-0.jpg",
+    "cropPixels": null,
+    "evidence": "John Solly’s red-purple specimen printed immediately below its formula, before the separate purple formula."
+  },
+  {
+    "id": "bloomfield-146-iron-honey-yellow",
+    "image": "assets/recipes/photographs/bloomfield-146-iron-honey-yellow.jpg",
+    "platePage": 146,
+    "plateImage": "assets/recipes/photographs/bloomfield-plate-146-0.jpg",
+    "cropPixels": [
+      283,
+      258,
+      533,
+      924
+    ],
+    "evidence": "Iron honey-yellow: right-hand tile explicitly identified by the caption; the small overlap disc is not used."
+  },
+  {
+    "id": "jones-edgy-green",
+    "image": "assets/recipes/photographs/elecfiringtech_02-1.jpg",
+    "evidence": "Jonathan Kaplan, Vase with Circular Attributes and Stand, Edgy Green glaze. Published by Ceramic Arts Network.",
+    "sourceUrl": "https://ceramicartsnetwork.org/daily/article/Cone-6-Pottery-Glazes-and-Firing-Tips-for-Creating-Exciting-Surfaces-in-Electric-Kilns",
+    "imageUrl": "https://ceramicartsnetwork.org/images/default-source/uploadedimages/wp-content/uploads/2012/10/elecfiringtech_02-1.jpg"
+  },
+  {
+    "id": "jones-vc-blue-green-purple-variation",
+    "image": "assets/recipes/photographs/elecfiring_02-1.jpg",
+    "evidence": "Jonathan Kaplan, Disk Vase: VC Blue/Green/Purple with PV Black sprayed over it. This is a layered result, not VC alone. Published by Ceramic Arts Network.",
+    "sourceUrl": "https://ceramicartsnetwork.org/daily/article/Cone-6-Pottery-Glazes-and-Firing-Tips-for-Creating-Exciting-Surfaces-in-Electric-Kilns",
+    "imageUrl": "https://ceramicartsnetwork.org/images/default-source/uploadedimages/wp-content/uploads/2012/10/elecfiring_02-1.jpg"
+  },
+  {
+    "id": "jones-pv-black-liner-glaze",
+    "image": "assets/recipes/photographs/elecfiring_02-1.jpg",
+    "evidence": "Jonathan Kaplan, Disk Vase: PV Black sprayed over VC Blue/Green/Purple. This is a layered result, not PV Black alone. Published by Ceramic Arts Network.",
+    "sourceUrl": "https://ceramicartsnetwork.org/daily/article/Cone-6-Pottery-Glazes-and-Firing-Tips-for-Creating-Exciting-Surfaces-in-Electric-Kilns",
+    "imageUrl": "https://ceramicartsnetwork.org/images/default-source/uploadedimages/wp-content/uploads/2012/10/elecfiring_02-1.jpg"
+  }
+]
