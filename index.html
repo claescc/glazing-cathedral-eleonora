@@ -25,7 +25,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261002-nav-vibrant" />
+    <link rel="stylesheet" href="m3-site.css?v=20261003-atlas-layout" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -59,7 +59,7 @@
       <div class="hero">
         <div class="hero-content">
           <p class="eyebrow">Eleonora’s ceramic library</p>
-          <h1>Colour, material and fire.<br><span>All in one place.</span></h1>
+          <h1>Colour, material <span class="hero-title-phrase">and fire.</span><br><span>All in one place.</span></h1>
           <p>Explore real fired surfaces, open sourced recipes, and follow the craft from raw materials to the kiln.</p>
           <div class="library-shortcuts">
             <a href="atlas.html"><span class="material-symbols-rounded" aria-hidden="true">palette</span> Explore the atlas</a>
@@ -102,6 +102,7 @@
           /></label>
           <details class="atlas-filter-panel" id="atlasFilterPanel" open>
             <summary>Filters and views</summary>
+          <p class="filter-group-label">Collection</p>
           <div id="kindTabs" role="group" aria-label="Record type">
             <button class="on" data-kind="all" aria-pressed="true">
               Entire collection</button
@@ -111,6 +112,7 @@
               Historic families
             </button>
           </div>
+          <p class="filter-group-label">Colour family</p>
           <div
             class="hues"
             id="hues"
@@ -143,6 +145,7 @@
               >
             </div>
           </details>
+          <p class="filter-group-label">Display</p>
           <div id="viewTabs" role="group" aria-label="Collection view">
             <button class="on" data-view="photos" aria-pressed="true">
               Photographs</button
