@@ -670,3 +670,124 @@ body[data-page] main > section:not(#rooms) { width: 100%; max-width: 88rem; marg
 #exhibitions .exhibition-grid { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 600px) { #exhibitions .exhibition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1200px) { #exhibitions .exhibition-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Task navigation and readable controls. Room destinations stay separate from utilities. */
+button { color: var(--text); }
+button[hidden] { display: none !important; }
+body[data-page="glaze-families"] #glaze-families { display: block; }
+body[data-page="glaze-families"] { --story-accent: #245394; --story-light: #b1ceff; }
+.threshold nav:first-child { gap: .5rem; }
+.threshold nav:first-child .appbar-utility { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-width: 44px; min-height: 44px; padding: .5rem .65rem; border: 0; border-radius: var(--radius-small); background: transparent; color: var(--text); font-size: .8125rem; text-decoration: none; }
+.appbar-utility .material-symbols-rounded { font-size: 22px; }
+.appbar-utility:hover { background: var(--surface-soft); }
+.notebook-link i { font-style: normal; font-size: .75rem; }
+.threshold .room-menu { display: none; position: fixed; inset: 72px 1rem auto auto; z-index: 40; width: min(24rem, calc(100vw - 2rem)); max-height: calc(100dvh - 170px); padding: .5rem; overflow-y: auto; border: 1px solid var(--outline-soft); border-radius: var(--radius-medium); box-shadow: var(--md-sys-elevation-level2); }
+.threshold .room-menu.open { display: grid; grid-template-columns: minmax(0, 1fr); }
+.threshold .room-menu a { min-height: 44px; display: flex; align-items: center; padding: .5rem .75rem; font-size: .875rem; }
+.threshold .room-menu a[aria-current="page"] { font-weight: 700; text-decoration: underline; }
+.mobile-nav button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; min-width: 0; min-height: 64px; border: 0; padding: .25rem; background: transparent; color: var(--text-secondary); font: inherit; }
+.mobile-nav button .material-symbols-rounded { display: grid; place-items: center; width: 48px; height: 32px; font-size: 24px; }
+.mobile-nav button b { font-size: .75rem; font-weight: 600; }
+.settings-dialog { position: fixed; inset: 0; width: min(28rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); margin: auto; padding: 1.5rem; overflow: auto; border: 1px solid var(--outline-soft); border-radius: var(--radius-large); background: var(--surface); color: var(--text); }
+.settings-dialog::backdrop { background: var(--md-sys-color-scrim); }
+.settings-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.settings-heading h2 { margin: 0; font-size: 1.5rem; }
+.settings-heading button { display: grid; place-items: center; min-width: 44px; min-height: 44px; padding: .5rem; border: 0; border-radius: var(--radius-full); background: var(--surface-soft); color: var(--text); }
+.settings-dialog fieldset { margin: 1.5rem 0 0; padding: 0; border: 0; }
+.settings-dialog legend { font-size: 1rem; font-weight: 700; }
+.settings-dialog p { font-size: .875rem; color: var(--text-secondary); }
+.settings-dialog label { display: flex; align-items: center; gap: .75rem; min-height: 48px; padding: .5rem; border-radius: var(--radius-small); cursor: pointer; }
+.settings-dialog label:hover { background: var(--surface-soft); }
+.settings-dialog input { width: 20px; height: 20px; margin: 0; accent-color: var(--md-sys-color-primary); }
+.settings-dialog small { margin-left: .5rem; color: var(--text-secondary); }
+.atlas-navigation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; border-bottom: 1px solid var(--outline-soft); }
+.atlas-navigation a { display: flex; align-items: flex-start; gap: .75rem; min-width: 0; padding: .9rem .25rem; border-bottom: 3px solid transparent; color: var(--text-secondary); text-decoration: none; }
+.atlas-navigation a[aria-current="page"] { border-bottom-color: var(--md-sys-color-primary); color: var(--text); }
+.atlas-navigation a:hover { background: var(--surface-soft); }
+.atlas-navigation strong, .atlas-navigation small { display: block; }
+.atlas-navigation strong { font-size: 1rem; }
+.atlas-navigation small { margin-top: .25rem; font-size: .8125rem; line-height: 1.4; }
+#atlas .filters { display: grid; gap: .75rem; }
+#atlasFilterPanel { display: grid; gap: .65rem; }
+#atlasFilterPanel .atlas-control-label { margin-top: .5rem; }
+.catalogue-filter-row { margin-top: .5rem; }
+#atlas .atlas-selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
+#atlas .atlas-selects label { min-width: 0; font-size: .8125rem; font-weight: 600; }
+#atlas .atlas-selects select { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: .4rem; padding: .5rem 1.5rem .5rem .6rem; font-size: .875rem; font-weight: 400; }
+.filter-help { margin: .25rem 0; font-size: .8125rem; line-height: 1.5; color: var(--text-secondary); }
+.filter-help a { color: var(--text); }
+#hues { max-width: none; grid-template-columns: repeat(9, minmax(0, 1fr)); }
+#hues button { min-height: 80px; box-shadow: none; }
+#viewTabs { background: transparent; padding: 0; gap: .5rem; }
+#viewTabs button { border-radius: var(--radius-small); min-height: 44px; }
+#viewTabs button[aria-pressed="true"] { background: var(--surface-soft); box-shadow: none; outline: 1px solid var(--outline); }
+#viewTabs button:focus-visible { outline: 3px solid var(--focus); }
+.section-jumps { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.25rem 0 2rem; }
+.section-jumps a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); }
+#typeMap { border: 0; padding: 0; }
+#typeMap .type-map-head { padding: 0; }
+.type-card nav { display: flex; flex-wrap: wrap; gap: .35rem .85rem; }
+.type-card nav a { display: inline-flex; align-items: center; min-height: 44px; padding: .25rem 0; color: var(--text); font-size: .8125rem; text-decoration: underline; }
+#historicSurfaces { margin-top: 3rem; scroll-margin-top: 1rem; }
+.task-navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.task-navigation a { display: block; min-height: 64px; padding: .75rem 0; border-bottom: 2px solid var(--outline-soft); color: var(--text); text-decoration: none; }
+.task-navigation a:hover { border-bottom-color: var(--md-sys-color-primary); }
+.task-navigation strong, .task-navigation span { display: block; }
+.task-navigation span { margin-top: .4rem; color: var(--text-secondary); font-size: .875rem; line-height: 1.4; }
+#atlasMore, #recipeMore { display: block; width: fit-content; min-height: 44px; margin: 1.5rem auto; padding: .6rem 1.1rem; border: 1px solid var(--outline); border-radius: var(--radius-small); background: var(--surface); color: var(--text); }
+.under { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+main :is(.concept-jump,.lab-save,.save-button,.shelf-actions a) { color: var(--text); background: var(--surface-soft); }
+@media (min-width: 840px) {
+  body { padding-left: 216px; }
+  body.system-guide { padding-left: 0; }
+  .mobile-nav { width: 216px; align-items: stretch; gap: .2rem; padding: 1rem .5rem; overflow-y: auto; }
+  .mobile-nav a { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: .5rem; width: 100%; min-height: 48px; padding: .3rem .5rem; border-radius: var(--radius-small); }
+  .mobile-nav a > span { flex: 0 0 36px; width: 36px; height: 36px; }
+  .mobile-nav a b { font-size: .8125rem; text-align: left; }
+  .mobile-nav a.active { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+  .mobile-nav a.active > span { background: transparent; color: inherit; }
+  .mobile-nav #roomsButton { display: none; }
+  .threshold nav:first-child { padding-inline: 1.5rem; }
+}
+@media (max-width: 839px) {
+  .mobile-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .mobile-nav .room-destination { display: none; }
+  .threshold nav:first-child .notebook-link { display: inline-flex; }
+  .threshold nav:first-child .appbar-utility { flex: 0 0 auto; padding: .5rem; }
+  .notebook-link i { display: none; }
+  .task-navigation { gap: .75rem; }
+}
+@media (max-width: 599px) {
+  .threshold nav:first-child { gap: .25rem; padding-inline: .75rem; }
+  .threshold nav:first-child .appbar-utility { flex-direction: column; gap: .1rem; min-width: 48px; padding: .2rem; font-size: .75rem; }
+  .threshold .room-menu { top: 64px; }
+  #hues { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #atlas .atlas-selects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #atlas .atlas-selects label:last-child { grid-column: 1 / -1; }
+  .atlas-navigation { gap: .75rem; }
+  .atlas-navigation a { gap: .4rem; }
+  .atlas-navigation strong { font-size: .9375rem; }
+  .atlas-navigation small { font-size: .75rem; }
+  .task-navigation { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+  .task-navigation a { min-height: 60px; }
+  .task-navigation span { margin-top: .2rem; }
+  #viewTabs { display: flex; width: fit-content; }
+  #viewTabs button { flex-direction: row; font-size: .75rem; padding-inline: .4rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; } }
+@media (forced-colors: active) { .atlas-navigation a[aria-current="page"], .task-navigation a { border-color: Highlight; } }
+
+/* Keep the room identity visible without placing a second full hero before the task. */
+.room-frontispiece { display: grid; grid-template-columns: minmax(100px, 24%) minmax(0, 1fr); margin: 1rem; border-radius: var(--radius-medium); }
+.room-frontispiece > img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; }
+.frontispiece-caption { padding: 1rem 1.25rem; border-top: 0; border-left: 3px solid #bb9155; }
+.frontispiece-caption h1 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.frontispiece-caption .eyebrow { font-size: .7rem; }
+.frontispiece-caption small { margin-top: .5rem; }
+body[data-page] main > section > .head h1 { font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; margin: .5rem 0 0; }
+@media (max-width: 599px) { .room-frontispiece { grid-template-columns: 80px minmax(0, 1fr); } .frontispiece-caption { padding: .75rem; } .frontispiece-caption p { font-size: .8125rem; } }
+
+.skip-link { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+
+.notebook-link[aria-current="page"] { font-weight: 700; text-decoration: underline; }
+#glaze-families { --story-accent: #245394; --story-light: #b1ceff; }

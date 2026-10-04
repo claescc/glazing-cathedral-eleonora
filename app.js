@@ -820,11 +820,12 @@ $("#roomGrid").innerHTML = rooms
   .join("");
 $("#roomMenu").innerHTML = rooms
   .map((r) => `<a href="${r[0]}.html">${r[1]}</a>`)
-  .concat('<a href="learn.html">Learn</a><a href="layering.html">Layering Laboratory</a><a href="tribute.html">Judith’s tribute</a>')
+  .concat('<a href="glaze-families.html">Glaze families</a><a href="learn.html">Learn</a><a href="layering.html">Layering Laboratory</a><a href="tribute.html">Judith’s tribute</a>')
   .join("");
 $("#roomsButton").onclick = () => {
   const open = $("#roomMenu").classList.toggle("open");
   $("#roomsButton").setAttribute("aria-expanded", String(open));
+  if (open) $("#roomMenu a")?.focus();
 };
 all("#roomMenu a").forEach(
   (a) =>
@@ -850,11 +851,11 @@ $("#hues").innerHTML = hueDefinitions
       `<button data-hue="${h.key}" class="${i ? "" : "on"}" aria-pressed="${i === 0}" title="${h.label}"><i aria-hidden="true" style="background:${h.color}"><span class="hue-check">✓</span></i><span>${h.label}</span></button>`,
   )
   .join("");
-const atlasFilterPanel = $("#atlasFilterPanel");
-const wideAtlas = matchMedia("(min-width: 600px)");
-const syncAtlasFilters = () => { atlasFilterPanel.open = wideAtlas.matches; };
-syncAtlasFilters();
-wideAtlas.addEventListener("change", syncAtlasFilters);
+const atlasPageSize = 36;
+let atlasLimit = atlasPageSize;
+const atlasQuery = new URLSearchParams(location.search);
+if (atlasQuery.has("q")) $("#search").value = atlasQuery.get("q");
+if (["all", "recipe", "family"].includes(atlasQuery.get("kind"))) activeKind = atlasQuery.get("kind");
 function tile(x, view = "photos") {
   const label = x.kind === "recipe" ? "RECIPE" : "HISTORIC FAMILY";
   const focus = atlasFocus(
@@ -871,6 +872,7 @@ function tile(x, view = "photos") {
   return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${visual}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source || x.origin)}</span></span></button>`;
 }
 function render() {
+  $("#kindFilter").value = activeKind;
   let q = $("#search").value.toLowerCase();
   let list = collection.filter(
     (x) =>
@@ -899,10 +901,12 @@ function render() {
         : rank(a) - rank(b) || a.name.localeCompare(b.name),
   );
   const matchedCount = list.length;
-  $("#atlasMore").hidden = true;
+  $("#atlasMore").hidden = matchedCount <= atlasLimit;
+  $("#atlasMore").textContent = `Show ${Math.min(atlasPageSize, matchedCount - atlasLimit)} more surfaces`;
+  list = list.slice(0, atlasLimit);
   $("#wall").classList.toggle("index-view", activeView === "index");
   $("#wall").innerHTML = !list.length
-    ? `<div class="empty-corridor"><small>CATALOGUE GAP</small><h3>No records match “${escapeHtml($("#search").value || activeHue)}”.</h3><p>Try including text-only formulas, clearing the source or cone filter, or searching inside the books.</p></div>`
+    ? `<div class="empty-corridor"><small>CATALOGUE GAP</small><h3>No records match “${escapeHtml($("#search").value || activeHue)}”.</h3><p>Clear the colour, book or firing filter, or <a href="recipes.html">search all recipe formulas</a>.</p></div>`
     : activeView !== "index"
       ? list.map((x) => tile(x, activeView)).join("")
       : list
@@ -912,7 +916,7 @@ function render() {
           )
           .join("");
   $("#resultCount").textContent =
-    `${matchedCount} matching · showing ${list.length}`;
+    `Showing ${list.length} of ${matchedCount}`;
   all(".tile").forEach(
     (b) =>
       (b.onclick = () =>
@@ -927,30 +931,21 @@ for (const [id, values] of [
   [...new Set(values)]
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
     .forEach((v) => el.add(new Option(v, v)));
-  el.onchange = render;
+  el.onchange = () => { atlasLimit = atlasPageSize; render(); };
 }
-$("#sortFilter").onchange = render;
-$("#photoFilter").onchange = render;
+$("#sortFilter").onchange = () => { atlasLimit = atlasPageSize; render(); };
+$("#photoFilter").onchange = () => { atlasLimit = atlasPageSize; render(); };
 $("#totalCount").textContent = collection.length;
 const photographedCount = collection.filter((x) => x.image).length;
 $("#photoCoverage").textContent = `${photographedCount} photographic swatches. Colour references and variations are labelled. ${collection.length - photographedCount} text-only formulas are available in Recipes.`;
-$("#search").oninput = render;
-all("#kindTabs button").forEach(
-  (b) =>
-    (b.onclick = () => {
-      activeKind = b.dataset.kind;
-      all("#kindTabs button").forEach((x) => {
-        const on = x === b;
-        x.classList.toggle("on", on);
-        x.setAttribute("aria-pressed", String(on));
-      });
-      render();
-    }),
-);
+$("#search").oninput = () => { atlasLimit = atlasPageSize; render(); };
+$("#kindFilter").onchange = () => { activeKind = $("#kindFilter").value; atlasLimit = atlasPageSize; render(); };
+$("#atlasMore").onclick = () => { const firstNew = atlasLimit; atlasLimit += atlasPageSize; render(); $("#wall").children[firstNew]?.focus(); };
 all("#hues button").forEach(
   (b) =>
     (b.onclick = () => {
       activeHue = b.dataset.hue;
+      atlasLimit = atlasPageSize;
       all("#hues button").forEach((x) => {
         x.classList.toggle("on", x === b);
         x.setAttribute("aria-pressed", String(x === b));
@@ -974,60 +969,26 @@ const typeGroups = window.GLAZY_TYPE_GROUPS || [];
 $("#typeGrid").innerHTML = typeGroups
   .map(
     (g) =>
-      `<article class="type-card"><img src="${imageSrc(g.image)}" alt="One fired gallery-cover reference for ${g.name}"><div><small>GALLERY GUIDE · GLAZY PDF PP. ${g.pages}</small><h4>${g.name}</h4><p>${g.description}</p><span class="type-visual-note">Cover image only—each named subtype may look different.</span><nav>${g.types.map((t) => `<button data-type-query="${t}">${t}</button>`).join("")}</nav></div></article>`,
+      `<article class="type-card"><img src="${imageSrc(g.image)}" alt="One fired gallery-cover reference for ${g.name}"><div><small>GALLERY GUIDE · GLAZY PDF PP. ${g.pages}</small><h4>${g.name}</h4><p>${g.description}</p><span class="type-visual-note">Cover image only—each named subtype may look different.</span><nav aria-label="Search Atlas by ${g.name}">${g.types.map((t) => `<a href="atlas.html?q=${encodeURIComponent(t)}#atlas">${t}<span aria-hidden="true"> ↗</span></a>`).join("")}</nav></div></article>`,
   )
   .join("");
-all("[data-type-query]").forEach(
-  (b) =>
-    (b.onclick = () => {
-      activeKind = "all";
-      activeHue = "all";
-      all("#kindTabs button").forEach((x) => {
-        const on = x.dataset.kind === "all";
-        x.classList.toggle("on", on);
-        x.setAttribute("aria-pressed", String(on));
-      });
-      all("#hues button").forEach((x) => {
-        const on = x.dataset.hue === "all";
-        x.classList.toggle("on", on);
-        x.setAttribute("aria-pressed", String(on));
-      });
-      $("#search").value = b.dataset.typeQuery;
-      render();
-      $("#atlas .filters").scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }),
-);
-document.querySelector("#recipes .under").onclick = () => {
-  if (!$("#atlas").getClientRects().length) return;
-  $("#photoFilter").value = "yes";
-  activeKind = "recipe";
-  activeHue = "all";
-  $("#search").value = "";
-  $("#sourceFilter").value = "";
-  $("#coneFilter").value = "";
-  all("#kindTabs button").forEach((b) => {
-    const on = b.dataset.kind === "recipe";
-    b.classList.toggle("on", on);
-    b.setAttribute("aria-pressed", String(on));
-  });
-  all("#hues button").forEach((b) => {
-    const on = b.dataset.hue === "all";
-    b.classList.toggle("on", on);
-    b.setAttribute("aria-pressed", String(on));
-  });
-  render();
+$("#familyWall").innerHTML = families.map(x => tile(x)).join("");
+$("#familyWall").onclick = (event) => {
+  const button = event.target.closest("[data-id]");
+  if (button) openBook(families.find(x => x.id === button.dataset.id));
 };
+const recipePageSize = 24;
+let recipeLimit = recipePageSize;
 function renderRecipeLibrary() {
   const query = $("#recipeSearch").value.trim().toLocaleLowerCase();
   const matches = recipes.filter(x => [x.name, x.source, x.cone, x.atmosphere].join(" ").toLocaleLowerCase().includes(query));
-  $("#recipeRail").innerHTML = matches.map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="${escapeHtml(x.imageKind || "Source photograph")}: ${escapeHtml(x.name)}">${x.imageKind ? `<span class="recipe-photo-label">${escapeHtml(x.imageKind)}</span>` : ""}` : ''}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
-  $("#recipeCount").textContent = matches.length ? `Showing ${matches.length} of ${recipes.length} recipes` : "No matching recipes. Try another name, source or cone.";
-  $("#recipeMore").hidden = true;
+  $("#recipeRail").innerHTML = matches.slice(0, recipeLimit).map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="${escapeHtml(x.imageKind || "Source photograph")}: ${escapeHtml(x.name)}">${x.imageKind ? `<span class="recipe-photo-label">${escapeHtml(x.imageKind)}</span>` : ""}` : ''}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
+  $("#recipeCount").textContent = matches.length ? `Showing ${Math.min(matches.length, recipeLimit)} of ${matches.length} matching recipes` : "No matching recipes. Try another name, source or cone.";
+  $("#recipeMore").hidden = matches.length <= recipeLimit;
+  $("#recipeMore").textContent = `Show ${Math.min(recipePageSize, matches.length - recipeLimit)} more recipes`;
 }
-$("#recipeSearch").addEventListener("input", renderRecipeLibrary);
+$("#recipeSearch").addEventListener("input", () => { recipeLimit = recipePageSize; renderRecipeLibrary(); });
+$("#recipeMore").onclick = () => { const firstNew = recipeLimit; recipeLimit += recipePageSize; renderRecipeLibrary(); $("#recipeRail").children[firstNew]?.focus(); };
 $("#recipeRail").onclick = (event) => {
   const button = event.target.closest("[data-id]");
   if (button) openBook(recipes.find((x) => x.id === button.dataset.id));
@@ -1765,7 +1726,7 @@ document.addEventListener("keydown", (e) => {
     $("#roomsButton").focus();
     return;
   }
-  if (document.getElementById("sourceReader")?.open) return;
+  if (document.getElementById("sourceReader")?.open || document.getElementById("settingsDialog")?.open) return;
   if ($("#modal").hidden) return;
   if (e.key === "Escape") {
     $("#close").click();
@@ -1867,6 +1828,10 @@ function setMobileNav(id) {
   });
 }
 const currentPage = document.body.dataset.page || "home";
+all(".atlas-navigation a").forEach(a => {
+  if ((currentPage === "atlas" && a.getAttribute("href") === "atlas.html") || (currentPage === "glaze-families" && a.getAttribute("href") === "glaze-families.html")) a.setAttribute("aria-current", "page");
+});
+all("#roomMenu a").forEach(a => { if (a.getAttribute("href") === `${currentPage}.html`) a.setAttribute("aria-current", "page"); });
 const tributeVideoPlay = document.getElementById("tributeVideoPlay");
 if (tributeVideoPlay) tributeVideoPlay.addEventListener("click", () => {
   const frame = document.createElement("iframe");
@@ -1877,7 +1842,7 @@ if (tributeVideoPlay) tributeVideoPlay.addEventListener("click", () => {
   frame.referrerPolicy = "strict-origin-when-cross-origin";
   document.getElementById("tributeVideoFrame").replaceChildren(frame);
 });
-setMobileNav(({ home: "top", learn: "path" })[currentPage] || currentPage);
+setMobileNav(({ home: "top", learn: "path", "glaze-families": "atlas", tribute: "masters" })[currentPage] || currentPage);
 mobileNavLinks.forEach((a) =>
   a.addEventListener("click", () => setMobileNav(a.dataset.navSection)),
 );

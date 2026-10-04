@@ -11,7 +11,7 @@
       content="no-cache, no-store, must-revalidate"
     />
     <meta name="theme-color" content="#FFF9EF" />
-    <script src="theme.js?v=20260925-themes"></script>
+    <script src="theme.js?v=20261004-settings"></script>
     <title>Materials Archive · Ceramics Cathedral of Eleonora</title>
     <meta name="description" content="Explore materials archive at the Ceramics Cathedral of Eleonora." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +22,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261004-atlas-controls" />
+    <link rel="stylesheet" href="m3-site.css?v=20261004-room-navigation" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -40,19 +40,9 @@
             height="56"
             alt="Eleonora’s EJL sunflower seal"
           /><span>Ceramics Cathedral of Eleonora</span></a
-        ><a class="appbar-search" href="reading.html#source-library" aria-label="Search the library"><span class="material-symbols-rounded" aria-hidden="true">search</span><span>Search the library</span></a><button
-          id="roomsButton"
-          type="button"
-          aria-expanded="false"
-          aria-controls="roomMenu"
-        >
-          <span class="material-symbols-rounded" aria-hidden="true">apps</span>
-          <span>All rooms</span></button
-        ><label class="appearance-control"><span>Appearance</span><select class="theme-select" aria-label="Appearance"><option value="auto">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="contrast">High contrast</option></select></label><a class="notebook-link" href="notebook.html"
-          >Notebook · <i id="savedCount">0</i></a
-        >
+        ><a class="appbar-search" href="reading.html#source-library" aria-label="Search the library"><span class="material-symbols-rounded" aria-hidden="true">search</span><span>Search the library</span></a><a class="appbar-utility notebook-link" href="notebook.html" aria-label="Saved surfaces and recipes"><span class="material-symbols-rounded" aria-hidden="true">favorite</span><span>Saved</span><i id="savedCount">0</i></a><button class="appbar-utility" id="settingsButton" type="button" aria-haspopup="dialog"><span class="material-symbols-rounded" aria-hidden="true">settings</span><span>Settings</span></button>
       </nav>
-      <div class="room-menu" id="roomMenu"></div>
+      <nav class="room-menu" id="roomMenu" aria-label="All rooms"></nav>
       <div class="hero">
         <div class="hero-content">
           <p class="eyebrow">Eleonora’s ceramic library</p>
@@ -71,6 +61,15 @@
       </div>
       <div class="window" id="window" hidden></div>
     </header>
+    <dialog id="settingsDialog" class="settings-dialog" aria-labelledby="settingsTitle">
+      <div class="settings-heading"><h2 id="settingsTitle">Settings</h2><button id="settingsClose" type="button" aria-label="Close settings"><span class="material-symbols-rounded" aria-hidden="true">close</span></button></div>
+      <fieldset><legend>Appearance</legend><p>System follows your device’s appearance and contrast preferences.</p>
+        <label><input type="radio" name="appearance" value="auto" checked><span>System <small>Default</small></span></label>
+        <label><input type="radio" name="appearance" value="light"><span>Light</span></label>
+        <label><input type="radio" name="appearance" value="dark"><span>Dark</span></label>
+        <label><input type="radio" name="appearance" value="contrast"><span>High contrast</span></label>
+      </fieldset>
+    </dialog>
     <section class="room-frontispiece" aria-label="Materials Archive introduction"><img src="assets/artwork/ceramic-window-stories.jpg" alt="" fetchpriority="high" width="2172" height="724"><div class="frontispiece-caption"><p class="eyebrow">THE CERAMICS CATHEDRAL · MATERIALS ARCHIVE</p><h1>The Materials Archive</h1><p>The earth behind every vessel and glaze.</p><small>Imagined ceramic window · decorative illustration</small></div></section><main id="main-content">
       <section class="atlas dark" id="atlas" data-palette-section="1">
         <div class="head">
@@ -85,6 +84,10 @@
             photograph, recipe and history.
           </p>
         </div>
+        <nav class="atlas-navigation" aria-label="Atlas sections">
+          <a href="atlas.html"><span class="material-symbols-rounded" aria-hidden="true">palette</span><span><strong>Colour atlas</strong><small>Browse photographed glaze surfaces</small></span></a>
+          <a href="glaze-families.html"><span class="material-symbols-rounded" aria-hidden="true">category</span><span><strong>Glaze families</strong><small>Explore types, terminology and historic surfaces</small></span></a>
+        </nav>
         <p class="result" id="photoCoverage"></p>
         <div class="filters">
           <label class="search-field"
@@ -97,18 +100,7 @@
               autocomplete="off"
               placeholder="Search colour, glaze, cone, atmosphere…"
           /></label>
-          <details class="atlas-filter-panel" id="atlasFilterPanel" open>
-            <summary>Filters and views</summary>
-          <p class="atlas-control-label" id="collectionLabel">Collection</p>
-          <div id="kindTabs" role="group" aria-labelledby="collectionLabel">
-            <button class="on" data-kind="all" aria-pressed="true">
-              Entire collection</button
-            ><button data-kind="recipe" aria-pressed="false">
-              Sourced recipes</button
-            ><button data-kind="family" aria-pressed="false">
-              Historic families
-            </button>
-          </div>
+          <div class="atlas-filter-panel" id="atlasFilterPanel">
           <p class="atlas-control-label" id="colourLabel">Colour family</p>
           <div
             class="hues"
@@ -116,32 +108,32 @@
             role="group"
             aria-labelledby="colourLabel"
           ></div>
-          <details class="filter-details">
-            <summary>Refine by firing, source and photograph</summary>
+          <div class="catalogue-filter-row">
             <div class="atlas-selects">
+              <label>Show<select id="kindFilter"><option value="all">All surfaces</option><option value="recipe">Recipe surfaces</option><option value="family">Historic surfaces</option></select></label>
               <label
-                >Firing cone<select id="coneFilter">
+                >Firing range (cone)<select id="coneFilter">
                   <option value="">All cones</option>
                 </select></label
               ><label
-                >Source<select id="sourceFilter">
+                >Book or collection<select id="sourceFilter">
                   <option value="">All sources</option>
                 </select></label
               ><label
-                >Photograph<select id="photoFilter">
-                  <option value="exact">Recipe photographs only</option>
-                  <option value="yes" selected>All photographed swatches</option>
+                >Images<select id="photoFilter">
+                  <option value="exact">Exclude colour references</option>
+                  <option value="yes" selected>All images</option>
                 </select></label
               ><label
-                >Order<select id="sortFilter">
-                  <option value="photographs">Photographs first</option>
-                  <option value="colour">Colour families</option>
+                >Sort by<select id="sortFilter">
+                  <option value="photographs">Colour families</option>
                   <option value="name">Name A–Z</option>
                   <option value="source">Source</option>
                 </select></label
               >
             </div>
-          </details>
+          </div>
+          <p class="filter-help">Cone ranges are the source’s firing recommendations. <a href="kiln.html">Learn about heatwork in the Kiln Chapel</a>.</p>
           <p class="atlas-control-label" id="displayLabel">Display</p>
           <div id="viewTabs" role="group" aria-labelledby="displayLabel">
             <button class="on" data-view="photos" aria-pressed="true">
@@ -149,17 +141,26 @@
             ><button data-view="mosaic" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_module</span>Cone previews</button
             ><button data-view="index" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_list</span>Index</button>
           </div>
-          </details>
+          </div>
         </div>
         <p class="result" aria-live="polite">
-          <span id="resultCount"></span> records in this corridor
+          <span id="resultCount"></span> surfaces
         </p>
         <div class="wall" id="wall"></div>
         <button id="atlasMore" class="under" type="button" hidden>
           Show more glazes
         </button>
-        <details class="type-map" id="typeMap">
-          <summary>Explore glaze families and terminology</summary>
+
+      </section>
+
+      <section id="glaze-families" class="glaze-family-room light" data-palette-section="1">
+        <div class="head"><div><p class="eyebrow">The Stained-Glass Atlas · Glaze families</p><h2>Glaze families and terminology</h2></div><p>Explore the relationships between colour, chemistry, surface and ceramic traditions.</p></div>
+        <nav class="atlas-navigation" aria-label="Atlas sections">
+          <a href="atlas.html"><span class="material-symbols-rounded" aria-hidden="true">palette</span><span><strong>Colour atlas</strong><small>Browse photographed glaze surfaces</small></span></a>
+          <a href="glaze-families.html"><span class="material-symbols-rounded" aria-hidden="true">category</span><span><strong>Glaze families</strong><small>Explore types, terminology and historic surfaces</small></span></a>
+        </nav>
+        <nav class="section-jumps" aria-label="On this page"><a href="#typeMap">Types and terminology</a><a href="#historicSurfaces">Historic surfaces</a></nav>
+        <div class="type-map" id="typeMap">
           <div class="type-map-head">
             <p class="eyebrow">The Glazy map · 69-page source indexed</p>
             <h3>One colour can hide several chemistries.</h3>
@@ -168,7 +169,7 @@
               surface and firing process: 21 root glaze types, 79 nodes and 64
               terminal categories. This museum map gathers them into 16 visual
               galleries without pretending they are one mutually exclusive
-              scale. Click a term to search the Cathedral’s verified records; an
+              scale. Select a term to search the photographed Atlas records; an
               empty result marks a real catalogue gap. Page ranges refer to the
               supplied <i>Clay &amp; Glaze Types</i> PDF.
             </p>
@@ -183,20 +184,23 @@
               >Glazy · Clay &amp; Glaze Types ↗</a
             >, CC BY-NC-SA 4.0.
           </p>
-        </details>
+        </div>
+        <div class="head" id="historicSurfaces"><div><h3>Historic surfaces</h3></div><p>Open a surface to read its history and documented source information.</p></div>
+        <div class="wall" id="familyWall"></div>
       </section>
 
       <section class="cookbook light" id="recipes" data-palette-section="2">
         <div class="head">
           <div>
             <p class="eyebrow">Room II · The Recipe Library</p>
-            <h2>A cookbook that remembers where every recipe came from.</h2>
+            <h2>The Recipe Library</h2>
           </div>
           <p>
             Open a structured formula below, or search recipe pages across the
             supplied books. The calculator is available for structured records.
           </p>
         </div>
+        <nav class="task-navigation" aria-label="Recipe tasks"><a href="#recipeCatalogue"><strong>Find a formula</strong><span>Search the sourced recipe library</span></a><a href="layering.html"><strong>Plan glaze layers</strong><span>Compare recipes for a test</span></a><a href="reading.html#source-library"><strong>Read the source books</strong><span>Open the original pages</span></a></nav>
         <aside class="studio-alert" aria-label="Dry powder safety before mixing">
           <span class="material-symbols-rounded" aria-hidden="true">warning</span>
           <div><strong>Before mixing: use a properly equipped studio.</strong><p>Dry glaze powder needs dust capture, the exact product safety sheets, suitable eye and hand protection, respiratory protection when required, and a clean-up plan. A kitchen hood or open window is not a substitute. Each formula starts with a visual safety check.</p></div>
@@ -219,13 +223,11 @@
             <b>Open this glaze book →</b></span
           >
         </button>
-        <div class="recipe-library-tools"><label for="recipeSearch">Find a recipe<input id="recipeSearch" type="search" placeholder="Search name, source or cone…" autocomplete="off"></label></div>
+        <div class="recipe-library-tools" id="recipeCatalogue"><label for="recipeSearch">Find a recipe<input id="recipeSearch" type="search" placeholder="Search name, source or cone…" autocomplete="off"></label></div>
         <p id="recipeCount" class="result" role="status"></p>
         <div class="rail" id="recipeRail"></div>
         <button id="recipeMore" type="button">Show more recipes</button>
-        <a href="atlas.html" class="under"
-          >Browse all sourced recipes in the Atlas →</a
-        >
+
       </section>
       <section class="layer-lab light" id="layering" data-palette-section="3">
         <div class="head">
@@ -819,42 +821,18 @@
       <a href="tribute.html">Judith’s tribute</a> ·
       <a href="typography.html">Design system</a>
     </footer>
-    <nav class="mobile-nav" aria-label="Primary mobile navigation">
-      <a href="index.html" data-nav-section="top"
-        ><span
-          ><span class="material-symbols-rounded" aria-hidden="true"
-            >home</span
-          ></span
-        ><b>Home</b></a
-      >
-      <a href="atlas.html" data-nav-section="atlas"
-        ><span
-          ><span class="material-symbols-rounded" aria-hidden="true"
-            >palette</span
-          ></span
-        ><b>Atlas</b></a
-      >
-      <a href="recipes.html" data-nav-section="recipes"
-        ><span
-          ><span class="material-symbols-rounded" aria-hidden="true"
-            >menu_book</span
-          ></span
-        ><b>Recipes</b></a
-      >
-      <a href="learn.html" data-nav-section="path"
-        ><span
-          ><span class="material-symbols-rounded" aria-hidden="true"
-            >school</span
-          ></span
-        ><b>Learn</b></a
-      >
-      <a href="notebook.html" data-nav-section="notebook"
-        ><span
-          ><span class="material-symbols-rounded" aria-hidden="true"
-            >favorite</span
-          ></span
-        ><b>Saved</b></a
-      >
+    <nav class="mobile-nav" aria-label="Primary navigation">
+      <a href="index.html" data-nav-section="top"><span><span class="material-symbols-rounded" aria-hidden="true">home</span></span><b>Home</b></a>
+      <a href="atlas.html" data-nav-section="atlas"><span><span class="material-symbols-rounded" aria-hidden="true">palette</span></span><b>Atlas</b></a>
+      <a href="recipes.html" data-nav-section="recipes"><span><span class="material-symbols-rounded" aria-hidden="true">menu_book</span></span><b>Recipes</b></a>
+      <a href="learn.html" data-nav-section="path"><span><span class="material-symbols-rounded" aria-hidden="true">school</span></span><b>Learn</b></a>
+      <a href="reading.html" data-nav-section="reading" class="room-destination"><span><span class="material-symbols-rounded" aria-hidden="true">local_library</span></span><b>Reading Room</b></a>
+      <a href="materials.html" aria-current="page" data-nav-section="materials" class="room-destination"><span><span class="material-symbols-rounded" aria-hidden="true">science</span></span><b>Materials Archive</b></a>
+      <a href="kiln.html" data-nav-section="kiln" class="room-destination"><span><span class="material-symbols-rounded" aria-hidden="true">local_fire_department</span></span><b>Kiln Chapel</b></a>
+      <a href="layering.html" data-nav-section="layering" class="room-destination"><span><span class="material-symbols-rounded" aria-hidden="true">layers</span></span><b>Layering Laboratory</b></a>
+      <a href="masters.html" data-nav-section="masters" class="room-destination"><span><span class="material-symbols-rounded" aria-hidden="true">museum</span></span><b>Hall of Masters</b></a>
+      <a href="restoration.html" data-nav-section="restoration" class="room-destination"><span><span class="material-symbols-rounded" aria-hidden="true">build</span></span><b>Restoration Room</b></a>
+      <button id="roomsButton" type="button" aria-expanded="false" aria-controls="roomMenu"><span class="material-symbols-rounded" aria-hidden="true">apps</span><b>Rooms</b></button>
     </nav>
     <div
       class="modal"
@@ -899,7 +877,7 @@
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20261003-visual-atlas"></script>
     <script src="recipe-workbench.js?v=20261002-manuscript"></script>
-    <script src="app.js?v=20261004-atlas-controls"></script>
+    <script src="app.js?v=20261004-room-navigation"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

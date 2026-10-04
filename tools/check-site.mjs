@@ -25,7 +25,7 @@ for (const file of readdirSync(root).filter((f) => /\.(m?js)$/.test(f))) {
     failures.push(`${file}: JavaScript syntax error`);
   }
 }
-for (const page of ["index.html", "atlas.html", "recipes.html", "layering.html", "learn.html", "kiln.html", "materials.html", "restoration.html", "masters.html", "tribute.html", "notebook.html", "reading.html", "typography.html"]) {
+for (const page of ["index.html", "atlas.html", "glaze-families.html", "recipes.html", "layering.html", "learn.html", "kiln.html", "materials.html", "restoration.html", "masters.html", "tribute.html", "notebook.html", "reading.html", "typography.html"]) {
   const html = readFileSync(resolve(root, page), "utf8");
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   for (const id of new Set(ids))

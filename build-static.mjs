@@ -9,6 +9,7 @@ mkdirSync(output, { recursive: true });
 for (const file of [
   "index.html",
   "atlas.html",
+  "glaze-families.html",
   "recipes.html",
   "layering.html",
   "learn.html",
