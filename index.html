@@ -25,7 +25,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261003-atlas-layout" />
+    <link rel="stylesheet" href="m3-site.css?v=20261004-atlas-controls" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -102,8 +102,8 @@
           /></label>
           <details class="atlas-filter-panel" id="atlasFilterPanel" open>
             <summary>Filters and views</summary>
-          <p class="filter-group-label">Collection</p>
-          <div id="kindTabs" role="group" aria-label="Record type">
+          <p class="atlas-control-label" id="collectionLabel">Collection</p>
+          <div id="kindTabs" role="group" aria-labelledby="collectionLabel">
             <button class="on" data-kind="all" aria-pressed="true">
               Entire collection</button
             ><button data-kind="recipe" aria-pressed="false">
@@ -112,12 +112,12 @@
               Historic families
             </button>
           </div>
-          <p class="filter-group-label">Colour family</p>
+          <p class="atlas-control-label" id="colourLabel">Colour family</p>
           <div
             class="hues"
             id="hues"
             role="group"
-            aria-label="Filter by colour"
+            aria-labelledby="colourLabel"
           ></div>
           <details class="filter-details">
             <summary>Refine by firing, source and photograph</summary>
@@ -145,12 +145,12 @@
               >
             </div>
           </details>
-          <p class="filter-group-label">Display</p>
-          <div id="viewTabs" role="group" aria-label="Collection view">
+          <p class="atlas-control-label" id="displayLabel">Display</p>
+          <div id="viewTabs" role="group" aria-labelledby="displayLabel">
             <button class="on" data-view="photos" aria-pressed="true">
-              Photographs</button
-            ><button data-view="mosaic" aria-pressed="false">Cone previews</button
-            ><button data-view="index" aria-pressed="false">Index</button>
+              <span class="material-symbols-rounded" aria-hidden="true">photo</span>Photographs</button
+            ><button data-view="mosaic" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_module</span>Cone previews</button
+            ><button data-view="index" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_list</span>Index</button>
           </div>
           </details>
         </div>
@@ -902,7 +902,7 @@
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20261003-visual-atlas"></script>
     <script src="recipe-workbench.js?v=20261002-manuscript"></script>
-    <script src="app.js?v=20261003-visual-atlas"></script>
+    <script src="app.js?v=20261004-atlas-controls"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

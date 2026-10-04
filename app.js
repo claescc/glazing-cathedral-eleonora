@@ -847,7 +847,7 @@ $("#window").innerHTML = families
 $("#hues").innerHTML = hueDefinitions
   .map(
     (h, i) =>
-      `<button data-hue="${h.key}" class="${i ? "" : "on"}" aria-pressed="${i === 0}" title="${h.label}"><i style="background:${h.color}"></i><span>${h.label}</span></button>`,
+      `<button data-hue="${h.key}" class="${i ? "" : "on"}" aria-pressed="${i === 0}" title="${h.label}"><i aria-hidden="true" style="background:${h.color}"><span class="hue-check">✓</span></i><span>${h.label}</span></button>`,
   )
   .join("");
 const atlasFilterPanel = $("#atlasFilterPanel");

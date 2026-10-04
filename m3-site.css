@@ -176,6 +176,32 @@ h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.2; max-width: 35ch; 
 select, input[type="number"], textarea { border-radius: var(--md-sys-shape-corner-extra-small); background: var(--surface); }
 :where(.filters, .reading-tools) button, #kindTabs button, #viewTabs button, #bookFilters button, .hues button { border-radius: var(--radius-full); }
 button[aria-pressed="true"], #kindTabs button[aria-pressed="true"], #viewTabs button[aria-pressed="true"] { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); border-color: transparent; }
+/* Atlas controls: category chips, direct swatches and an inset view switch. */
+#atlasFilterPanel { gap: .65rem; min-width: 0; grid-template-columns: minmax(0, 1fr); }
+#atlasFilterPanel > * { min-width: 0; }
+#atlasFilterPanel .atlas-control-label { margin: .8rem 0 0; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); }
+#kindTabs { gap: .4rem; }
+#kindTabs button { min-height: 44px; padding: .45rem .85rem; border: 0; background: var(--surface-soft); color: var(--text); }
+#kindTabs button[aria-pressed="true"] { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+#hues { display: grid; grid-template-columns: repeat(auto-fit, minmax(86px, 1fr)); gap: .65rem .35rem; max-width: 60rem; }
+#hues button { display: flex; flex-direction: column; justify-content: flex-start; gap: .65rem; min-height: 80px; min-width: 0; padding: .4rem .15rem; border: 0; border-radius: var(--radius-small); background: transparent; color: var(--text); font-size: .75rem; line-height: 1.35; text-align: center; }
+#hues i { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; border: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 25%); border-radius: 50%; }
+#hues button[aria-pressed="true"] { background: transparent; color: var(--text); }
+#hues button[aria-pressed="true"] i { outline: 3px solid var(--text); outline-offset: 3px; }
+#hues .hue-check { display: none; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: #161616; font: 700 14px/1 sans-serif; }
+#hues button[aria-pressed="true"] .hue-check { display: grid; }
+#hues button[aria-pressed="true"] > span { font-weight: 700; }
+#hues button:hover i { box-shadow: inset 0 0 0 2px var(--text); }
+#atlasFilterPanel .filter-details { border: 0; padding: 0; }
+#atlasFilterPanel .filter-details > summary { color: var(--text-secondary); font-size: .875rem; }
+#viewTabs { display: flex; flex-wrap: wrap; width: fit-content; max-width: 100%; gap: .25rem; padding: .25rem; border-radius: var(--radius-small); background: var(--surface-soft); }
+#viewTabs button { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; flex: 1 1 auto; min-height: 44px; padding: .45rem .65rem; border: 0; border-radius: var(--md-sys-shape-corner-extra-small); background: transparent; color: var(--text-secondary); font-size: .8125rem; }
+#viewTabs button .material-symbols-rounded { font-size: 1.2rem; }
+#viewTabs button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--md-sys-elevation-level1); font-weight: 700; }
+#atlasFilterPanel :is(button, summary, select):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+:root[data-theme="contrast"] #hues button[aria-pressed="true"] { background: transparent !important; color: var(--text) !important; }
+@media (max-width: 599px) { #viewTabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; } #viewTabs button { flex-direction: column; min-width: 0; min-height: 64px; padding: .4rem .2rem; } }
+@media (forced-colors: active) { #hues i { forced-color-adjust: none; } #hues button[aria-pressed="true"] i { outline-color: CanvasText; } #kindTabs button[aria-pressed="true"], #viewTabs button[aria-pressed="true"] { outline: 2px solid Highlight; } }
 .tile, .rail button, .saved button, .rooms a, .exhibition, .type-card, .six article, .four article, .plan-card, .shelves article, .source-hit, .heat-line article, .judith-records article {
   border: 1px solid var(--outline-soft);
   border-radius: var(--radius-large);
@@ -311,52 +337,6 @@ body[data-page="home"] .hero {
   .hero-content .library-shortcuts { margin-top: .25rem; }
 }
 
-.atlas-filter-panel { min-width: 0; }
-.atlas-filter-panel[open] { gap: .65rem; }
-.atlas-filter-panel .filter-group-label {
-  margin: .6rem 0 0;
-  color: var(--text-secondary);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-#kindTabs, .hues, #viewTabs {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: .6rem;
-  max-width: 54rem;
-}
-#kindTabs { padding-bottom: 1rem; border-bottom: 1px solid var(--outline-soft); }
-#kindTabs button, .hues button, #viewTabs button {
-  justify-content: flex-start;
-  min-height: 48px;
-  min-width: 0;
-  padding: .65rem 1rem;
-  border: 1px solid var(--outline-soft);
-  border-radius: var(--radius-medium);
-  background: var(--surface);
-  color: var(--text);
-  text-align: left;
-  line-height: 1.25;
-  font-weight: 500;
-}
-#kindTabs button:hover, .hues button:hover, #viewTabs button:hover { background: var(--md-sys-color-surface-container-high); }
-#kindTabs button[aria-pressed="true"], .hues button[aria-pressed="true"], #viewTabs button[aria-pressed="true"] {
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
-  border-color: var(--md-sys-color-primary);
-  font-weight: 700;
-}
-.hues i { flex-basis: 18px; width: 18px; height: 18px; border-color: var(--outline); }
-@media (max-width: 599px) {
-  #kindTabs { grid-template-columns: 1fr; }
-  .hues { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hues button:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  #kindTabs button, .hues button, #viewTabs button { min-height: 44px; padding: .55rem .7rem; font-size: .8125rem; }
-  .hues i { flex-basis: 16px; width: 16px; height: 16px; }
-}
-@media (max-width: 340px) { .hues { grid-template-columns: 1fr; } }
 .ceramic-mural { margin: 0; min-width: 0; }
 .ceramic-mural img { width: 100%; height: auto; border-radius: var(--radius-large); border: 2px solid #374f48; box-shadow: var(--md-sys-elevation-level2); }
 .ceramic-mural figcaption { padding-top: .75rem; color: var(--story-ink); font-size: .8125rem; letter-spacing: .08em; text-align: center; }
