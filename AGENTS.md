@@ -13,3 +13,14 @@ User-confirmed project rule, 2026-10-05.
 - If production access or deployment verification is blocked, report that limitation explicitly; do not claim production inspection or successful publication.
 
 These instructions apply to all pages and all work in this repository.
+
+## Keep only necessary project resources
+
+User-confirmed scope, 2026-10-05:
+
+- There is one production website (https://ceramicscathedral.com/) and one authoritative Git repository (claescc/glazing-cathedral-eleonora).
+- Retain the repository, source assets, documentation and tools required to build, test, debug and publish that production website.
+- Local builds and test environments are permitted only as development tools; clearly identify them as non-production.
+- Do not create or maintain an additional hosted copy merely as an alternative production target.
+- Existing ChatGPT Sites hosting metadata does not authorize publishing to that separate Site. Treat it as legacy until dependency checks establish whether it is needed for development tooling.
+- Remove redundant copies and obsolete configuration only after verifying that required source assets, production deployment and development tooling do not depend on them. Do not report cleanup as complete if a hosted copy could not be deleted.
