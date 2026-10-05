@@ -184,18 +184,18 @@ button[aria-pressed="true"], #kindTabs button[aria-pressed="true"], #viewTabs bu
 #kindTabs button { min-height: 44px; padding: .45rem .85rem; border: 0; background: var(--surface-soft); color: var(--text); }
 #kindTabs button[aria-pressed="true"] { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
 #hues { display: grid; grid-template-columns: repeat(auto-fit, minmax(86px, 1fr)); gap: .65rem .35rem; max-width: 60rem; }
-#hues button { display: flex; flex-direction: column; justify-content: flex-start; gap: .65rem; min-height: 80px; min-width: 0; padding: .4rem .15rem; border: 0; border-radius: var(--radius-small); background: transparent; color: var(--text); font-size: .75rem; line-height: 1.35; text-align: center; }
-#hues i { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; border: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 25%); border-radius: 50%; }
+#hues button { display: flex; flex-direction: column; justify-content: flex-start; gap: .5rem; min-height: 64px; min-width: 0; padding: .4rem .15rem; border: 0; border-radius: var(--radius-small); background: transparent; color: var(--text); font-size: 1rem; line-height: 1.35; text-align: center; }
+#hues i { display: grid; place-items: center; flex: 0 0 28px; width: 28px; height: 28px; border: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 25%); border-radius: 50%; }
 #hues button[aria-pressed="true"] { background: transparent; color: var(--text); }
 #hues button[aria-pressed="true"] i { outline: 3px solid var(--text); outline-offset: 3px; }
-#hues .hue-check { display: none; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: #161616; font: 700 14px/1 sans-serif; }
+#hues .hue-check { display: none; place-items: center; width: 16px; height: 16px; border-radius: 50%; background: #fff; color: #161616; font: 700 12px/1 sans-serif; }
 #hues button[aria-pressed="true"] .hue-check { display: grid; }
 #hues button[aria-pressed="true"] > span { font-weight: 700; }
 #hues button:hover i { box-shadow: inset 0 0 0 2px var(--text); }
 #atlasFilterPanel .filter-details { border: 0; padding: 0; }
 #atlasFilterPanel .filter-details > summary { color: var(--text-secondary); font-size: .875rem; }
 #viewTabs { display: flex; flex-wrap: wrap; width: fit-content; max-width: 100%; gap: .25rem; padding: .25rem; border-radius: var(--radius-small); background: var(--surface-soft); }
-#viewTabs button { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; flex: 1 1 auto; min-height: 44px; padding: .45rem .65rem; border: 0; border-radius: var(--md-sys-shape-corner-extra-small); background: transparent; color: var(--text-secondary); font-size: .8125rem; }
+#viewTabs button { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; flex: 1 1 auto; min-height: 44px; padding: .45rem .65rem; border: 0; border-radius: var(--md-sys-shape-corner-extra-small); background: transparent; color: var(--text-secondary); font-size: 1rem; }
 #viewTabs button .material-symbols-rounded { font-size: 1.2rem; }
 #viewTabs button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--md-sys-elevation-level1); font-weight: 700; }
 #atlasFilterPanel :is(button, summary, select):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
@@ -712,12 +712,12 @@ body[data-page="glaze-families"] { --story-accent: #245394; --story-light: #b1ce
 #atlasFilterPanel .atlas-control-label { margin-top: .5rem; }
 .catalogue-filter-row { margin-top: .5rem; }
 #atlas .atlas-selects { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
-#atlas .atlas-selects label { min-width: 0; font-size: .8125rem; font-weight: 600; }
-#atlas .atlas-selects select { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: .4rem; padding: .5rem 1.5rem .5rem .6rem; font-size: .875rem; font-weight: 400; }
+#atlas .atlas-selects label { min-width: 0; font-size: 1rem; font-weight: 600; }
+#atlas .atlas-selects select { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: .4rem; padding: .5rem 1.5rem .5rem .6rem; font-size: 1rem; font-weight: 400; }
 .filter-help { margin: .25rem 0; font-size: .8125rem; line-height: 1.5; color: var(--text-secondary); }
 .filter-help a { color: var(--text); }
-#hues { max-width: none; grid-template-columns: repeat(9, minmax(0, 1fr)); }
-#hues button { min-height: 80px; box-shadow: none; }
+#hues { max-width: none; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+#hues button { min-height: 64px; box-shadow: none; }
 #viewTabs { background: transparent; padding: 0; gap: .5rem; }
 #viewTabs button { border-radius: var(--radius-small); min-height: 44px; }
 #viewTabs button[aria-pressed="true"] { background: var(--surface-soft); box-shadow: none; outline: 1px solid var(--outline); }
@@ -772,7 +772,7 @@ main :is(.concept-jump,.lab-save,.save-button,.shelf-actions a) { color: var(--t
   .task-navigation a { min-height: 60px; }
   .task-navigation span { margin-top: .2rem; }
   #viewTabs { display: flex; width: fit-content; }
-  #viewTabs button { flex-direction: row; font-size: .75rem; padding-inline: .4rem; }
+  #viewTabs button { flex-direction: row; font-size: 1rem; padding-inline: .4rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; } }
 @media (forced-colors: active) { .atlas-navigation a[aria-current="page"], .task-navigation a { border-color: Highlight; } }
