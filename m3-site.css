@@ -874,3 +874,260 @@ body[data-page="atlas"] .atlas-navigation small { display: none; }
   #viewTabs button .material-symbols-rounded { display: none; }
   #atlas .atlas-selects { margin-top: .5rem; }
 }
+
+/* Shared compact composition across rooms, sections, folios and source readers.
+   Navigation uses text tabs; classifications use small tags; native fields stay
+   distinct from actions. Density comes from layout, not miniature body text. */
+body[data-page] main > section, body[data-page] main > .source-library { padding-block: 1.25rem; }
+body[data-page] main > section > .head { padding: 0; margin-bottom: .85rem; border: 0; border-radius: 0; background: transparent; gap: .65rem 1.5rem; align-items: start; }
+body[data-page] main > section > .head::before { display: none; }
+body[data-page] main > section > .head :is(h1,h2) { font-size: 1.6rem; line-height: 1.25; margin: .25rem 0 0; max-width: 40ch; }
+body[data-page] main > section > .head > p { margin: 0; font-size: .9375rem; line-height: 1.5; }
+body[data-page] main > section > .head .eyebrow { margin: 0; font-size: .8125rem; }
+.room-frontispiece { grid-template-columns: 88px minmax(0, 1fr); margin: .75rem 1.5rem 0; border: 0; border-radius: 8px; }
+.room-frontispiece > img { max-height: 132px; height: 100%; object-fit: cover; border-radius: 8px 0 0 8px; }
+.frontispiece-caption { padding: .65rem .85rem; border-left-width: 2px; }
+.frontispiece-caption h1 { margin: .2rem 0 .3rem; font-size: 1.35rem; line-height: 1.25; }
+.frontispiece-caption p { margin: .25rem 0; font-size: .875rem; }
+.frontispiece-caption small { margin-top: .25rem; font-size: .75rem; }
+h2 { font-size: 1.5rem; line-height: 1.3; }
+h3 { font-size: 1.125rem; line-height: 1.35; }
+:is(.head,.type-map-head,.heatwork-head) { gap: .75rem; margin-bottom: 1rem; }
+:is(.type-map,.heatwork,.copper-reduction,.masters-feature,.judith-research) { margin-block: 1.25rem; }
+:is(.rooms,.exhibition-grid,.type-grid,.six,.four,.plan-grid,.shelves,.source-results,.heat-line,.rail,.wall,.saved) { gap: .75rem; }
+:is(.tile,.rail button,.saved button,.type-card,.six article,.four article,.plan-card,.shelves article,.source-hit,.heat-line article,.exhibition,.lab-shell,.diagnostic) { border-radius: 8px; }
+:is(.rooms a,.plan-card,.shelves article,.heat-line article,.six article,.four article) { padding: .85rem; }
+:is(.rooms a,.shelves article,.heat-line article) :is(h3,h4) { margin: .35rem 0; }
+:is(.rooms a,.shelves article,.heat-line article) p { margin: .5rem 0; }
+:is(.task-navigation,.atlas-navigation,.section-jumps) { gap: .75rem 1.25rem; margin: .75rem 0; }
+.task-navigation { display: flex; flex-wrap: wrap; }
+.task-navigation a { flex: 0 1 auto; padding: .35rem 0; min-height: 36px; border-bottom-width: 2px; }
+.task-navigation span { margin-top: .15rem; font-size: .875rem; }
+.atlas-navigation { width: fit-content; }
+.atlas-navigation a { padding: .4rem 0; min-height: 36px; }
+.atlas-navigation small { font-size: .875rem; }
+.section-jumps a { min-height: 36px; padding: .25rem 0; }
+:is(.search-field,.search-field input) { min-height: 40px; }
+.search-field { padding: .25rem .75rem; border-radius: 8px; }
+:is(.source-controls,.reading-tools,.lab-controls,.diagnostic) :is(input,select,textarea) { min-height: 38px; padding: .4rem .5rem; font-size: .9375rem; }
+:is(.source-controls,.lab-controls,.diagnostic) select { border: 0; border-bottom: 1px solid var(--outline); border-radius: 0; background: transparent; }
+:is(.source-controls,.lab-controls,.diagnostic) label { font-size: .875rem; font-weight: 500; gap: .3rem; }
+.source-controls { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, .9fr); gap: .75rem; align-items: end; }
+.source-controls .search-field { align-self: end; }
+#sourceScope { border: 1px solid var(--outline-soft); border-radius: 6px; background: var(--surface-soft); }
+.reading-tools { grid-template-columns: minmax(16rem, 32rem) minmax(0, 1fr); align-items: center; gap: .75rem; margin-block: .85rem; }
+#bookFilters { gap: .35rem; }
+#bookFilters button { --tag-colour: var(--story-accent); min-height: 34px; padding: .3rem .6rem; border: 1px solid transparent; border-left: 3px solid var(--tag-colour); border-radius: 4px 10px 10px 4px; background: color-mix(in srgb, var(--tag-colour) 12%, var(--surface)); color: var(--text); font-size: .875rem; }
+#bookFilters button:nth-child(3) { --tag-colour: #996445; }
+#bookFilters button:nth-child(4) { --tag-colour: #705273; }
+#bookFilters button:nth-child(5) { --tag-colour: #416d85; }
+#bookFilters button[aria-pressed="true"] { border-color: var(--text); box-shadow: inset 0 0 0 1px var(--text); font-weight: 700; }
+#bookFilters button[aria-pressed="true"]::before { content: '✓ '; }
+:is(.stats,.source-stats) { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: .75rem; }
+:is(.stats,.source-stats) > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: .35rem; padding: .25rem 0; border: 0; border-radius: 0; background: transparent; }
+:is(.stats,.source-stats) b { font-size: 1.15rem; }
+:is(.stats,.source-stats) span { font-size: .875rem; }
+.source-hit { grid-template-columns: 36px minmax(0, 1fr) 16px; padding: .65rem; gap: .6rem; }
+.source-hit strong { margin-block: .3rem; font-size: .9375rem; }
+.page-badge { padding: .3rem; border-radius: 4px; }
+.page-badge b { font-size: 1rem; }
+.shelf-actions :is(a,button) { width: auto; min-height: 34px; padding: .25rem .5rem; border: 0; border-radius: 4px; background: transparent; color: var(--text); text-decoration: underline; text-underline-offset: .2em; }
+.shelf-actions :is(a,button):first-child { background: var(--surface-soft); text-decoration: none; }
+.recipe-library-tools { padding: .6rem .75rem; margin-block: .75rem; border-radius: 8px; background: transparent; border-left: 3px solid var(--story-accent); }
+.recipe-library-tools label { display: flex; flex-wrap: wrap; gap: .4rem .75rem; align-items: center; font-size: .875rem; }
+.recipe-library-tools input { flex: 1 1 16rem; min-width: 0; min-height: 40px; }
+#recipeRail { padding: .75rem; border-radius: 8px; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+#recipeRail .recipe-volume { display: grid; grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: auto 1fr; padding: .6rem; border-left-width: 4px; border-radius: 4px 8px 8px 4px; box-shadow: none; align-content: start; }
+#recipeRail .recipe-volume > .volume-number { grid-column: 2; padding: 0 0 .25rem .65rem; font-size: .75rem; letter-spacing: .03em; }
+#recipeRail .recipe-volume > :is(img,.no-photo) { grid-column: 1; grid-row: 1 / 3; width: 72px; height: 96px; min-height: 0; margin: 0; padding: 0; border-radius: 4px; object-fit: contain; font-size: .875rem; }
+#recipeRail .recipe-volume > .volume-copy { grid-column: 2; grid-row: 2; padding: 0 0 0 .65rem; gap: .35rem; }
+.volume-copy strong { font-size: 1rem; line-height: 1.3; }
+.volume-copy small { font-size: .8125rem; }
+.volume-source { font-size: .875rem; }
+.volume-open { padding-top: .4rem; font-size: .8125rem; }
+.studio-safety-banner { padding: .75rem; border-width: 1px; border-radius: 8px; gap: .65rem; margin-block: .75rem; }
+.chapter-shelf { padding: .75rem; gap: .65rem; margin-bottom: 1rem; border-radius: 8px; }
+.chapter-book { display: grid; grid-template-columns: 54px minmax(0, 1fr); border-radius: 4px 8px 8px 4px; align-content: start; }
+.chapter-book > img { width: 54px; height: 88px; aspect-ratio: auto; object-fit: cover; }
+.chapter-book > span { padding: .5rem; gap: .3rem; }
+.chapter-book small { font-size: .75rem; letter-spacing: .03em; }
+.chapter-book strong { font-size: 1rem; }
+.chapter-book b { font-size: .8125rem; padding-top: .25rem; }
+#lessons { gap: .85rem; }
+#lessons .lesson { padding: .85rem; border-radius: 8px; gap: .75rem; }
+#lessons .lesson h3 { font-size: 1.25rem; }
+#lessons .lesson > span { width: 28px; height: 28px; border-radius: 4px; }
+#lessons .lesson figure img { height: 144px; border-radius: 6px; object-fit: contain; }
+#timeline { gap: .75rem; }
+#timeline .event { padding: .75rem; border-radius: 8px; gap: .5rem; }
+#timeline .event figure img { height: 144px; border-radius: 6px; object-fit: contain; }
+#timeline .event h3 { font-size: 1.2rem; }
+#timeline .event figcaption { font-size: .8125rem; }
+#timeline .event p { font-size: .9375rem; line-height: 1.5; }
+#timeline .event time { border-radius: 4px; padding: .2rem .45rem; }
+#roomGrid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .75rem; margin-top: .75rem; }
+#roomGrid .room-card { flex-direction: row; gap: .7rem; padding: .65rem; border-radius: 8px; }
+#roomGrid .room-picture { flex: 0 0 64px; width: 64px; height: 80px; aspect-ratio: auto; border-radius: 6px; border-width: 1px; }
+#roomGrid .room-copy { padding: 0; }
+#roomGrid .room-card h3 { font-size: 1rem; margin: .3rem 0; }
+#roomGrid .room-card p { margin-bottom: .4rem; font-size: .875rem; }
+.room-enter { padding-top: .4rem; font-size: .8125rem; }
+.room-kicker { font-size: .75rem; letter-spacing: .03em; }
+.hero { padding-block: 1.5rem; }
+.hero-content { gap: .75rem 2rem; }
+.hero-content h1 { font-size: clamp(1.75rem, 3vw, 2.5rem); max-width: 24ch; }
+.hero-content > p:not(.eyebrow) { font-size: 1rem; }
+.library-shortcuts { gap: .5rem; }
+.library-shortcuts a { min-height: 36px; padding: .35rem .65rem; border-radius: 6px; font-size: .875rem; }
+.ceramic-mural { margin-top: 1rem; }
+.ceramic-mural img { max-height: 180px; min-height: 0; object-fit: cover; border-radius: 8px; }
+.ceramic-mural figcaption { padding-top: .4rem; font-size: .8125rem; letter-spacing: .03em; }
+.exhibition { border-radius: 8px; }
+.exhibition img { height: 128px; object-fit: contain; }
+.exhibition > span { padding: .75rem; }
+.exhibition h3 { font-size: 1.125rem; }
+.tribute-entry { min-height: 0; }
+.tribute-entry-mark { min-height: 96px; font-size: 2rem; }
+.type-card > img { max-height: 120px; object-fit: contain; }
+.type-card > div { padding: .75rem; }
+.type-card :is(h3,h4) { font-size: 1.125rem; }
+.type-card nav { gap: .25rem .65rem; }
+.type-card nav a { min-height: 32px; font-size: .875rem; }
+#historicSurfaces { margin-top: 1.25rem; }
+.tile-copy { padding: .75rem; gap: .35rem; }
+.tile-copy > strong { font-size: 1rem; line-height: 1.4; }
+:is(.lab-controls,.lab-visual,.diagnostic > div) { padding: .85rem; }
+.lab-controls label { margin-bottom: .65rem; }
+:is(.compatibility,.not-prediction,.source,.status,.missing-fields) { padding: .65rem; margin-block: .65rem; border-radius: 6px; }
+:is(.lab-save,.save-button,#atlasMore,#recipeMore,#sourceMore) { min-height: 36px; padding: .4rem .7rem; border-radius: 6px; font-size: .9375rem; }
+:is(.lab-shell,.diagnostic,.lab-pair,.chosen-glazes,.test-matrix) { gap: .75rem; }
+.test-cell { padding: .5rem; border-radius: 4px; }
+:is(.six .visual-card,.six .defect-card,.four .material-card) { padding: 0 0 .75rem; }
+:is(.visual-card,.defect-card,.material-card) > :not(img):not(.image-missing) { margin: .5rem .75rem 0; }
+:is(.visual-card,.defect-card,.material-card) > img { height: 128px; object-fit: contain; }
+:is(.copper-heading,.copper-steps,.copper-source,.copper-comparison) { padding: .75rem; gap: .75rem; }
+.copper-comparison img { height: 144px; object-fit: contain; border-radius: 6px; }
+.copper-comparison figcaption { padding-top: .5rem; gap: .3rem; }
+.copper-reduction { border-radius: 8px; }
+.tribute-head { grid-template-columns: 52px minmax(0, 1fr); gap: .75rem; padding: 0 0 .75rem; border: 0; border-bottom: 1px solid var(--outline-soft); border-radius: 0; background: transparent; }
+.tribute-monogram { width: 52px; border-width: 2px; border-radius: 8px; font-size: 1.5rem; }
+.tribute-head h1 { font-size: 1.75rem; line-height: 1.25; margin: .25rem 0; }
+.tribute-dates { font-size: 1rem; }
+.tribute-content { padding-block: 1rem; }
+.tribute-lead { font-size: 1rem; }
+.tribute-story,.tribute-film { gap: 1.25rem; margin-block: 1.25rem; padding-block: .75rem; }
+:is(.tribute-story,.tribute-film,.judith-research) h2 { font-size: 1.4rem; }
+:is(.tribute-sources,.judith-records article,.masters-feature) { padding: .85rem; border-radius: 8px; }
+.judith-research { padding-block: .75rem; }
+.judith-records { gap: .75rem; margin-top: .75rem; }
+.judith-records h3 { font-size: 1.15rem; }
+.judith-source-row { gap: .4rem; margin-top: .75rem; }
+.judith-source-row a { padding: .4rem 0; border: 0; border-bottom: 1px solid var(--outline-soft); border-radius: 0; background: transparent; }
+.masters-feature { margin-block: .75rem 1rem; gap: .4rem; border-width: 1px; }
+.masters-feature strong { font-size: 1.4rem; }
+.tribute-video button .material-symbols-rounded { font-size: 2rem; }
+#modal h2 { font-size: 1.6rem; }
+#modal .hero-image { height: 180px; }
+#modal .hero-image.without-photo { min-height: 88px; height: 88px; }
+#modal .book { padding: 1rem 1.25rem; }
+#modal :is(.facts,.umf-grid) { margin-block: .75rem; border-radius: 6px; }
+#modal :is(.facts,.umf-grid) > span { padding: .6rem; }
+#modal .book-section { margin-block: 1rem; padding-top: .75rem; }
+#modal .book-section h3 { margin: .3rem 0 .5rem; font-size: 1.2rem; }
+#modal .recipe-workbench { margin: 1rem 0; padding: .85rem; border-radius: 8px; box-shadow: none; border-width: 1px; }
+#modal .workbench-heading { padding-bottom: .6rem; gap: .6rem; }
+#modal .workbench-heading > span { width: 32px; height: 32px; border-radius: 6px; }
+#modal :is(input,select,button) { min-height: 38px; padding: .4rem .55rem; border-width: 1px; border-radius: 6px; }
+#modal #close { min-height: 40px; width: 40px; padding: 0; }
+#modal :is(.batch,.water-log) { gap: .65rem; margin-top: .75rem; }
+#sourceReader { border-radius: 8px; padding: .85rem; }
+#sourceReader header { gap: .75rem; margin-bottom: .75rem; }
+#sourceReader h2 { font-size: 1.35rem; }
+#sourceReader nav { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-block: .65rem; }
+#sourceReader :is(button,input) { min-height: 36px; padding: .35rem .55rem; border-radius: 6px; }
+#sourceReader details summary { min-height: 36px; }
+#settingsDialog { padding: 1rem; border-radius: 8px; }
+.settings-dialog fieldset { margin-top: .85rem; }
+.settings-dialog label { min-height: 40px; padding: .35rem; }
+.system-guide :is(.type-specimens>article,.swatch) { padding: .85rem; gap: .5rem; border-radius: 8px; }
+@media (max-width: 1100px) {
+  .reading-tools { grid-template-columns: minmax(0, 1fr); }
+  .chapter-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 599px) {
+  body[data-page] main > section > .head { grid-template-columns: minmax(0, 1fr); }
+  body[data-page] main > section > .head :is(h1,h2) { font-size: 1.4rem; }
+  .room-frontispiece { margin: .5rem 1rem 0; grid-template-columns: 48px minmax(0, 1fr); }
+  .room-frontispiece > img { max-height: 160px; }
+  .frontispiece-caption { padding: .5rem .65rem; }
+  .frontispiece-caption h1 { font-size: 1.15rem; }
+  .source-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .source-controls .search-field { grid-column: 1 / -1; }
+  #roomGrid { grid-template-columns: minmax(0, 1fr); }
+  .chapter-shelf { grid-template-columns: minmax(0, 1fr); }
+  .chapter-book > img { height: 72px; }
+  #recipeRail { grid-template-columns: minmax(0, 1fr); }
+  .hero-content h1 { font-size: 1.85rem; }
+  .hero { padding-block: 1rem; }
+  .ceramic-mural img { max-height: 120px; }
+  #modal .book { padding: .85rem; }
+  .tribute-head h1 { font-size: 1.4rem; }
+  .tribute-story,.tribute-film { gap: .85rem; }
+  .task-navigation { gap: .5rem 1rem; }
+  .task-navigation span { max-width: 22ch; }
+}
+@media (pointer: coarse) {
+  #bookFilters button, .shelf-actions :is(a,button), .task-navigation a, .section-jumps a,
+  #sourceReader :is(button,input), #modal :is(button,input,select),
+  .lab-save,.save-button,#sourceMore,.library-shortcuts a { min-height: 44px; }
+}
+
+#lessons .lesson > span { padding: 0; white-space: nowrap; font-size: .875rem; }
+/* Compact nested records and guidance panels use the same density. */
+.studio-alert { padding: .75rem; border-width: 1px; border-radius: 8px; gap: .65rem; margin-block: .75rem; }
+.studio-alert > .material-symbols-rounded { font-size: 1.5rem; }
+.studio-alert strong { font-size: 1rem; }
+.masters-feature { grid-template-columns: 128px minmax(0, 1fr); align-items: center; gap: .85rem; }
+.masters-feature > img { width: 128px; height: 128px; object-fit: contain; border-radius: 6px; }
+.masters-feature-copy { display: grid; gap: .4rem; }
+.masters-feature-copy small { font-size: .8125rem; }
+.judith-art-gallery { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: .85rem; margin-block: 1rem; }
+.judith-art { margin: 0; min-width: 0; }
+.judith-art img { width: 100%; height: 280px; object-fit: contain; border-radius: 6px; background: var(--surface-soft); }
+.judith-art figcaption { display: grid; gap: .35rem; padding-top: .5rem; font-size: .875rem; line-height: 1.5; }
+#modal :is(.studio-safety,.firing-card) { padding: .85rem; border-width: 1px; border-radius: 8px; }
+#modal :is(.safety-banner,.safety-no-kit,.water-log) { padding: .65rem; border-radius: 6px; }
+#modal .safety-title > .material-symbols-rounded { width: 32px; min-width: 32px; height: 32px; border-radius: 6px; font-size: 1.3rem; }
+#modal .workbench-heading > .material-symbols-rounded { min-width: 32px; font-size: 1.3rem; }
+#modal :is(.safety-kit,.hazard-list,.mix-steps) { gap: .65rem; }
+#modal .safety-kit li { padding: .6rem; border-radius: 6px; }
+#modal .safety-kit .material-symbols-rounded { font-size: 1.3rem; }
+#modal .safety-kit span:not(.material-symbols-rounded) { font-size: .875rem; }
+#modal .hazard-list li { padding: .65rem 0; }
+#modal .hazard-item-head > span:last-child, #modal .ingredient-cue { border-radius: 4px; font-size: .8125rem; }
+#modal summary { min-height: 36px; padding: .4rem 0; }
+#recipeJumps { gap: .35rem .85rem; margin: .75rem 0; }
+#modal #recipeJumps button { padding: .25rem 0; border: 0; border-bottom: 2px solid var(--folio-rose); border-radius: 0; background: transparent; color: var(--folio-rose); }
+#modal .weight-dashboard > div { padding: .6rem; border-radius: 6px; }
+#modal .weight-dashboard strong { font-size: 1.2rem; }
+#modal .weight-dashboard small { font-size: .8125rem; }
+#modal .kiln-link { padding: .4rem .6rem; border-radius: 6px; }
+#modal .weighing-table :is(th,td) { padding-block: .45rem; }
+#modal .weighing-table output { padding: .4rem; border-radius: 4px; }
+.glazy-feature { padding: .75rem; border-radius: 8px; }
+.glazy-feature img { max-height: 144px; object-fit: contain; }
+@media (max-width: 599px) {
+  .studio-alert { grid-template-columns: 20px minmax(0, 1fr); align-items: start; }
+  .studio-alert a { grid-column: 2; }
+  .masters-feature { grid-template-columns: 72px minmax(0, 1fr); gap: .65rem; }
+  .masters-feature > img { width: 72px; height: 96px; }
+  .judith-art-gallery { grid-template-columns: minmax(0, 1fr); }
+  .judith-art img { height: 220px; }
+}
+@media (pointer: coarse) { #modal summary { min-height: 44px; } }
+#modal .batch-presets { display: flex; flex-wrap: wrap; gap: .4rem; margin-block: .6rem; }
+#modal .batch-presets button { border: 1px solid var(--folio-teal); background: transparent; color: var(--folio-teal); padding: .25rem .55rem; border-radius: 4px; }
+#sourceReader :is(header,nav,#sourcePageBody,details) { padding: .65rem; }
+#sourceReader :is(#sourcePrev,#sourceNext) { border: 0; border-bottom: 1px solid var(--outline); border-radius: 0; background: transparent; color: var(--text); }
+#sourceReader .page-fullsize { min-height: 36px; }
+body > footer { padding-block: 1.25rem; border-top-width: 2px; }
