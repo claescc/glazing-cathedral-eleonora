@@ -16,7 +16,7 @@ This is the central list. Keep stable IDs and preserve resolved findings.
 
 ## Check record: 2026-10-06
 
-Performed approximately 06:04–06:08 Europe/Brussels.
+Performed approximately 06:04–06:06 Europe/Brussels.
 Live commit: unknown; not inferred from repository HEAD.
 Repository latest commit inspected: 765ffab280aa1516c74b7ff87e016ed9805fea7b, dated 2026-10-05T20:09:52Z, "Improve Atlas label readability and reduce colour swatch size".
 No equivalent central issue file found in the repository tree; this list created.
