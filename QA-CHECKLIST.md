@@ -12,13 +12,14 @@ The scheduled task runs once daily around 06:00 Europe/Brussels and reports afte
 
 1. Read the previous run and central issue list; inspect recent source changes. Confirm the actual live production page, not a preview or ChatGPT Sites copy.
 2. Inventory visible navigation routes. Prioritise changed pages, then a small rotating selection of unchanged pages. Record the selection so coverage can be reviewed. Do not claim all pages were checked if only a sample was inspected.
-3. Inspect the selected pages visually on desktop and mobile where the available browser supports those viewports. Record actual viewport sizes. Check visible clipping, overlaps, readable text, navigation, content and image loading. Record unavailable viewport checks as not tested.
-4. Exercise a small relevant selection of links, search, filters or dialogs. Check accessible labels and keyboard interaction where available. Record exactly which actions and states were exercised. Never claim full accessibility conformance from this lightweight review.
-5. Confirm suspected defects with a targeted reproduction or measurement. Distinguish observed defects, unconfirmed concerns and source-only findings. Capture page, state, reproduction and supporting evidence.
-6. Update one central issue list (docs/ui-issues.md, or an existing equivalent) without duplicates. Keep stable IDs and statuses: to confirm, open, fixed, larger issue for later.
-7. Correct only small, clear, local and reversible defects under the scheduled task. Record larger or ambiguous issues for discussion. Explicit user fix requests follow the broader authorised delivery procedure in AGENTS.md.
-8. For code corrections, run targeted validation and README.md release checks: node build-static.mjs and node tools/check-site.mjs. Commit and push approved changes to main; verify the existing GitHub Pages deployment and the affected production page before reporting a correction as live.
-9. Send one concise written run summary using the existing task execution, including a no-change status when appropriate. Do not run a separate audit solely to produce the summary.
+3. For structural UI changes, validate the page against `PRODUCT-ARCHITECTURE.md`: global shell → room/page identity → local navigation → task controls → content/contextual links. Confirm compact layouts do not make advanced controls permanently displace primary content, and check at least one sibling route using the affected shared primitive.
+4. Inspect the selected pages visually on desktop and mobile where the available browser supports those viewports. Record actual viewport sizes. Check visible clipping, overlaps, readable text, navigation, content and image loading. Record unavailable viewport checks as not tested.
+5. Exercise a small relevant selection of links, search, filters or dialogs. Check accessible labels and keyboard interaction where available. Record exactly which actions and states were exercised. Never claim full accessibility conformance from this lightweight review.
+6. Confirm suspected defects with a targeted reproduction or measurement. Distinguish observed defects, unconfirmed concerns and source-only findings. Capture page, state, reproduction and supporting evidence.
+7. Update one central issue list (docs/ui-issues.md, or an existing equivalent) without duplicates. Keep stable IDs and statuses: to confirm, open, fixed, larger issue for later.
+8. Correct only small, clear, local and reversible defects under the scheduled task. Record larger or ambiguous issues for discussion. Explicit user fix requests follow the broader authorised delivery procedure in AGENTS.md.
+9. For code corrections, run targeted validation and README.md release checks: node build-static.mjs and node tools/check-site.mjs. Commit and push approved changes to main; verify the existing GitHub Pages deployment and the affected production page before reporting a correction as live.
+10. Send one concise written run summary using the existing task execution, including a no-change status when appropriate. Do not run a separate audit solely to produce the summary.
 
 ## Required run record
 
