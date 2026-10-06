@@ -25,7 +25,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261005-atlas-sizing" />
+    <link rel="stylesheet" href="m3-site.css?v=20261006-compact-atlas" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -93,57 +93,37 @@
         </nav>
         <p class="result" id="photoCoverage"></p>
         <div class="filters">
-          <label class="search-field"
-            ><span class="material-symbols-rounded" aria-hidden="true"
-              >search</span
-            ><span class="sr-only">Search the glaze collection</span
-            ><input
-              id="search"
-              type="search"
-              autocomplete="off"
-              placeholder="Search colour, glaze, cone, atmosphere…"
-          /></label>
-          <div class="atlas-filter-panel" id="atlasFilterPanel">
-          <p class="atlas-control-label" id="colourLabel">Colour family</p>
-          <div
-            class="hues"
-            id="hues"
-            role="group"
-            aria-labelledby="colourLabel"
-          ></div>
-          <div class="catalogue-filter-row">
-            <div class="atlas-selects">
-              <label>Show<select id="kindFilter"><option value="all">All surfaces</option><option value="recipe">Recipe surfaces</option><option value="family">Historic surfaces</option></select></label>
-              <label
-                >Firing range (cone)<select id="coneFilter">
-                  <option value="">All cones</option>
-                </select></label
-              ><label
-                >Book or collection<select id="sourceFilter">
-                  <option value="">All sources</option>
-                </select></label
-              ><label
-                >Images<select id="photoFilter">
-                  <option value="exact">Exclude colour references</option>
-                  <option value="yes" selected>All images</option>
-                </select></label
-              ><label
-                >Sort by<select id="sortFilter">
-                  <option value="photographs">Colour families</option>
-                  <option value="name">Name A–Z</option>
-                  <option value="source">Source</option>
-                </select></label
-              >
+          <div class="atlas-search-row">
+            <label class="search-field"><span class="material-symbols-rounded" aria-hidden="true">search</span><span class="sr-only">Search the glaze collection</span><input id="search" type="search" autocomplete="off" placeholder="Search glaze, colour, cone…"></label>
+            <div id="kindTabs" role="group" aria-label="Surface type">
+              <button type="button" data-kind="all" aria-pressed="true">All surfaces</button>
+              <button type="button" data-kind="recipe" aria-pressed="false">Recipes</button>
+              <button type="button" data-kind="family" aria-pressed="false">Historic</button>
             </div>
+            <select id="kindFilter" hidden aria-label="Surface type"><option value="all">All surfaces</option><option value="recipe">Recipe surfaces</option><option value="family">Historic surfaces</option></select>
           </div>
-          <p class="filter-help">Cone ranges are the source’s firing recommendations. <a href="kiln.html">Learn about heatwork in the Kiln Chapel</a>.</p>
-          <p class="atlas-control-label" id="displayLabel">Display</p>
-          <div id="viewTabs" role="group" aria-labelledby="displayLabel">
-            <button class="on" data-view="photos" aria-pressed="true">
-              <span class="material-symbols-rounded" aria-hidden="true">photo</span>Photographs</button
-            ><button data-view="mosaic" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_module</span>Cone previews</button
-            ><button data-view="index" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_list</span>Index</button>
-          </div>
+          <div class="atlas-filter-panel" id="atlasFilterPanel">
+            <div class="atlas-palette">
+              <p class="atlas-control-label" id="colourLabel">Colour family</p>
+              <div class="hues" id="hues" role="group" aria-labelledby="colourLabel"></div>
+            </div>
+            <details class="atlas-advanced" open>
+              <summary>Firing, source &amp; references<span class="material-symbols-rounded" aria-hidden="true">expand_more</span></summary>
+            <div class="atlas-selects">
+              <label class="cone-control"><span class="material-symbols-rounded" aria-hidden="true">thermostat</span><span class="sr-only">Firing range (cone)</span><select id="coneFilter"><option value="">All cones</option></select></label>
+              <label class="source-control"><span class="material-symbols-rounded" aria-hidden="true">menu_book</span><span class="sr-only">Book or collection</span><select id="sourceFilter"><option value="">All sources</option></select></label>
+              <label class="atlas-reference-toggle"><input id="photoFilter" type="checkbox" checked>Include colour references</label>
+              <a class="heatwork-help" href="kiln.html" title="Cone ranges are the source’s firing recommendations. Learn about heatwork.">About firing ranges ↗</a>
+            </div>
+            </details>
+            <div class="atlas-bottom-row">
+              <label class="atlas-sort"><span>Sort</span><select id="sortFilter"><option value="photographs">Colour families</option><option value="name">Name A–Z</option><option value="source">Source</option></select></label>
+              <div id="viewTabs" role="group" aria-label="Display">
+                <button type="button" class="on" data-view="photos" aria-pressed="true"><span class="material-symbols-rounded" aria-hidden="true">photo</span>Photos</button>
+                <button type="button" data-view="mosaic" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_module</span>Cones</button>
+                <button type="button" data-view="index" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_list</span>Index</button>
+              </div>
+            </div>
           </div>
         </div>
         <p class="result" aria-live="polite">
@@ -890,7 +870,7 @@
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20261003-visual-atlas"></script>
     <script src="recipe-workbench.js?v=20261002-manuscript"></script>
-    <script src="app.js?v=20261004-room-navigation"></script>
+    <script src="app.js?v=20261006-compact-atlas"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

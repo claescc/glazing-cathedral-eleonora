@@ -848,9 +848,10 @@ $("#window").innerHTML = families
 $("#hues").innerHTML = hueDefinitions
   .map(
     (h, i) =>
-      `<button data-hue="${h.key}" class="${i ? "" : "on"}" aria-pressed="${i === 0}" title="${h.label}"><i aria-hidden="true" style="background:${h.color}"><span class="hue-check">✓</span></i><span>${h.label}</span></button>`,
+      `<button data-hue="${h.key}" class="${i ? "" : "on"}" style="--hue:${i ? h.color : "var(--md-sys-color-primary)"}" aria-pressed="${i === 0}" title="${h.label}"><i aria-hidden="true" style="background:${h.color}"><span class="hue-check">✓</span></i><span>${h.label}</span></button>`,
   )
   .join("");
+if (matchMedia("(max-width: 599px)").matches) $(".atlas-advanced").open = false;
 const atlasPageSize = 36;
 let atlasLimit = atlasPageSize;
 const atlasQuery = new URLSearchParams(location.search);
@@ -873,12 +874,13 @@ function tile(x, view = "photos") {
 }
 function render() {
   $("#kindFilter").value = activeKind;
+  all("#kindTabs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.kind === activeKind)));
   let q = $("#search").value.toLowerCase();
   let list = collection.filter(
     (x) =>
       (activeKind === "all" || x.kind === activeKind) &&
       (activeHue === "all" || huesFor(x).includes(activeHue)) &&
-      Boolean(x.image) && ($("#photoFilter").value !== "exact" || !x.visualReference) &&
+      Boolean(x.image) && ($("#photoFilter").checked || !x.visualReference) &&
       JSON.stringify(x).toLowerCase().includes(q) &&
       (!$("#coneFilter").value || String(x.cone) === $("#coneFilter").value) &&
       (!$("#sourceFilter").value ||
@@ -940,6 +942,7 @@ const photographedCount = collection.filter((x) => x.image).length;
 $("#photoCoverage").textContent = `${photographedCount} photographic swatches. Colour references and variations are labelled. ${collection.length - photographedCount} text-only formulas are available in Recipes.`;
 $("#search").oninput = () => { atlasLimit = atlasPageSize; render(); };
 $("#kindFilter").onchange = () => { activeKind = $("#kindFilter").value; atlasLimit = atlasPageSize; render(); };
+all("#kindTabs button").forEach(b => { b.onclick = () => { activeKind = b.dataset.kind; atlasLimit = atlasPageSize; render(); }; });
 $("#atlasMore").onclick = () => { const firstNew = atlasLimit; atlasLimit += atlasPageSize; render(); $("#wall").children[firstNew]?.focus(); };
 all("#hues button").forEach(
   (b) =>
