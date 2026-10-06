@@ -25,7 +25,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261006-compact-rooms" />
+    <link rel="stylesheet" href="m3-site.css?v=20261006-mobile-palette" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -103,12 +103,13 @@
             <select id="kindFilter" hidden aria-label="Surface type"><option value="all">All surfaces</option><option value="recipe">Recipe surfaces</option><option value="family">Historic surfaces</option></select>
           </div>
           <div class="atlas-filter-panel" id="atlasFilterPanel">
-            <div class="atlas-palette">
+            <details class="atlas-palette" open>
+              <summary><i id="activeHueSwatch" aria-hidden="true"></i><span><span class="sr-only">Colour family: </span><strong id="activeHueLabel">All colours</strong></span><span class="material-symbols-rounded" aria-hidden="true">expand_more</span></summary>
               <p class="atlas-control-label" id="colourLabel">Colour family</p>
               <div class="hues" id="hues" role="group" aria-labelledby="colourLabel"></div>
-            </div>
+            </details>
             <details class="atlas-advanced" open>
-              <summary>Firing, source &amp; references<span class="material-symbols-rounded" aria-hidden="true">expand_more</span></summary>
+              <summary><span class="material-symbols-rounded" aria-hidden="true">tune</span>Filters<span id="atlasFilterCount" class="filter-count" hidden></span><span class="material-symbols-rounded" aria-hidden="true">expand_more</span></summary>
             <div class="atlas-selects">
               <label class="cone-control"><span class="material-symbols-rounded" aria-hidden="true">thermostat</span><span class="sr-only">Firing range (cone)</span><select id="coneFilter"><option value="">All cones</option></select></label>
               <label class="source-control"><span class="material-symbols-rounded" aria-hidden="true">menu_book</span><span class="sr-only">Book or collection</span><select id="sourceFilter"><option value="">All sources</option></select></label>
@@ -119,9 +120,9 @@
             <div class="atlas-bottom-row">
               <label class="atlas-sort"><span>Sort</span><select id="sortFilter"><option value="photographs">Colour families</option><option value="name">Name A–Z</option><option value="source">Source</option></select></label>
               <div id="viewTabs" role="group" aria-label="Display">
-                <button type="button" class="on" data-view="photos" aria-pressed="true"><span class="material-symbols-rounded" aria-hidden="true">photo</span>Photos</button>
-                <button type="button" data-view="mosaic" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_module</span>Cones</button>
-                <button type="button" data-view="index" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_list</span>Index</button>
+                <button type="button" class="on" data-view="photos" aria-label="Photographs" title="Photographs" aria-pressed="true"><span class="material-symbols-rounded" aria-hidden="true">photo</span><span class="view-label">Photos</span></button>
+                <button type="button" data-view="mosaic" aria-label="Cone previews" title="Cone previews" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_module</span><span class="view-label">Cones</span></button>
+                <button type="button" data-view="index" aria-label="Index" title="Index" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">view_list</span><span class="view-label">Index</span></button>
               </div>
             </div>
           </div>
@@ -870,7 +871,7 @@
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20261003-visual-atlas"></script>
     <script src="recipe-workbench.js?v=20261002-manuscript"></script>
-    <script src="app.js?v=20261006-compact-atlas"></script>
+    <script src="app.js?v=20261006-mobile-palette"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>

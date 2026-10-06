@@ -1131,3 +1131,31 @@ h3 { font-size: 1.125rem; line-height: 1.35; }
 #sourceReader :is(#sourcePrev,#sourceNext) { border: 0; border-bottom: 1px solid var(--outline); border-radius: 0; background: transparent; color: var(--text); }
 #sourceReader .page-fullsize { min-height: 36px; }
 body > footer { padding-block: 1.25rem; border-top-width: 2px; }
+
+/* Phone Atlas: two disclosure controls, with a palette shown only on demand. */
+.atlas-palette > summary { display: none; }
+@media (max-width: 599px) {
+  #atlasFilterPanel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .5rem .75rem; }
+  .atlas-palette > summary { display: flex; align-items: center; gap: .45rem; min-height: 44px; padding: .35rem .5rem; border: 1px solid var(--outline-soft); border-radius: 6px; background: var(--surface-soft); cursor: pointer; }
+  .atlas-palette > summary strong { font-size: .875rem; font-weight: 500; }
+  #activeHueSwatch { width: 14px; height: 14px; flex: 0 0 14px; border-radius: 3px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 25%); }
+  .atlas-palette > summary .material-symbols-rounded { font-size: 18px; margin-left: auto; }
+  .atlas-advanced > summary { min-height: 44px; justify-content: flex-start; gap: .4rem; border-bottom: 0; }
+  .atlas-advanced > summary .material-symbols-rounded { font-size: 18px; }
+  .atlas-advanced > summary .material-symbols-rounded:last-child { margin-left: auto; }
+  .atlas-palette[open], .atlas-advanced[open] { grid-column: 1 / -1; }
+  .atlas-palette[open] > summary { margin-bottom: .6rem; }
+  .atlas-palette .atlas-control-label { display: none; }
+  #hues { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; padding: .5rem; border: 1px solid var(--outline-soft); border-radius: 6px; background: var(--surface); }
+  #hues button { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .35rem; min-height: 68px; padding: .35rem; border-radius: 4px; font-size: .8125rem; text-align: center; }
+  #hues i { flex: 0 0 16px; width: 16px; height: 16px; }
+  #viewTabs button .material-symbols-rounded { display: inline-block; font-size: 20px; }
+  #viewTabs button .view-label { display: none; }
+  #viewTabs button { width: 36px; min-height: 36px; padding: .25rem; }
+  .atlas-sort > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .atlas-sort select { max-width: 10rem; font-size: .875rem; }
+  .atlas-bottom-row { padding-top: .5rem; margin-top: .25rem; border-top: 1px solid var(--outline-soft); }
+}
+@media (max-width: 599px) and (pointer: coarse) { #viewTabs button { width: 40px; min-height: 44px; } }
+
+.filter-count { padding: .1rem .3rem; border-radius: 3px; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); font-size: .75rem; line-height: 1.3; }

@@ -851,7 +851,20 @@ $("#hues").innerHTML = hueDefinitions
       `<button data-hue="${h.key}" class="${i ? "" : "on"}" style="--hue:${i ? h.color : "var(--md-sys-color-primary)"}" aria-pressed="${i === 0}" title="${h.label}"><i aria-hidden="true" style="background:${h.color}"><span class="hue-check">✓</span></i><span>${h.label}</span></button>`,
   )
   .join("");
-if (matchMedia("(max-width: 599px)").matches) $(".atlas-advanced").open = false;
+const compactAtlas = matchMedia("(max-width: 599px)");
+function syncAtlasDisclosures() {
+  $(".atlas-palette").open = !compactAtlas.matches;
+  $(".atlas-advanced").open = !compactAtlas.matches;
+}
+syncAtlasDisclosures();
+compactAtlas.addEventListener("change", syncAtlasDisclosures);
+for (const selector of [".atlas-palette", ".atlas-advanced"]) {
+  $(selector).addEventListener("toggle", () => {
+    if (compactAtlas.matches && $(selector).open) {
+      $(selector === ".atlas-palette" ? ".atlas-advanced" : ".atlas-palette").open = false;
+    }
+  });
+}
 const atlasPageSize = 36;
 let atlasLimit = atlasPageSize;
 const atlasQuery = new URLSearchParams(location.search);
@@ -873,6 +886,12 @@ function tile(x, view = "photos") {
   return `<button class="tile" data-id="${x.id}" aria-label="Open ${escapeHtml(x.name)}"><span class="image">${visual}</span><span class="tile-copy"><small>${label}<span class="firing-label">${escapeHtml(firingLabel)}</span></small><strong>${escapeHtml(x.name)}</strong><i>${escapeHtml(x.color)} · ${escapeHtml(x.surface)}</i><span class="tile-source">${escapeHtml(x.source || x.origin)}</span></span></button>`;
 }
 function render() {
+  const selectedHue = hueDefinitions.find(h => h.key === activeHue);
+  $("#activeHueLabel").textContent = selectedHue.label;
+  $("#activeHueSwatch").style.background = selectedHue.color;
+  const activeFilterCount = Number(Boolean($("#coneFilter").value)) + Number(Boolean($("#sourceFilter").value)) + Number(!$("#photoFilter").checked);
+  $("#atlasFilterCount").textContent = String(activeFilterCount);
+  $("#atlasFilterCount").hidden = activeFilterCount === 0;
   $("#kindFilter").value = activeKind;
   all("#kindTabs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.kind === activeKind)));
   let q = $("#search").value.toLowerCase();
@@ -948,6 +967,10 @@ all("#hues button").forEach(
   (b) =>
     (b.onclick = () => {
       activeHue = b.dataset.hue;
+      if (compactAtlas.matches) {
+        $(".atlas-palette").open = false;
+        $(".atlas-palette > summary").focus();
+      }
       atlasLimit = atlasPageSize;
       all("#hues button").forEach((x) => {
         x.classList.toggle("on", x === b);
