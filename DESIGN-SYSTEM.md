@@ -2,6 +2,10 @@
 
 Updated 4 October 2026.
 
+## Architecture contract
+
+`PRODUCT-ARCHITECTURE.md` is the canonical product and information-architecture contract. This document implements that contract visually. The shared hierarchy is global shell → room/page identity → local navigation → task controls → content/contextual links. Room colour and editorial character may vary; interaction grammar may not.
+
 ## Source and scope
 
 The supplied `Material Design 3 - M3` PNG kit provides visual references for layouts, navigation, buttons, search, cards, lists, fields, dialogs and responsive behaviour. The site implements those patterns in plain HTML and CSS. Google’s [Material Design 3 foundations](https://m3.material.io/foundations/) and [canonical layout examples](https://m3.material.io/foundations/layout/canonical-examples/overview) provide the underlying system guidance.
@@ -21,7 +25,7 @@ The redesign applies to the whole public site: Home, Atlas, Glaze Families, Reci
 
 - Compact widths use Home, Atlas, Recipes, Learn and Rooms in the navigation bar. At 840 CSS px and above, a labelled navigation drawer exposes Reading Room, Materials Archive, Kiln Chapel, Layering Laboratory, Hall of Masters and Restoration Room directly.
 - The top app bar holds the brand, library search, Saved and Settings at every supported width. Settings uses a native dialog and appearance radio choices. System is the initial preference; choices made in the new panel persist. The previous dropdown preference is replaced by a versioned preference key.
-- Atlas has visible route navigation for Colour atlas and Glaze families. Colour swatches retain labels, selection rings and checks. Record type, firing range, source, image evidence and sorting are visible labelled selects. Glaze families has its own open guide and historic surface gallery, with shareable Atlas search links.
+- Atlas has visible local navigation for Colour atlas and Glaze families. Search and surface type remain primary task controls. On compact screens colour and advanced filters use progressive disclosure; active advanced filters retain a count indicator. Result count, sort and display mode form one subordinate results toolbar immediately before catalogue content. Expanded layouts may expose filters without changing their semantic order. Glaze families has its own open guide and historic surface gallery, with shareable Atlas search links.
 - Recipes starts with Find a formula, Plan glaze layers and Read the source books. Atlas initially renders 36 matches and Recipes 24. Show more appends the next group and focuses its first card. Search and filters operate on the complete collections.
 - Action buttons use explicit semantic foreground/background pairs. Navigation uses links, appearance uses radios, and catalogue choices use selects or swatches.
 - The Home page uses a featured introduction, actual ceramic imagery, room cards and curated routes.

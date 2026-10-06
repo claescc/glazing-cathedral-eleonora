@@ -36,3 +36,14 @@ User-approved workflow, 2026-10-05:
 - Ask only when a material ambiguity, destructive action or genuine access/approval requirement blocks the requested correction. Report the specific blocker and the actual delivery state.
 - Scheduled monitoring retains its narrower scope: automatically correct only small, clear issues; record larger issues for later discussion.
 - Do not build a second deployment pipeline merely because a standard fix request is made. Inspect and reuse the existing pipeline.
+
+
+## Product architecture is a release constraint
+
+User-confirmed 6 October 2026.
+
+- Ceramics Cathedral is one product. Read `PRODUCT-ARCHITECTURE.md` before structural UI, navigation, catalogue-control or responsive-layout work.
+- Every UI element must belong to the documented hierarchy: global shell, room/page identity, local navigation, task controls, or content/contextual links.
+- Do not solve a page-level density problem by inventing a new page-specific navigation or control grammar. Reuse or deliberately update the shared structural primitive.
+- Structural changes require a compact check and an expanded check plus at least one sibling route using the affected primitive.
+- A build may not be reported complete when it contradicts `PRODUCT-ARCHITECTURE.md`, even if syntax and link checks pass.

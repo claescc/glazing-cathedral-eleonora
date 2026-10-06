@@ -1159,3 +1159,25 @@ body > footer { padding-block: 1.25rem; border-top-width: 2px; }
 @media (max-width: 599px) and (pointer: coarse) { #viewTabs button { width: 40px; min-height: 44px; } }
 
 .filter-count { padding: .1rem .3rem; border-radius: 3px; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); font-size: .75rem; line-height: 1.3; }
+
+
+/* Product architecture: catalogue results toolbar belongs immediately before content. */
+.atlas-result { margin: 0; flex: 1 1 auto; min-width: 10rem; color: var(--text-secondary); font-size: .875rem; }
+.atlas-bottom-row { justify-content: flex-end; }
+.atlas-bottom-row .atlas-result { margin-right: auto; }
+@media (max-width: 599px) {
+  body[data-page="atlas"] #atlas { padding-top: .85rem; }
+  body[data-page="atlas"] #atlas > .head { margin-bottom: .5rem; }
+  body[data-page="atlas"] #atlas > .head h1 { font-size: 1.65rem; }
+  body[data-page="atlas"] .atlas-navigation { margin: .5rem 0 .65rem; }
+  #atlas .filters { gap: .55rem; }
+  #atlasFilterPanel { gap: .4rem .6rem; }
+  .atlas-palette > summary, .atlas-advanced > summary { background: transparent; }
+  .atlas-advanced > summary { border: 1px solid var(--outline-soft); border-radius: 6px; padding: .35rem .5rem; }
+  .atlas-bottom-row { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: .4rem .55rem; align-items: center; margin-top: 0; padding-top: .45rem; }
+  .atlas-bottom-row .atlas-result { min-width: 0; margin: 0; font-size: .8125rem; }
+  .atlas-sort { min-width: 0; }
+  .atlas-sort select { width: 7.75rem; max-width: 7.75rem; }
+  #viewTabs { margin-left: 0; }
+  #atlas .wall { margin-top: .65rem; }
+}
