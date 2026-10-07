@@ -11,7 +11,7 @@ This is the central list. Keep stable IDs and preserve resolved findings.
 | --- | --- | --- | --- | --- | --- |
 | UI-001 | 2026-10-06; prior report 2026-10-05 | atlas.html | Prior review reported display-button text overflow at 320 CSS-px and 200% text size. Current desktop buttons do not overflow: Photographs 125/125, Cone previews 135/135, Index 82/82 client/scroll px. | To confirm on mobile | The previous result concerned an older commit. Mobile and text enlargement were not executed in this run. Do not classify the prior result as a current reproduced defect. |
 | UI-002 | 2026-10-06; prior report 2026-10-05 | atlas.html | Prior review reported visible group labels differing from ARIA names. Current production has hues role=group aria-labelledby=colourLabel, and viewTabs role=group aria-labelledby=displayLabel; neither has aria-label. Browser accessibility snapshot names the groups COLOUR FAMILY and DISPLAY. | Resolved in inspected current state | Observed on production 2026-10-06. This run did not implement the correction or identify its introducing commit. Former Collection grouping has changed to a labelled Show select. |
-| UI-003 | 2026-10-06 | atlas.html | Firing range offers both 5-6 and 5–6 as separate options. With other filters at defaults, selecting 5-6 shows 6 of 6 surfaces; selecting 5–6 shows 2 of 2 different surfaces. Equivalent visible range notation splits the result sets. | Open, larger issue for later | Reproduced in production native coneFilter. Normalise comparison keys and options while retaining original source notation/provenance. Preserve leading-zero cone values: 05 and 5 are distinct; do not merge these. Review other repeated dash/prefix variants before implementation. No code change made. |
+| UI-003 | 2026-10-06 | atlas.html | Firing range offers both 5-6 and 5–6 as separate options. With other filters at defaults, selecting 5-6 shows 6 of 6 surfaces; selecting 5–6 shows 2 of 2 different surfaces. Equivalent visible range notation splits the result sets. | Open, larger issue for later | Reproduced again on production 2026-10-07 in the native coneFilter: 5-6 returned 6 surfaces and 5–6 returned 2 different surfaces. Normalise comparison keys and options while retaining original source notation/provenance. Preserve leading-zero cone values: 05 and 5 are distinct; do not merge these. Review other repeated dash/prefix variants before implementation. No code change made. |
 | OBS-001 | 2026-10-06 | tribute.html | Two visible h1 elements both read Judith Laqueur-Révész: introduction banner and main artist panel. | Observation, impact to confirm | DOM and accessibility snapshot agree. No WCAG violation or user impact established; do not treat as a proven accessibility failure. Consider heading hierarchy during a later design review. |
 
 ## Check record: 2026-10-06
@@ -46,3 +46,38 @@ Measured document scrollWidth: 1348 CSS-px on homepage, atlas, tribute and recip
 - Browser error-log sample contained extension metadata errors from chrome-extension://; these were not classified as website failures.
 - Remaining routes for rotation: glaze-families.html, kiln.html, layering.html, learn.html, masters.html, materials.html, notebook.html, reading.html, restoration.html, typography.html. Revisit changed atlas alongside the next small route sample.
 - Keep monitoring enabled: completion of one daily check does not complete the ongoing monitoring request.
+
+
+## Check record: 2026-10-07
+
+Performed approximately 06:50–06:54 Europe/Brussels.
+Repository/deployment commit inspected: 01885b9d18559552669ef93266c6dfe8ef46cae7, dated 2026-10-06T16:03:45Z, "Refactor global product architecture and Atlas hierarchy".
+GitHub Pages workflow run 37492694787 for that commit completed successfully at 2026-10-06T16:05:41Z.
+Production showed the current product-architecture Atlas layout, but the public page does not expose a commit SHA; exact live-SHA identity was therefore not independently proven.
+No application code corrected or released in this run.
+
+### Actual coverage
+
+Desktop browser viewport: 1363 × 936 CSS-px.
+Measured document scrollWidth: 1348 CSS-px on homepage, atlas, recipes, materials and kiln. No horizontal document overflow at this viewport.
+
+| Page / state | Check / method | Result | Evidence | Not tested / limitation |
+| --- | --- | --- | --- | --- |
+| / | Initial viewport; screenshot and DOM width | Current global shell and hero render; no horizontal document overflow | Screenshot; scrollWidth 1348 at 1363 × 936 | Below-fold full-page review and interactions not repeated |
+| atlas.html | Initial structural hierarchy and first catalogue viewport; screenshot, DOM and accessibility state | Global shell → room identity → local navigation → task controls → result toolbar → content appears in that order; 36 of 267 surfaces initially shown; no desktop horizontal overflow | Screenshot and DOM; latest product-architecture changes visibly present | Compact/mobile progressive disclosure not tested |
+| atlas.html | Search tenmoku | Search changed results to 7 of 7 | Result counter and visible matching cards captured | Broad search rules not validated |
+| atlas.html | Firing range 5-6 then 5–6, other filters at defaults | Reconfirmed different result sets: 6 of 6 versus 2 of 2 | UI-003; counters and item names captured | Other dash/prefix variants not exercised |
+| atlas.html | Switch from Photos to Index | Index became selected with aria-pressed=true; catalogue changed to list presentation; 36 of 267 remained | DOM state and screenshot | Complete keyboard sequence and focus order not reviewed |
+| recipes.html | Initial viewport; screenshot and DOM width | Shared global shell and page/task hierarchy render; no desktop horizontal overflow | Screenshot; scrollWidth 1348 | Below-fold sections not reviewed |
+| recipes.html | Search tenmoku, open the single Tenmoku Gold formula, press Escape | Search returned 1 of 1; formula dialog opened with sourced recipe content; Escape closed it | Accessibility/DOM state | Calculator, saving, source-page viewer and full focus trap not tested |
+| materials.html | Initial viewport; screenshot, width and visible-image check | Shared shell, room banner, safety notice and first material cards render; no horizontal overflow; no failed visible content image found | Screenshot; scrollWidth 1348 | Card links and below-fold content not exercised |
+| kiln.html | Initial viewport; screenshot, heading hierarchy, width and visible-image check | Shared shell, room banner and first atmosphere cards render; one visible page h1 plus following h2; no horizontal overflow or failed visible content image found | Screenshot; scrollWidth 1348 | Card interactions and below-fold content not exercised |
+
+### Limitations and continuation
+
+- No supported viewport-resizing/emulation method was exposed by this browser interface. Mobile layouts, the compact Atlas palette/disclosure and 200% text enlargement were not reproduced. Record this as a test limitation, not a site defect.
+- No Safari, VoiceOver, NVDA, contrast audit, full accessibility conformance evaluation or scientific/content verification.
+- No exhaustive link, image or route audit. Only the initial viewport and described interactions were checked.
+- Browser log sample contained only extension metadata errors from chrome-extension://; these were not classified as website failures.
+- Remaining routes for rotation: glaze-families.html, layering.html, learn.html, masters.html, notebook.html, reading.html, restoration.html, typography.html. Revisit changed atlas at compact width when supported.
+- Keep monitoring enabled: this check does not complete the ongoing monitoring request.
