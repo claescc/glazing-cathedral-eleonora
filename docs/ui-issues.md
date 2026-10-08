@@ -81,3 +81,38 @@ Measured document scrollWidth: 1348 CSS-px on homepage, atlas, recipes, material
 - Browser log sample contained only extension metadata errors from chrome-extension://; these were not classified as website failures.
 - Remaining routes for rotation: glaze-families.html, layering.html, learn.html, masters.html, notebook.html, reading.html, restoration.html, typography.html. Revisit changed atlas at compact width when supported.
 - Keep monitoring enabled: this check does not complete the ongoing monitoring request.
+
+
+## Check record: 2026-10-08
+
+Performed approximately 06:21–06:25 Europe/Brussels.
+No application-source commit was added after the previous check; repository HEAD before this record was 8ca2087c8fe903f5f8aea68c7e188547caa40038, the 2026-10-07 check record.
+GitHub Pages workflow run 37573767334 for that commit completed successfully at 2026-10-07T04:56:17Z.
+The public pages were inspected directly, but they expose no commit SHA; exact live-SHA identity was not independently proven.
+No application code corrected or released in this run.
+
+### Actual coverage
+
+Desktop browser viewport: 1363 × 936 CSS-px.
+Measured document scrollWidth: 1348 CSS-px on glaze families, layering, restoration and reading. No horizontal document overflow at this viewport.
+
+| Page / state | Check / method | Result | Evidence | Not tested / limitation |
+| --- | --- | --- | --- | --- |
+| glaze-families.html | Initial viewport; screenshot, DOM width, visible headings and visible-image check | Global shell, Atlas local navigation, page links and first family cards render; one visible h1; no horizontal overflow or failed visible content image found | Screenshot; scrollWidth 1348 at 1363 × 936 | Full 16-gallery and historic-surface visual review not performed |
+| glaze-families.html | Open Crackled celadon historic surface, then press Escape | Detail dialog opened with image, lineage, surface data, reading trail and related surfaces; Escape closed the dialog | Accessibility/DOM snapshot; open-dialog count returned to zero | External attribution link, saving and all related-surface buttons not tested |
+| layering.html | Initial viewport; screenshot, heading order, DOM width and visible-image check | Shared room shell, task controls, layer diagram and witnesses render; one visible h1 followed by h2; no horizontal overflow or failed visible content image found | Screenshot; scrollWidth 1348 | Saving and every glaze/thickness/application combination not tested |
+| layering.html | Change first glaze from Tenmoku Gold to June Perry Pink, then restore | Native selector accepted the change and reported June Perry Pink; original selection restored | DOM selected-option state | Fired-result correctness is not predicted or scientifically validated |
+| restoration.html | Initial viewport; screenshot, heading order, DOM width and visible-image check | Shared room shell, observation selector, hypothesis panel and reference cards render; no horizontal overflow or failed visible content image found | Screenshot; scrollWidth 1348 | Below-fold guidance and every symptom not reviewed |
+| restoration.html | Change symptom from crazing to crawling, then restore | Hypothesis panel updated to Crawling and corresponding next-test guidance; original selection restored | DOM text and selected-option state | Content/scientific correctness not independently validated |
+| reading.html | Initial viewport; screenshot, heading order, DOM width and visible-image check | Shared room shell, source search, filters and initial results render; no horizontal overflow or failed visible content image found | Screenshot; scrollWidth 1348 | Complete source catalogue and all filters not inspected |
+| reading.html | Search copper red, wait for results, open first PDF result, then press Escape | Search updated to 153 matching pages across 31 sources; supplied PDF page 16 dialog opened and closed with Escape | Live status, result-card text and dialog snapshot | Extraction accuracy, PDF image fidelity, page navigation and all results not validated |
+
+### Limitations and continuation
+
+- No supported viewport-resizing/emulation method was exposed by this browser interface. Mobile layouts and 200% text enlargement were not reproduced. Record this as a test limitation, not a site defect.
+- No Safari, VoiceOver, NVDA, contrast audit, full accessibility conformance evaluation or scientific/content verification.
+- No exhaustive link, image or route audit. Only the initial viewport and described interactions were checked.
+- Browser error/warning sample contained no website-origin entries after extension messages were excluded.
+- Remaining routes for rotation: learn.html, masters.html, notebook.html and typography.html. Revisit atlas mobile/compact behaviour when a supported viewport is available.
+- Existing open issue UI-003 was not re-exercised because application source was unchanged and this run rotated to previously untested routes.
+- Keep monitoring enabled: this check does not complete the ongoing monitoring request.
