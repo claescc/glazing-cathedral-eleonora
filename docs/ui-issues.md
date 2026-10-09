@@ -116,3 +116,38 @@ Measured document scrollWidth: 1348 CSS-px on glaze families, layering, restorat
 - Remaining routes for rotation: learn.html, masters.html, notebook.html and typography.html. Revisit atlas mobile/compact behaviour when a supported viewport is available.
 - Existing open issue UI-003 was not re-exercised because application source was unchanged and this run rotated to previously untested routes.
 - Keep monitoring enabled: this check does not complete the ongoing monitoring request.
+
+
+## Check record: 2026-10-09
+
+Performed approximately 06:26–06:31 Europe/Brussels.
+No application-source commit was added after the previous check; repository HEAD before this record was 1ce33e873edd9ff9966d90a463bbba2e97316624, the 2026-10-08 check record.
+GitHub Pages workflow run 37727291064 for that commit completed successfully at 2026-10-08T04:25:08Z.
+The public pages were inspected directly, but they expose no commit SHA; exact live-SHA identity was not independently proven.
+No application code corrected or released in this run.
+
+### Actual coverage
+
+Desktop browser viewport: 1363 × 936 CSS-px.
+Measured document scrollWidth: 1348 CSS-px on Learn, Hall of Masters, Notebook and Design System/Typography. No horizontal document overflow at this viewport.
+
+| Page / state | Check / method | Result | Evidence | Not tested / limitation |
+| --- | --- | --- | --- | --- |
+| learn.html | Initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Learning-library introduction and eight chapter links render; no horizontal overflow or failed content image found | Screenshot and accessibility snapshot; scrollWidth 1348 at 1363 × 936 | Full lesson text and factual/scientific content not reviewed |
+| learn.html | Activate “Chapter 08 · Beauty does not prove durability” | URL updated to #lesson-8 and document scrolled to y=3895 | URL and DOM scroll position | Keyboard focus order and every chapter anchor not tested |
+| masters.html | Initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Hall introduction, featured artist and first timeline cards render; no horizontal overflow or failed content image found | Screenshot and accessibility snapshot; scrollWidth 1348 | Full timeline and source/factual verification not performed |
+| masters.html | Open “Enter her hall”, then return | Link opened tribute.html with the Judith Laqueur-Révész page title; browser Back returned to masters.html | Navigation URLs and page titles | Other links and complete tribute content not retested |
+| notebook.html | Empty saved-state viewport; screenshot, accessibility snapshot and DOM width | Empty-state guidance renders with Saved 0; no horizontal overflow | Screenshot and accessibility snapshot; scrollWidth 1348 | Populated favourites, persistence and removal flows not tested |
+| notebook.html | Open “Return to the Atlas…” then return | Link opened atlas.html; browser Back returned to notebook.html | Navigation URL and title | Saving was not performed because it would alter persistent browser state |
+| typography.html | Initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Typography catalogue renders; no horizontal overflow or failed image found | Screenshot and accessibility snapshot; scrollWidth 1348 | Full-page visual review and control focus-ring sequence not performed |
+| typography.html | Change Appearance from System to Dark, verify, then restore System | Theme changed to dark with body background rgb(20, 18, 24), then restored to automatic light with rgb(250, 248, 255) | DOM select value, data-theme and computed background | High-contrast mode and all interactive specimens not tested |
+
+### Limitations and continuation
+
+- No supported viewport-resizing/emulation method was exposed by this browser interface. Mobile layouts and 200% text enlargement were not reproduced. Record this as a test limitation, not a site defect.
+- No Safari, VoiceOver, NVDA, contrast audit, full accessibility conformance evaluation or scientific/content verification.
+- No exhaustive link, image or route audit. Only the initial viewport and described interactions were checked.
+- Browser error/warning sample contained no website-origin entries.
+- The first desktop rotation now includes all listed routes. Future checks remain lightweight: prioritise changed routes, then revisit a small rotating sample and unresolved Atlas items.
+- Existing open issue UI-003 was not re-exercised because application source was unchanged and this run completed the previously untested desktop-route rotation.
+- Keep monitoring enabled: this check does not complete the ongoing monitoring request.
