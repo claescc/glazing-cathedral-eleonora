@@ -1181,3 +1181,38 @@ body > footer { padding-block: 1.25rem; border-top-width: 2px; }
   #viewTabs { margin-left: 0; }
   #atlas .wall { margin-top: .65rem; }
 }
+/* Recipe Library: compact task links carry their destination colours. */
+#recipes .head { --recipe-heading: var(--story-ink); }
+#recipes > .head :is(h1,h2) { color: var(--recipe-heading); }
+#recipes .task-navigation a {
+  --task-accent: #95375d;
+  --task-light: #ffb2cc;
+  --task-ink: var(--task-accent);
+  --task-fill: color-mix(in srgb, var(--task-accent) 14%, var(--surface));
+  padding: .45rem .65rem;
+  border: 0;
+  border-inline-start: 3px solid var(--task-ink);
+  border-radius: 6px;
+  background: var(--task-fill);
+}
+#recipes .task-navigation a:nth-child(2) { --task-accent: #17695d; --task-light: #8cdfc9; }
+#recipes .task-navigation a:nth-child(3) { --task-accent: #704592; --task-light: #ddb7fa; }
+#recipes .task-navigation strong { color: var(--task-ink); }
+#recipes .task-navigation span { color: var(--text-secondary); }
+#recipes .task-navigation a:hover { background: color-mix(in srgb, var(--task-ink) 22%, var(--surface)); }
+:root[data-theme="dark"] #recipes .task-navigation a {
+  --task-ink: var(--task-light);
+  --task-fill: color-mix(in srgb, var(--task-accent) 32%, var(--surface));
+}
+:root[data-theme="contrast"] #recipes .task-navigation a {
+  --task-ink: #000;
+  --task-fill: #fff;
+  border: 1px solid #000;
+  border-inline-start-width: 3px;
+}
+:root[data-theme="contrast"] #recipes .task-navigation a:hover { background: #f1f1f1; }
+@media (max-width: 599px) {
+  #recipes .task-navigation { gap: .5rem .75rem; }
+  #recipes .task-navigation a { flex: 0 1 calc(50% - .375rem); min-width: 0; box-sizing: border-box; }
+  #recipes .task-navigation a:last-child { flex-basis: auto; }
+}

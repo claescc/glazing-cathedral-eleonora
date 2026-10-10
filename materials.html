@@ -22,7 +22,7 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261006-mobile-palette" />
+    <link rel="stylesheet" href="m3-site.css?v=20261010-recipe-colour" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -115,6 +115,7 @@
             </div>
             </details>
             <div class="atlas-bottom-row">
+              <p class="result atlas-result" aria-live="polite"><span id="resultCount"></span> surfaces</p>
               <label class="atlas-sort"><span>Sort</span><select id="sortFilter"><option value="photographs">Colour families</option><option value="name">Name A–Z</option><option value="source">Source</option></select></label>
               <div id="viewTabs" role="group" aria-label="Display">
                 <button type="button" class="on" data-view="photos" aria-label="Photographs" title="Photographs" aria-pressed="true"><span class="material-symbols-rounded" aria-hidden="true">photo</span><span class="view-label">Photos</span></button>
@@ -124,9 +125,6 @@
             </div>
           </div>
         </div>
-        <p class="result" aria-live="polite">
-          <span id="resultCount"></span> surfaces
-        </p>
         <div class="wall" id="wall"></div>
         <button id="atlasMore" class="under" type="button" hidden>
           Show more glazes
@@ -868,7 +866,7 @@
     <script src="glazy-imports.js?v=20260925-highlights"></script>
     <script src="book-recipes.js?v=20261003-visual-atlas"></script>
     <script src="recipe-workbench.js?v=20261002-manuscript"></script>
-    <script src="app.js?v=20261006-mobile-palette"></script>
+    <script src="app.js?v=20261006-product-architecture"></script>
     <script src="source-library.js?v=20260925-highlights"></script>
   </body>
 </html>
