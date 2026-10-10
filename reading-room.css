@@ -1,5 +1,5 @@
 /* Reading Room: original source imagery, M3 surfaces and adaptive cards. */
-body[data-page="reading"] .room-frontispiece { display: none; }
+body[data-page="reading"] .room-frontispiece { display: block; }
 body[data-page="reading"] #source-library { padding-top: 2rem; }
 body[data-page="reading"] #source-library > .head,
 body[data-page="reading"] #reading > .head { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }

@@ -22,8 +22,8 @@
     />
     <link rel="stylesheet" href="material3.css?v=20260927-density" />
     <link rel="stylesheet" href="styles.css?v=20260927-mobile-density" />
-    <link rel="stylesheet" href="m3-site.css?v=20261010-equal-spacing" />
-    <link rel="stylesheet" href="reading-room.css?v=20261010-reading-concise" />
+    <link rel="stylesheet" href="m3-site.css?v=20261010-page-banners" />
+    <link rel="stylesheet" href="reading-room.css?v=20261010-page-banners" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -71,7 +71,7 @@
         <label><input type="radio" name="appearance" value="contrast"><span>High contrast</span></label>
       </fieldset>
     </dialog>
-    <section class="room-frontispiece" aria-label="Reading Room introduction"><img src="assets/artwork/ceramic-library.jpg" alt="" fetchpriority="high" width="2172" height="724"><div class="frontispiece-caption"><p class="eyebrow">THE CERAMICS CATHEDRAL · READING ROOM</p><h1>The Reading Room</h1><p>Books, source pages and paths into ceramic knowledge.</p><small>Imagined ceramic window · decorative illustration</small></div></section><main id="main-content">
+    <section class="room-frontispiece" aria-label="Reading Room introduction"><div class="room-art" aria-hidden="true"><img src="assets/artwork/ceramic-window-stories.jpg" alt="" fetchpriority="high" width="2172" height="724"></div><div class="frontispiece-caption"><h1>Reading Room</h1><p>Books, source pages and paths into ceramic knowledge.</p></div></section><main id="main-content">
       <section class="atlas dark" id="atlas" data-palette-section="1">
         <div class="head">
           <div>
@@ -789,27 +789,9 @@
         <div class="shelves" id="shelves"></div>
       </section>
     </main>
-    <footer>
-      <p class="seal">
-        <img
-          src="assets/brand/ejl-sunflower-seal.svg"
-          width="56"
-          height="56"
-          alt="Eleonora’s EJL sunflower seal"
-        /><span>CERAMICS CATHEDRAL OF ELEONORA</span>
-      </p>
-      <blockquote>“A library at the hands of her fingertips.”</blockquote>
-      <p>
-        For Eleonora—my oldest friend, my sister, and the person who was kind
-        when kindness mattered most.
-      </p>
-      <p>
-        Built from Eleonora’s attached ceramic library, attributed public
-        references and museum records. Every firing still begins with a test.
-      </p>
-      <a href="index.html">Return to the threshold ↑</a> ·
-      <a href="tribute.html">Judith’s tribute</a> ·
-      <a href="typography.html">Design system</a>
+    <footer class="site-footer" aria-label="Site credits">
+      <span>Ceramics Cathedral of Eleonora</span>
+      <strong>Complexity Nexus</strong>
     </footer>
     <nav class="mobile-nav" aria-label="Primary navigation">
       <a href="index.html" data-nav-section="top"><span><span class="material-symbols-rounded" aria-hidden="true">home</span></span><b>Home</b></a>

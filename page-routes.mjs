@@ -31,8 +31,8 @@ const openings = {
   reading: ['ceramic-library', 'The Reading Room', 'Books, source pages and paths into ceramic knowledge.'],
 };
 function opening(page, title) {
-  const [art, heading, description] = openings[page];
-  return `<section class="room-frontispiece" aria-label="${title} introduction"><img src="assets/artwork/${art}.jpg" alt="" fetchpriority="high" width="2172" height="724"><div class="frontispiece-caption"><p class="eyebrow">THE CERAMICS CATHEDRAL · ${title.toUpperCase()}</p><h1>${description ? heading : title}</h1><p>${description || heading}</p><small>Imagined ceramic window · decorative illustration</small></div></section>`;
+  const [, heading, description] = openings[page];
+  return `<section class="room-frontispiece" aria-label="${title} introduction"><div class="room-art" aria-hidden="true"><img src="assets/artwork/ceramic-window-stories.jpg" alt="" fetchpriority="high" width="2172" height="724"></div><div class="frontispiece-caption"><h1>${title}</h1><p>${description || heading}</p></div></section>`;
 }
 let source = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
 // Keep the source route as Home and regenerate sibling pages from it.
@@ -40,7 +40,7 @@ source = source.replace(/<body(?: data-page="[^"]+")?>/, '<body data-page="home"
 source = source.replace(/href="#([a-z-]+)"/g, (whole, id) => routes[id] ? `href="${routes[id]}"` : whole);
 source = source.replace(/href="index\.html"(\s+data-nav-section="top")/g, 'href="index.html"$1');
 source = source.replace(/<title>[^<]*<\/title>/, '<title>Home · Ceramics Cathedral of Eleonora</title>');
-source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261010-equal-spacing');
+source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261010-page-banners');
 source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261010-colour-hierarchy"');
 source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-mobile-density"');
 source = source.replace(/(<div class="desktop-pages"[^>]*>)([\s\S]*?)(<\/div>)/, (all, open, links, close) => open + links.replace(/ aria-current="page"/g, '').replace('href="index.html"', 'href="index.html" aria-current="page"') + close);
@@ -48,7 +48,7 @@ writeFileSync(new URL('./index.html', import.meta.url), source);
 for (const [page, title] of Object.entries(titles)) {
   if (page === 'home') continue;
   const html = source.replace('data-page="home"', `data-page="${page}"`)
-    .replace('<main id="main-content">', `${['atlas', 'glaze-families', 'recipes'].includes(page) ? '' : opening(page, title)}<main id="main-content">`)
+    .replace('<main id="main-content">', `${opening(page, title)}<main id="main-content">`)
     .replace('<title>Home ·', `<title>${title} ·`)
     .replace('href="index.html" aria-current="page"', 'href="index.html"')
     .replace(`href="${page}.html"`, `href="${page}.html" aria-current="page"`)
@@ -57,7 +57,7 @@ for (const [page, title] of Object.entries(titles)) {
   let headed = html;
   if (['atlas', 'glaze-families', 'recipes'].includes(page)) {
     const block = new RegExp(`(<section[^>]*id="${pageSection}"[\\s\\S]*?)(<h2>)([\\s\\S]*?)(<\\/h2>)`);
-    headed = headed.replace(block, '$1<h1>$3</h1>');
+    headed = headed.replace(block, '$1<h2>$3</h2>');
   }
   const section = page === 'glaze-families' ? 'atlas' : page === 'learn' ? 'path' : page;
   const withNavigation = headed.replace(new RegExp(`(<a href="${page}.html")(?! aria-current)([^>]*data-nav-section="${section}")`), '$1 aria-current="page"$2');
