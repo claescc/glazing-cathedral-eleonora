@@ -29,6 +29,7 @@ for (const file of [
   "styles.css",
   "material3.css",
   "m3-site.css",
+  "arched-rooms.css",
   "app.js",
   "recipe-workbench.js",
   "library-data.js",

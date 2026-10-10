@@ -1,0 +1,7 @@
+/* Approved arched image cards. Atlas and Reading are excluded by page scope. */
+
+body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"],[data-page="learn"],[data-page="masters"],[data-page="home"],[data-page="notebook"],[data-page="recipes"]) :is(.visual-card,.defect-card,.material-card) { border-radius:120px 120px 12px 12px; padding:12px 12px 1rem; border:2px solid var(--story-accent); background:var(--story-container); overflow:hidden; }
+body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"],[data-page="learn"],[data-page="masters"],[data-page="home"],[data-page="notebook"],[data-page="recipes"]) :is(.visual-card,.defect-card,.material-card) > img { width:100%; height:220px; border-radius:110px 110px 6px 6px; object-fit:cover; object-position:center; background:var(--surface-soft); }
+body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"]) :is(.visual-card,.defect-card,.material-card) h3 { font-family:Georgia,serif; font-size:1.35rem; }
+
+body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"]) :is(.visual-card,.defect-card,.material-card) > .image-missing { height:220px; border-radius:110px 110px 6px 6px; overflow:hidden; }
