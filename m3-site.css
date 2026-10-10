@@ -1319,3 +1319,13 @@ body[data-page] main > section > .head :is(h1,h2,h3) { color: var(--story-ink); 
 .source-hit .page-badge, .source-stats { background: var(--story-container); color: var(--story-ink); }
 :root[data-theme="contrast"] .type-card { --family-ink: #000; --family-fill: #fff; border-color: #000; }
 :root[data-theme="contrast"] .type-card nav a { color: #000; background: #fff; border: 1px solid #000; }
+
+/* Text links use colour and an underline, without a marker-like fill. */
+.section-jumps a, .library-shortcuts a, .type-card nav a,
+:root[data-theme="dark"] .type-card nav a,
+:root[data-theme="contrast"] .type-card nav a {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding-inline: 0;
+}
