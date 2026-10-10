@@ -1342,3 +1342,23 @@ body[data-page] main > section > .head :is(h1,h2,h3) { color: var(--story-ink); 
   text-decoration: underline;
   text-underline-offset: .2em;
 }
+
+/* Shortcut actions share equal columns and spacing at every viewport. */
+.hero-content .library-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 132px), 1fr));
+  gap: .5rem 1rem;
+  margin-top: .75rem;
+  align-items: stretch;
+}
+.library-shortcuts a:first-child,
+.library-shortcuts a:nth-child(2),
+.library-shortcuts a:nth-child(3) {
+  min-height: 44px;
+  padding: .5rem 0;
+  margin: 0;
+  gap: .5rem;
+  justify-content: flex-start;
+  text-align: start;
+}
+.library-shortcuts a .material-symbols-rounded { width: 24px; flex: 0 0 24px; }
