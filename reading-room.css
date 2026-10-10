@@ -1,0 +1,97 @@
+/* Reading Room: original source imagery, M3 surfaces and adaptive cards. */
+body[data-page="reading"] .room-frontispiece { display: none; }
+body[data-page="reading"] #source-library { padding-top: 2rem; }
+body[data-page="reading"] #source-library > .head,
+body[data-page="reading"] #reading > .head { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+body[data-page="reading"] #source-library > .head::before,
+body[data-page="reading"] #reading > .head::before { display: none; }
+body[data-page="reading"] #source-library > .head h1 { max-width: 20ch; }
+body[data-page="reading"] #reading .stats { display: none; }
+body[data-page="reading"] .source-stats { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: 1rem 1.5rem; }
+body[data-page="reading"] .source-stats > div { padding: 0; border: 0; background: transparent; display: flex; gap: .4rem; align-items: baseline; }
+body[data-page="reading"] .source-stats b { font-size: 1rem; }
+.source-note { margin-block: .75rem; color: var(--text-secondary); font-size: .875rem; }
+.source-note summary { cursor: pointer; width: fit-content; padding-block: .5rem; text-decoration: underline; text-underline-offset: .2em; }
+.source-note p { max-width: 90ch; }
+.reading-filters { grid-column: 2 / -1; align-self: start; }
+.reading-filters > summary { display: flex; align-items: center; gap: .5rem; min-height: 44px; color: var(--text-secondary); font-size: .875rem; cursor: pointer; }
+.reading-filters > summary .material-symbols-rounded:last-child { margin-left: auto; }
+.reading-filters[open] > summary .material-symbols-rounded:first-child { transform: none; }
+.reading-filter-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-top: .5rem; }
+.reading-excerpt-label { display: block; font-size: .65rem; font-weight: 500; margin-bottom: .2rem; }
+#sourceResults.source-results { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+.reading-book-group { display: grid; grid-template-columns: minmax(200px, 260px) minmax(0, 1fr); gap: 1.5rem; border-top: 5px solid var(--book-accent); padding-block: 1.5rem; }
+.reading-book-root { min-width: 0; align-self: start; }
+.reading-cover { margin: 0; background: color-mix(in srgb, var(--book-accent) 14%, var(--surface-soft)); padding: 1rem; border-radius: var(--radius-medium); }
+.reading-cover img { display: block; width: auto; max-width: 100%; height: 270px; object-fit: contain; margin-inline: auto; box-shadow: var(--md-sys-elevation-level2); }
+.reading-cover figcaption { margin-top: .65rem; font-size: .75rem; text-align: center; color: var(--text-secondary); }
+.reading-book-info { padding-block: 1rem; }
+.reading-book-info .eyebrow { margin-bottom: .5rem; color: var(--text-secondary); font-size: .7rem; }
+.reading-book-info h3 { font-size: 1.4rem; line-height: 1.2; margin: 0 0 .6rem; overflow-wrap: anywhere; }
+.reading-author { color: var(--text-secondary); font-weight: 500; margin-block: .5rem; font-size: .95rem; }
+.reading-book-count { font-size: .8rem; color: var(--text-secondary); margin-block: .75rem 1rem; }
+.reading-book-pages { min-width: 0; }
+.reading-pages-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.reading-pages-heading h4 { margin: 0; font-size: 1rem; }
+.reading-pages-heading > span { font-size: .8rem; color: var(--text-secondary); }
+.reading-page-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.source-hit.reading-page-card { display: flex; flex-direction: column; padding: 0; gap: 0; overflow: hidden; border-radius: var(--radius-medium); text-align: left; color: var(--text); height: 100%; min-width: 0; align-items: stretch; }
+.reading-page-image { display: flex; flex-direction: column; align-items: center; position: relative; padding: .85rem .85rem 0; background: color-mix(in srgb, var(--book-accent) 12%, var(--surface-soft)); }
+.reading-page-image img { display: block; height: 175px; width: 100%; object-fit: contain; object-position: top center; }
+.reading-page-image.is-photograph { padding: 0; }
+.reading-page-image.is-photograph img { object-fit: contain; object-position: center; height: 202px; }
+.reading-page-image > span { display: block; background: var(--surface); color: var(--text-secondary); font-size: .7rem; padding: .25rem .5rem; border-radius: 4px 4px 0 0; margin-top: .5rem; }
+.reading-page-image.is-photograph > span { position: absolute; bottom: 0; }
+.reading-page-copy { display: flex; flex-direction: column; flex: 1; padding: 1rem; min-width: 0; }
+.reading-page-copy > small { color: var(--text-secondary); font-size: .7rem; }
+.reading-page-copy > strong { font-size: 1rem; line-height: 1.35; overflow-wrap: anywhere; margin: .5rem 0 .65rem; }
+.reading-page-copy .source-snippet { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: .8rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 1rem; }
+.reading-page-location { margin-top: auto; font-size: .75rem; color: var(--text-secondary); }
+.reading-page-action { display: flex; align-items: center; justify-content: space-between; font-size: .8rem; font-weight: 600; margin-top: .65rem; color: var(--text); }
+.reading-more-pages { margin-top: 1rem; background: var(--surface); color: var(--text); }
+.reading-cover-unavailable { min-height: 100px; display: grid; place-items: center; background: var(--surface-soft); color: var(--text-secondary); border: 1px solid var(--outline); }
+#shelves .reading-shelf-book { display: grid; grid-template-columns: 100px minmax(0, 1fr); padding: 1rem; gap: 1rem; background: var(--surface); border-radius: var(--radius-medium); }
+#shelves .reading-shelf-book .reading-cover { padding: .5rem; align-self: start; }
+#shelves .reading-shelf-book .reading-cover img { height: 135px; box-shadow: none; }
+#shelves .reading-shelf-book .reading-cover figcaption { font-size: .65rem; }
+#shelves .reading-shelf-book h3 { margin-top: 0; font-size: 1.05rem; }
+#shelves .reading-shelf-book p { font-size: .8rem; }
+.reading-book-info .shelf-actions button,
+#shelves .reading-shelf-book button { min-height: 44px; padding: .6rem .85rem; font-size: .8rem; }
+.reading-explore { background: var(--surface); color: var(--text); }
+#sourceReader h2 { overflow-wrap: anywhere; }
+:root[data-theme="contrast"] .reading-cover,
+:root[data-theme="contrast"] .reading-page-image { background: var(--surface-soft); }
+@media (min-width: 1500px) { .reading-page-image img { height: 220px; } .reading-page-image.is-photograph img { height: 247px; } }
+@media (max-width: 1199px) { .reading-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .reading-book-group { grid-template-columns: minmax(170px, 220px) minmax(0, 1fr); gap: 1.25rem; } .reading-cover img { height: 235px; } }
+@media (max-width: 839px) {
+  body[data-page="reading"] #source-library { padding-top: 1rem; }
+  body[data-page="reading"] #source-library > .head { padding: 1rem; }
+  body[data-page="reading"] .source-stats { font-size: .75rem; gap: .25rem 1rem; margin-block: .75rem; }
+  body[data-page="reading"] .source-stats b, body[data-page="reading"] .source-stats span { font-size: .75rem; }
+  .reading-filters { grid-column: 1 / -1; }
+  .reading-filter-options { grid-template-columns: minmax(0, 1fr); }
+  body[data-page="reading"] .source-controls { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .source-note { margin-block: .25rem; font-size: .75rem; }
+  #sourceCount { margin-block: .75rem; font-size: .75rem; }
+  body[data-page="reading"] #source-library > .head,
+  body[data-page="reading"] #reading > .head { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .reading-book-group { grid-template-columns: minmax(0, 1fr); }
+  .reading-book-root { display: grid; grid-template-columns: minmax(110px, 150px) minmax(0, 1fr); gap: 1rem; }
+  .reading-cover { padding: .65rem; }
+  .reading-cover img { height: 195px; }
+  .reading-book-info { padding-block: .25rem; }
+  .reading-book-info h3 { font-size: 1.2rem; }
+  .reading-page-grid { display: flex; overflow-x: auto; gap: .85rem; scroll-snap-type: x proximity; padding: .25rem .25rem .85rem; }
+  .source-hit.reading-page-card { flex: 0 0 230px; height: auto; scroll-snap-align: start; }
+  .source-hit.reading-page-card:hover { transform: none; }
+  .reading-page-image img { height: 185px; }
+  .reading-page-image.is-photograph img { height: 212px; }
+}
+@media (max-width: 399px) { .reading-book-root { grid-template-columns: 105px minmax(0, 1fr); gap: .75rem; } .reading-cover img { height: 150px; } .reading-book-info h3 { font-size: 1.1rem; } }
+@media (prefers-reduced-motion: reduce) { .reading-page-card { transition: none; } }
+@media (forced-colors: active) { .reading-book-group { border-color: CanvasText; } .reading-cover, .reading-page-image { background: Canvas; } .reading-page-card:focus-visible { outline: 3px solid Highlight; } }
+
+.reading-recipe-colour, .reading-recipe-firing { display: block; }
+.reading-recipe-colour { font-size: .9rem; font-weight: 500; margin-bottom: .4rem; }
+.reading-recipe-firing { font-size: .8rem; }

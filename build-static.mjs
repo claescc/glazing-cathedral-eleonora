@@ -37,6 +37,7 @@ for (const file of [
   "book-recipes.js",
   "source-library.js",
   "library.css",
+  "reading-room.css",
 ]) {
   cpSync(
     new URL(`./${file}`, import.meta.url),

@@ -16,6 +16,9 @@ Original PDFs remain read-only in the supplied library. The source catalogue rec
 
 Run `tools/index_sources.py`, `tools/import_bloomfield.py`, then `tools/append_checked_recipes.py` using Python with PyMuPDF. The first script creates search chunks and source-page facsimiles. It identifies recipe-related candidates using ingredient terms, not semantic verification. Formula transcriptions and photographs have separate provenance. The 128 Bloomfield transcriptions were checked structurally, with sample page inspections; they are not labelled as individually visually verified.
 
+
+Run `tools/build_reading_visuals.py` after source indexing to regenerate the Reading Room finding aids: actual covers or labelled title/source previews, recipe headings, source-page thumbnails, and explicitly recorded photograph-page links. Colour, surface, cone and atmosphere descriptions are copied from labelled source fields. Extracted headings and passages remain finding aids, not newly verified formulas.
+
 The browser loads the compact recipe-page index first and fetches the all-text chunks only when requested. Original page images are the authority where text extraction is garbled. Recipes, source search, page reading and favourites work without a server database.
 
 ## Delivery
