@@ -1329,3 +1329,16 @@ body[data-page] main > section > .head :is(h1,h2,h3) { color: var(--story-ink); 
   border-radius: 0;
   padding-inline: 0;
 }
+
+/* All hero shortcuts share the same text-link treatment. */
+.library-shortcuts a:first-child,
+.library-shortcuts a:nth-child(2),
+.library-shortcuts a:nth-child(3) {
+  background: transparent;
+  color: var(--story-ink);
+  border: 0;
+  border-radius: 0;
+  padding: .35rem 0;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
