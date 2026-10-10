@@ -49,3 +49,7 @@ Atlas, Glaze Families and Recipes open directly on their task heading. Other int
 ## Navigation and control verification · 4 October 2026
 
 The browser pass covers 13 destinations at 320, 375, 700, 1024 and 1440 CSS px, including room discovery, Saved/Settings visibility, button labels and horizontal overflow. Interaction checks cover System appearance changes, persistence, native dialog Escape/focus return, swatch keyboard selection, catalogue pagination, taxonomy search links and opening/closing a recipe formula. Rendered text in visible buttons, links, selects and summaries was checked against the 4.5:1 normal-text and 3:1 large-text thresholds across 12 routes in light, dark and high contrast modes after theme transitions settled. These are scoped checks, not a complete accessibility certification.
+
+## Default artwork fit inside arches · 10 October 2026
+
+Cathedral artwork cards display the complete image with `object-fit: contain` and centred positioning. Reserve internal space for the arch curvature so the image does not clip against its corners. This is the default across amphorae, documented artist records, Hall of Masters gallery cards and featured artwork. Do not use `cover` for artwork; decorative illustrations are separate from artwork records. Check portrait and landscape images at compact and expanded widths when introducing a new arched card.

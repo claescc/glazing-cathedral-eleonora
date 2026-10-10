@@ -1468,8 +1468,10 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
   box-sizing: border-box;
   object-fit: contain;
   object-position: center;
-  padding: 1.25rem;
+  padding: 2.5rem;
   background: var(--surface-soft);
 }
 .judith-records .judith-art img { border-radius: 90px 90px 8px 8px; }
 .amphora-card .amphora-photo img { border-radius: 135px 135px 8px 8px; }
+
+.masters-feature > img { padding: 1.25rem; }
