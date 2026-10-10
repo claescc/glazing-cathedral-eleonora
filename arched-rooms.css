@@ -5,3 +5,7 @@ body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"],[da
 body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"]) :is(.visual-card,.defect-card,.material-card) h3 { font-family:Georgia,serif; font-size:1.35rem; }
 
 body:is([data-page="restoration"],[data-page="kiln"],[data-page="materials"]) :is(.visual-card,.defect-card,.material-card) > .image-missing { height:220px; border-radius:110px 110px 6px 6px; overflow:hidden; }
+
+/* Approved centred room content, capped at 1200 CSS pixels. */
+body:is([data-page="materials"],[data-page="kiln"],[data-page="restoration"],[data-page="learn"],[data-page="masters"],[data-page="notebook"],[data-page="recipes"]) :is(main > section:not(#rooms),.room-frontispiece) { width:100%; max-width:1200px; margin-inline:auto; box-sizing:border-box; }
+body:is([data-page="materials"],[data-page="kiln"],[data-page="restoration"],[data-page="learn"],[data-page="masters"],[data-page="notebook"],[data-page="recipes"]) main > section:not(#rooms) { padding-inline:clamp(1rem,2vw,2rem); }

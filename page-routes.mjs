@@ -53,7 +53,7 @@ for (const [page, title] of Object.entries(titles)) {
     .replace('href="index.html" aria-current="page"', 'href="index.html"')
     .replace(`href="${page}.html"`, `href="${page}.html" aria-current="page"`)
     .replace(/<meta\s+name="description"\s+content="[^"]+"\s*\/>/, `<meta name="description" content="Explore ${title.toLowerCase()} at the Ceramics Cathedral of Eleonora." />`);
-  const archedHtml = ['restoration', 'kiln', 'materials', 'learn', 'masters', 'notebook', 'recipes'].includes(page) ? html.replace('</head>', '<link rel="stylesheet" href="arched-rooms.css?v=20261010-fill" />\n  </head>') : html;
+  const archedHtml = ['restoration', 'kiln', 'materials', 'learn', 'masters', 'notebook', 'recipes'].includes(page) ? html.replace('</head>', '<link rel="stylesheet" href="arched-rooms.css?v=20261010-width" />\n  </head>') : html;
   const pageSection = page === 'glaze-families' ? 'glaze-families' : page;
   let headed = archedHtml;
   if (['atlas', 'glaze-families', 'recipes'].includes(page)) {
