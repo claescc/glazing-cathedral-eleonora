@@ -1475,3 +1475,14 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
 .amphora-card .amphora-photo img { border-radius: 135px 135px 8px 8px; }
 
 .masters-feature > img { padding: 1.25rem; }
+
+/* Approved family portrait in Judith's artist introduction. */
+.tribute-head.tribute-head-with-portrait { grid-template-columns: minmax(180px, 260px) minmax(0, 1fr); gap: clamp(1rem, 3vw, 2rem); }
+.tribute-portrait { margin: 0; min-width: 0; }
+.tribute-portrait a { display: block; }
+.tribute-portrait img { display: block; width: 100%; height: auto; border-radius: var(--radius-large); }
+.tribute-portrait figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.5; color: var(--md-sys-color-on-surface-variant); }
+@media (max-width: 650px) {
+  .tribute-head.tribute-head-with-portrait { grid-template-columns: 1fr; }
+  .tribute-portrait { width: min(100%, 260px); }
+}
