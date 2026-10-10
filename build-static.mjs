@@ -24,6 +24,7 @@ for (const file of [
   "typography.css",
   "design-system.js",
   "theme.js",
+  "back-to-top.js",
   "CNAME",
   "styles.css",
   "material3.css",
