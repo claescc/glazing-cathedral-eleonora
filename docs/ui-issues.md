@@ -11,7 +11,7 @@ This is the central list. Keep stable IDs and preserve resolved findings.
 | --- | --- | --- | --- | --- | --- |
 | UI-001 | 2026-10-06; prior report 2026-10-05 | atlas.html | Prior review reported display-button text overflow at 320 CSS-px and 200% text size. Current desktop buttons do not overflow: Photographs 125/125, Cone previews 135/135, Index 82/82 client/scroll px. | To confirm on mobile | The previous result concerned an older commit. Mobile and text enlargement were not executed in this run. Do not classify the prior result as a current reproduced defect. |
 | UI-002 | 2026-10-06; prior report 2026-10-05 | atlas.html | Prior review reported visible group labels differing from ARIA names. Current production has hues role=group aria-labelledby=colourLabel, and viewTabs role=group aria-labelledby=displayLabel; neither has aria-label. Browser accessibility snapshot names the groups COLOUR FAMILY and DISPLAY. | Resolved in inspected current state | Observed on production 2026-10-06. This run did not implement the correction or identify its introducing commit. Former Collection grouping has changed to a labelled Show select. |
-| UI-003 | 2026-10-06 | atlas.html | Firing range offers both 5-6 and 5–6 as separate options. With other filters at defaults, selecting 5-6 shows 6 of 6 surfaces; selecting 5–6 shows 2 of 2 different surfaces. Equivalent visible range notation splits the result sets. | Open, larger issue for later | Reproduced again on production 2026-10-07 in the native coneFilter: 5-6 returned 6 surfaces and 5–6 returned 2 different surfaces. Normalise comparison keys and options while retaining original source notation/provenance. Preserve leading-zero cone values: 05 and 5 are distinct; do not merge these. Review other repeated dash/prefix variants before implementation. No code change made. |
+| UI-003 | 2026-10-06 | atlas.html | Firing range offers both 5-6 and 5–6 as separate options. With other filters at defaults, selecting 5-6 shows 6 of 6 surfaces; selecting 5–6 shows 2 of 2 different surfaces. Equivalent visible range notation splits the result sets. | Open, larger issue for later | Reproduced on production 2026-10-07 and again 2026-10-10 in the native coneFilter: 5-6 returned 6 surfaces and 5–6 returned 2 different surfaces. Normalise comparison keys and options while retaining original source notation/provenance. Preserve leading-zero cone values: 05 and 5 are distinct; do not merge these. Review other repeated dash/prefix variants before implementation. No code change made. |
 | OBS-001 | 2026-10-06 | tribute.html | Two visible h1 elements both read Judith Laqueur-Révész: introduction banner and main artist panel. | Observation, impact to confirm | DOM and accessibility snapshot agree. No WCAG violation or user impact established; do not treat as a proven accessibility failure. Consider heading hierarchy during a later design review. |
 
 ## Check record: 2026-10-06
@@ -150,4 +150,35 @@ Measured document scrollWidth: 1348 CSS-px on Learn, Hall of Masters, Notebook a
 - Browser error/warning sample contained no website-origin entries.
 - The first desktop rotation now includes all listed routes. Future checks remain lightweight: prioritise changed routes, then revisit a small rotating sample and unresolved Atlas items.
 - Existing open issue UI-003 was not re-exercised because application source was unchanged and this run completed the previously untested desktop-route rotation.
+- Keep monitoring enabled: this check does not complete the ongoing monitoring request.
+
+
+## Check record: 2026-10-10
+
+Performed approximately 06:45–06:49 Europe/Brussels.
+No application-source commit was added after the previous check; repository HEAD before this record was 105ccc6cb1c18606cc82c83eaefb69d37f31603c, the 2026-10-09 check record.
+GitHub Pages workflow run 37884090434 for that commit completed successfully at 2026-10-09T04:30:13Z.
+The public pages were inspected directly, but they expose no commit SHA; exact live-SHA identity was not independently proven.
+No application code corrected or released in this run.
+
+### Actual coverage
+
+Desktop browser viewport: 1363 × 936 CSS-px.
+Measured document scrollWidth: 1348 CSS-px on the homepage, Atlas and Judith tribute. No horizontal document overflow at this viewport.
+
+| Page / state | Check / method | Result | Evidence | Not tested / limitation |
+| --- | --- | --- | --- | --- |
+| / | Initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Global shell, hero and first room cards render; no horizontal overflow or failed content image found | Screenshot and accessibility snapshot; scrollWidth 1348 at 1363 × 936 | Below-fold exhibitions and links not exercised |
+| atlas.html | Initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Global shell, room identity, local Atlas navigation, filters, result toolbar and first cards render; no horizontal overflow or failed content image found | Screenshot and accessibility snapshot; scrollWidth 1348 | Mobile compact palette and 200% text enlargement not tested |
+| atlas.html | Select firing range 5-6, then 5–6, then restore All cones | Reconfirmed 6 of 6 surfaces for 5-6 versus 2 of 2 different surfaces for 5–6 | UI-003; counters and card names captured from live DOM | Other dash and Cone-prefixed variants not exercised |
+| tribute.html | Initial viewport; screenshot, accessibility snapshot, DOM width, visible h1 count and loaded-image check | Page and documented artwork images render; two visible h1 elements still both read Judith Laqueur-Révész; no horizontal overflow or failed content image found | Screenshot, accessibility snapshot and DOM; OBS-001; scrollWidth 1348 | Below-fold links, documentary loading and factual claims not validated |
+
+### Limitations and continuation
+
+- No supported viewport-resizing/emulation method was exposed by this browser interface. Mobile layouts and 200% text enlargement were not reproduced. Record this as a test limitation, not a site defect.
+- No Safari, VoiceOver, NVDA, contrast audit, full accessibility conformance evaluation or scientific/content verification.
+- No exhaustive link, image or route audit. Only the initial viewport and described Atlas filter states were checked.
+- Browser error/warning sample contained no website-origin entries.
+- UI-003 remains a larger issue for later: normalisation must preserve semantically distinct cone values such as 05 and 5 and requires review of other notation variants.
+- OBS-001 remains an observation with impact to confirm; duplicate visible h1 text alone was not classified as a proven accessibility defect.
 - Keep monitoring enabled: this check does not complete the ongoing monitoring request.
