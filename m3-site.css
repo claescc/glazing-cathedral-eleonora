@@ -1461,3 +1461,15 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
 .judith-records .judith-art img { display: block; height: 250px; border-radius: 90px 90px 8px 8px; object-fit: contain; }
 .judith-records .judith-art figcaption { font-size: .875rem; margin-bottom: .75rem; }
 .judith-records .judith-art figcaption a { display: inline; min-height: 0; }
+
+/* Fit complete artwork within every Cathedral gallery arch. */
+:is(.amphora-photo, .judith-records .judith-art, #timeline .event figure) { overflow: hidden; }
+:is(.amphora-card .amphora-photo img, .judith-records .judith-art img, #timeline .event figure img, .masters-feature > img) {
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  padding: 1.25rem;
+  background: var(--surface-soft);
+}
+.judith-records .judith-art img { border-radius: 90px 90px 8px 8px; }
+.amphora-card .amphora-photo img { border-radius: 135px 135px 8px 8px; }
