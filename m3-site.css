@@ -1492,3 +1492,100 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
 .tribute-video-thumbnail { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: .75rem; z-index: -2; }
 .tribute-video button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 25%, rgba(0,0,0,.85)); z-index: -1; }
 .tribute-video button :is(strong,small,.material-symbols-rounded) { color: #fff; text-shadow: 0 1px 4px #000; }
+
+/* Cathedral card primitive. Existing record classes are adapters to one system. */
+:root {
+  --cathedral-card-arch: 50% 50% 16px 16px / 64px 64px 16px 16px;
+  --cathedral-card-border: #b18c4e;
+  --cathedral-card-ink: #fff7e7;
+  --cathedral-card-image-height: 160px;
+}
+:is(.cathedral-card, #roomGrid .room-card, #recipeRail .recipe-volume, .chapter-book, .amphora-card, .judith-records article, #timeline .event, .masters-feature) {
+  border-radius: var(--cathedral-card-arch);
+  border: 2px solid var(--cathedral-card-border);
+  overflow: hidden;
+}
+:is(#roomGrid .room-card, #recipeRail .recipe-volume, .chapter-book) {
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  padding: 1rem;
+  background: var(--cathedral-card-tone, #62407a);
+  color: var(--cathedral-card-ink);
+  box-shadow: none;
+}
+:is(#recipeRail .recipe-volume, .chapter-book):nth-child(5n+2) { --cathedral-card-tone: #15566b; }
+:is(#recipeRail .recipe-volume, .chapter-book):nth-child(5n+3) { --cathedral-card-tone: #185b50; }
+:is(#recipeRail .recipe-volume, .chapter-book):nth-child(5n+4) { --cathedral-card-tone: #813c30; }
+:is(#recipeRail .recipe-volume, .chapter-book):nth-child(5n) { --cathedral-card-tone: #70501f; }
+#roomGrid .room-card { --cathedral-card-tone: color-mix(in srgb, var(--story-accent) 65%, #122a32); }
+:is(#recipeRail .recipe-volume, .chapter-book) :is(small,strong,b,.volume-number,.volume-copy,.volume-source,.volume-open,.recipe-photo-label) {
+  background: transparent;
+  color: var(--cathedral-card-ink);
+}
+#recipeRail .recipe-volume > .volume-number { order: 1; padding: 0; }
+#recipeRail .recipe-volume > .volume-copy { order: 2; padding: 0; flex: 1; }
+#recipeRail .recipe-volume > .recipe-photo-label { order: 1; }
+#recipeRail .recipe-volume:not(:has(img)) { padding-top: 4rem; }
+:is(#roomGrid .room-picture, #recipeRail .recipe-volume > img, .chapter-book > img) {
+  flex: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--cathedral-card-image-height);
+  margin: 0;
+  padding: 2rem 1rem .5rem;
+  border: 0;
+  border-radius: var(--cathedral-card-arch);
+  background-color: var(--surface-soft);
+  object-fit: contain;
+  object-position: center;
+}
+#roomGrid .room-picture:has(img) { padding: 0; }
+#roomGrid .room-picture img { box-sizing: border-box; object-fit: contain; padding: 2rem 1rem .5rem; }
+#roomGrid .room-copy, .chapter-book > span { padding: 0; flex: 1; }
+#roomGrid .room-card h3 { font: 600 1.2rem/1.3 Georgia, serif; }
+:is(#recipeRail .recipe-volume, .chapter-book, #roomGrid .room-card):focus-visible { outline: 3px solid #f7db9c; outline-offset: 3px; }
+:root[data-theme="contrast"] :is(.cathedral-card, #roomGrid .room-card, #recipeRail .recipe-volume, .chapter-book) {
+  --cathedral-card-tone: #000;
+  --cathedral-card-ink: #fff;
+  --cathedral-card-border: #fff;
+}
+@media (max-width: 650px) {
+  :root { --cathedral-card-arch: 50% 50% 12px 12px / 50px 50px 12px 12px; --cathedral-card-image-height: 140px; }
+  :is(#roomGrid .room-card, #recipeRail .recipe-volume, .chapter-book) { padding: .75rem; }
+}
+
+/* Shared Cathedral closing dedication, approved 10 October 2026. */
+body > footer.site-footer { display: block; padding: 0; border: 0; background: #172e35; color: #fff7e8; text-align: left; }
+.site-footer .footer-glass { height: 92px; position: relative; overflow: hidden; border-bottom: 1px solid #b99a5c; }
+.site-footer .footer-glass img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 53%; }
+.site-footer .footer-glass::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #172e3545, transparent 60%); }
+.site-footer .footer-dedication { margin: 0 clamp(1.5rem, 3vw, 2.375rem); padding: 2.25rem 0 1.875rem; border-bottom: 1px solid #ffffff25; text-align: center; }
+.site-footer .footer-dedication blockquote { max-width: none; margin: 0 0 .9375rem; font-family: Georgia, serif; font-size: 1.75rem; line-height: 1.4; color: #fff7e8; }
+.site-footer .footer-dedication p { max-width: 650px; margin: 0 auto; font-size: 1rem; line-height: 1.7; color: #ddd3be; }
+.site-footer .footer-identity { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 1.5rem clamp(1.5rem, 3vw, 2.375rem); }
+.site-footer .footer-brand { display: flex; align-items: center; gap: .9375rem; font-size: 1.25rem; font-weight: 500; line-height: 1.3; letter-spacing: .1px; }
+.site-footer .footer-brand img { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%; background: #efd393; }
+.site-footer .footer-eleonora { font-size: .9375rem; color: #ddd3be; font-weight: 400; }
+.site-footer .footer-credit { margin: 0; max-width: none; font-size: .875rem; line-height: 1.6; color: #ddd3be; }
+.site-footer .footer-credit strong { display: block; font-size: 1.0625rem; font-weight: 600; color: #f3d793; letter-spacing: .15px; }
+:root[data-theme="contrast"] .site-footer { background: #000; }
+:root[data-theme="contrast"] .site-footer .footer-dedication { border-color: #fff; }
+@media (max-width: 599px) {
+  .site-footer .footer-glass { height: 80px; }
+  .site-footer .footer-glass img { width: 240%; max-width: none; transform: translateX(-30%); }
+  .site-footer .footer-dedication { padding: 1.75rem 0 1.5625rem; text-align: left; }
+  .site-footer .footer-dedication blockquote { font-size: 1.5rem; }
+  .site-footer .footer-dedication p { font-size: .9375rem; }
+  .site-footer .footer-identity { display: block; padding-bottom: 1.875rem; }
+  .site-footer .footer-brand { font-size: 1.1875rem; gap: .875rem; }
+  .site-footer .footer-credit { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #ffffff25; }
+  .site-footer .footer-credit strong { display: inline; margin-left: .25rem; font-size: .9375rem; }
+}
+/* Media adapters override the earlier compact book layout at every breakpoint. */
+#recipeRail .recipe-volume > img:not(.no-photo), .chapter-shelf .chapter-book > img, #roomGrid .room-card .room-picture {
+  width: 100%; height: var(--cathedral-card-image-height); margin: 0;
+  box-sizing: border-box; border-radius: var(--cathedral-card-arch);
+  object-fit: contain; padding: 2rem 1rem .5rem; background-color: var(--surface-soft);
+}
+#roomGrid .room-card .room-picture:has(img) { padding: 0; }

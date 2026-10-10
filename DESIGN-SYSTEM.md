@@ -53,3 +53,7 @@ The browser pass covers 13 destinations at 320, 375, 700, 1024 and 1440 CSS px, 
 ## Default artwork fit inside arches · 10 October 2026
 
 Cathedral artwork cards display the complete image with `object-fit: contain` and centred positioning. Reserve internal space for the arch curvature so the image does not clip against its corners. This is the default across amphorae, documented artist records, Hall of Masters gallery cards and featured artwork. Do not use `cover` for artwork; decorative illustrations are separate from artwork records. Check portrait and landscape images at compact and expanded widths when introducing a new arched card.
+
+## Shared Cathedral card primitive · 10 October 2026
+
+Home room cards, recipe records, learning chapters, amphorae and Masters records share the Cathedral card primitive. `--cathedral-card-arch`, `--cathedral-card-border`, `--cathedral-card-ink` and `--cathedral-card-image-height` own its geometry and presentation; `--cathedral-card-tone` provides a content or room variant. Existing component selectors adapt to this primitive; new cards can use `.cathedral-card`. Artwork uses centred `contain` with clearance for the arch. Decorative room illustrations retain their separate background treatment. Task controls and reading panels keep their existing interaction and reading structure.
