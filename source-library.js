@@ -39,10 +39,18 @@
   const bookVisual = (b) => visuals.books[b.id] || { title: b.name, author: "", accent: "#096773" };
   const pageVisual = (p) => visuals.pages[`${p.book}:${p.page}`] || {};
   const passage = (p) => p.text.split(/\n/).map(s => s.trim()).find(s => s.length > 15 && !/^https?:|OceanofPDF|^\d+$/.test(s)) || "Read the source text";
-  const pageTitle = (p) => pageVisual(p).title || passage(p);
+  function ashPage(p) {
+    if (!p.book.startsWith("ash-glazes")) return null;
+    const records = (typeof recipes !== "undefined" ? recipes : []).filter(r => r.sourceBookId === p.book && r.page === p.page && /^Ash glaze \d+/.test(r.name));
+    if (!records.length) return null;
+    const numbers = records.map(r => Number(r.name.match(/^Ash glaze (\d+)/)[1])).sort((a,b)=>a-b);
+    const contiguous = numbers.every((n,i)=>!i || n===numbers[i-1]+1);
+    return { title: `Ash recipes ${contiguous ? numbers[0] + "–" + numbers.at(-1) : numbers.join(", ")}`, contributors: new Set(records.map(r=>r.recipeCredit).filter(Boolean)).size };
+  }
+  const pageTitle = (p) => ashPage(p)?.title || pageVisual(p).title || passage(p);
   function cover(b, className = "") {
     const v = bookVisual(b);
-    return v.cover ? `<figure class="reading-cover ${className}"><img src="${esc(v.cover)}" alt="${esc(v.coverKind)} of ${esc(v.title)}" loading="lazy" width="420" height="560"><figcaption>${esc(v.coverKind)}</figcaption></figure>` : `<div class="reading-cover-unavailable">Cover unavailable</div>`;
+    return v.cover ? `<figure class="reading-cover ${className}"><img src="${esc(v.cover)}" alt="${esc(v.coverKind)} of ${esc(v.title)}" loading="lazy" width="420" height="560">${v.coverKind === "Book cover" ? "" : `<figcaption>${esc(v.coverKind)}</figcaption>`}</figure>` : `<div class="reading-cover-unavailable">Cover unavailable</div>`;
   }
   function pagePhoto(p, b) {
     // Only an exact, verified source photograph may replace a page facsimile.
@@ -53,7 +61,7 @@
     const v = pageVisual(p);
     const image = record?.image || v.photograph || v.thumbnail || bookVisual(b).cover;
     const label = record ? "Recipe photograph" : v.photograph ? `Source photo · page ${v.photographPage}` : v.thumbnail ? "Original page" : bookVisual(b).coverKind || "Source preview";
-    return image ? `<span class="reading-page-image ${record || v.photograph ? "is-photograph" : ""}"><img src="${esc(image)}" alt="${esc(record ? record.name : pageTitle(p))}" loading="lazy" width="360" height="460"><span>${esc(label)}</span></span>` : `<span class="reading-page-image">Text passage</span>`;
+    return image ? `<span class="reading-page-image ${record || v.photograph ? "is-photograph" : ""}"><img src="${esc(image)}" alt="${esc(record ? record.name : pageTitle(p))}" loading="lazy" width="360" height="460">${record || v.photograph ? "" : `<span>${esc(label)}</span>`}</span>` : `<span class="reading-page-image">Text passage</span>`;
   }
   async function getPages(book) {
     if (!pageCache.has(book.id)) {
@@ -133,8 +141,10 @@
   }
   function pageDescription(p, q) {
     const v = pageVisual(p);
+    const ash = ashPage(p);
+    if (ash) return "";
     if (v.color || v.surface || v.cone) return `<span class="reading-recipe-colour">${esc([v.color,v.surface].filter(Boolean).join(" · "))}</span><span class="reading-recipe-firing">${esc([v.cone ? "Cone " + v.cone : "",v.atmosphere].filter(Boolean).join(" · "))}</span>`;
-    return `<span class="reading-excerpt-label">Page excerpt</span>${esc(snippet(p.text,q))}`;
+    return q.trim() ? esc(snippet(p.text,q)) : "";
   }
   function paintResults() {
     const q = $("sourceSearch").value;
@@ -156,13 +166,13 @@
       const pageLimit = pageLimits.get(id) || 6;
       const visible = pages.slice(0, pageLimit);
       shown += visible.length;
-      return `<article class="reading-book-group" style="--book-accent:${esc(v.accent)}" aria-labelledby="book-heading-${id}"><div class="reading-book-root">${cover(b)}<div class="reading-book-info"><p class="eyebrow">${esc(v.coverKind === "Source photograph" ? "Glazy recipe source" : "From the library")}</p><h3 id="book-heading-${id}">${esc(v.title)}</h3>${v.author ? `<p class="reading-author">${esc(v.author)}</p>` : ""}<p class="reading-book-count">${pages.length} matching ${pages.length === 1 ? "page" : "pages"} · ${b.pages} pages in file</p><div class="shelf-actions"><button data-book="${id}" data-page="1">Open ${v.coverKind === "Source photograph" ? "source" : "book"}<span aria-hidden="true"> ↗</span></button>${$("sourceBook").value !== id ? `<button class="reading-explore" data-explore="${id}">Explore this source<span aria-hidden="true"> →</span></button>` : ""}</div></div></div><div class="reading-book-pages"><div class="reading-pages-heading"><h4>Inside this ${v.coverKind === "Source photograph" ? "source" : "book"}</h4><span>${visible.length} of ${pages.length} matching pages</span></div><div class="reading-page-grid">${visible.map(p => `<button class="source-hit reading-page-card" data-book="${id}" data-page="${p.page}">${pagePhoto(p,b)}<span class="reading-page-copy"><small>${esc(pageVisual(p).kind === "Recipe heading" ? "Recipe & context" : pageVisual(p).kind === "Section heading" ? "Related reading" : "From this page")}</small><strong>${esc(pageTitle(p))}</strong><span class="source-snippet">${pageDescription(p,q)}</span><span class="reading-page-location">Page ${p.page} in file</span><span class="reading-page-action">Read this page <span aria-hidden="true">↗</span></span></span></button>`).join("")}</div>${pageLimit < pages.length ? `<button class="reading-more-pages" data-more-pages="${id}">Show more pages from this source <span aria-hidden="true">↓</span></button>` : ""}</div></article>`;
+      return `<article class="reading-book-group" style="--book-accent:${esc(v.accent)}" aria-labelledby="book-heading-${id}"><div class="reading-book-root">${cover(b)}<div class="reading-book-info"><h3 id="book-heading-${id}">${esc(v.title)}</h3>${v.author ? `<p class="reading-author">${esc(v.author)}</p>` : ""}<p class="reading-book-count">${b.pages} pages</p><div class="shelf-actions"><button data-book="${id}" data-page="1">Open ${v.coverKind === "Source photograph" ? "source" : "book"}<span aria-hidden="true"> ↗</span></button>${$("sourceBook").value !== id ? `<button class="reading-explore" data-explore="${id}">Explore this source<span aria-hidden="true"> →</span></button>` : ""}</div></div></div><div class="reading-book-pages"><div class="reading-pages-heading"><h4>${$("sourceScope").value === "recipes" ? "Recipes & related reading" : "Source pages"}</h4><span>${visible.length} of ${pages.length} matching pages</span></div><div class="reading-page-grid">${visible.map(p => `<button class="source-hit reading-page-card" data-book="${id}" data-page="${p.page}">${pagePhoto(p,b)}<span class="reading-page-copy"><strong>${esc(pageTitle(p))}</strong>${pageDescription(p,q) ? `<span class="source-snippet">${pageDescription(p,q)}</span>` : ""}<span class="reading-page-action">Open page ${p.page}<span aria-hidden="true">↗</span></span></span></button>`).join("")}</div>${pageLimit < pages.length ? `<button class="reading-more-pages" data-more-pages="${id}">Show more pages from this source <span aria-hidden="true">↓</span></button>` : ""}</div></article>`;
     }).join("");
     if (!found.length)
       $("sourceResults").innerHTML =
         "<p>No matching pages. Try a different word, another source, or “All text pages”.</p>";
     $("sourceCount").textContent =
-      `${found.length.toLocaleString()} matching pages in ${groups.size} sources · showing ${shown} pages from ${slice.length} sources`;
+      `${found.length.toLocaleString()} pages · ${groups.size} sources`;
     $("sourceMore").hidden = limit >= groups.size;
   }
   const corpora = new Map(),

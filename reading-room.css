@@ -95,3 +95,8 @@ body[data-page="reading"] .source-stats b { font-size: 1rem; }
 .reading-recipe-colour, .reading-recipe-firing { display: block; }
 .reading-recipe-colour { font-size: .9rem; font-weight: 500; margin-bottom: .4rem; }
 .reading-recipe-firing { font-size: .8rem; }
+
+/* One identity, one useful description, one page action per card. */
+body[data-page="reading"] #sourceStats { display: none; }
+.reading-page-copy > strong { margin-top: 0; }
+.reading-page-action { margin-top: auto; padding-top: .75rem; }
