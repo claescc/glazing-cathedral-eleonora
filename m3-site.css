@@ -1457,3 +1457,7 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
 @media (max-width: 650px) {
   :is(.judith-records article, #timeline .event, .masters-feature) { padding: 3.75rem 1rem 1rem; border-radius: 50% 50% 12px 12px / 55px 55px 12px 12px; }
 }
+.judith-records article:has(.judith-art) { padding-top: 1rem; border-radius: 100px 100px 16px 16px; }
+.judith-records .judith-art img { display: block; height: 250px; border-radius: 90px 90px 8px 8px; object-fit: contain; }
+.judith-records .judith-art figcaption { font-size: .875rem; margin-bottom: .75rem; }
+.judith-records .judith-art figcaption a { display: inline; min-height: 0; }
