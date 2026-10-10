@@ -1410,3 +1410,23 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
 .amphora-provenance { font-size: .875rem; }
 @media (max-width: 950px) { .judith-amphora-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 650px) { .judith-amphora-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Approved Cathedral amphora card treatment. */
+
+.judith-amphorae { background:#e8dcc7; padding:1.5rem; border-radius:16px; color:#29251f; }
+.judith-amphorae > .eyebrow { color:#55366e; }
+.amphora-card { --card-tone:#185b50; background:var(--card-tone); color:#fff7e7; border:2px solid #b18c4e; border-radius:145px 145px 16px 16px; padding:12px; overflow:hidden; }
+.amphora-card:nth-child(2) { --card-tone:#15566b; }
+.amphora-card:nth-child(3) { --card-tone:#813c30; }
+.amphora-card:nth-child(4) { --card-tone:#70501f; }
+.amphora-card:nth-child(5) { --card-tone:#62407a; }
+.amphora-photo { border-radius:135px 135px 8px 8px; overflow:hidden; background:#eee4d2; }
+.amphora-card .amphora-photo img { border-radius:0; }
+.amphora-card figcaption { padding:12px 8px 4px; font-size:1rem; line-height:1.6; }
+.amphora-card h3 { color:#fff7e7; font-family:Georgia,serif; font-size:1.5rem; margin:.4rem 0; }
+.amphora-card small { color:#f7db9c; font-weight:700; }
+.amphora-card a { color:#fff7e7; }
+.amphora-status { color:#f7db9c; font-weight:400; font-size:.875rem; padding-top:.5rem; }
+
+:root[data-theme="contrast"] .amphora-card { background:#000; color:#fff; border-color:#fff; }
+:root[data-theme="contrast"] .amphora-card :is(h3,small,a,.amphora-status) { color:#fff; }
