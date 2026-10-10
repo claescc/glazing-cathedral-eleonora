@@ -1243,3 +1243,79 @@ body > footer { padding-block: 1.25rem; border-top-width: 2px; }
 @media (max-width: 839px) {
   .back-to-top { bottom: calc(92px + env(safe-area-inset-bottom)); }
 }
+/* Shared room hierarchy: neutral reading canvas, tonal groups, strong actions. */
+body[data-page] main > section > .head {
+  padding: .65rem .8rem;
+  border-inline-start: 4px solid var(--story-ink);
+  border-radius: 6px;
+  background: var(--story-container);
+}
+body[data-page] main > section > .head :is(h1,h2,h3) { color: var(--story-ink); }
+.atlas-navigation a, body[data-page="atlas"] .atlas-navigation a {
+  padding: .45rem .65rem;
+  border-radius: 6px;
+  background: var(--story-container);
+  color: var(--story-ink);
+}
+.atlas-navigation a[aria-current="page"] {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-bottom-color: currentColor;
+}
+.atlas-navigation a[aria-current="page"] small { color: inherit; }
+.section-jumps a, .library-shortcuts a {
+  padding: .35rem .6rem;
+  border-radius: 5px;
+  background: var(--story-container);
+  color: var(--story-ink);
+  text-underline-offset: .2em;
+}
+.type-map-head, .source-controls, .reading-tools {
+  padding: .75rem;
+  border-radius: 6px;
+  background: var(--story-container);
+}
+.type-map-head h3, #reading h3, #source-library h3 { color: var(--story-ink); }
+.type-card {
+  --family-accent: #355a70;
+  --family-light: #a6d4ef;
+  --family-ink: var(--family-accent);
+  --family-fill: color-mix(in srgb, var(--family-accent) 13%, var(--surface));
+  background: var(--family-fill);
+  border-color: color-mix(in srgb, var(--family-accent) 45%, var(--surface));
+  border-inline-start: 4px solid var(--family-ink);
+}
+.type-card h4 { color: var(--family-ink); }
+.type-card nav a {
+  padding: .2rem .45rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--family-accent) 22%, var(--surface));
+  color: var(--family-ink);
+  text-underline-offset: .2em;
+}
+.type-card[data-family="Red · pink"] { --family-accent: #8c284b; --family-light: #ffb2cc; }
+.type-card[data-family="Green"], .type-card[data-family="Ash · Nuka"] { --family-accent: #29603d; --family-light: #a1ddb1; }
+.type-card[data-family="Turquoise"] { --family-accent: #096773; --family-light: #8cdae4; }
+.type-card[data-family="Blue"] { --family-accent: #285899; --family-light: #afcdff; }
+.type-card[data-family="Purple"], .type-card[data-family="Specialty surfaces"] { --family-accent: #704592; --family-light: #ddb7fa; }
+.type-card[data-family="Iron worlds"], .type-card[data-family="Shino lineages"] { --family-accent: #804523; --family-light: #f5bf98; }
+.type-card[data-family="Yellow"], .type-card[data-family="Crystalline"] { --family-accent: #715411; --family-light: #efd28c; }
+.type-card[data-family="Black"], .type-card[data-family="Matte"], .type-card[data-family="Atmosphere · firing"] { --family-accent: #55515f; --family-light: #cec5df; }
+.type-card[data-family="Clear"], .type-card[data-family="White · off-white"] { --family-accent: #685c42; --family-light: #e5d5b3; }
+:root[data-theme="dark"] .type-card {
+  --family-ink: var(--family-light);
+  --family-fill: color-mix(in srgb, var(--family-accent) 28%, var(--surface));
+}
+:root[data-theme="dark"] .type-card nav a { background: color-mix(in srgb, var(--family-accent) 38%, var(--surface)); }
+.shelf-actions button:first-child {
+  padding: .35rem .6rem;
+  border: 1px solid var(--story-ink);
+  border-radius: 5px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.shelf-actions button:last-child { color: var(--story-ink); border-bottom-color: var(--story-ink); }
+.source-hit { border-inline-start: 3px solid var(--story-ink); }
+.source-hit .page-badge, .source-stats { background: var(--story-container); color: var(--story-ink); }
+:root[data-theme="contrast"] .type-card { --family-ink: #000; --family-fill: #fff; border-color: #000; }
+:root[data-theme="contrast"] .type-card nav a { color: #000; background: #fff; border: 1px solid #000; }

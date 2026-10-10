@@ -995,7 +995,7 @@ const typeGroups = window.GLAZY_TYPE_GROUPS || [];
 $("#typeGrid").innerHTML = typeGroups
   .map(
     (g) =>
-      `<article class="type-card"><img src="${imageSrc(g.image)}" alt="One fired gallery-cover reference for ${g.name}"><div><small>GALLERY GUIDE · GLAZY PDF PP. ${g.pages}</small><h4>${g.name}</h4><p>${g.description}</p><span class="type-visual-note">Cover image only—each named subtype may look different.</span><nav aria-label="Search Atlas by ${g.name}">${g.types.map((t) => `<a href="atlas.html?q=${encodeURIComponent(t)}#atlas">${t}<span aria-hidden="true"> ↗</span></a>`).join("")}</nav></div></article>`,
+      `<article class="type-card" data-family="${escapeHtml(g.name)}"><img src="${imageSrc(g.image)}" alt="One fired gallery-cover reference for ${g.name}"><div><small>GALLERY GUIDE · GLAZY PDF PP. ${g.pages}</small><h4>${g.name}</h4><p>${g.description}</p><span class="type-visual-note">Cover image only—each named subtype may look different.</span><nav aria-label="Search Atlas by ${g.name}">${g.types.map((t) => `<a href="atlas.html?q=${encodeURIComponent(t)}#atlas">${t}<span aria-hidden="true"> ↗</span></a>`).join("")}</nav></div></article>`,
   )
   .join("");
 $("#familyWall").innerHTML = families.map(x => tile(x)).join("");
