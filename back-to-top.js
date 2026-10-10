@@ -9,7 +9,7 @@
   const update = () => { button.hidden = window.scrollY < 400; };
   window.addEventListener('scroll', update, { passive: true });
   button.addEventListener('click', () => {
-    const target = document.querySelector('main h1, main h2, main');
+    const target = Array.from(document.querySelectorAll('main h1, main h2, main')).find(element => element.getClientRects().length);
     if (target) {
       const previous = target.getAttribute('tabindex');
       target.setAttribute('tabindex', '-1');
