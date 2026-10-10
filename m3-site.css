@@ -1430,3 +1430,30 @@ body:not([data-page="home"]) main > section > .head > div:has(> h2) { display: n
 
 :root[data-theme="contrast"] .amphora-card { background:#000; color:#fff; border-color:#fff; }
 :root[data-theme="contrast"] .amphora-card :is(h3,small,a,.amphora-status) { color:#fff; }
+
+/* Shared Cathedral gallery treatment: Masters and documented artist records. */
+:is(.judith-records article, #timeline .event, .masters-feature) {
+  --gallery-tone: #62407a;
+  background: var(--gallery-tone);
+  color: #fff7e7;
+  border: 2px solid #b18c4e;
+  border-radius: 50% 50% 16px 16px / 70px 70px 16px 16px;
+  padding: 4.5rem 1.25rem 1.25rem;
+}
+:is(.judith-records article, #timeline .event):nth-child(5n + 2) { --gallery-tone: #15566b; }
+:is(.judith-records article, #timeline .event):nth-child(5n + 3) { --gallery-tone: #185b50; }
+:is(.judith-records article, #timeline .event):nth-child(5n + 4) { --gallery-tone: #813c30; }
+:is(.judith-records article, #timeline .event):nth-child(5n) { --gallery-tone: #70501f; }
+:is(.judith-records article, #timeline .event, .masters-feature) :is(h3,p,a,strong,span,b,figcaption) { color: #fff7e7; }
+:is(.judith-records article, #timeline .event) :is(small,time) { color: #f7db9c; background: transparent; }
+:is(.judith-records article, #timeline .event) h3 { font: 600 1.5rem/1.3 Georgia, serif; }
+:is(.judith-records article, #timeline .event) p { font-size: 1rem; line-height: 1.6; }
+:is(.judith-records article, #timeline .event) a { min-height: 44px; display: flex; align-items: center; }
+#timeline .event figure img { border-radius: 90px 90px 8px 8px; }
+.masters-feature > img { border-radius: 64px 64px 8px 8px; }
+:is(.judith-records article, #timeline .event, .masters-feature) a:focus-visible { outline: 3px solid #f7db9c; outline-offset: 3px; }
+:root[data-theme="contrast"] :is(.judith-records article, #timeline .event, .masters-feature) { background: #000; color: #fff; border-color: #fff; }
+:root[data-theme="contrast"] :is(.judith-records article, #timeline .event, .masters-feature) :is(h3,p,a,strong,span,b,figcaption,small,time) { color: #fff; }
+@media (max-width: 650px) {
+  :is(.judith-records article, #timeline .event, .masters-feature) { padding: 3.75rem 1rem 1rem; border-radius: 50% 50% 12px 12px / 55px 55px 12px 12px; }
+}
