@@ -1602,3 +1602,5 @@ body[data-page="tribute"] .tribute-head { display: none; }
 @media (max-width: 599px) { body[data-page="tribute"] .judith-hero { margin-inline: 0; } }
 
 .judith-hero .frontispiece-caption p { margin-inline: auto; }
+
+body[data-page="tribute"] .judith-hero .frontispiece-caption p { margin-inline: auto; }
