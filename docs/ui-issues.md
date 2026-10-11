@@ -12,7 +12,7 @@ This is the central list. Keep stable IDs and preserve resolved findings.
 | UI-001 | 2026-10-06; prior report 2026-10-05 | atlas.html | Prior review reported display-button text overflow at 320 CSS-px and 200% text size. Current desktop buttons do not overflow: Photographs 125/125, Cone previews 135/135, Index 82/82 client/scroll px. | To confirm on mobile | The previous result concerned an older commit. Mobile and text enlargement were not executed in this run. Do not classify the prior result as a current reproduced defect. |
 | UI-002 | 2026-10-06; prior report 2026-10-05 | atlas.html | Prior review reported visible group labels differing from ARIA names. Current production has hues role=group aria-labelledby=colourLabel, and viewTabs role=group aria-labelledby=displayLabel; neither has aria-label. Browser accessibility snapshot names the groups COLOUR FAMILY and DISPLAY. | Resolved in inspected current state | Observed on production 2026-10-06. This run did not implement the correction or identify its introducing commit. Former Collection grouping has changed to a labelled Show select. |
 | UI-003 | 2026-10-06 | atlas.html | Firing range offers both 5-6 and 5–6 as separate options. With other filters at defaults, selecting 5-6 shows 6 of 6 surfaces; selecting 5–6 shows 2 of 2 different surfaces. Equivalent visible range notation splits the result sets. | Open, larger issue for later | Reproduced on production 2026-10-07 and again 2026-10-10 in the native coneFilter: 5-6 returned 6 surfaces and 5–6 returned 2 different surfaces. Normalise comparison keys and options while retaining original source notation/provenance. Preserve leading-zero cone values: 05 and 5 are distinct; do not merge these. Review other repeated dash/prefix variants before implementation. No code change made. |
-| OBS-001 | 2026-10-06 | tribute.html | Two visible h1 elements both read Judith Laqueur-Révész: introduction banner and main artist panel. | Observation, impact to confirm | DOM and accessibility snapshot agree. No WCAG violation or user impact established; do not treat as a proven accessibility failure. Consider heading hierarchy during a later design review. |
+| OBS-001 | 2026-10-06 | tribute.html | The earlier state had two visible h1 elements reading Judith Laqueur-Révész. Current production exposes one visible h1; the artist details no longer add a duplicate main heading. | Resolved in inspected current state | Confirmed on production 2026-10-11 after deployed repository HEAD 47d18acb210dec65b13b5d1d49c4f635e4d803f7. The exact introducing commit was not isolated. |
 
 ## Check record: 2026-10-06
 
@@ -181,4 +181,38 @@ Measured document scrollWidth: 1348 CSS-px on the homepage, Atlas and Judith tri
 - Browser error/warning sample contained no website-origin entries.
 - UI-003 remains a larger issue for later: normalisation must preserve semantically distinct cone values such as 05 and 5 and requires review of other notation variants.
 - OBS-001 remains an observation with impact to confirm; duplicate visible h1 text alone was not classified as a proven accessibility defect.
+- Keep monitoring enabled: this check does not complete the ongoing monitoring request.
+
+
+## Check record: 2026-10-11
+
+Performed approximately 06:08–06:14 Europe/Brussels.
+Repository/deployment commit inspected: 47d18acb210dec65b13b5d1d49c4f635e4d803f7, dated 2026-10-10T18:44:16Z, “Share Cathedral arch card system across Home Recipes and Learn”.
+Related production changes inspected include the Judith portrait, direct artwork-card placement and documentary thumbnail commits immediately preceding that HEAD.
+GitHub Pages workflow run 38076986659 for repository HEAD completed successfully at 2026-10-10T18:45:22Z.
+Production visibly contained the new arch cards and Judith assets, but the public pages expose no commit SHA; exact live-SHA identity was not independently proven.
+No application code corrected or released in this run.
+
+### Actual coverage
+
+Desktop browser viewport: 1363 × 936 CSS-px.
+Measured document scrollWidth: 1348 CSS-px on Home, Recipes, Learn and Judith tribute. No horizontal document overflow at this viewport.
+
+| Page / state | Check / method | Result | Evidence | Not tested / limitation |
+| --- | --- | --- | --- | --- |
+| / | Changed initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Hero and shared Cathedral arch room cards render; no horizontal overflow or failed visible content image found | Screenshot; four first arch cards visible; scrollWidth 1348 at 1363 × 936 | Below-fold curated-route cards and links not exercised |
+| recipes.html | Changed initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Header, task links, safety notice, search and shared arch recipe cards render; no horizontal overflow or failed visible content image found | Screenshot; scrollWidth 1348 | Calculator, saving and source-page viewer not tested |
+| recipes.html | Search June Perry Pink, open the sole formula, press Escape | Search returned 1 of 1; formula dialog opened with the expected recipe record and Escape closed it | Live counter, card content and dialog DOM; open-dialog count returned to zero | Full focus trap and other recipe records not tested |
+| learn.html | Changed initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Eight shared arch chapter cards and eight lesson images render; no horizontal overflow or failed visible content image found | Screenshot; 8 chapter links and 8 lesson images; scrollWidth 1348 | Full lesson content and scientific accuracy not reviewed |
+| learn.html | Activate Chapter 04 and wait for smooth scroll | URL updated to #lesson-4; the target “A test tile is a small experiment” became visible after scrolling | Hash, target heading and target bounding rectangle | Other chapter anchors and keyboard sequence not tested |
+| tribute.html | Changed introduction; screenshot, accessibility snapshot, DOM width, visible heading and image checks | New portrait loads at 998 × 1575 intrinsic px; only one visible h1 remains; no horizontal overflow or failed visible content image found | Screenshot, DOM and accessibility snapshot; OBS-001 resolved in inspected production state | Portrait provenance/content approval not reassessed |
+| tribute.html | Amphora card area and documentary thumbnail; screenshots and loaded-image dimensions | Amphora arch cards render; documentary button shows the elephant artwork; thumbnail loaded at 1280 × 926 intrinsic px | Mid-page and documentary screenshots; DOM image state | YouTube was not loaded; external playback and every artwork link not tested |
+
+### Limitations and continuation
+
+- No supported viewport-resizing/emulation method was exposed by this browser interface. Mobile layouts, the new 650 px portrait breakpoint and 200% text enlargement were not reproduced. Record this as a test limitation, not a site defect.
+- No Safari, VoiceOver, NVDA, contrast audit, full accessibility conformance evaluation or scientific/content verification.
+- No exhaustive link, image or route audit. Coverage was limited to the changed pages and described interactions.
+- Browser error/warning sample contained no website-origin entries.
+- UI-003 remains the larger open issue for later; it was not re-exercised because this run prioritised the newly changed pages and it was reproduced yesterday.
 - Keep monitoring enabled: this check does not complete the ongoing monitoring request.
