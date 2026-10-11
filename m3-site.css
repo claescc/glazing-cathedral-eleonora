@@ -1589,3 +1589,16 @@ body > footer.site-footer { display: block; padding: 0; border: 0; background: #
   object-fit: contain; padding: 2rem 1rem .5rem; background-color: var(--surface-soft);
 }
 #roomGrid .room-card .room-picture:has(img) { padding: 0; }
+
+/* Judith's approved centered stained-glass hero. Text remains accessible HTML. */
+body[data-page="tribute"] .judith-hero { margin-top: 0; text-align: center; overflow: hidden; }
+.judith-hero-art { aspect-ratio: 1536 / 800; overflow: hidden; }
+.judith-hero-art img { display: block; width: 100%; height: auto; }
+.judith-hero .frontispiece-caption { padding: clamp(1rem, 3vw, 2rem); text-align: center; }
+.judith-hero .frontispiece-caption h1 { font-size: clamp(1.6rem, 3.5vw, 3rem); }
+.judith-hero .frontispiece-caption .eyebrow { color: var(--md-sys-color-primary); margin: 0 0 .65rem; }
+.judith-hero .frontispiece-caption small { display: block; margin-top: .8rem; font-size: .75rem; color: var(--text-secondary); }
+body[data-page="tribute"] .tribute-head { display: none; }
+@media (max-width: 599px) { body[data-page="tribute"] .judith-hero { margin-inline: 0; } }
+
+.judith-hero .frontispiece-caption p { margin-inline: auto; }

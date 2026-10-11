@@ -31,6 +31,8 @@ const openings = {
   reading: ['ceramic-library', 'The Reading Room', 'Books, source pages and paths into ceramic knowledge.'],
 };
 function opening(page, title) {
+  if (page === 'tribute') return `<section class="room-frontispiece judith-hero" aria-label="Judith Laqueur-Révész introduction"><div class="judith-hero-art"><img src="assets/judith/judith-stained-glass-hero.png" width="1536" height="1024" fetchpriority="high" alt="Generated stained-glass tribute to older Judith, centered in an amber arch surrounded by flowing coloured glass, flowers and ceramic vessels."></div><div class="frontispiece-caption"><p class="eyebrow">Hall of Masters · Ceramic artist</p><h1>Judith Laqueur-Révész</h1><p>An artist’s hall of vessels, sculpture and surviving records.</p><p class="judith-hero-dates">15 July 1915 – 17 April 2018 · She lived to 102</p><small>AI-generated stained-glass tribute based on a family portrait</small></div></section>`;
+
   const [, heading, description] = openings[page];
   return `<section class="room-frontispiece" aria-label="${title} introduction"><div class="room-art" aria-hidden="true"><img src="assets/artwork/ceramic-window-stories.jpg" alt="" fetchpriority="high" width="2172" height="724"></div><div class="frontispiece-caption"><h1>${title}</h1><p>${description || heading}</p></div></section>`;
 }
@@ -40,7 +42,7 @@ source = source.replace(/<body(?: data-page="[^"]+")?>/, '<body data-page="home"
 source = source.replace(/href="#([a-z-]+)"/g, (whole, id) => routes[id] ? `href="${routes[id]}"` : whole);
 source = source.replace(/href="index\.html"(\s+data-nav-section="top")/g, 'href="index.html"$1');
 source = source.replace(/<title>[^<]*<\/title>/, '<title>Home · Ceramics Cathedral of Eleonora</title>');
-source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261010-shared-cathedral-cards');
+source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261011-judith-centered-hero');
 source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261010-colour-hierarchy"');
 source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-mobile-density"');
 source = source.replace(/(<div class="desktop-pages"[^>]*>)([\s\S]*?)(<\/div>)/, (all, open, links, close) => open + links.replace(/ aria-current="page"/g, '').replace('href="index.html"', 'href="index.html" aria-current="page"') + close);
