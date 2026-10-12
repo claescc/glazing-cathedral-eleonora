@@ -12,7 +12,7 @@ function auditCathedralMedia() {
       if (img.complete && !img.naturalWidth) errors.push(`Image failed: ${el.getAttribute('src')}`);
     } else if (el.shadowRoot.querySelector('.placeholder').hidden) errors.push('Missing fallback');
   }
-  const selector = '.chapter-book > img,.recipe-volume > img,.visual-card > img,.defect-card > img,.material-card > img,#lessons .lesson figure > img,#timeline .event figure > img,.amphora-photo > img,.exhibition > img,.masters-feature > img,.judith-art > img';
+  const selector = '.chapter-book > img,.recipe-volume > img,.visual-card > img,.defect-card > img,.material-card > img,#lessons .lesson figure > img,#timeline .event figure > img,.amphora-photo > img,.exhibition > img,.masters-feature > img,.judith-art > img,.saved button > img,.related-books button > img';
   const bypasses = [...document.querySelectorAll(selector)].filter(el => el.getBoundingClientRect().width > 0 && el.getBoundingClientRect().height > 0);
   if (!['atlas','glaze-families','reading'].includes(document.body.dataset.page) && bypasses.length) errors.push(`${bypasses.length} visible card images bypass the atom`);
   if (document.documentElement.scrollWidth > innerWidth) errors.push('Horizontal overflow');

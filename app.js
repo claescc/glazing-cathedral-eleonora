@@ -1655,7 +1655,7 @@ function openBook(x) {
   }
   const rel = relatedFor(x);
   $("#relatedBlock").innerHTML =
-    `<section class="book-section"><small>${x._relatedSectionNo || "05"} · CONTINUE THROUGH THE COLLECTION</small><h3>Related surfaces</h3><div class="related-books">${rel.map((r) => `<button data-related="${r.id}"><img src="${imageSrc(r.image)}" alt="Fired surface: ${r.name}"><b>${r.name}</b></button>`).join("")}</div></section>`;
+    `<section class="book-section"><small>${x._relatedSectionNo || "05"} · CONTINUE THROUGH THE COLLECTION</small><h3>Related surfaces</h3><div class="related-books">${rel.map((r) => `<button data-related="${r.id}">${cathedralMedia({src:imageSrc(r.image), alt:`Fired surface: ${r.name}`, size:"compact"})}<b>${r.name}</b></button>`).join("")}</div></section>`;
   let batch = $("#batch");
   if (batch && x.kind === "recipe") {
     RecipeWorkbench.bind(x, $("#modal"));
@@ -1786,7 +1786,7 @@ function renderSaved() {
         .filter((x) => saved.includes(x.id))
         .map(
           (x) =>
-            `<button data-id="${x.id}">${x.image ? `<img src="${imageSrc(x.image)}" alt="Fired surface: ${x.name}">` : `<span class="no-photo">Source formula</span>`}<strong>${x.name}</strong></button>`,
+            `<button data-id="${x.id}">${x.image ? `${cathedralMedia({src:imageSrc(x.image), alt:`Fired surface: ${x.name}`, size:"compact"})}` : `<span class="no-photo">Source formula</span>`}<strong>${x.name}</strong></button>`,
         )
         .join("")
     : `<a href="atlas.html">Return to the Atlas and choose what calls to you →</a>`;

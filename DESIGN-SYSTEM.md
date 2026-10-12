@@ -60,7 +60,7 @@ Home room cards, recipe records, learning chapters, amphorae and Masters records
 
 ## Shared Cathedral media atom · 12 October 2026
 
-`cathedral-media.js` defines `<cathedral-media>` and the `cathedralMedia()` renderer. All chapter, lesson, recipe, room-discovery, kiln, material, restoration, timeline, exhibition and artwork-card photographs consume this atom. `cathedral-media.css` composes the atom with existing card content; it does not own image fit. `arched-rooms.css` now owns only the approved room content width.
+`cathedral-media.js` defines `<cathedral-media>` and the `cathedralMedia()` renderer. All chapter, lesson, recipe, room-discovery, kiln, material, restoration, timeline, exhibition, saved, related-surface and artwork-card photographs consume this atom. `cathedral-media.css` composes the atom with existing card content; it does not own image fit. `arched-rooms.css` now owns only the approved room content width.
 
 The atom uses an open shadow root: the photograph has `width:100%` and `height:auto`, preserving its complete source proportions without padding or an image mask. The frame owns the arch and its shared rise token. Legacy size attributes are accepted but do not constrain photographs to thumbnail heights. Rectangle is a contextual variant without the arch rise. Consumers supply source and alt text; page CSS must not override internal sizing.
 

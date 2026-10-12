@@ -9,3 +9,5 @@
 :is(.visual-card,.defect-card,.material-card):has(cathedral-media) h3 { font-family:Georgia,serif; font-size:1.35rem; }
 :is(.judith-art,.amphora-photo) > cathedral-media { width:100%; }
 .masters-feature > cathedral-media { width:100%; height:auto; }
+
+:is(.saved button,.related-books button) > cathedral-media { width:100%; }
