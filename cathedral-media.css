@@ -1,0 +1,11 @@
+/* Card molecules compose the shared cathedral-media atom. No image-fit overrides belong here. */
+:root { --cathedral-media-rise:64px; --cathedral-card-space:1rem; }
+:is(.chapter-book,.recipe-volume,.room-card) > cathedral-media { order:0; }
+#recipeRail .recipe-volume:has(cathedral-media) { padding-top:1rem; }
+#roomGrid .room-picture:has(cathedral-media) { padding:0; }
+#roomGrid .room-card .room-picture:has(cathedral-media) { height:auto; width:100%; padding:0; border-radius:0; overflow:visible; background:transparent; }
+:is(.visual-card,.defect-card,.material-card):has(cathedral-media) { border-radius:120px 120px 12px 12px; padding:12px 12px 1rem; border:2px solid var(--story-accent); background:var(--story-container); overflow:hidden; }
+:is(.visual-card,.defect-card,.material-card):has(cathedral-media) > :not(cathedral-media) { margin:.5rem .75rem 0; }
+:is(.visual-card,.defect-card,.material-card):has(cathedral-media) h3 { font-family:Georgia,serif; font-size:1.35rem; }
+:is(.judith-art,.amphora-photo) > cathedral-media { width:100%; }
+.masters-feature > cathedral-media { width:100%; height:auto; }

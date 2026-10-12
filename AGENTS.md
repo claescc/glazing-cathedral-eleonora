@@ -47,3 +47,10 @@ User-confirmed 6 October 2026.
 - Do not solve a page-level density problem by inventing a new page-specific navigation or control grammar. Reuse or deliberately update the shared structural primitive.
 - Structural changes require a compact check and an expanded check plus at least one sibling route using the affected primitive.
 - A build may not be reported complete when it contradicts `PRODUCT-ARCHITECTURE.md`, even if syntax and link checks pass.
+
+## Shared component ownership · 12 October 2026
+
+- One reusable component owns each UI use case across the website. Consume it on every route; do not duplicate its markup, sizing or behaviour in page-specific implementations.
+- Variants must describe a use case, not a page. Put visual values in shared design tokens; no new hardcoded page-specific styles or image-fit overrides.
+- Artwork media uses the shared `cathedral-media` component: image width 100%, height auto, original proportions, no thumbnail height limit or cropping. The arch is a frame treatment, not an image mask.
+- Verify the shared component on compact and expanded widths and sibling routes, then commit, publish and verify canonical production.

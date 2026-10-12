@@ -43,7 +43,7 @@ source = source.replace(/href="#([a-z-]+)"/g, (whole, id) => routes[id] ? `href=
 source = source.replace(/href="index\.html"(\s+data-nav-section="top")/g, 'href="index.html"$1');
 source = source.replace(/<title>[^<]*<\/title>/, '<title>Home · Ceramics Cathedral of Eleonora</title>');
 source = source.replace(/m3-site\.css\?v=[^"]+/g, 'm3-site.css?v=20261011-judith-centered-hero-v2');
-source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261010-colour-hierarchy"');
+source = source.replace(/<script src="app\.js\?v=[^"]+"/, '<script src="app.js?v=20261012-media-component"');
 source = source.replace(/<link rel="stylesheet" href="styles\.css\?v=[^"]+"/, '<link rel="stylesheet" href="styles.css?v=20260927-mobile-density"');
 source = source.replace(/(<div class="desktop-pages"[^>]*>)([\s\S]*?)(<\/div>)/, (all, open, links, close) => open + links.replace(/ aria-current="page"/g, '').replace('href="index.html"', 'href="index.html" aria-current="page"') + close);
 writeFileSync(new URL('./index.html', import.meta.url), source);
@@ -55,7 +55,7 @@ for (const [page, title] of Object.entries(titles)) {
     .replace('href="index.html" aria-current="page"', 'href="index.html"')
     .replace(`href="${page}.html"`, `href="${page}.html" aria-current="page"`)
     .replace(/<meta\s+name="description"\s+content="[^"]+"\s*\/>/, `<meta name="description" content="Explore ${title.toLowerCase()} at the Ceramics Cathedral of Eleonora." />`);
-  const archedHtml = ['restoration', 'kiln', 'materials', 'learn', 'masters', 'notebook', 'recipes'].includes(page) ? html.replace('</head>', '<link rel="stylesheet" href="arched-rooms.css?v=20261010-width" />\n  </head>') : html;
+  const archedHtml = ['restoration', 'kiln', 'materials', 'learn', 'masters', 'notebook', 'recipes'].includes(page) ? html.replace('</head>', '<link rel="stylesheet" href="arched-rooms.css?v=20261012-layout" />\n  </head>') : html;
   const pageSection = page === 'glaze-families' ? 'glaze-families' : page;
   let headed = archedHtml;
   if (['atlas', 'glaze-families', 'recipes'].includes(page)) {

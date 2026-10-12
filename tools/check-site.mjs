@@ -7,6 +7,7 @@ const files = execFileSync("git", ["ls-files"], { cwd: root, encoding: "utf8" })
   .trim()
   .split("\n");
 const failures = [];
+try { execFileSync(process.execPath, [resolve(root, "tools/check-media.mjs")], {stdio:"inherit"}); } catch { failures.push("Media component contract check failed"); }
 let jsonCount = 0;
 for (const file of files) {
   if (file.endsWith(".json")) {

@@ -23,6 +23,8 @@ for (const file of [
   "typography.html",
   "typography.css",
   "design-system.js",
+  "cathedral-media.js",
+  "cathedral-media.css",
   "theme.js",
   "back-to-top.js",
   "CNAME",

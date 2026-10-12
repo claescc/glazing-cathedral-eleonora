@@ -812,7 +812,7 @@ $("#roomGrid").innerHTML = rooms
     (r, i) => {
       const story = roomStories[i];
       const picture = story.image
-        ? `<span class="room-picture"><img src="${story.image}" alt="" loading="lazy" width="400" height="400"></span>`
+        ? `<span class="room-picture">${cathedralMedia({src:story.image, size:"compact"})}</span>`
         : `<span class="room-picture room-illustration" style="--window-position:${story.position}" aria-hidden="true"></span>`;
       return `<a class="room-card" data-room-tone="${story.theme}" href="${r[0]}.html">${picture}<span class="room-copy"><span class="room-kicker">${String(i + 1).padStart(2, "0")} · ${story.word}</span><h3>${r[1]}</h3><p>${["Browse real fired surfaces by colour and behaviour.", "Weighable formulas with exact sources.", "Atmosphere, heatwork and cooling.", "Clay, oxides, minerals and substitutions.", "Diagnose defects and choose the next test.", "People, kilns, places and traditions.", "Save favourites and plan tests.", "The attached books and their citations."][i]}</p><span class="room-enter">Enter the room <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></span></span></a>`;
     },
@@ -1008,7 +1008,7 @@ let recipeLimit = recipePageSize;
 function renderRecipeLibrary() {
   const query = $("#recipeSearch").value.trim().toLocaleLowerCase();
   const matches = recipes.filter(x => [x.name, x.source, x.cone, x.atmosphere].join(" ").toLocaleLowerCase().includes(query));
-  $("#recipeRail").innerHTML = matches.slice(0, recipeLimit).map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `<img loading="lazy" src="${imageSrc(x.image)}" alt="${escapeHtml(x.imageKind || "Source photograph")}: ${escapeHtml(x.name)}">${x.imageKind ? `<span class="recipe-photo-label">${escapeHtml(x.imageKind)}</span>` : ""}` : ''}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
+  $("#recipeRail").innerHTML = matches.slice(0, recipeLimit).map((x, i) => `<button class="recipe-volume" data-id="${x.id}"><span class="volume-number">FORMULA · ${String(recipes.indexOf(x) + 1).padStart(3, "0")}</span>${x.image ? `${cathedralMedia({src:imageSrc(x.image), alt:`${x.imageKind || "Source photograph"}: ${x.name}`, size:"compact"})}${x.imageKind ? `<span class="recipe-photo-label">${escapeHtml(x.imageKind)}</span>` : ""}` : ''}<span class="volume-copy"><small>CONE ${escapeHtml(x.cone)} · ${escapeHtml(x.atmosphere)}</small><strong>${escapeHtml(x.name)}</strong><span class="volume-source">${escapeHtml(x.source || "Source details inside")}</span><span class="volume-open">Open formula <span aria-hidden="true">↗</span></span></span></button>`).join("");
   $("#recipeCount").textContent = matches.length ? `Showing ${Math.min(matches.length, recipeLimit)} of ${matches.length} matching recipes` : "No matching recipes. Try another name, source or cone.";
   $("#recipeMore").hidden = matches.length <= recipeLimit;
   $("#recipeMore").textContent = `Show ${Math.min(recipePageSize, matches.length - recipeLimit)} more recipes`;
@@ -1209,11 +1209,11 @@ const lessonData = [
     "assets/glazes/tile_raku.jpg",
   ],
 ];
-$("#chapterShelf").innerHTML = lessonData.map((l, i) => `<a class="chapter-book" href="#lesson-${i + 1}"><img loading="lazy" src="${l[4]}" alt=""><span><small>CHAPTER ${String(i + 1).padStart(2, "0")}</small><strong>${l[0]}</strong><b aria-hidden="true">Read chapter →</b></span></a>`).join("");
+$("#chapterShelf").innerHTML = lessonData.map((l, i) => `<a class="chapter-book" href="#lesson-${i + 1}">${cathedralMedia({src:l[4], size:"compact"})}<span><small>CHAPTER ${String(i + 1).padStart(2, "0")}</small><strong>${l[0]}</strong><b aria-hidden="true">Read chapter →</b></span></a>`).join("");
 $("#lessons").innerHTML = lessonData
   .map(
     (l, i) =>
-      `<article class="lesson" id="lesson-${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><figure><img src="${l[4]}" alt="Visual reference for ${l[0]}"></figure><div><h3>${l[0]}</h3><p>${l[1]}</p></div><ol>${l[2].map((x) => `<li>${x}</li>`).join("")}</ol><aside><b>READ FURTHER</b><p>${l[3]}</p></aside></article>`,
+      `<article class="lesson" id="lesson-${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><figure>${cathedralMedia({src:l[4], alt:`Visual reference for ${l[0]}`, size:"compact"})}</figure><div><h3>${l[0]}</h3><p>${l[1]}</p></div><ol>${l[2].map((x) => `<li>${x}</li>`).join("")}</ol><aside><b>READ FURTHER</b><p>${l[3]}</p></aside></article>`,
   )
   .join("");
 const atmos = [
@@ -1257,7 +1257,7 @@ const atmos = [
 $("#atmospheres").innerHTML = atmos
   .map(
     (x) =>
-      `<article class="visual-card"><img src="assets/glazes/${x[2]}" alt="Fired ceramic example of ${x[0]}"><small>${x[3]}</small><h3>${x[0]}</h3><p>${x[1]}</p></article>`,
+      `<article class="visual-card">${cathedralMedia({src:`assets/glazes/${x[2]}`, alt:`Fired ceramic example of ${x[0]}`})}<small>${x[3]}</small><h3>${x[0]}</h3><p>${x[1]}</p></article>`,
   )
   .join("");
 const heatStages = [
@@ -1335,7 +1335,7 @@ const materials = [
 $("#materialsGrid").innerHTML = materials
   .map(
     (x) =>
-      `<article class="material-card"><img src="assets/glazes/${x[3]}" alt="Ceramic material reference for ${x[1]}"><small>${x[0]}</small><h3>${x[1]}</h3><p>${x[2]}</p></article>`,
+      `<article class="material-card">${cathedralMedia({src:`assets/glazes/${x[3]}`, alt:`Ceramic material reference for ${x[1]}`})}<small>${x[0]}</small><h3>${x[1]}</h3><p>${x[2]}</p></article>`,
   )
   .join("");
 const defects = [
@@ -1385,7 +1385,7 @@ const defects = [
 $("#defects").innerHTML = defects
   .map(
     (x) =>
-      `<article class="defect-card">${x[3] ? `<img src="assets/glazes/${x[3]}" alt="Diagnostic ceramic example of ${x[0]}">` : `<div class="image-missing">Exact diagnostic photograph<br>still being indexed</div>`}<small>${x[4]}</small><h3>${x[0]}</h3><p>${x[1]}</p><b>Next controlled test</b><p>${x[2]}</p></article>`,
+      `<article class="defect-card">${cathedralMedia({src:x[3] ? `assets/glazes/${x[3]}` : "", alt:`Diagnostic ceramic example of ${x[0]}`, placeholder:"Exact diagnostic photograph still being indexed"})}<small>${x[4]}</small><h3>${x[0]}</h3><p>${x[1]}</p><b>Next controlled test</b><p>${x[2]}</p></article>`,
   )
   .join("");
 const diagnosticMap = Object.fromEntries(
@@ -1511,7 +1511,7 @@ const lineages = [
 $("#timeline").innerHTML = lineages
   .map(
     (x) =>
-      `<article class="event"><figure><img loading="lazy" src="assets/glazes/${x[3]}" alt="Illustrative ceramic glaze surface"><figcaption>Glaze-surface reference</figcaption></figure><time>${x[0]}</time><div><h3>${x[1]}</h3><p>${x[2]}</p></div></article>`,
+      `<article class="event"><figure>${cathedralMedia({src:`assets/glazes/${x[3]}`, alt:"Illustrative ceramic glaze surface", size:"compact"})}<figcaption>Glaze-surface reference</figcaption></figure><time>${x[0]}</time><div><h3>${x[1]}</h3><p>${x[2]}</p></div></article>`,
   )
   .join("");
 function ingredientClues(x) {

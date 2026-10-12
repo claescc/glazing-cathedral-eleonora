@@ -57,3 +57,13 @@ Cathedral artwork cards display the complete image with `object-fit: contain` an
 ## Shared Cathedral card primitive · 10 October 2026
 
 Home room cards, recipe records, learning chapters, amphorae and Masters records share the Cathedral card primitive. `--cathedral-card-arch`, `--cathedral-card-border`, `--cathedral-card-ink` and `--cathedral-card-image-height` own its geometry and presentation; `--cathedral-card-tone` provides a content or room variant. Existing component selectors adapt to this primitive; new cards can use `.cathedral-card`. Artwork uses centred `contain` with clearance for the arch. Decorative room illustrations retain their separate background treatment. Task controls and reading panels keep their existing interaction and reading structure.
+
+## Shared Cathedral media atom · 12 October 2026
+
+`cathedral-media.js` defines `<cathedral-media>` and the `cathedralMedia()` renderer. All chapter, lesson, recipe, room-discovery, kiln, material, restoration, timeline, exhibition and artwork-card photographs consume this atom. `cathedral-media.css` composes the atom with existing card content; it does not own image fit. `arched-rooms.css` now owns only the approved room content width.
+
+The atom uses an open shadow root: the photograph has `width:100%` and `height:auto`, preserving its complete source proportions without padding or an image mask. The frame owns the arch and its shared rise token. Legacy size attributes are accepted but do not constrain photographs to thumbnail heights. Rectangle is a contextual variant without the arch rise. Consumers supply source and alt text; page CSS must not override internal sizing.
+
+Card links/buttons retain their native semantics and keyboard focus. Decorative images use empty alt text; meaningful images retain supplied descriptions. Colours inherit the active theme tokens. Do not add direct card images or page-specific image-fit rules: use this atom and its documented variants. Atlas, Glaze Families and Reading retain their native image-rendering path under the user's exclusions. Banners, logos, document facsimiles, portrait and interactive comparison previews are separate media roles.
+
+`tools/check-media.mjs` runs through the normal site check and covers attribute escaping, exclusions, registration order and removal of the old sizing owner. `tools/audit-media-browser.js` checks rendered frame/image geometry, natural proportions, zero image padding, visible consumer coverage, fallbacks and overflow. Run the browser audit on desktop and compact viewports, including content appended by pagination.
