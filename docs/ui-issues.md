@@ -216,3 +216,34 @@ Measured document scrollWidth: 1348 CSS-px on Home, Recipes, Learn and Judith tr
 - Browser error/warning sample contained no website-origin entries.
 - UI-003 remains the larger open issue for later; it was not re-exercised because this run prioritised the newly changed pages and it was reproduced yesterday.
 - Keep monitoring enabled: this check does not complete the ongoing monitoring request.
+
+
+## Check record: 2026-10-12
+
+Performed approximately 06:16–06:21 Europe/Brussels.
+Repository/deployment commit inspected: 8c681c1aa6cf339dc1e4967c09284a68150d5078, dated 2026-10-11T08:09:14Z, “Center all Judith hero caption lines”.
+The preceding commit e37718e94530698fe4d29f629a4d0367e4202091 introduced the centered stained-glass Judith hero.
+GitHub Pages workflow run 38123806884 for repository HEAD completed successfully at 2026-10-11T08:10:22Z.
+Production visibly contained the new hero and centered caption, but the public pages expose no commit SHA; exact live-SHA identity was not independently proven.
+No application code corrected or released in this run.
+
+### Actual coverage
+
+Desktop browser viewport: 1363 × 936 CSS-px.
+Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters. No horizontal document overflow at this viewport.
+
+| Page / state | Check / method | Result | Evidence | Not tested / limitation |
+| --- | --- | --- | --- | --- |
+| tribute.html | Changed hero initial viewport; screenshot, accessibility snapshot, DOM width, visible h1, image and caption alignment measurements | Stained-glass hero loads at 1536 × 1024 intrinsic px and renders at 1132 × 755; exactly one visible h1; no horizontal overflow or failed non-empty content image found | Screenshot; scrollWidth/clientWidth 1348; all five caption children and their container share centre x=782 and computed text-align=center | Compact 599 px hero rule, mobile layout, 200% text enlargement and below-fold content not tested |
+| tribute.html → masters.html | Activate visible Hall of Masters navigation link | Hall of Masters loaded with expected page title and one visible h1 | Production URL/title and accessibility snapshot | Keyboard-only focus sequence not exercised |
+| masters.html | Structural sibling initial viewport; screenshot, accessibility snapshot, DOM width and loaded-image check | Global shell, room identity, featured artist card and first timeline cards render; no horizontal overflow or failed content image found | Screenshot; scrollWidth/clientWidth 1348; featured Judith link visible | Full timeline and factual/source verification not performed |
+| masters.html → tribute.html | Activate the visible featured Judith artist card | Judith tribute loaded with expected page title | Production URL/title after navigation | Hidden responsive duplicates were not exercised; only the visible desktop card was used |
+
+### Limitations and continuation
+
+- No supported viewport-resizing/emulation method was exposed by this browser interface. Mobile layouts, the new 599 px Judith hero breakpoint and 200% text enlargement were not reproduced. Record this as a test limitation, not a site defect.
+- No Safari, VoiceOver, NVDA, contrast audit, full accessibility conformance evaluation or scientific/content verification.
+- No exhaustive link, image or route audit. Coverage was limited to the changed Judith hero, one structural sibling and the described navigation interactions.
+- Browser error/warning samples contained no website-origin entries.
+- UI-003 remains the larger open issue for later; it was not re-exercised because this run prioritised the newly changed Judith presentation and its Hall of Masters sibling.
+- Keep monitoring enabled: this check does not complete the ongoing monitoring request.
