@@ -7,8 +7,8 @@ function auditCathedralMedia() {
     if (!img) { errors.push('Component not upgraded'); continue; }
     if (!img.hidden) {
       const style = getComputedStyle(img), frame = el.getBoundingClientRect(), picture = img.getBoundingClientRect();
-      if (style.objectFit !== 'contain' || style.padding !== '0px') errors.push('Incorrect image fit or padding');
-      if (Math.abs(frame.width - picture.width) > 1 || Math.abs(picture.height / picture.width - img.naturalHeight / img.naturalWidth) > .01) errors.push(`Image does not fill frame: ${el.getAttribute('src')}`);
+      if (style.objectFit !== 'cover' || style.padding !== '0px') errors.push('Incorrect image fit or padding');
+      if (Math.abs(frame.width - picture.width) > 1 || Math.abs(frame.height - picture.height) > 1 || Math.abs(frame.width / frame.height - 4 / 3) > .01) errors.push(`Image does not fill frame: ${el.getAttribute('src')}`);
       if (img.complete && !img.naturalWidth) errors.push(`Image failed: ${el.getAttribute('src')}`);
     } else if (el.shadowRoot.querySelector('.placeholder').hidden) errors.push('Missing fallback');
   }

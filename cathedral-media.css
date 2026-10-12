@@ -11,3 +11,6 @@
 .masters-feature > cathedral-media { width:100%; height:auto; }
 
 :is(.saved button,.related-books button) > cathedral-media { width:100%; }
+
+/* Uniform card image area, independent of the source photograph dimensions. */
+:root { --cathedral-media-ratio:4 / 3; }

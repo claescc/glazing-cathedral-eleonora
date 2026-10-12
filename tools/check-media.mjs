@@ -26,6 +26,8 @@ assert.ok(!/object-fit|object-position/.test(css),'Card molecules must not overr
 console.log('Media component contract checks passed.');
 
 assert.ok(read('cathedral-media.js').includes('width:100%; height:auto'), 'Artwork must follow full-width natural sizing');
-assert.ok(!read('cathedral-media.js').includes('object-fit:cover'), 'Artwork cannot be cropped');
 
 assert.ok(!read('cathedral-media.js').includes('padding-top:var(--cathedral-media-rise'), 'Media cannot create a blank arch cap');
+
+assert.ok(read("cathedral-media.js").includes("aspect-ratio:var(--cathedral-media-ratio, 4 / 3)"), "The atom must reserve a uniform image area");
+assert.ok(read("cathedral-media.js").includes("object-fit:cover"), "Images must fill the uniform area");
