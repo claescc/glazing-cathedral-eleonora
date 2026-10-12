@@ -47,3 +47,5 @@ dialog.card{height:min(var(--notice-card-height),calc(100dvh - 32px))}
 /* Global label clears the bottom navigation and the right-side page utility. */
 :host([floating]){right:auto;left:16px}
 @media(min-width:840px){:host([floating]){left:128px}}
+/* Preserve native dialog visibility despite the shared flex card layout. */
+dialog:not([open]){display:none}
