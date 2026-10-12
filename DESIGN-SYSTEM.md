@@ -67,3 +67,38 @@ The atom uses an open shadow root: the photograph has `width:100%` and `height:a
 Card links/buttons retain their native semantics and keyboard focus. Decorative images use empty alt text; meaningful images retain supplied descriptions. Colours inherit the active theme tokens. Do not add direct card images or page-specific image-fit rules: use this atom and its documented variants. Atlas, Glaze Families and Reading retain their native image-rendering path under the user's exclusions. Banners, logos, document facsimiles, portrait and interactive comparison previews are separate media roles.
 
 `tools/check-media.mjs` runs through the normal site check and covers attribute escaping, exclusions, registration order and removal of the old sizing owner. `tools/audit-media-browser.js` checks rendered frame/image geometry, natural proportions, zero image padding, visible consumer coverage, fallbacks and overflow. Run the browser audit on desktop and compact viewports, including content appended by pagination.
+
+## Shared flat notification family · 12 October 2026
+
+`cathedral-notice.js` owns `<cathedral-notice>`; `cathedral-notice.css` owns its shadow-root presentation and semantic tokens. `notification-preview.html` is a local component showcase, excluded from the production build. Reference images supplied by the user inform the flat colour bar, outlined status icon, square geometry and coloured-header card. No reference image is embedded. This component is available for integration; it is not yet mounted on public routes.
+
+### Variants and usage
+
+- `kind`: `info` (default), `error`, `success`, `warning`, `confirmation`. Meaning is expressed through both icon and text.
+- `presentation`: `alert` (default), `card`, `label`. Alerts are in-flow messages; cards share the same anatomy with a coloured header. Labels open a native modal dialog containing the explanation.
+- `heading` and `message`: plain text only. Supply the actual outcome, context and recovery action.
+- `dismissible`: adds a labelled close control to alerts/cards. Cards also have a labelled bottom action.
+- `action-label`: card action text, defaults to Close. `notice-action` is emitted before dismissal; `notice-dismiss` is emitted when an alert/card is dismissed. Both bubble and include `detail.kind`.
+- `announce`: opt-in live announcement for newly inserted feedback. Errors use `role=alert`; other kinds use `role=status`. Initial construction content does not require an urgent announcement.
+- `floating`: fixed placement for an alert, card or label; compact placement reserves bottom-navigation space. Integration must check collisions with back-to-top and other floating controls.
+
+Load the script once and create components with their attributes set before insertion. Attributes are read on first connection; dynamic attribute updates are not supported. There is no automatic dismissal, persisted dismissal or notification queue. Ordinary alerts do not take focus. Label dialogs use native modal keyboard behaviour, Escape dismissal and focus return. Confirmation is a visual semantic variant; a two-action decision dialog requires a separate explicit interaction contract.
+
+```html
+<script src="cathedral-notice.js" defer></script>
+<cathedral-notice kind="warning" presentation="label" heading="Under construction"
+  message="This website is still being built. Some features may not work, pages may be incomplete, and parts of the design are still being refined." floating>
+</cathedral-notice>
+```
+
+Tokens: `--notice-info`, `--notice-error`, `--notice-success`, `--notice-warning`, `--notice-radius`, `--notice-space`. Card content uses `--notice-card-background: #fff` and `--notice-card-foreground: #242934`, keeping the white content area from the approved reference across appearance modes. High contrast and forced-colour treatments are provided. All notification surfaces, close controls, labels and actions have zero border radius. Cards use a taller coloured header, an outlined status icon and a plain content surface with one prominent action. `action-label` also sets the label-dialog action. No gradients or decorative shadows. Native buttons have at least 48px interaction height.
+
+### Global notification geometry
+
+Semantic kind changes only colour and the status glyph. Each presentation has one shared geometry across all kinds. Cards are 360px wide (clamped to the available width), 480px high, with a 240px header (exactly half the card), an 80px outlined icon frame and a action up to 240px wide and 48px high. Alerts have a shared 112px minimum height. All status glyphs use the same circular frame. The shared geometry tokens are `--notice-card-width`, `--notice-card-height`, `--notice-header-height`, and `--notice-alert-height`; do not override these per kind or route. Internal scrolling is prohibited. Copy limits are 20 Unicode code points for headings, 80 for messages, and 20 for actions. Over-limit components emit `notice-invalid` and remain unrendered until corrected and reinserted. Copy is never silently truncated. Very short viewports or enlarged text may require document-level scrolling; the notification itself does not scroll.
+
+Cards use an exact 50/50 split between the coloured header and white content area. All kinds share this split. The content area uses compact shared spacing rather than reducing the coloured half.
+
+### Approved reference anatomy
+
+The coloured half contains the outlined status icon and title, both centred. The white half contains only the centred message and a flat text action. All semantic types share this structure and dimensions.

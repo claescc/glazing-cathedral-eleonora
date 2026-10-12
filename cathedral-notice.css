@@ -1,0 +1,49 @@
+:host{display:block;--notice-info:#1769c2;--notice-error:#c52f3e;--notice-success:#217a42;--notice-warning:#f4cc45;--notice-radius:0px;--notice-space:20px;--notice-card-background:#fff;--notice-card-foreground:#242934;font:inherit}
+:host([hidden]){display:none}
+*{box-sizing:border-box}.info,.confirmation{--tone:var(--notice-info);--on-tone:#fff}.error{--tone:var(--notice-error);--on-tone:#fff}.success{--tone:var(--notice-success);--on-tone:#fff}.warning{--tone:var(--notice-warning);--on-tone:#26210e}
+.notice{position:relative;border:0;border-radius:0;overflow:hidden;margin:0;font:inherit}.alert{display:flex;align-items:center;gap:16px;padding:16px;background:var(--tone);color:var(--on-tone)}.icon{font:700 28px/1 sans-serif;flex:none}.body{flex:1;min-width:0}.heading{display:block;font-size:1.125rem;line-height:1.4;font-weight:700;margin:0;overflow-wrap:anywhere}.message{margin:6px 0 0;line-height:1.5;overflow-wrap:anywhere}
+button{font:inherit;min-height:48px;min-width:48px;cursor:pointer}button:focus-visible{outline:3px solid currentColor;outline-offset:3px}.close{flex:none;background:transparent;color:inherit;border:0;font-size:30px;border-radius:0}.card{background:var(--notice-card-background);color:var(--notice-card-foreground);width:min(100%,360px)}.card .colour-header{display:flex;align-items:center;justify-content:center;min-height:176px;background:var(--tone);color:var(--on-tone)}.card .colour-header .icon{width:80px;height:80px}.card .body{padding:32px var(--notice-space);text-align:center}.card .heading{font-size:1.375rem}.card .message{margin-top:20px}.card .action{margin-top:28px;min-width:160px}.card .close{position:absolute;right:8px;top:8px;color:var(--on-tone)}.action{margin-top:20px;padding:8px 24px;background:var(--tone);color:var(--on-tone);border:0;border-radius:0;font-weight:700}.label{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:var(--tone);color:var(--on-tone);border:0;border-radius:0;font-weight:700}.label .icon{font-size:22px}
+dialog{padding:0;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overflow:visible;margin:auto!important}dialog::backdrop{background:rgb(0 0 0 / .45)}
+:host([floating]){position:fixed;z-index:30;right:16px;bottom:calc(96px + env(safe-area-inset-bottom));max-width:calc(100vw - 32px)}
+@media(min-width:840px){:host([floating]){bottom:24px}}
+:host-context([data-theme="contrast"]){--notice-info:#000;--notice-error:#000;--notice-success:#000;--notice-warning:#fff}.notice,.label{border:0}:host-context([data-theme="contrast"]) .notice,:host-context([data-theme="contrast"]) .label{border:1px solid currentColor}
+@media(forced-colors:active){.notice,.label,.action{border:1px solid ButtonText}}
+
+.icon svg{display:block;width:100%;height:100%}.alert .icon{width:28px;height:28px}.label .icon{width:22px;height:22px}
+/* Peer cards fill their shared row while standalone dialogs retain natural height. */
+section.card{height:100%;display:flex;flex-direction:column}
+section.card .colour-header{flex-shrink:0}
+section.card .body{display:flex;flex-direction:column;align-items:center}
+section.card .action{margin-top:auto}
+section.card .message{margin-bottom:28px}
+
+/* Global geometry is independent of semantic kind and consumer content. */
+:host{--notice-card-width:360px;--notice-card-height:480px;--notice-header-height:240px;--notice-alert-height:112px}
+.card,section.card{width:min(100%,var(--notice-card-width));height:var(--notice-card-height);display:flex;flex-direction:column}
+.card .colour-header{height:var(--notice-header-height);min-height:var(--notice-header-height);flex:none}
+.card .body{display:flex;flex-direction:column;align-items:center;padding:24px var(--notice-space);min-height:0;flex:1}
+.card .heading{flex:none;width:100%;font-size:1.375rem;line-height:1.4}
+.card .message{width:100%;margin:16px 0 20px;overflow:visible;min-height:0;flex:1}
+.card .action{margin-top:auto;flex:none;width:200px;max-width:100%;height:48px}
+.alert{height:var(--notice-alert-height)}.alert .body{max-height:100%;overflow:visible}
+dialog.card{height:min(var(--notice-card-height),calc(100dvh - 32px))}
+
+.card .message,.alert .body{overflow:visible}.card .message{flex:none}.card .body{justify-content:flex-start}.alert{height:auto;min-height:112px}dialog.card{max-height:none;height:var(--notice-card-height)}
+
+.card .action{height:64px;line-height:20px;overflow-wrap:anywhere}.card .heading{line-height:1.4}
+
+/* Approved anatomy: equal coloured and white halves. */
+.card .colour-header{height:50%;min-height:0}.card .body{height:50%;flex:none;padding:16px 20px}.card .heading{font-size:20px;line-height:24px}.card .message{font-size:16px;line-height:20px;margin:12px 0}.card .action{height:48px;line-height:16px;padding:8px 16px;width:calc(100% - 0px);max-width:240px}
+.card .body{padding:12px 20px}.card .message{font-size:14px;line-height:18px}
+
+/* Reference anatomy: status icon and title above; message and action below. */
+.card .colour-header{flex-direction:column;gap:24px;padding:24px 20px;text-align:center}
+.card .colour-header .heading{color:var(--on-tone);font-size:20px;line-height:24px;font-weight:500}
+.card .body{justify-content:center;padding:24px 20px}
+.card .message{margin:0 0 24px;font-size:14px;line-height:18px;text-align:center}
+.card .action{margin-top:0;background:transparent;color:var(--tone);width:100%;max-width:240px}
+.card.warning .action{color:#675000}
+
+/* Global label clears the bottom navigation and the right-side page utility. */
+:host([floating]){right:auto;left:16px}
+@media(min-width:840px){:host([floating]){left:128px}}
