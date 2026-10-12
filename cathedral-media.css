@@ -1,5 +1,5 @@
 /* Card molecules compose the shared cathedral-media atom. No image-fit overrides belong here. */
-:root { --cathedral-media-rise:64px; --cathedral-card-space:1rem; }
+:root { --cathedral-card-space:1rem; }
 :is(.chapter-book,.recipe-volume,.room-card) > cathedral-media { order:0; }
 #recipeRail .recipe-volume:has(cathedral-media) { padding-top:1rem; }
 #roomGrid .room-picture:has(cathedral-media) { padding:0; }

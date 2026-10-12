@@ -5,7 +5,7 @@ class CathedralMedia extends HTMLElement {
     super();
     const root = this.attachShadow({mode: 'open'});
     root.innerHTML = `<style>
-      :host { display:block; box-sizing:border-box; flex:none; width:100%; height:auto; padding-top:var(--cathedral-media-rise, 48px); border-radius:var(--cathedral-card-arch); background:var(--surface-soft); }
+      :host { display:block; box-sizing:border-box; flex:none; width:100%; height:auto; padding:0; overflow:hidden; border-radius:var(--cathedral-card-arch); background:transparent; }
       :host([shape="rectangle"]) { padding-top:0; border-radius:0; }
       img { display:block; width:100%; height:auto; max-width:none; margin:0; padding:0; border:0; border-radius:0; object-fit:contain; }
       .placeholder { display:grid; place-items:center; box-sizing:border-box; width:100%; padding:var(--cathedral-card-space, 1rem); text-align:center; font:inherit; color:var(--text); }
