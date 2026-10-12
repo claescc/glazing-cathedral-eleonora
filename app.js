@@ -1866,7 +1866,10 @@ if (tributeVideoPlay) tributeVideoPlay.addEventListener("click", () => {
   frame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
   frame.allowFullscreen = true;
   frame.referrerPolicy = "strict-origin-when-cross-origin";
-  document.getElementById("tributeVideoFrame").replaceChildren(frame);
+  const videoContainer = document.getElementById("tributeVideoFrame");
+  videoContainer.hidden = false;
+  videoContainer.replaceChildren(frame);
+  tributeVideoPlay.hidden = true;
 });
 setMobileNav(({ home: "top", learn: "path", "glaze-families": "atlas", tribute: "masters" })[currentPage] || currentPage);
 mobileNavLinks.forEach((a) =>

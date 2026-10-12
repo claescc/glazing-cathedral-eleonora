@@ -1608,3 +1608,23 @@ body[data-page="tribute"] .judith-hero .frontispiece-caption p { margin-inline: 
 .judith-subject > .judith-art { max-width: 40rem; margin: 1rem 0; }
 .judith-article-media .under { margin: .75rem 0 0; }
 .judith-article-media iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--radius-large); }
+
+/* One complete, coloured Cathedral article per Judith subject. */
+.judith-subjects { grid-template-columns: minmax(0, 1fr); }
+.judith-subjects > article.judith-subject { padding: 3.5rem clamp(1rem, 3vw, 2rem) 1.5rem; border-radius: 50% 50% 16px 16px / 54px 54px 16px 16px; }
+.judith-subjects .judith-subject h2 { color: #fff7e7; font: 600 clamp(1.5rem, 2.8vw, 2rem)/1.25 Georgia, serif; margin: .4rem 0 1rem; }
+.judith-subjects .judith-subject .eyebrow { color: #f7db9c; margin: 0; }
+.judith-subject-body { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.5rem; align-items: start; }
+.judith-subject-body .judith-art { margin: 0; max-width: none; }
+.judith-subject-copy > p:first-child { margin-top: 0; }
+.judith-subjects .judith-source-row { grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #b18c4e; padding-top: 1rem; }
+.judith-subjects .judith-source-row a { background: transparent; border: 0; border-radius: 0; padding: .35rem 0; margin: 0; }
+.judith-subjects .judith-source-intro { grid-column: 1 / -1; margin: 0; }
+.judith-subjects .judith-article-media .under { background: #fff7e7; color: #282020; padding: .65rem .85rem; text-align: left; display: flex; align-items: center; gap: .5rem; }
+.judith-subjects .judith-article-media .under span { color: inherit; }
+.judith-subjects .judith-article-media .under[hidden] { display: none; }
+.judith-inline-film { margin-top: .75rem; }
+:root[data-theme="contrast"] .judith-subjects .judith-subject :is(h2,.eyebrow) { color: #fff; }
+@media (max-width: 700px) { .judith-subject-body, .judith-subjects .judith-source-row { grid-template-columns: minmax(0, 1fr); } }
+
+#tribute .judith-subjects .judith-art figcaption a { display: inline; min-height: 0; padding: 0; margin: 0; }
