@@ -145,3 +145,10 @@ Page-specific CSS is allowed for content presentation. Page-specific navigation 
 - `AGENTS.md` defines delivery and repository operating rules.
 
 When these documents conflict, product hierarchy follows this file; implementation details follow the more specific document only when they do not violate this architecture.
+
+
+## V2 content-preserving presentation · 29 October 2026
+
+The V2 reference board supplies the warm canvas, terracotta controls, serif headings, compact horizontal desktop shell and editorial card layouts. Retain the existing five primary destinations and all specialist room links via Rooms; compact navigation remains five items. All V1 copy, source records, image credits, original artwork paths and interactive mount points remain authoritative. Judith is a featured artist with her complete archive at tribute.html. No replacement sample biography may displace it.
+
+The shared cathedral-media atom displays complete photographs at natural proportions. Card height follows the source image, avoiding cropped artwork. V2 decorative hero imagery is additive and labelled; the V1 stained-glass illustration and caption remain in the shared footer.

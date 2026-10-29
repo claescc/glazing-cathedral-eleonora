@@ -34,6 +34,7 @@ for (const file of [
   "CNAME",
   "release-target.json",
   "styles.css",
+  "v2.css",
   "material3.css",
   "m3-site.css",
   "arched-rooms.css",

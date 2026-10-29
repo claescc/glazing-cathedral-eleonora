@@ -29,5 +29,5 @@ assert.ok(read('cathedral-media.js').includes('width:100%; height:auto'), 'Artwo
 
 assert.ok(!read('cathedral-media.js').includes('padding-top:var(--cathedral-media-rise'), 'Media cannot create a blank arch cap');
 
-assert.ok(read("cathedral-media.js").includes("aspect-ratio:var(--cathedral-media-ratio, 4 / 3)"), "The atom must reserve a uniform image area");
-assert.ok(read("cathedral-media.js").includes("object-fit:cover"), "Images must fill the uniform area");
+assert.ok(read("cathedral-media.js").includes("aspect-ratio:auto"), "The atom must preserve natural artwork proportions");
+assert.ok(read("cathedral-media.js").includes("object-fit:contain"), "Images must display the entire source photograph");

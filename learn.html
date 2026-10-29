@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="interface-version" content="V2 · V1 content preserved" />
     <meta name="production-target" content="ceramicscathedral.com / GitHub Pages / main" />
     <meta
       name="viewport"
@@ -31,6 +32,7 @@
       href="assets/brand/ejl-sunflower-seal.svg"
     />
   <link rel="stylesheet" href="cathedral-media.css?v=20261012-uniform-area" />
+  <link rel="stylesheet" href="v2.css?v=20261029-content-preserved" />
   <link rel="stylesheet" href="arched-rooms.css?v=20261012-layout" />
   </head>
   <body data-page="learn">
@@ -47,7 +49,7 @@
         ><a class="appbar-search" href="reading.html#source-library" aria-label="Search the library"><span class="material-symbols-rounded" aria-hidden="true">search</span><span>Search the library</span></a><a class="appbar-utility notebook-link" href="notebook.html" aria-label="Saved surfaces and recipes"><span class="material-symbols-rounded" aria-hidden="true">favorite</span><span>Saved</span><i id="savedCount">0</i></a><button class="appbar-utility" id="settingsButton" type="button" aria-haspopup="dialog"><span class="material-symbols-rounded" aria-hidden="true">settings</span><span>Settings</span></button>
       </nav>
       <nav class="room-menu" id="roomMenu" aria-label="All rooms"></nav>
-      <div class="hero">
+      <div class="hero"><figure class="v2-hero-image"><img src="assets/artwork/v2-ceramic-still-life.webp" width="1536" height="1024" alt="Illustrative still life of cream ceramic vessels on a stone shelf"><figcaption>Illustrative still life</figcaption></figure>
         <div class="hero-content">
           <p class="eyebrow">Eleonora’s ceramic library</p>
           <h1>Colour, material <span class="hero-title-phrase">and fire.</span><br><span>All in one place.</span></h1>
@@ -58,10 +60,7 @@
             <a href="reading.html#source-library"><span class="material-symbols-rounded" aria-hidden="true">search</span> Search sources</a>
           </div>
         </div>
-        <figure class="ceramic-mural">
-          <img src="assets/artwork/ceramic-window-stories.jpg" width="2172" height="724" fetchpriority="high" alt="Decorative stained-glass illustration: mineral earth, hands shaping clay, a glowing kiln, flowing glazes and a pottery sketchbook.">
-          <figcaption>Earth · Hands · Fire · Colour · Knowledge</figcaption>
-        </figure>
+
       </div>
       <div class="window" id="window" hidden></div>
     </header>
@@ -333,12 +332,6 @@
           reproduction of his page.
         </p>
       </section>
-      <section class="floor dark" id="rooms" data-palette-section="4">
-        <p class="eyebrow">The floor plan</p>
-        <h2>Eight rooms. One connected craft.</h2>
-        <p class="floor-intro">Follow the colour. Each window opens a different part of the ceramic story.</p>
-        <div class="rooms" id="roomGrid"></div>
-      </section>
       <section class="exhibitions light" id="exhibitions" data-palette-section="5">
         <div class="head">
           <div>
@@ -401,16 +394,22 @@
           >
         </div>
       </section>
+      <section class="floor dark" id="rooms" data-palette-section="4">
+        <p class="eyebrow">The floor plan</p>
+        <h2>Eight rooms. One connected craft.</h2>
+        <p class="floor-intro">Follow the colour. Each window opens a different part of the ceramic story.</p>
+        <details class="room-discovery"><summary>Explore all eight rooms</summary><div class="rooms" id="roomGrid"></div></details>
+      </section>
       <section class="tribute light" id="tribute" data-palette-section="5">
         <div class="tribute-head tribute-head-with-portrait">
           <figure class="tribute-portrait"><a href="assets/judith/judith-portrait-black-and-white.png" aria-label="Open full-size portrait of Judith Laqueur-Révész"><img src="assets/judith/judith-portrait-black-and-white.png" width="998" height="1575" alt="Black-and-white portrait of older Judith Laqueur-Révész" loading="lazy"></a><figcaption>Family photograph · AI-edited black-and-white portrait</figcaption></figure>
           <div>
             <p class="eyebrow">Hall of Masters · Ceramic artist</p>
             <h1>Judith Laqueur-Révész</h1>
-            <p class="tribute-dates">15 July 1915 – 17 April 2018 · She lived to 102</p>
+            <p>An artist’s hall of vessels, sculpture and surviving records.</p><p class="tribute-dates">15 July 1915 – 17 April 2018 · She lived to 102</p>
           </div>
         </div>
-        <div class="tribute-content">
+        <nav class="artist-local-nav" aria-label="Judith’s archive"><a href="#amphorae">Family collection</a><a href="#gelukkige-olifant">Museum works & biography</a><a href="masters.html">Hall of Masters</a></nav><div class="tribute-content">
           <p class="tribute-lead">Judith Laqueur-Révész worked at every scale: hand-thrown vessels, small ceramic sculptures, sculpted portraits and architectural reliefs. Her ceramics moved beyond the studio into the streets of Amsterdam and onto a villa façade in Italy. Today, her work holds a place in the Nederlands Tegelmuseum.</p>
 
           <section class="judith-amphorae" id="amphorae" aria-labelledby="amphorae-title">
@@ -499,6 +498,7 @@
           </section>
           <p class="tribute-note">Judith’s dates are documented by the <a href="https://capriolus.nl/kennisbank/keramisten/revesz-judith/" target="_blank" rel="noopener">Capriolus artist profile ↗</a>. The museum photographs above show documented works; the amphora gallery presents the family collection with its own provenance notes. Catalogue entries distinguish museum records and period documents from later accounts and family information. The family collection awaits individual object documentation; visual resemblance alone cannot establish dates, materials or attribution.</p>
         </div>
+        <details class="judith-illustration"><summary>Earlier stained-glass tribute illustration</summary><figure><img src="assets/judith/judith-stained-glass-hero.png" width="1536" height="1024" loading="lazy" alt="Generated stained-glass tribute to older Judith, centered in an amber arch surrounded by flowing coloured glass, flowers and ceramic vessels."><figcaption>Generated tribute illustration · V1 artwork</figcaption></figure></details>
       </section>
       <section class="path light" id="path" data-palette-section="6">
         <div class="head">
@@ -762,7 +762,10 @@
       </section>
     </main>
     <footer class="site-footer" aria-label="Dedication to Eleonora and site credits">
-      <div class="footer-glass" aria-hidden="true"><img src="assets/artwork/ceramic-window-stories.jpg" width="2172" height="724" alt="" loading="lazy" /></div>
+              <figure class="ceramic-mural">
+          <img src="assets/artwork/ceramic-window-stories.jpg" width="2172" height="724" fetchpriority="high" alt="Decorative stained-glass illustration: mineral earth, hands shaping clay, a glowing kiln, flowing glazes and a pottery sketchbook.">
+          <figcaption>Earth · Hands · Fire · Colour · Knowledge</figcaption>
+        </figure>
       <div class="footer-dedication">
         <blockquote>“A library at the hands of her fingertips.”</blockquote>
         <p>For Eleonora—my oldest friend, my sister, and the person who was kind when kindness mattered most.</p>
@@ -771,7 +774,7 @@
         <div class="footer-brand"><img src="assets/brand/ejl-sunflower-seal.svg" width="48" height="48" alt="" /><span>Ceramics Cathedral<br /><span class="footer-eleonora">of Eleonora</span></span></div>
         <p class="footer-credit">Created by <strong>Complexity Nexus</strong></p>
       </div>
-    </footer>
+    <nav class="footer-links" aria-label="Explore the Cathedral"><a href="recipes.html">Recipes</a><a href="atlas.html">Glazes</a><a href="masters.html">Hall of Masters</a><a href="tribute.html">Judith’s full archive</a><a href="reading.html">Reading Room</a></nav></footer>
     <nav class="mobile-nav" aria-label="Primary navigation">
       <a href="index.html" data-nav-section="top"><span><span class="material-symbols-rounded" aria-hidden="true">home</span></span><b>Home</b></a>
       <a href="atlas.html" data-nav-section="atlas"><span><span class="material-symbols-rounded" aria-hidden="true">palette</span></span><b>Atlas</b></a>

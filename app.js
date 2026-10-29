@@ -1003,7 +1003,7 @@ $("#familyWall").onclick = (event) => {
   const button = event.target.closest("[data-id]");
   if (button) openBook(families.find(x => x.id === button.dataset.id));
 };
-const recipePageSize = 24;
+const recipePageSize = 6;
 let recipeLimit = recipePageSize;
 function renderRecipeLibrary() {
   const query = $("#recipeSearch").value.trim().toLocaleLowerCase();
