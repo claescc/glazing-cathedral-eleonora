@@ -1,4 +1,5 @@
 import { cpSync, mkdirSync, rmSync } from "node:fs";
+import "./tools/check-release-target.mjs";
 import "./page-routes.mjs";
 import { join } from "node:path";
 
@@ -31,6 +32,7 @@ for (const file of [
   "theme.js",
   "back-to-top.js",
   "CNAME",
+  "release-target.json",
   "styles.css",
   "material3.css",
   "m3-site.css",
@@ -56,10 +58,6 @@ cpSync(
   new URL("./dist/assets/", import.meta.url),
   { recursive: true },
 );
-mkdirSync(new URL("./dist/.openai/", import.meta.url), { recursive: true });
-cpSync(
-  new URL("./.openai/hosting.json", import.meta.url),
-  new URL("./dist/.openai/hosting.json", import.meta.url),
-);
+
 
 console.log(`Prepared static site in ${join(new URL(".", output).pathname)}`);

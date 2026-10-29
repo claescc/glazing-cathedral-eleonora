@@ -54,3 +54,11 @@ User-confirmed 6 October 2026.
 - Variants must describe a use case, not a page. Put visual values in shared design tokens; no new hardcoded page-specific styles or image-fit overrides.
 - Artwork media uses the shared `cathedral-media` component: image width 100%, height auto, original proportions, no thumbnail height limit or cropping. The arch is a frame treatment, not an image mask.
 - Verify the shared component on compact and expanded widths and sibling routes, then commit, publish and verify canonical production.
+
+## Executable release protection · 29 October 2026
+
+Before edits, read release-target.json and inspect its productionOrigin. The separate Sites project is explicitly forbidden as a publication target. Never call Sites save/deploy tools for this product.
+
+Run node tools/check-release-target.mjs before and after work. The build imports this guard. It validates origin, main, CNAME and the preservation inventory. Do not remove, regenerate or weaken docs/content-preservation-baseline.json to make a failing check pass. Preserve original assets under their existing paths; add variants as new files. Copy changes require explicit user scope and reviewed baseline changes.
+
+After push, verify the matching GitHub Pages deployment and the canonical live affected page. Successful local checks or a ChatGPT Sites deployment never count as completion. The layout redesign remains outstanding until checked against the supplied reference screens on ceramicscathedral.com.

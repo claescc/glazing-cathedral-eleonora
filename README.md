@@ -38,3 +38,7 @@ Deployment runs: https://github.com/claescc/glazing-cathedral-eleonora/actions
 ## Verification (22 September 2026)
 
 Validated unique recipe IDs, ingredient values, photograph paths and source-page images. Browser checks cover desktop/mobile layout, filtering, progressive loading, both batch conventions, nested source dialogs, page navigation, saved recipes, recipe-page search, all-text search and index view. No browser exceptions or page-width overflow in the tested 1440 px and 390 px layouts.
+
+## Release target and preservation gate
+
+`release-target.json` fixes the production identity. `node tools/check-release-target.mjs` is imported by the build and refuses a wrong repository, branch, domain, legacy Sites identity, removed copy or changed/missing original assets. `docs/content-preservation-baseline.json` captures the existing production-source copy and original asset/data hashes. Preserve it during layout work; never refresh it simply to clear a failure. The separate ChatGPT-hosted copy is not an approved delivery target.
