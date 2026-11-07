@@ -83,9 +83,9 @@ for b in books:
     cover_name = b['id'] + '-cover.jpg'
     im = render(doc[0], OUT / cover_name, 420, clip)
     result['books'][b['id']] = {'title': title, 'author': author,
-        'cover': 'assets/library/visuals/' + cover_name, 'coverKind': kind,
+        'cover': 'assets/library/expanded/visuals/' + cover_name, 'coverKind': kind,
         'accent': accent(im), 'coverPage': 1}
-    pages = json.loads((ROOT / 'assets/library' / (b['id']+'.json')).read_text())
+    pages = json.loads((ROOT / 'assets/library/expanded' / (b['id']+'.json')).read_text())
     for p in pages:
         if not p['recipeCandidate']:
             continue
@@ -114,7 +114,7 @@ for b in books:
         visual = {
             'title': (' · '.join(names[:3]) + (f' · +{len(names)-3} more recipes' if len(names)>3 else '')) if names else None,
             'kind': 'Recipe heading' if transcribed or headings(p['text']) or (glazy and n==1) or (b['name'].startswith('Amazing Glaze Recipes') and names) else 'Section heading' if names else 'Text passage',
-            'thumbnail': 'assets/library/visuals/' + thumbnail}
+            'thumbnail': 'assets/library/expanded/visuals/' + thumbnail}
         if b['name'].startswith('Amazing Glaze Recipes') and names:
             for field in ['Cone', 'Atmosphere', 'Surface', 'Color']:
                 match = re.search(r'^\s*'+field+r':\s*([^\n]+)', p['text'], re.M)
@@ -137,11 +137,11 @@ for b in books:
                         pad = 18
                         bbox = (max(0,bbox[0]-pad),max(0,bbox[1]-pad),min(im.width,bbox[2]+pad),min(im.height,bbox[3]+pad))
                         im.crop(bbox).save(OUT / photo_name, quality=85)
-                    visual['photograph'] = 'assets/library/visuals/' + photo_name
+                    visual['photograph'] = 'assets/library/expanded/visuals/' + photo_name
                     visual['photographPage'] = n+1
                     source_name = b['id'] + '-source-p' + str(n+1) + '.jpg'
                     render(next_page, OUT / source_name, 1200)
-                    visual['photographSource'] = 'assets/library/visuals/' + source_name
+                    visual['photographSource'] = 'assets/library/expanded/visuals/' + source_name
         result['pages'][b['id'] + ':' + str(n)] = visual
     doc.close()
 (OUT / 'index.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')

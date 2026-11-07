@@ -106,3 +106,6 @@ body[data-page="reading"] .source-stats b { font-size: 1rem; }
 body[data-page="reading"] #sourceStats { display: none; }
 .reading-page-copy > strong { margin-top: 0; }
 .reading-page-action { margin-top: auto; padding-top: .75rem; }
+
+.source-chapters { display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+.source-chapters button { text-align: left; white-space: normal; overflow-wrap: anywhere; }

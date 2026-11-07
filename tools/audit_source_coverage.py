@@ -18,12 +18,19 @@ files = []
 for p in sorted(LIB.rglob('*')):
     if not p.is_file() or p.name == '.DS_Store':
         continue
-    digest = hashlib.sha256(p.read_bytes()).hexdigest()
+    read_error = None
+    try:
+        digest = hashlib.sha256(p.read_bytes()).hexdigest()
+    except OSError as error:
+        digest = None
+        read_error = type(error).__name__
     relative = str(p.relative_to(LIB))
     b = by_hash.get(digest)
     if b:
         role = 'ceramic-source'
         state = 'unreadable-source' if b['status']=='unreadable' else 'catalogued-source'
+    elif p.suffix.lower()=='.pdf' and p.name not in ['Ceramics_Cathedral_Confluence_Starter.pdf','CeramicsCathedral_Pallete8sections_LDC.pdf']:
+        role, state = 'ceramic-source', 'uncatalogued-source'
     elif p.suffix.lower() in ['.pdf','.docx','.pages']:
         role, state = 'project-documentation', 'retained-local-not-teaching-content'
     elif p.suffix.lower() == '.html':
@@ -32,7 +39,7 @@ for p in sorted(LIB.rglob('*')):
         role, state = 'family-art-archive', 'retained-local-archive'
     else:
         role, state = 'design-or-studio-asset', 'retained-local-asset'
-    files.append(dict(file=relative,sha256=digest,bytes=p.stat().st_size,role=role,status=state,sourceId=b['id'] if b else None))
+    files.append(dict(file=relative,sha256=digest,bytes=p.stat().st_size,role=role,status=state,sourceId=b['id'] if b else None,readError=read_error))
 
 def records_for(b):
     result=[]
@@ -88,18 +95,18 @@ for b in books:
 
 corpus=[p for part in json.loads((OUT/'search-parts.json').read_text()) for p in json.loads((OUT/part).read_text())]
 keys=collections.Counter((p['book'],p['page']) for p in corpus)
-failures=[]
+failures=[f'Uncatalogued source: {f["file"]}' for f in files if f["status"]=="uncatalogued-source"]
 for b in books:
     if b['status']=='unreadable' or b.get('duplicateOf'):continue
     pages=json.loads((OUT/(b['id']+'.json')).read_text())
     if len(pages)!=b['pages']:failures.append(f'{b["id"]}: page count')
     for p in pages:
         if p['text'].strip() and keys[(b['id'],p['page'])]!=1:failures.append(f'{b["id"]}:{p["page"]}: search entry')
-        if not p['text'].strip() and not p.get('image'):failures.append(f'{b["id"]}:{p["page"]}: no readable representation')
+        if not p.get('image'):failures.append(f'{b["id"]}:{p["page"]}: no readable representation')
         if p.get('image') and not (ROOT/p['image']).exists():failures.append(f'{b["id"]}:{p["page"]}: missing image')
 if len({r['id'] for r in recipes})!=len(recipes):failures.append('Duplicate recipe IDs')
 unique=[b for b in books if not b.get('duplicateOf') and b['status']!='unreadable']
-coverage=dict(audited='2026-11-07',scope='Supplied local library against the website source and search corpus',
+coverage=dict(audited='2026-11-08',scope='Supplied local library against the website source and search corpus',
     definitions={'indexed':'Searchable extracted or OCR text; not semantic verification',
     'ocr':'Unverified text recognition; consult source image',
     'structured':'Calculator record; its status states its verification level',
@@ -107,12 +114,14 @@ coverage=dict(audited='2026-11-07',scope='Supplied local library against the web
     'roomIntegration':'Source reading path; not a claim that every chapter has been synthesised into a lesson'},
     summary=dict(localFiles=len(files),catalogueFiles=len(books),readableUniqueSources=len(unique),
     sourcePages=sum(b['pages'] for b in unique),searchablePages=len(corpus),
+    pageFacsimiles=sum(len(r['imagePages']) for r in reports if not r.get('duplicateOf')),
+    localReadErrors=sum(bool(f['readError']) for f in files),
     structuredRecipes=len(recipes),ocrPages=sum(b.get('ocrPages',0) for b in unique),
     pagesWithoutText=sum(len(b.get('pagesWithoutText',[])) for b in unique),
     failures=failures),sources=reports,files=files,
     unresolved=[{'type':'unreadable-source','file':b['file'],'reason':b.get('error')} for b in books if b['status']=='unreadable'],
     remainingEditorialWork='Complete formula-by-formula visual verification and chapter-by-chapter teaching synthesis are not established by indexing or room links.')
 (OUT/'coverage.json').write_text(json.dumps(coverage,ensure_ascii=False,indent=2))
-(OUT/'knowledge-paths.json').write_text(json.dumps(dict(date='2026-11-07',rooms=rooms),ensure_ascii=False))
+(OUT/'knowledge-paths.json').write_text(json.dumps(dict(date='2026-11-08',rooms=rooms),ensure_ascii=False))
 print(json.dumps(coverage['summary'],indent=2))
 if failures:raise SystemExit(1)

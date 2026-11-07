@@ -11,9 +11,14 @@ def slug(s):
  s=unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode()
  return re.sub('[^a-z0-9]+','-',s.lower()).strip('-')[:100]
 materials=re.compile(r'feldspar|frit\b|silica|whiting|kaolin|nepheline|wollastonite|ball clay|bentonite|dolomite|wood ash|gerstley|quartz|zinc oxide|copper oxide|cobalt oxide|potash|china clay',re.I)
+previous = {b['sha256']: b for b in json.loads((OUT/'catalogue.json').read_text())} if (OUT/'catalogue.json').exists() else {}
 def process(path):
  key=slug(path.stem)+'-'+hashlib.sha256(path.read_bytes()).hexdigest()[:8]
  item={'id':key,'name':path.stem,'file':str(path.relative_to(LIB)),'pages':0,'recipePages':[],'status':'text-indexed','sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+ prior=previous.get(item['sha256'])
+ if prior and (OUT/(prior['id']+'.json')).exists():
+  pages=json.loads((OUT/(prior['id']+'.json')).read_text())
+  return dict(prior,file=item['file']), [dict(book=prior['id'],**p) for p in pages if p['text'].strip()]
  try: doc=fitz.open(path)
  except Exception as e:
   item['status']='unreadable';item['error']=type(e).__name__;return item,[]
@@ -35,14 +40,14 @@ def process(path):
    if not (OUT/img).exists():
     pix=page.get_pixmap(matrix=fitz.Matrix(1.6,1.6),alpha=False)
     pix.pil_save(OUT/img,format='JPEG',quality=82,optimize=True)
-   row['image']='assets/library/'+img
+   row['image']='assets/library/expanded/'+img
    item['recipePages'].append(i+1)
   pages.append(row)
   if text:search.append({'book':key,'page':i+1,'text':text,'recipeCandidate':candidate})
  item['textPages']=sum(bool(p['text']) for p in pages)
  (OUT/(key+'.json')).write_text(json.dumps(pages,ensure_ascii=False),encoding='utf-8')
  return item,search
-files=sorted(LIB.rglob('*.pdf'))
+files=sorted(p for p in LIB.rglob('*.pdf') if p.name != 'Ceramics_Cathedral_Confluence_Starter.pdf' and 'Colour Pallete' not in p.parts)
 books=[];corpus=[]
 with ThreadPoolExecutor(max_workers=4) as ex:
  for b,s in ex.map(process,files):

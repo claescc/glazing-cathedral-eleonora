@@ -21,6 +21,17 @@
   dialog.id = "sourceReader";
   dialog.setAttribute("aria-labelledby", "sourceTitle");
   dialog.innerHTML = `<header><div><small id="sourceCitation"></small><h2 id="sourceTitle"></h2></div><button id="sourceClose" type="button" aria-label="Close source page">Close ×</button></header><nav aria-label="Source page navigation"><button id="sourcePrev" type="button">← Previous page</button><label>Page in file <input id="sourcePageNumber" type="number" min="1"></label><button id="sourceNext" type="button">Next page →</button></nav><div id="sourcePageBody"></div>`;
+  const chapterDetails = document.createElement("details");
+  chapterDetails.className = "source-note";
+  chapterDetails.hidden = true;
+  chapterDetails.innerHTML = `<summary>Chapters and sections from this source</summary><nav class="source-chapters" aria-label="Source chapters"></nav>`;
+  dialog.querySelector("#sourcePageBody").before(chapterDetails);
+  let chapterIndex = {};
+  fetch("assets/library/expanded/chapters.json").then(r => r.ok ? r.json() : {}).then(data => chapterIndex = data).catch(() => {});
+  chapterDetails.addEventListener("click", event => {
+    const button = event.target.closest("[data-chapter-page]");
+    if (button) { chapterDetails.open = false; showPage(Number(button.dataset.chapterPage) - 1); chapterDetails.querySelector("summary").focus(); }
+  });
   document.body.append(dialog);
   const $ = (id) => document.getElementById(id);
   let books = [],
@@ -59,8 +70,8 @@
       (x.sourceBookId === b.id || (b.name.startsWith("Amazing Glaze Food-Safe") && (x.source || "").includes("Food-Safe")) ||
        (b.name.startsWith("Amazing Glaze Recipes and") && x.source === "Amazing Glaze: Recipes and Combinations")));
     const v = pageVisual(p);
-    const image = record?.image || v.photograph || v.thumbnail || bookVisual(b).cover;
-    const label = record ? "Recipe photograph" : v.photograph ? `Source photo · page ${v.photographPage}` : v.thumbnail ? "Original page" : bookVisual(b).coverKind || "Source preview";
+    const image = record?.image || v.photograph || v.thumbnail || p.image || bookVisual(b).cover;
+    const label = record ? "Recipe photograph" : v.photograph ? `Source photo · page ${v.photographPage}` : (v.thumbnail || p.image) ? "Source page preview" : bookVisual(b).coverKind || "Source preview";
     return image ? `<span class="reading-page-image ${record || v.photograph ? "is-photograph" : ""}"><img src="${esc(image)}" alt="${esc(record ? record.name : pageTitle(p))}" loading="lazy" width="360" height="460">${record || v.photograph ? "" : `<span>${esc(label)}</span>`}</span>` : `<span class="reading-page-image">Text passage</span>`;
   }
   async function getPages(book) {
@@ -96,7 +107,14 @@
     const image = p.image || (p.page === 1 && bookVisual(readerBook).coverKind !== "Source photograph" ? bookVisual(readerBook).cover : null);
     if (p.page === 1) $("sourceTitle").textContent = bookVisual(readerBook).title;
     $("sourcePageBody").innerHTML =
-      `${image ? `<a class="page-fullsize" href="${esc(image)}" target="_blank" rel="noopener">Open page image ↗</a><img class="source-facsimile" src="${esc(image)}" alt="Original source page ${p.page} of ${esc(readerBook.name)}">` : ""}<details ${image ? "" : "open"}><summary>${p.textMethod === "ocr-unverified" ? "Recognised text · OCR is unverified; check the page image" : "Searchable text · extraction may contain errors"}</summary><pre>${esc(p.text || "No extractable text on this page.")}</pre></details>`;
+      `${p.imageKind ? `<p>${esc(p.imageKind)}</p>` : ""}${image ? `<a class="page-fullsize" href="${esc(image)}" target="_blank" rel="noopener">Open page image ↗</a><img class="source-facsimile" src="${esc(image)}" alt="Original source page ${p.page} of ${esc(readerBook.name)}">` : ""}<details ${image ? "" : "open"}><summary>${p.textMethod === "ocr-unverified" ? "Recognised text · OCR is unverified; check the page image" : "Searchable text · extraction may contain errors"}</summary><pre>${esc(p.text || "No extractable text on this page.")}</pre></details>`;
+    if (document.body.dataset.page === "reading") {
+      const address = new URL(location.href);
+      address.searchParams.set("book", readerBook.id);
+      address.searchParams.set("page", p.page);
+      address.hash = "source-library";
+      history.replaceState(null, "", address);
+    }
     dialog.scrollTop = 0;
   }
   async function openPage(bookId, page = 1) {
@@ -104,6 +122,8 @@
     readerBook = bookMap.get(bookId);
     if (!readerBook) return;
     readerPages = [];
+    chapterDetails.hidden = true;
+    chapterDetails.open = false;
     $("sourcePrev").disabled = true;
     $("sourceNext").disabled = true;
     $("sourcePageNumber").disabled = true;
@@ -115,6 +135,9 @@
       const pages = await getPages(readerBook);
       if (request !== readerRequest) return;
       readerPages = pages;
+      const chapters = chapterIndex[readerBook.id]?.chapters || [];
+      chapterDetails.hidden = !chapters.length;
+      chapterDetails.querySelector("nav").innerHTML = chapters.map(c => `<button type="button" data-chapter-page="${c.page}">${esc(c.title)} · page ${c.page}</button>`).join("");
       $("sourcePageNumber").disabled = false;
       if (!pages.length) throw Error("No pages");
       showPage(page - 1);
@@ -284,7 +307,7 @@
         (b.name + " " + bookVisual(b).title + " " + bookVisual(b).author).toLowerCase().includes(q) &&
         (topic === "all" ||
           (topic === "indexed" && b.recipePages.length) ||
-          (typeof bookTopic === "function" && bookTopic(b.name) === topic)),
+          (typeof bookTopic === "function" && (b.file.startsWith("Recipe Glazes/") ? "practice" : bookTopic(b.name)) === topic)),
     );
     $("bookResultCount").textContent = list.length;
     $("shelves").innerHTML = list
