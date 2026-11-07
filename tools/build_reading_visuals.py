@@ -10,10 +10,10 @@ import pymupdf as fitz
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-LIB = Path('/Users/chloeclaes/Downloads/Eleonora Ceramics')
-OUT = ROOT / 'assets/library/visuals'
+from source_paths import LIB
+OUT = ROOT / 'assets/library/expanded/visuals'
 OUT.mkdir(exist_ok=True)
-books = json.loads((ROOT / 'assets/library/catalogue.json').read_text())
+books = json.loads((ROOT / 'assets/library/expanded/catalogue.json').read_text())
 result = {'books': {}, 'pages': {}}
 records = json.loads((ROOT / 'book-recipes.js').read_text().split('=', 1)[1].rstrip().rstrip(';'))
 # These files start with a title page, not an illustrated cover.

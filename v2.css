@@ -155,7 +155,7 @@ body[data-page] .site-footer { display:grid; grid-template-columns:2fr 1fr 1fr; 
  .amphora-card:not(:first-child) { display:grid; grid-template-columns:100px minmax(0,1fr); gap:12px; align-items:start; }
  body[data-page] .site-footer { grid-template-columns:1fr 1fr; padding:28px 20px; gap:24px; }
  .footer-dedication { grid-column:1/-1; }
- .room-frontispiece { margin-inline:20px!important; }
+ .room-frontispiece { margin-inline:20px!important; width:calc(100% - 40px); }
  .frontispiece-caption { padding-top:28px; }
 }
 /* Shared V2 tokens also neutralise the retained V1 component frame treatments. */

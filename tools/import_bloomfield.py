@@ -2,7 +2,8 @@ from pathlib import Path
 import pymupdf as fitz
 import re,json,hashlib
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=Path('/Users/chloeclaes/Downloads/Eleonora Ceramics/Colour in Glazes - Linda Bloomfield.pdf')
+from source_paths import LIB
+SOURCE=LIB/'Colour in Glazes - Linda Bloomfield.pdf'
 r=fitz.open(SOURCE)
 lines=[]
 for i,p in enumerate(r):

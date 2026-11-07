@@ -4,8 +4,8 @@ import pymupdf as fitz
 import json, re, hashlib, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 ROOT=Path(__file__).resolve().parents[1]
-LIB=Path('/Users/chloeclaes/Downloads/Eleonora Ceramics')
-OUT=ROOT/'assets/library'
+from source_paths import LIB
+OUT=ROOT/'assets/library/expanded'
 OUT.mkdir(parents=True,exist_ok=True)
 def slug(s):
  s=unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode()

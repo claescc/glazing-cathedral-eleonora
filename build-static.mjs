@@ -45,6 +45,7 @@ for (const file of [
   "glazy-imports.js",
   "book-recipes.js",
   "source-library.js",
+  "knowledge-library.js",
   "library.css",
   "reading-room.css",
 ]) {

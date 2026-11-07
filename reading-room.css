@@ -1,4 +1,10 @@
 /* Reading Room: original source imagery, M3 surfaces and adaptive cards. */
+.knowledge-paths { margin-block: 2rem; }
+.knowledge-paths summary { cursor: pointer; min-height: 44px; padding-block: .75rem; }
+.reading-source-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1.5rem; }
+.reading-source-links article { min-width: 0; padding-block: 1rem; border-top: 1px solid var(--outline); }
+.reading-source-links h4, .reading-source-links a { overflow-wrap: anywhere; }
+.reading-source-links blockquote { margin-inline: 0; font-size: .95rem; }
 body[data-page="reading"] .room-frontispiece { display: block; }
 body[data-page="reading"] #source-library { padding-top: 2rem; }
 body[data-page="reading"] #source-library > .head,

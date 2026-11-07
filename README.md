@@ -8,7 +8,7 @@ A colour-first ceramic library with structured recipes and searchable supplied s
 - 128 formula transcriptions from *Colour in Glazes*, with 23 matched specimen photographs. The merged Chrome-tin maroon formula on PDF p. 140 remains source-only.
 - All 25 numbered recipes in the *Ash Glazes* appendix, PDF pp. 183–185, visually checked.
 - Five base recipes / named variants from *Cone 5–6 Glazes*, PDF p. 12, visually checked.
-- 107 distinct readable sources; 18,733 pages with extractable text; 616 recipe-related candidate pages. These are page counts, not counts of verified recipes. Three PDF-named files contain HTML, with one exact duplicate among them.
+- 108 distinct readable sources; 19,955 source pages; 19,153 searchable text pages after OCR recovery. All 1,220 formerly textless pages have source images; 802 still have no recognised text. These are page counts, not counts of verified recipes. Three PDF-named files contain HTML, with one exact duplicate among them.
 
 ## Sources and generation
 
@@ -42,3 +42,9 @@ Validated unique recipe IDs, ingredient values, photograph paths and source-page
 ## Release target and preservation gate
 
 `release-target.json` fixes the production identity. `node tools/check-release-target.mjs` is imported by the build and refuses a wrong repository, branch, domain, legacy Sites identity, removed copy or changed/missing original assets. `docs/content-preservation-baseline.json` captures the existing production-source copy and original asset/data hashes. Preserve it during layout work; never refresh it simply to clear a failure. The separate ChatGPT-hosted copy is not an approved delivery target.
+
+## Source coverage recovery · 7 November 2026
+
+The current reader uses `assets/library/expanded/`. Original data and assets remain unchanged under the preservation baseline. `coverage.json` reconciles every supplied file by hash, every source page and every structured recipe, including candidate pages with no structured record. `knowledge-paths.json` routes all readable sources into subject rooms. These paths and page indexing do not establish complete chapter synthesis or individual visual verification of all formulas. Three unreadable PDF-named files still need valid replacements. Project handover and design documents remain project resources rather than ceramic teaching sources.
+
+Set `CERAMICS_SOURCE_ROOT` when the supplied library moves. The shared default is the current Ceramics Cathedral source folder. `tools/repair_source_coverage.py` uses pypdfium2 and Pillow plus `tools/recognize-source.swift` compiled to `/tmp/cathedral-recognize-source`; recognised text is always unverified and never promoted into calculator formulas. Run `tools/audit_source_coverage.py` after imports. Re-run the release guard, static build, site checks and V2 preservation checks before publication.

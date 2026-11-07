@@ -15,7 +15,7 @@
   const section = document.createElement("section");
   section.id = "source-library";
   section.className = "source-library light";
-  section.innerHTML = `<div class="head"><div><p class="eyebrow">The Reading Room</p><h1>Choose a book. Find your next glaze.</h1></div><p>Start with a cover, explore the recipes beside it, and open the original page for the formula, context and firing notes.</p></div><div class="source-stats" id="sourceStats" aria-live="polite">Loading the source catalogue…</div><div class="source-controls"><label class="search-field"><span class="material-symbols-rounded" aria-hidden="true">search</span><span class="sr-only">Search inside all books</span><input type="search" id="sourceSearch" placeholder="Try ash glaze, copper red, feldspar…" autocomplete="off"></label><details class="reading-filters atlas-advanced" id="readingFilters"><summary><span class="material-symbols-rounded" aria-hidden="true">tune</span>Filters <span id="readingFilterCount" class="filter-count" hidden></span><span class="material-symbols-rounded" aria-hidden="true">expand_more</span></summary><div class="reading-filter-options" id="readingFilterOptions"><label>Book or source<select id="sourceBook"><option value="">Every source</option></select></label><label>Show<select id="sourceScope"><option value="recipes">Recipes &amp; related reading</option><option value="all">All text pages</option></select></label></div></details></div><details class="source-note"><summary>About the page numbers and recipe selection</summary><p>“Page in file” is the position in the supplied PDF, counting its cover and front matter. It may differ from the printed book page. Related reading includes discussions and tables found through ingredient and formula terms; inclusion does not mean that a page contains a checked formula. Images are original covers, source pages or photographs identified in existing recipe records.</p></details><p id="sourceCount" class="result" role="status"></p><div id="sourceResults" class="source-results"></div><button id="sourceMore" type="button" hidden>Show more books</button>`;
+  section.innerHTML = `<div class="head"><div><p class="eyebrow">The Reading Room</p><h1>Explore the complete ceramic library.</h1></div><p>Read theory, studio practice and ceramic history alongside the recipes. Search every indexed text page, or choose a source to explore.</p></div><div class="source-stats" id="sourceStats" aria-live="polite">Loading the source catalogue…</div><div class="source-controls"><label class="search-field"><span class="material-symbols-rounded" aria-hidden="true">search</span><span class="sr-only">Search inside all books</span><input type="search" id="sourceSearch" placeholder="Try throwing, kiln, archaeology, copper red…" autocomplete="off"></label><details class="reading-filters atlas-advanced" id="readingFilters"><summary><span class="material-symbols-rounded" aria-hidden="true">tune</span>Filters <span id="readingFilterCount" class="filter-count" hidden></span><span class="material-symbols-rounded" aria-hidden="true">expand_more</span></summary><div class="reading-filter-options" id="readingFilterOptions"><label>Book or source<select id="sourceBook"><option value="">Every source</option></select></label><label>Show<select id="sourceScope"><option value="all">All subjects and text pages</option><option value="recipes">Recipe-related pages</option></select></label></div></details></div><details class="source-note"><summary>About the page numbers and recipe selection</summary><p>“Page in file” is the position in the supplied PDF, counting its cover and front matter. It may differ from the printed book page. Related reading includes discussions and tables found through ingredient and formula terms; inclusion does not mean that a page contains a checked formula. Images are original covers, source pages or photographs identified in existing recipe records.</p></details><p id="sourceCount" class="result" role="status"></p><div id="sourceResults" class="source-results"></div><button id="sourceMore" type="button" hidden>Show more books</button>`;
   document.getElementById("recipes").after(section);
   const dialog = document.createElement("dialog");
   dialog.id = "sourceReader";
@@ -65,7 +65,7 @@
   }
   async function getPages(book) {
     if (!pageCache.has(book.id)) {
-      const r = await fetch(`assets/library/${book.id}.json`);
+      const r = await fetch(`assets/library/expanded/${book.id}.json`);
       if (!r.ok) throw Error("Source pages unavailable");
       const pages = await r.json();
       Object.entries(visuals.pages).forEach(([key,v]) => {
@@ -96,7 +96,7 @@
     const image = p.image || (p.page === 1 && bookVisual(readerBook).coverKind !== "Source photograph" ? bookVisual(readerBook).cover : null);
     if (p.page === 1) $("sourceTitle").textContent = bookVisual(readerBook).title;
     $("sourcePageBody").innerHTML =
-      `${image ? `<a class="page-fullsize" href="${esc(image)}" target="_blank" rel="noopener">Open page image ↗</a><img class="source-facsimile" src="${esc(image)}" alt="Original source page ${p.page} of ${esc(readerBook.name)}">` : ""}<details ${image ? "" : "open"}><summary>Searchable text · extraction may contain errors</summary><pre>${esc(p.text || "No extractable text on this page.")}</pre></details>`;
+      `${image ? `<a class="page-fullsize" href="${esc(image)}" target="_blank" rel="noopener">Open page image ↗</a><img class="source-facsimile" src="${esc(image)}" alt="Original source page ${p.page} of ${esc(readerBook.name)}">` : ""}<details ${image ? "" : "open"}><summary>${p.textMethod === "ocr-unverified" ? "Recognised text · OCR is unverified; check the page image" : "Searchable text · extraction may contain errors"}</summary><pre>${esc(p.text || "No extractable text on this page.")}</pre></details>`;
     dialog.scrollTop = 0;
   }
   async function openPage(bookId, page = 1) {
@@ -148,7 +148,7 @@
   }
   function paintResults() {
     const q = $("sourceSearch").value;
-    const filters = Number(Boolean($("sourceBook").value)) + Number($("sourceScope").value !== "recipes");
+    const filters = Number(Boolean($("sourceBook").value)) + Number($("sourceScope").value !== "all");
     $("readingFilterCount").textContent = filters;
     $("readingFilterCount").hidden = !filters;
     const groups = new Map();
@@ -185,7 +185,7 @@
         scope,
         (async () => {
           const read = async (name) => {
-            const r = await fetch("assets/library/" + name);
+            const r = await fetch("assets/library/expanded/" + name);
             if (!r.ok) throw Error("Search unavailable");
             return r.json();
           };
@@ -268,7 +268,7 @@
   function selectBook(id) {
     $("sourceBook").value = id;
     $("sourceSearch").value = "";
-    $("sourceScope").value = bookMap.get(id)?.recipePages.length ? "recipes" : "all";
+    $("sourceScope").value = "all";
     search();
     section.scrollIntoView({ behavior: "smooth" });
     $("sourceSearch").focus({ preventScroll: true });
@@ -328,7 +328,7 @@
     button.onclick = () => openPage(id, x.page);
     modal.append(button);
   }).observe(modal, { childList: true });
-  Promise.all(["assets/library/catalogue.json", "assets/library/visuals/index.json"].map(async url => {
+  Promise.all(["assets/library/expanded/catalogue.json", "assets/library/expanded/visuals/index.json"].map(async url => {
     const r = await fetch(url);
     if (!r.ok) throw Error("Source catalogue unavailable");
     return r.json();
@@ -365,6 +365,10 @@
         "With recipe pages";
       renderShelves();
       search();
+      const requested = new URLSearchParams(location.search);
+      if (requested.has("book") && bookMap.has(requested.get("book"))) {
+        openPage(requested.get("book"), Number(requested.get("page")) || 1);
+      }
     })
     .catch(() => {
       $("sourceStats").textContent =
