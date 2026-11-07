@@ -99,7 +99,9 @@
     const p = readerPages[readerIndex];
     $("sourceCitation").textContent =
       `${bookVisual(readerBook).title}${bookVisual(readerBook).author ? " · " + bookVisual(readerBook).author : ""} · page ${p.page} of ${readerBook.pages} in the supplied file`;
-    $("sourceTitle").textContent = pageTitle({ ...p, book: readerBook.id });
+    const sourcePage = { ...p, book: readerBook.id };
+    const chapter = chapterIndex[readerBook.id]?.chapters.find(c => c.page === p.page);
+    $("sourceTitle").textContent = ashPage(sourcePage)?.title || pageVisual(sourcePage).title || chapter?.title || `Page ${p.page}`;
     $("sourcePageNumber").value = p.page;
     $("sourcePageNumber").max = readerBook.pages;
     $("sourcePrev").disabled = readerIndex === 0;
