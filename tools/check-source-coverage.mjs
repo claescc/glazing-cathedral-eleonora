@@ -9,6 +9,10 @@ const paths=read('knowledge-paths.json');
 const integrated=new Set(Object.values(paths.rooms).flat().map(b=>b.id));
 const chapters=read('chapters.json');
 let pages=0, bookmarks=0;
+for(const entries of Object.values(paths.rooms)) for(const source of entries){
+ assert.ok(books.some(b=>b.id===source.id),`${source.id}: missing source`);
+ if(source.entryPage)assert.ok(source.entryPage>=1&&source.entryPage<=source.pages,`${source.id}: reading path outside source`);
+}
 for(const book of books){
  if(book.status==='unreadable'||book.duplicateOf)continue;
  assert.ok(integrated.has(book.id),`${book.id}: no subject room`);

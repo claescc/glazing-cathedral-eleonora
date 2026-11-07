@@ -93,6 +93,28 @@ for b in books:
         record['passage']=dict(page=page_no,text=text[:300].rsplit(' ',1)[0]+'…')
     rooms[room].append(record)
 
+# Cross-link a source from the rooms named in its own chapter headings.
+# These are navigation relationships, not newly inferred technical claims.
+chapter_data = json.loads((OUT/'chapters.json').read_text()) if (OUT/'chapters.json').exists() else {}
+room_terms = {
+ 'path': r'throwing|hand.?building|coiling|pinching|forming|decoration|sgraffito|applying glazes|mixing glazes|test tiles',
+ 'kiln': r'firing|kilns?|atmosphere|heatwork|reduction|oxidation|cooling',
+ 'materials': r'chemistry|materials|minerals|oxides|silica|alumina|feldspars|phase equilibria',
+ 'restoration': r'repair|kintsugi|glaze faults|crazing|shivering|pinholes|blisters|crawling|dunting',
+ 'masters': r'history|historical|tradition|archaeolog|prehistoric|neolithic|dynasty|medieval',
+ 'recipes': r'glaze recipes|glaze formulas|glaze formula|base glazes'
+}
+all_sources = {b['id']:b for rows in rooms.values() for b in rows}
+for source_id, record in all_sources.items():
+    headings=chapter_data.get(source_id,{}).get('chapters',[])
+    for room, pattern in room_terms.items():
+        if any(b['id']==source_id for b in rooms[room]):continue
+        chapter=next((c for c in headings if re.search(pattern,c['title'],re.I)),None)
+        if chapter:
+            linked={k:v for k,v in record.items() if k!='passage'}
+            linked.update(entryPage=chapter['page'],entryChapter=chapter['title'])
+            rooms[room].append(linked)
+
 corpus=[p for part in json.loads((OUT/'search-parts.json').read_text()) for p in json.loads((OUT/part).read_text())]
 keys=collections.Counter((p['book'],p['page']) for p in corpus)
 failures=[f'Uncatalogued source: {f["file"]}' for f in files if f["status"]=="uncatalogued-source"]

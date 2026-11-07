@@ -9,7 +9,7 @@
     masters: ['Ceramic history and traditions', 'Explore the regional histories, archaeological studies and collection references.'],
     recipes: ['Glaze recipes and their context', 'Read the complete source context alongside the structured formulas.']
   };
-  fetch('assets/library/expanded/knowledge-paths.json').then(r => {
+  fetch('assets/library/expanded/knowledge-paths.json?v=20261108-linked-chapters').then(r => {
     if (!r.ok) throw Error('Source reading paths unavailable');
     return r.json();
   }).then(data => {
@@ -18,7 +18,7 @@
       if (!host) continue;
       const section = document.createElement('div');
       section.className = 'knowledge-paths';
-      section.innerHTML = `<h3>${title}</h3><p>${description}</p><details><summary>Explore ${data.rooms[room].length} supplied sources</summary><div class="reading-source-links">${data.rooms[room].map(b => `<article><h4>${esc(b.title)}</h4><p>${esc(b.author)}${b.author ? ' · ' : ''}${b.pages} pages in file</p>${b.passage ? `<blockquote>${esc(b.passage.text)}</blockquote><p>Source passage · page ${b.passage.page} in file</p>` : ''}<a href="reading.html?book=${encodeURIComponent(b.id)}&page=${b.passage?.page || 1}#source-library">Read the source${b.passage ? ' passage' : ''} →</a></article>`).join('')}</div></details>`;
+      section.innerHTML = `<h3>${title}</h3><p>${description}</p><details><summary>Explore ${data.rooms[room].length} supplied sources</summary><div class="reading-source-links">${data.rooms[room].map(b => `<article><h4>${esc(b.title)}</h4><p>${esc(b.author)}${b.author ? ' · ' : ''}${b.pages} pages in file</p>${b.entryChapter ? `<p>Chapter: ${esc(b.entryChapter)} · page ${b.entryPage} in file</p>` : ""}${b.passage ? `<blockquote>${esc(b.passage.text)}</blockquote><p>Source passage · page ${b.passage.page} in file</p>` : ''}<a href="reading.html?book=${encodeURIComponent(b.id)}&page=${b.entryPage || b.passage?.page || 1}#source-library">Read ${b.entryChapter ? "the chapter" : "the source"}${b.passage ? ' passage' : ''} →</a></article>`).join('')}</div></details>`;
       host.append(section);
     }
     const reading = document.getElementById('reading');
