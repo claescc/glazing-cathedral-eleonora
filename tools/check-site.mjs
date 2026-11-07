@@ -3,7 +3,7 @@ import { resolve, extname } from "node:path";
 import { execFileSync } from "node:child_process";
 
 const root = resolve(import.meta.dirname, "..");
-const files = execFileSync("git", ["ls-files"], { cwd: root, encoding: "utf8" })
+const files = execFileSync("git", ["ls-files"], { cwd: root, encoding: "utf8", maxBuffer: 16 * 1024 * 1024 })
   .trim()
   .split("\n");
 const failures = [];
