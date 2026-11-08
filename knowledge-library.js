@@ -24,7 +24,7 @@
     const reading = document.getElementById('reading');
     const note = document.createElement('details');
     note.className = 'source-note';
-    note.innerHTML = `<summary>Source coverage and outstanding work</summary><p>Text recognition is a finding aid, not a checked formula. Image-only pages retain their source images. Catalogued, searchable, transcribed and visually checked are separate states.</p><p><a href="assets/library/expanded/coverage.json">Open the dated source and recipe coverage ledger</a></p>`;
+    note.innerHTML = `<summary>Source coverage and outstanding work</summary><p>Text recognition is a finding aid, not a checked formula. Image-only pages retain their source images. Catalogued, searchable, transcribed and visually checked are separate states.</p><p><a href="assets/library/expanded/coverage.json">Open the dated source and recipe coverage ledger</a> · <a href="assets/library/expanded/recipe-review.json">Formula review and unresolved source issues</a></p>`;
     reading?.append(note);
   }).catch(() => {
     // Keep a usable source destination even if the optional reading paths fail.

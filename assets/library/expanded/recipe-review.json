@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-08",
+  "scope": "Visual transcription review against supplied page images; not independent fired-performance testing",
+  "newRecords": 161,
+  "existingRecordsVisuallyChecked": 23,
+  "sourceOnly": [
+    {
+      "sourceId": "colour-in-glazes-linda-bloomfield-9fc921ae",
+      "page": 140,
+      "heading": "Chrome-tin maroon",
+      "state": "withheld-ambiguous-print",
+      "reason": "Two printed ingredient names and two amounts share one line; exact pairings cannot be verified from supplied copy."
+    },
+    {
+      "sourceId": "cone-5-6-glazes-bill-jones-9f7e547a",
+      "page": 135,
+      "heading": "Alligator Green",
+      "state": "withheld-source-anomaly",
+      "reason": "Source prints Zircopax addition 86.9%; no correction inferred. Read original before any use."
+    }
+  ],
+  "findingAidReview": {
+    "cone-5-6-glazes-bill-jones-9f7e547a": {
+      "sourceOnlyPages": {
+        "19": "Granny’s Shorts is a rescaling of PV base; no additional formula counted.",
+        "32": "Flux theory chart.",
+        "34": "Lithium substitution examples explicitly presented as experiments, not studio recipes.",
+        "38": "Boron theory.",
+        "39": "Boron theory.",
+        "50": "Stain theory.",
+        "53": "Stain wash methods with unspecified stains; not a complete named glaze.",
+        "63": "Narrative shino guidance; no closed named batch.",
+        "100": "Turner’s White experiments and photographic comparison.",
+        "101": "Experimental discussion; no closed formula table.",
+        "146": "Suppliers and material notes, not glaze batches."
+      },
+      "aliases": {
+        "135": "Ketchup Red repeats Jayne Shatz Ketchup Red p44.",
+        "144": "SDSU Texture/Crawl repeats SDSU Crawl/Beads p90; specific clay naming is visible on source."
+      }
+    }
+  },
+  "remaining": "Other existing records and all formula candidates across the entire library have not received a complete visual transcription review. Candidate pages are not a count of missing recipes."
+}

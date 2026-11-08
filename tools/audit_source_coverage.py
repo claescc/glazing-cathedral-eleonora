@@ -11,9 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/library/expanded'
 books = json.loads((OUT / 'catalogue.json').read_text())
 visuals = json.loads((OUT / 'visuals/index.json').read_text())['books']
-js = """const fs=require('fs'),vm=require('vm');const c={window:{}};vm.createContext(c);for(const f of ['library-data.js','book-recipes.js','glazy-data.js','glazy-imports.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);process.stdout.write(JSON.stringify(['RECIPES','BOOK_RECIPES','GLAZY_RECIPES','GLAZY_IMPORTED_RECIPES'].flatMap(k=>c.window[k]||[])));"""
+js = """const fs=require('fs'),vm=require('vm');const c={window:{}};vm.createContext(c);for(const f of ['library-data.js','book-recipes.js','glazy-data.js','glazy-imports.js','additional-recipes.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);process.stdout.write(JSON.stringify(['RECIPES','BOOK_RECIPES','GLAZY_RECIPES','GLAZY_IMPORTED_RECIPES'].flatMap(k=>c.window[k]||[])));"""
 recipes = json.loads(subprocess.check_output(['node','-e',js],cwd=ROOT))
 by_hash = {b['sha256']: b for b in books}
+by_path = {b['file']: b for b in books}
 files = []
 for p in sorted(LIB.rglob('*')):
     if not p.is_file() or p.name == '.DS_Store':
@@ -25,7 +26,7 @@ for p in sorted(LIB.rglob('*')):
         digest = None
         read_error = type(error).__name__
     relative = str(p.relative_to(LIB))
-    b = by_hash.get(digest)
+    b = by_path.get(relative) or by_hash.get(digest)
     if b:
         role = 'ceramic-source'
         state = 'unreadable-source' if b['status']=='unreadable' else 'catalogued-source'
@@ -142,6 +143,7 @@ coverage=dict(audited='2026-11-08',scope='Supplied local library against the web
     pagesWithoutText=sum(len(b.get('pagesWithoutText',[])) for b in unique),
     failures=failures),sources=reports,files=files,
     unresolved=[{'type':'unreadable-source','file':b['file'],'reason':b.get('error')} for b in books if b['status']=='unreadable'],
+    photographicIntegration=dict(objects=71,originalViews=114,studioViews=13,manifest='assets/family-archive/catalogue.json',evidence='127 staged photographic originals match captured SHA256 values; current access errors remain listed separately'),
     remainingEditorialWork='Complete formula-by-formula visual verification and chapter-by-chapter teaching synthesis are not established by indexing or room links.')
 (OUT/'coverage.json').write_text(json.dumps(coverage,ensure_ascii=False,indent=2))
 (OUT/'knowledge-paths.json').write_text(json.dumps(dict(date='2026-11-08',rooms=rooms),ensure_ascii=False))

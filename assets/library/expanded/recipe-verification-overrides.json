@@ -1,0 +1,232 @@
+{
+  "fs-spearmint": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        16
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-metallic-teal": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        47
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-emily-s-purple": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        48
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-reostat-red": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        116
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-gold-metallic": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        117
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-intense-blue": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        118
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-lichen-crawl": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        119
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-marinaflake-3": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        120
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-gloss-oil-spot": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        121
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-barium-matte": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        122
+      ]
+    },
+    "status": "Source reports failed leaching tests · visually checked transcription"
+  },
+  "fs-ty-s-ez-satin-clear": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        158
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-old-forge-first-five-floating-rutile": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        159
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-bleu-de-rutile": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        160
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-apricot": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        161
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-smooth-matte-white": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        162
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-cmw-whiteout": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        163
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-heath-ivory": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        164
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-linette-s-opal": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        278
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-sunshine-yellow": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        280
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-tickled-pink": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        281
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-ol-blue": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        282
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-fat-cat-red": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        283
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  },
+  "fs-jade-green": {
+    "verification": {
+      "method": "Ingredient names and amounts visually checked against rendered source page; independently compared with extracted table",
+      "date": "2026-11-08",
+      "sourcePages": [
+        284
+      ]
+    },
+    "status": "Visually checked source transcription · published laboratory record; performance not independently tested"
+  }
+}

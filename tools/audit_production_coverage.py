@@ -26,6 +26,18 @@ try:
     paths.append(base+'chapters.json')
 except subprocess.CalledProcessError:
     pass
+for optional in ['additional-recipes.js','archive-gallery.js','tribute.html','notebook.html','app.js',base+'additional-recipes.json',base+'recipe-verification-overrides.json',base+'recipe-review.json','assets/family-archive/catalogue.json']:
+    try:
+        blob(optional)
+        paths.append(optional)
+    except subprocess.CalledProcessError:
+        pass
+try:
+    gallery=json.loads(blob('assets/family-archive/catalogue.json'))
+    paths += [p['image'] for o in gallery['objects'] for p in o['photographs']]
+    paths += [p['image'] for p in gallery['studio']]
+except subprocess.CalledProcessError:
+    pass
 paths += [base+p for p in parts]
 paths += [base+b['id']+'.json' for b in books if b['status']!='unreadable' and not b.get('duplicateOf')]
 def check(path):

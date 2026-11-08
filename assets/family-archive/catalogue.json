@@ -1,0 +1,1732 @@
+{
+  "objects": [
+    {
+      "id": "JLR-001",
+      "description": "Portrait bust of a child with dark green surface",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-001-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-001 Portrait bust of a child with dark green surface/Originals/JLR-001_portrait-bust-of-a-child-with-dark-green-surface_view-01.jpeg",
+          "originalSha256": "863757af2fca08890c5d4f6d38dd34ed5498b86903718cc3af71bd8a6fd6607d",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-002",
+      "description": "Portrait bust of a man in a jacket",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-002-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-002 Portrait bust of a man in a jacket/Originals/JLR-002_portrait-bust-of-a-man-in-a-jacket_view-01.jpeg",
+          "originalSha256": "611d0729bbfffecf48688677d8d564981d47b617c58e157d373bc233bab67818",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-002-02.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-002 Portrait bust of a man in a jacket/Originals/JLR-002_portrait-bust-of-a-man-in-a-jacket_view-02.jpeg",
+          "originalSha256": "ec0a19fe8ff340be184f96670d93ca8b0fad23a319803a0c767cf4494316d1a9",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-002-03.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-002 Portrait bust of a man in a jacket/Originals/JLR-002_portrait-bust-of-a-man-in-a-jacket_view-03.jpeg",
+          "originalSha256": "d31c10a10839dcf1312df4dbb3644f0ee7c63d35737ad613cedcbe7009eae817",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-003",
+      "description": "Portrait relief on a circular plaque",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-003-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-003 Portrait relief on a circular plaque/Originals/JLR-003_portrait-relief-on-a-circular-plaque_view-01.jpeg",
+          "originalSha256": "e79f5d47e640338a298e3e8a4d1b4b22df834a3b33c0acaeda84c9ba3c4347c3",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-004",
+      "description": "Portrait bust of a child with swept hair",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-004-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-004 Portrait bust of a child with swept hair/Originals/JLR-004_portrait-bust-of-a-child-with-swept-hair_view-01.jpeg",
+          "originalSha256": "51087dd77541fd8841f14277c07f9dc967bc5b2032d6e7da8ffb33a8fce0722a",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-005",
+      "description": "Portrait bust of a child with curled hair",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-005-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-005 Portrait bust of a child with curled hair/Originals/JLR-005_portrait-bust-of-a-child-with-curled-hair_view-01.jpeg",
+          "originalSha256": "02db0424a88f0e20c7cc55be07e84a424ce60e707e8b3e5b26067fc4e9532eb1",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-005-02.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-005 Portrait bust of a child with curled hair/Originals/JLR-005_portrait-bust-of-a-child-with-curled-hair_view-02.jpeg",
+          "originalSha256": "06454a4f6e236d74be8be36ad72b0b509958c3398dab525fb7798af77f79b421",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-006",
+      "description": "Portrait bust with neck scarf",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-006-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-006 Portrait bust with neck scarf/Originals/JLR-006_portrait-bust-with-neck-scarf_view-01.jpeg",
+          "originalSha256": "225769531679cb38d8c79ca5cb89ed55e3779683e7c77934d4046bc7f5122177",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-007",
+      "description": "Portrait bust of a man displayed in a garden",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-007-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-007 Portrait bust of a man displayed in a garden/Originals/JLR-007_portrait-bust-of-a-man-displayed-in-a-garden_view-01.jpeg",
+          "originalSha256": "9900c0492557d0cfd5c5441aec7b0ba3c1206bc5e4700353fb8f96a70dfc3e54",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-007-02.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-007 Portrait bust of a man displayed in a garden/Originals/JLR-007_portrait-bust-of-a-man-displayed-in-a-garden_view-02.jpeg",
+          "originalSha256": "5c1a860bdf48659848072cae3e136b60b2db1b5164892bfd6690c1b25c6b56ec",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-007-03.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-007 Portrait bust of a man displayed in a garden/Originals/JLR-007_portrait-bust-of-a-man-displayed-in-a-garden_view-03.jpeg",
+          "originalSha256": "f1f5341d8e5db329a2924c65937ab66578bcf69319c3769e3ae8ebe71864ef1b",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-008",
+      "description": "Portrait bust of a child with straight hair",
+      "category": "02 Sculpture/Heads and busts",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-008-01.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-008 Portrait bust of a child with straight hair/Originals/JLR-008_portrait-bust-of-a-child-with-straight-hair_view-01.jpeg",
+          "originalSha256": "c27ea3645aaf6a64495f037c7b0c8c302c36e47688279aa219d23eafaf8022ea",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-008-02.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-008 Portrait bust of a child with straight hair/Originals/JLR-008_portrait-bust-of-a-child-with-straight-hair_view-02.jpeg",
+          "originalSha256": "c32a1604bccd6bdb11dafd18e30b109c509569192f864d79bc744e3e35f36d76",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-008-03.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-008 Portrait bust of a child with straight hair/Originals/JLR-008_portrait-bust-of-a-child-with-straight-hair_view-03.jpeg",
+          "originalSha256": "5360610e3248e2f1b547b781fc246a50e01e77f656483089f3e14b206a0eeeea",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-008-04.avif",
+          "sourceFile": "02 Sculpture/Heads and busts/JLR-008 Portrait bust of a child with straight hair/Originals/JLR-008_portrait-bust-of-a-child-with-straight-hair_view-04.jpeg",
+          "originalSha256": "55ddb89ef0a5b88a6a905dd1d34c49143f130faefe04bfcb5d5aa5aa7c315d67",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-009",
+      "description": "Amphora with mottled green glaze",
+      "category": "03 Vessels/Amphorae",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "User-confirmed object type",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-009-01.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-009 Amphora with mottled green glaze/Originals/JLR-009_amphora-with-mottled-green-glaze_view-01.jpeg",
+          "originalSha256": "08230a4584e7fd793042919b3492e1dba5c29e8273cf61b51a1eb88354798f6c",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-009-02.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-009 Amphora with mottled green glaze/Originals/JLR-009_amphora-with-mottled-green-glaze_view-02.jpeg",
+          "originalSha256": "b9bcd2fcc52964a2c9db5fc2ce20c520e4151d35800b1316976405d175eecf77",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-010",
+      "description": "Amphora with curled handles",
+      "category": "03 Vessels/Amphorae",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Original supplied Amphora filename and visual review",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-010-01.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-010 Amphora with curled handles/Originals/JLR-010_amphora-with-curled-handles_view-01.jpeg",
+          "originalSha256": "7f044c2a229fa97082baedbe549656a3cbe00bf6abf1e3b4053f4170e995e078",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-010-02.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-010 Amphora with curled handles/Originals/JLR-010_amphora-with-curled-handles_view-02.jpeg",
+          "originalSha256": "16d23b5d370264143c1e54946bfb9496d970692d41282248f1c53fb33cb6ab20",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-011",
+      "description": "Amphora with red neck and pale green glaze",
+      "category": "03 Vessels/Amphorae",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Original supplied Amphora filename and visual review",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-011-01.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-011 Amphora with red neck and pale green glaze/Originals/JLR-011_amphora-with-red-neck-and-pale-green-glaze_view-01.jpeg",
+          "originalSha256": "96c1b84dd6498391afb64721de59a875e85a0caa9a3a7067f5f77266a3d5707f",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-012",
+      "description": "Amphora with rounded body and brown glaze",
+      "category": "03 Vessels/Amphorae",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-012-01.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-012 Amphora with rounded body and brown glaze/Originals/JLR-012_amphora-with-rounded-body-and-brown-glaze_view-01.jpeg",
+          "originalSha256": "3bc1b91bb2f3121e0b4e3ea816fb4d857ea02c0b86cf3aa549a8d15960036ee6",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-013",
+      "description": "Ewer with twisted handle and red glaze",
+      "category": "03 Vessels/Jugs and handled vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-013-01.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-013 Ewer with twisted handle and red glaze/Originals/JLR-013_ewer-with-twisted-handle-and-red-glaze_view-01.jpeg",
+          "originalSha256": "095b551f051f8a6ecf786590c4828a1766d7b614f7363c2df265ed1278d1f47e",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-013-02.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-013 Ewer with twisted handle and red glaze/Originals/JLR-013_ewer-with-twisted-handle-and-red-glaze_view-02.jpeg",
+          "originalSha256": "3c32a0cc06d3a1779c9f895b6a5be231895cf143d24074ab28d85e1846a27b43",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-014",
+      "description": "Amphora with angular handles and green glaze",
+      "category": "03 Vessels/Amphorae",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-014-01.avif",
+          "sourceFile": "03 Vessels/Amphorae/JLR-014 Amphora with angular handles and green glaze/Originals/JLR-014_amphora-with-angular-handles-and-green-glaze_view-01.jpeg",
+          "originalSha256": "4228613c2bf893390edf413f7f4aa3c8558c4ce8e1db7c1f44a6bc12f0f54feb",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-015",
+      "description": "Jug with angular body and green glaze",
+      "category": "03 Vessels/Jugs and handled vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-015-01.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-015 Jug with angular body and green glaze/Originals/JLR-015_jug-with-angular-body-and-green-glaze_view-01.jpeg",
+          "originalSha256": "f013021552be36d4b262e2ecbe0b6df478a83c7bdd9120a6a191cb42a640df6f",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-015-02.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-015 Jug with angular body and green glaze/Originals/JLR-015_jug-with-angular-body-and-green-glaze_view-02.jpeg",
+          "originalSha256": "6609c60fe9623c14ac784eb20b81ce8a05aa1730a3de4efb1bd77cda3000bc26",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-016",
+      "description": "Flask with flattened body and side lugs",
+      "category": "03 Vessels/Jugs and handled vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-016-01.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-016 Flask with flattened body and side lugs/Originals/JLR-016_flask-with-flattened-body-and-side-lugs_view-01.jpeg",
+          "originalSha256": "6f62317c32ca58d13c0d1a56a7af614f3301f30f2205f169f379617b88911b0c",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-017",
+      "description": "Jug with rounded body and mottled brown glaze",
+      "category": "03 Vessels/Jugs and handled vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-017-01.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-017 Jug with rounded body and mottled brown glaze/Originals/JLR-017_jug-with-rounded-body-and-mottled-brown-glaze_view-01.jpeg",
+          "originalSha256": "4cd2b6b5b153612a8046f69fee0c2d6cd97783f811edaa50434c91423f2b92a4",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-017-02.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-017 Jug with rounded body and mottled brown glaze/Originals/JLR-017_jug-with-rounded-body-and-mottled-brown-glaze_view-02.jpeg",
+          "originalSha256": "5cfd73b5a2b15bab5507d327149cc40c5e3cfd0bc1370f044d376864546e0919",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-017-03.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-017 Jug with rounded body and mottled brown glaze/Originals/JLR-017_jug-with-rounded-body-and-mottled-brown-glaze_view-03.jpeg",
+          "originalSha256": "00433d2b7056c1d04125cefd2fb2d8caf21b9a66d830bdebc712bd3a658cae68",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-018",
+      "description": "Two-handled vase with pale glaze",
+      "category": "03 Vessels/Jugs and handled vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-018-01.avif",
+          "sourceFile": "03 Vessels/Jugs and handled vessels/JLR-018 Two-handled vase with pale glaze/Originals/JLR-018_two-handled-vase-with-pale-glaze_view-01.jpeg",
+          "originalSha256": "fea4d3e3410c877aae6e68eaa7183851824a4f9c3cdfb3e7e14aaf95780a93b6",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-019",
+      "description": "Figurine of a man in a dark hat",
+      "category": "02 Sculpture/Human figures",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-019-01.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-019 Figurine of a man in a dark hat/Originals/JLR-019_figurine-of-a-man-in-a-dark-hat_view-01.jpeg",
+          "originalSha256": "8f71fb2a4977d42b910dace3b40d4b7330ef33fd5d497eaee6bb64c31663e64b",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-020",
+      "description": "Figurine of a man with hands on hips",
+      "category": "02 Sculpture/Human figures",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-020-01.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-020 Figurine of a man with hands on hips/Originals/JLR-020_figurine-of-a-man-with-hands-on-hips_view-01.jpeg",
+          "originalSha256": "3fbef478ffee4a2bbd58296e5db1023d63e29b6333e7fd3f9dcbc3195352add0",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-021",
+      "description": "Figurine of a woman with dark skirt and red collar",
+      "category": "02 Sculpture/Human figures",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-021-01.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-021 Figurine of a woman with dark skirt and red collar/Originals/JLR-021_figurine-of-a-woman-with-dark-skirt-and-red-collar_view-01.jpeg",
+          "originalSha256": "6ce3d311a660e958f131cbd68559e0e77725869eb3ab9fb6df2fe7589213cb2b",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-022",
+      "description": "Figurine of a woman with tall headdress",
+      "category": "02 Sculpture/Human figures",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-022-01.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-022 Figurine of a woman with tall headdress/Originals/JLR-022_figurine-of-a-woman-with-tall-headdress_view-01.jpeg",
+          "originalSha256": "bc64da339f78751438e25f27505143fc16e4fb13979fda98cc9787b7ff59be1a",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-022-02.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-022 Figurine of a woman with tall headdress/Originals/JLR-022_figurine-of-a-woman-with-tall-headdress_view-02.jpeg",
+          "originalSha256": "d80c72cba9a609930abcae5c6469413147d9bbd134f2bcd1473c734556c29b1b",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-023",
+      "description": "Statuette of a seated figure",
+      "category": "02 Sculpture/Human figures",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-023-01.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-023 Statuette of a seated figure/Originals/JLR-023_statuette-of-a-seated-figure_view-01.jpeg",
+          "originalSha256": "05601b80f8e17fffabf3ac732ce6b138cfeedd6a2876703a11bef2e1a29ee2f2",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-023-02.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-023 Statuette of a seated figure/Originals/JLR-023_statuette-of-a-seated-figure_view-02.jpeg",
+          "originalSha256": "7522f71803275b3fb2655b98f1f8cbd9bade016a4949b546e9c5d6a6033c53e5",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-024",
+      "description": "Figurine holding a child",
+      "category": "02 Sculpture/Human figures",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-024-01.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-024 Figurine holding a child/Originals/JLR-024_figurine-holding-a-child_view-01.jpeg",
+          "originalSha256": "7edd9a2459c94c4b0887472e0a3d1fe7f033ed4525e039eaf6362e6a4c790ec2",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-024-02.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-024 Figurine holding a child/Originals/JLR-024_figurine-holding-a-child_view-02.jpeg",
+          "originalSha256": "90f3a45bf27e95be0a8587e1df3678ce818e5bede8452b2b670290c629356975",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-024-03.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-024 Figurine holding a child/Originals/JLR-024_figurine-holding-a-child_view-03.jpeg",
+          "originalSha256": "515cf856c0d44d4291115e484e0388f10ad1ba2d14ee6d9f93b3142f16d41266",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-024-04.avif",
+          "sourceFile": "02 Sculpture/Human figures/JLR-024 Figurine holding a child/Originals/JLR-024_figurine-holding-a-child_view-04.jpeg",
+          "originalSha256": "9ed14e0ea82fa749bc1c48624d03417637b90a2875184632d2d876550dbfcba2",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-025",
+      "description": "Statuette of a horse",
+      "category": "02 Sculpture/Animals",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-025-01.avif",
+          "sourceFile": "02 Sculpture/Animals/JLR-025 Statuette of a horse/Originals/JLR-025_statuette-of-a-horse_view-01.jpeg",
+          "originalSha256": "06dedae3f9bded0802f9d35cfc8f889c386f2b14b97845b7a1e907ec69114d78",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-025-02.avif",
+          "sourceFile": "02 Sculpture/Animals/JLR-025 Statuette of a horse/Originals/JLR-025_statuette-of-a-horse_view-02.jpeg",
+          "originalSha256": "8bbcd361ba145d26044b1ac56b0e0a56f72b8d215bcc9ea63be5c8a79796c1e9",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-026",
+      "description": "Statuette of a cat",
+      "category": "02 Sculpture/Animals",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-026-01.avif",
+          "sourceFile": "02 Sculpture/Animals/JLR-026 Statuette of a cat/Originals/JLR-026_statuette-of-a-cat_view-01.jpeg",
+          "originalSha256": "695b8357c08c3fc9327fb6fec0374e9e127f3266f41ba6e800501fda4b40880e",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-027",
+      "description": "Statuette of a reclining animal",
+      "category": "02 Sculpture/Animals",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-027-01.avif",
+          "sourceFile": "02 Sculpture/Animals/JLR-027 Statuette of a reclining animal/Originals/JLR-027_statuette-of-a-reclining-animal_view-01.jpeg",
+          "originalSha256": "a5df970d66bdf238d69d2bcc4a36f1586b6d6bd46fec7d9e01bc43854fd5af4c",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-028",
+      "description": "Statuette of a bird",
+      "category": "02 Sculpture/Animals",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-028-01.avif",
+          "sourceFile": "02 Sculpture/Animals/JLR-028 Statuette of a bird/Originals/JLR-028_statuette-of-a-bird_view-01.jpeg",
+          "originalSha256": "a13783661f1ec85970403823a68fda669566e17f46ae8789778b49d9927ea415",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-028-02.avif",
+          "sourceFile": "02 Sculpture/Animals/JLR-028 Statuette of a bird/Originals/JLR-028_statuette-of-a-bird_view-02.jpeg",
+          "originalSha256": "9f748ea93d680255fbbdd80e424203a39795c0a18e0c1403fa0652ffe6ab0131",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-029",
+      "description": "Plate with red and blue centre",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-029-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-029 Plate with red and blue centre/Originals/JLR-029_plate-with-red-and-blue-centre_view-01.jpeg",
+          "originalSha256": "7fb79ea3ca6eebd9272bb1fc732fd8935d000fc55711d1498c4181a3232bdfbc",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-029-02.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-029 Plate with red and blue centre/Originals/JLR-029_plate-with-red-and-blue-centre_view-02.jpeg",
+          "originalSha256": "31dbfb5f91c4138fe0371f5b8a6a15b5645cd64a2856b7091f8685b0cd4da1de",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-030",
+      "description": "Plate with dark blue glaze",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-030-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-030 Plate with dark blue glaze/Originals/JLR-030_plate-with-dark-blue-glaze_view-01.jpeg",
+          "originalSha256": "51e3af9ccf5306a53914df3dc9b4911ed67daaeb98f23862edeb8e649ed238ad",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-031",
+      "description": "Plate with mottled green glaze",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-031-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-031 Plate with mottled green glaze/Originals/JLR-031_plate-with-mottled-green-glaze_view-01.jpeg",
+          "originalSha256": "07adb6eb5996ab77f3227e19c6a130c74172e00feb45ff3039e3e056ac0568e9",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-032",
+      "description": "Plate with turquoise glaze and red rim",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-032-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-032 Plate with turquoise glaze and red rim/Originals/JLR-032_plate-with-turquoise-glaze-and-red-rim_view-01.jpeg",
+          "originalSha256": "6c69546da40ac9f86bf4d6896f0866c844fa057c5e9f8aa3b7c07afba2a8b441",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-033",
+      "description": "Plate with blue glaze and narrow red rim",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-033-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-033 Plate with blue glaze and narrow red rim/Originals/JLR-033_plate-with-blue-glaze-and-narrow-red-rim_view-01.jpeg",
+          "originalSha256": "d97a222efe656fb79a54ab763ad0b4a873cf719d48499e9f4cb0a00fd2f2eec0",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-034",
+      "description": "Plate with red glaze and dark centre",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-034-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-034 Plate with red glaze and dark centre/Originals/JLR-034_plate-with-red-glaze-and-dark-centre_view-01.jpeg",
+          "originalSha256": "a2e9db58e241ff6e962a7c3112fdb1f54aa7fa30b8664a5af81f37188c84d43a",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-035",
+      "description": "Plate with pale glaze and blue mottling",
+      "category": "04 Plates and bowls/Plates",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-035-01.avif",
+          "sourceFile": "04 Plates and bowls/Plates/JLR-035 Plate with pale glaze and blue mottling/Originals/JLR-035_plate-with-pale-glaze-and-blue-mottling_view-01.jpeg",
+          "originalSha256": "acf9df1e290638acb58136c5c97f0a5d5fcf049aba1397b49311aa4d12233d4b",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-036",
+      "description": "Footed bowl with blue exterior and gold-coloured interior",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-036-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-036 Footed bowl with blue exterior and gold-coloured interior/Originals/JLR-036_footed-bowl-with-blue-exterior-and-gold-coloured-interior_view-01.jpeg",
+          "originalSha256": "1f9b9e2206eb0da5c0e0900f7793c13376dfc17f80b3fcb4474c5dd18a4694c3",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-036-02.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-036 Footed bowl with blue exterior and gold-coloured interior/Originals/JLR-036_footed-bowl-with-blue-exterior-and-gold-coloured-interior_view-02.jpeg",
+          "originalSha256": "a7a04cde1a2dfa9bdf8fe027adfe43e0b2ed586c27629797d65b483decfd4435",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-036-03.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-036 Footed bowl with blue exterior and gold-coloured interior/Originals/JLR-036_footed-bowl-with-blue-exterior-and-gold-coloured-interior_view-03.jpeg",
+          "originalSha256": "90631562ac37bafd0b3961b31ab35766b1bca3cdc2c32934e90adda0e03ff87a",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-036-04.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-036 Footed bowl with blue exterior and gold-coloured interior/Originals/JLR-036_footed-bowl-with-blue-exterior-and-gold-coloured-interior_view-04.jpeg",
+          "originalSha256": "928d3be51ac51df3053e2786d1eee83f32b0f6551ea65fa21445c11290514d6c",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-037",
+      "description": "Bowl with red glaze and dark centre",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-037-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-037 Bowl with red glaze and dark centre/Originals/JLR-037_bowl-with-red-glaze-and-dark-centre_view-01.jpeg",
+          "originalSha256": "12a409dc8173b79ce0071ff822776f4d7e5468be53b5be036327739fce8f6c2c",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-038",
+      "description": "Bowl with pale crackle glaze and red rim",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-038-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-038 Bowl with pale crackle glaze and red rim/Originals/JLR-038_bowl-with-pale-crackle-glaze-and-red-rim_view-01.jpeg",
+          "originalSha256": "b44599c70980c2f200f7c2c392d88645771e024ec9e553e8d1deff11ae70b5c8",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-038-02.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-038 Bowl with pale crackle glaze and red rim/Originals/JLR-038_bowl-with-pale-crackle-glaze-and-red-rim_view-02.jpeg",
+          "originalSha256": "91f89b1f52454bbdef40ba5bb7348b5a20c93acc09a3e44ccabc8ced1d3f037f",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-039",
+      "description": "Bowl with turquoise crackle glaze and red exterior",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-039-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-039 Bowl with turquoise crackle glaze and red exterior/Originals/JLR-039_bowl-with-turquoise-crackle-glaze-and-red-exterior_view-01.jpeg",
+          "originalSha256": "3ce12d4138244953b91cd7ca9b3d1d889df2a3c4eaaf4d7cd7769ce323c2bd9d",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-039-02.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-039 Bowl with turquoise crackle glaze and red exterior/Originals/JLR-039_bowl-with-turquoise-crackle-glaze-and-red-exterior_view-02.jpeg",
+          "originalSha256": "d6000191dccac16ca71f8814638a3559f3b1ac5e608020f707b187098cbff402",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-039-03.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-039 Bowl with turquoise crackle glaze and red exterior/Originals/JLR-039_bowl-with-turquoise-crackle-glaze-and-red-exterior_view-03.jpeg",
+          "originalSha256": "a35c1adc9a83da4ab96fd2d95673436ef05af202d6afacfc1d58a5242fd7bd13",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-040",
+      "description": "Shallow bowl with blue mottled glaze",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-040-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-040 Shallow bowl with blue mottled glaze/Originals/JLR-040_shallow-bowl-with-blue-mottled-glaze_view-01.jpeg",
+          "originalSha256": "c2049e128a74bb24d89e4662ec91d488a0aff6df9c48101d6c65809a02b3525a",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-040-02.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-040 Shallow bowl with blue mottled glaze/Originals/JLR-040_shallow-bowl-with-blue-mottled-glaze_view-02.jpeg",
+          "originalSha256": "13b303bd873c49a3e75c578fae61f3203da2188995c387a0e71707e0601168a9",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-041",
+      "description": "Bowl with turquoise interior and red rim",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-041-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-041 Bowl with turquoise interior and red rim/Originals/JLR-041_bowl-with-turquoise-interior-and-red-rim_view-01.jpeg",
+          "originalSha256": "a0909a1af34a4e43ffebf952b12e4e66098f06a166e31156f7ac9e395e8b5928",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-041-02.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-041 Bowl with turquoise interior and red rim/Originals/JLR-041_bowl-with-turquoise-interior-and-red-rim_view-02.jpeg",
+          "originalSha256": "dc346d8a30fb5b639e37d0275d54bcf76581e6fb35f4da91ae38bb917b1947ac",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-041-03.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-041 Bowl with turquoise interior and red rim/Originals/JLR-041_bowl-with-turquoise-interior-and-red-rim_view-03.jpeg",
+          "originalSha256": "98afa01d56be6e57f1149a234d0abbd63ea0800be94a72179884d17a6f5e3d10",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-041-04.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-041 Bowl with turquoise interior and red rim/Originals/JLR-041_bowl-with-turquoise-interior-and-red-rim_view-04.jpeg",
+          "originalSha256": "1447ae1978ae689757fb7ee11553bd3e9f26ea498e21c4cf8de1ffc3440c33da",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-041-05.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-041 Bowl with turquoise interior and red rim/Originals/JLR-041_bowl-with-turquoise-interior-and-red-rim_view-05.jpeg",
+          "originalSha256": "c52bb3ec34604264d5e539bc396d601609c77efb9a7956a1344925ceeed6e382",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-042",
+      "description": "Bowl with loop handles and green glaze",
+      "category": "04 Plates and bowls/Bowls",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-042-01.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-042 Bowl with loop handles and green glaze/Originals/JLR-042_bowl-with-loop-handles-and-green-glaze_view-01.jpeg",
+          "originalSha256": "7c5fbd87da1c84b7f20946ba60093a51a51f649118e911e7edf9b92e39843788",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-042-02.avif",
+          "sourceFile": "04 Plates and bowls/Bowls/JLR-042 Bowl with loop handles and green glaze/Originals/JLR-042_bowl-with-loop-handles-and-green-glaze_view-02.jpeg",
+          "originalSha256": "70cb0c17b4886c231134e039d71027574706f16cd667250eff24715774079ab2",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-043",
+      "description": "Hexagonal tile with multicoloured glaze",
+      "category": "05 Tiles and decorative objects/Individual tiles and panels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-043-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Individual tiles and panels/JLR-043 Hexagonal tile with multicoloured glaze/Originals/JLR-043_hexagonal-tile-with-multicoloured-glaze_view-01.jpeg",
+          "originalSha256": "e3a0516489e2c06eabc1255ee528de31928cfd29b8f4979fa68338271454e595",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-044",
+      "description": "Occasional table with checkerboard tile top",
+      "category": "05 Tiles and decorative objects/Tiled furniture",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-044-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Tiled furniture/JLR-044 Occasional table with checkerboard tile top/Originals/JLR-044_occasional-table-with-checkerboard-tile-top_view-01.jpeg",
+          "originalSha256": "87d8678a801adff1a5cfe40b8b1e19a32b8aea5bbb78c395b7c6f15dccb98da2",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-045",
+      "description": "Side table with tiled top",
+      "category": "05 Tiles and decorative objects/Tiled furniture",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-045-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Tiled furniture/JLR-045 Side table with tiled top/Originals/JLR-045_side-table-with-tiled-top_view-01.jpeg",
+          "originalSha256": "21bd99b4e01a098bbd5a64ed2de0f2b6af778d07c5372f91635391d164bfd7da",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-046",
+      "description": "Mirror with decorative frame",
+      "category": "05 Tiles and decorative objects/Wall pieces",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-046-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Wall pieces/JLR-046 Mirror with decorative frame/Originals/JLR-046_mirror-with-decorative-frame_view-01.jpeg",
+          "originalSha256": "d5f606d24bae506c9741139704b4526a20f523e521bd09aa91c6ee23bf6949ca",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-047",
+      "description": "Rectangular table with multicoloured tile top",
+      "category": "05 Tiles and decorative objects/Tiled furniture",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-047-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Tiled furniture/JLR-047 Rectangular table with multicoloured tile top/Originals/JLR-047_rectangular-table-with-multicoloured-tile-top_view-01.jpeg",
+          "originalSha256": "4b6da97dea11d2df666054206c05ed00c74f55dadc7f97f117903df157541e98",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-047-02.avif",
+          "sourceFile": "05 Tiles and decorative objects/Tiled furniture/JLR-047 Rectangular table with multicoloured tile top/Originals/JLR-047_rectangular-table-with-multicoloured-tile-top_view-02.jpeg",
+          "originalSha256": "52052e3a5433035e6ad062681d42115457497ce9522bd51548617e1c4e0629c5",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-048",
+      "description": "Wall clock with radial ceramic elements",
+      "category": "05 Tiles and decorative objects/Wall pieces",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-048-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Wall pieces/JLR-048 Wall clock with radial ceramic elements/Originals/JLR-048_wall-clock-with-radial-ceramic-elements_view-01.jpeg",
+          "originalSha256": "e20a239fc37ee719b602059f47e0d06fee478a063145bbc4b90ffdb36464a9bb",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-049",
+      "description": "Square tile panel with green and blue glaze",
+      "category": "05 Tiles and decorative objects/Individual tiles and panels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-049-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Individual tiles and panels/JLR-049 Square tile panel with green and blue glaze/Originals/JLR-049_square-tile-panel-with-green-and-blue-glaze_view-01.jpeg",
+          "originalSha256": "916167a795a591db8638d8486194a085b2d305930b81d2e62cbb35f24c3eee14",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-050",
+      "description": "Architectural lettering reading Villa Valleone",
+      "category": "05 Tiles and decorative objects/Individual tiles and panels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-050-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Individual tiles and panels/JLR-050 Architectural lettering reading Villa Valleone/Originals/JLR-050_architectural-lettering-reading-villa-valleone_view-01.jpeg",
+          "originalSha256": "5997c7b17b3f51b1fe402536dadab7d2ae8ea95b094542f9f597a4eb55184b14",
+          "previewWidth": 900,
+          "previewHeight": 474,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-051",
+      "description": "Wall mask in the form of a lion head",
+      "category": "05 Tiles and decorative objects/Wall pieces",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-051-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Wall pieces/JLR-051 Wall mask in the form of a lion head/Originals/JLR-051_wall-mask-in-the-form-of-a-lion-head_view-01.jpeg",
+          "originalSha256": "f789905807a141a38b74ee4dd7dafdb016599a989a7fbb9d571963266579d706",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-051-02.avif",
+          "sourceFile": "05 Tiles and decorative objects/Wall pieces/JLR-051 Wall mask in the form of a lion head/Originals/JLR-051_wall-mask-in-the-form-of-a-lion-head_view-02.jpeg",
+          "originalSha256": "53fc9349013f678e423494087e35ddc9117b64d9a99a9e3dbea4e2641d5c12a8",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-052",
+      "description": "Wall relief arrangement of dolphins and waves",
+      "category": "05 Tiles and decorative objects/Wall pieces",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-052-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Wall pieces/JLR-052 Wall relief arrangement of dolphins and waves/Originals/JLR-052_wall-relief-arrangement-of-dolphins-and-waves_view-01.jpeg",
+          "originalSha256": "4518eb0395631769b1e2e5a6fa2f6dbb2622cf6a19480aab8a3cafc72055214a",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-053",
+      "description": "Square table with red and turquoise tile top",
+      "category": "05 Tiles and decorative objects/Tiled furniture",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-053-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Tiled furniture/JLR-053 Square table with red and turquoise tile top/Originals/JLR-053_square-table-with-red-and-turquoise-tile-top_view-01.jpeg",
+          "originalSha256": "aff99ca7078f8f8a241adcba1c66c9c8b7ec40c0824afcdaf774457f80aa2c35",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-054",
+      "description": "Bottle vase with turquoise glaze and red mottling",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-054-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-054 Bottle vase with turquoise glaze and red mottling/Originals/JLR-054_bottle-vase-with-turquoise-glaze-and-red-mottling_view-01.jpeg",
+          "originalSha256": "65518b8904c00a2a5fdc7d06e73df419de86ae6c8fb6fba5e6df377952a31b60",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-055",
+      "description": "Bottle vase with pale green glaze and red base",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-055-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-055 Bottle vase with pale green glaze and red base/Originals/JLR-055_bottle-vase-with-pale-green-glaze-and-red-base_view-01.jpeg",
+          "originalSha256": "cda02c600694dd425c157c58324507bb3dcd2a75a95533fd94703d4bf1488480",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-056",
+      "description": "Vase with turquoise glaze and red base",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-056-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-056 Vase with turquoise glaze and red base/Originals/JLR-056_vase-with-turquoise-glaze-and-red-base_view-01.jpeg",
+          "originalSha256": "14fdf0c3e4ef67a7d07110ab9f26eec18c59cf385bbf38b6268c1f5fb582984e",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-057",
+      "description": "Vase with relief decoration and dark glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-057-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-057 Vase with relief decoration and dark glaze/Originals/JLR-057_vase-with-relief-decoration-and-dark-glaze_view-01.jpeg",
+          "originalSha256": "700b34b36eeb5974feddb3015a3bc2564e9ea41f7628d8e713ca4440a203f258",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-057-02.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-057 Vase with relief decoration and dark glaze/Originals/JLR-057_vase-with-relief-decoration-and-dark-glaze_view-02.jpeg",
+          "originalSha256": "724778ad517c29e9f0c181aed776be313fb24a8182586ee28929211ac1ffb1d3",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-058",
+      "description": "Cylindrical vase with red glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-058-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-058 Cylindrical vase with red glaze/Originals/JLR-058_cylindrical-vase-with-red-glaze_view-01.jpeg",
+          "originalSha256": "f34ab5da454b4916f85c2e62405501f2e0aa9a6b064352cdb8006922eded7af2",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-059",
+      "description": "Footed vessel with flared rim and green glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-059-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-059 Footed vessel with flared rim and green glaze/Originals/JLR-059_footed-vessel-with-flared-rim-and-green-glaze_view-01.jpeg",
+          "originalSha256": "9a19ad2a7a713608f32408d556453563c7c4bcc1ca09925e12f8e7ee6bf74b97",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-060",
+      "description": "Bottle vase with turquoise glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-060-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-060 Bottle vase with turquoise glaze/Originals/JLR-060_bottle-vase-with-turquoise-glaze_view-01.jpeg",
+          "originalSha256": "bc0967b64b4826da708dc6ed05bd8368e7aca4d6958e4e6e47447de5450ac7d8",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-061",
+      "description": "Vase with narrow neck and grey mottled glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-061-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-061 Vase with narrow neck and grey mottled glaze/Originals/JLR-061_vase-with-narrow-neck-and-grey-mottled-glaze_view-01.jpeg",
+          "originalSha256": "7fd27ce938a2b54455653fbd1d0849eb7e3a922d6ae8c45c6f2c367fa2232cf4",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-062",
+      "description": "Bottle vase with green glaze and dark red base",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-062-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-062 Bottle vase with green glaze and dark red base/Originals/JLR-062_bottle-vase-with-green-glaze-and-dark-red-base_view-01.jpeg",
+          "originalSha256": "419d0dc3d55bea20d877d8201a3b0bf02026826bbe8ef537e35ea5ad88b2f4e0",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-063",
+      "description": "Cylindrical vessel with green glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-063-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-063 Cylindrical vessel with green glaze/Originals/JLR-063_cylindrical-vessel-with-green-glaze_view-01.jpeg",
+          "originalSha256": "2edc8e30b32b123e879b66ef7abe8aadc187b2d52f45762713023816a6343b58",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-064",
+      "description": "Vase with rounded body and dark red glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-064-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-064 Vase with rounded body and dark red glaze/Originals/JLR-064_vase-with-rounded-body-and-dark-red-glaze_view-01.jpeg",
+          "originalSha256": "5aa7535060108f470a88e03e0bffd5b41080f08b867cab7c53494a5356bb1240",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-065",
+      "description": "Covered vessel with green glaze",
+      "category": "03 Vessels/Lidded vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-065-01.avif",
+          "sourceFile": "03 Vessels/Lidded vessels/JLR-065 Covered vessel with green glaze/Originals/JLR-065_covered-vessel-with-green-glaze_view-01.jpeg",
+          "originalSha256": "7ee5b9070af600c9007ffe2c0beff0a6b5b0f85eed860050f44051f8b41d6bea",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-066",
+      "description": "Vase with relief decoration and lettered neck",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-066-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-066 Vase with relief decoration and lettered neck/Originals/JLR-066_vase-with-relief-decoration-and-lettered-neck_view-01.jpeg",
+          "originalSha256": "cf78675a877db94ad37748f4a97750232bd36691b9593487972670e2b73a3592",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-066-02.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-066 Vase with relief decoration and lettered neck/Originals/JLR-066_vase-with-relief-decoration-and-lettered-neck_view-02.jpeg",
+          "originalSha256": "864b08faba6329bd8514526363b86fa9ac9fbb787c0cf945d3b9bb5f0355e326",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-066-03.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-066 Vase with relief decoration and lettered neck/Originals/JLR-066_vase-with-relief-decoration-and-lettered-neck_view-03.jpeg",
+          "originalSha256": "0b1bdaa29784f8af602dba9c00fe83a7974cf0d42dbdbb18cc8f46a20caf30e7",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-066-04.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-066 Vase with relief decoration and lettered neck/Originals/JLR-066_vase-with-relief-decoration-and-lettered-neck_view-04.jpeg",
+          "originalSha256": "28122e4dd8c6dc29c5a9315a42af7e3cadfd11f3ebcc258afa661f925526e82c",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-067",
+      "description": "Pot with flared rim and green glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-067-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-067 Pot with flared rim and green glaze/Originals/JLR-067_pot-with-flared-rim-and-green-glaze_view-01.jpeg",
+          "originalSha256": "bbcd073d40a8af077b9e820813537eca8b178b71ea30f0d80b396ac66096755c",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-067-02.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-067 Pot with flared rim and green glaze/Originals/JLR-067_pot-with-flared-rim-and-green-glaze_view-02.jpeg",
+          "originalSha256": "d4948642820f613e21e2e458ababe9a8d3b589dec157e3301437015e62acbdd8",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-068",
+      "description": "Covered vase with pierced lid",
+      "category": "03 Vessels/Lidded vessels",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-068-01.avif",
+          "sourceFile": "03 Vessels/Lidded vessels/JLR-068 Covered vase with pierced lid/Originals/JLR-068_covered-vase-with-pierced-lid_view-01.jpeg",
+          "originalSha256": "408e6185c43d167666d5a9ee23c96f09b37ffdeda2b46178f4bb62f41cb06633",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-068-02.avif",
+          "sourceFile": "03 Vessels/Lidded vessels/JLR-068 Covered vase with pierced lid/Originals/JLR-068_covered-vase-with-pierced-lid_view-02.jpeg",
+          "originalSha256": "0aad1ee6fd20b9f1bab6ff9cc649aca999f211e60cccb9add39d0d60f99c2dac",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        },
+        {
+          "image": "assets/family-archive/JLR-068-03.avif",
+          "sourceFile": "03 Vessels/Lidded vessels/JLR-068 Covered vase with pierced lid/Originals/JLR-068_covered-vase-with-pierced-lid_view-03.jpeg",
+          "originalSha256": "835e4f113e3ba02497e2d797759b6f81fe24218250fba765cc9dd356161d2297",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-069",
+      "description": "Cylindrical vase with mottled glaze",
+      "category": "03 Vessels/Vases",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-069-01.avif",
+          "sourceFile": "03 Vessels/Vases/JLR-069 Cylindrical vase with mottled glaze/Originals/JLR-069_cylindrical-vase-with-mottled-glaze_view-01.jpeg",
+          "originalSha256": "ccea0d30fce30358b586b5de8d9938924b9b0ac5d3ac1cf4e21a1375ebe8b3d6",
+          "previewWidth": 900,
+          "previewHeight": 1205,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-070",
+      "description": "Mug with light-coloured lettering",
+      "category": "05 Tiles and decorative objects/Other decorative objects",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-070-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Other decorative objects/JLR-070 Mug with light-coloured lettering/Originals/JLR-070_mug-with-light-coloured-lettering_view-01.jpeg",
+          "originalSha256": "189c4f1612a89d560de7e37a7ba5c32b96fb4025a8a07e7615208dc10b017982",
+          "previewWidth": 709,
+          "previewHeight": 1260,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    },
+    {
+      "id": "JLR-071",
+      "description": "Framed image of an elephant",
+      "category": "05 Tiles and decorative objects/Other decorative objects",
+      "attribution": "Not independently verified",
+      "titleStatus": "Descriptive catalogue name; formal title unknown",
+      "classification": "Provisional visual catalogue classification; not independently verified",
+      "photographs": [
+        {
+          "image": "assets/family-archive/JLR-071-01.avif",
+          "sourceFile": "05 Tiles and decorative objects/Other decorative objects/JLR-071 Framed image of an elephant/Originals/JLR-071_framed-image-of-an-elephant_view-01.jpeg",
+          "originalSha256": "bdb6b4df2c2ef13ce09d9bde547bdc9cf00d4bf5d635859f128b706897c5e4fd",
+          "previewWidth": 900,
+          "previewHeight": 672,
+          "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+        }
+      ]
+    }
+  ],
+  "studio": [
+    {
+      "image": "assets/family-archive/studio-01.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.36.46.jpeg",
+      "originalSha256": "9793bac9ca780400d4be455508a52f1ee82b05d0ca0bbd87c0bf1c11068f3474",
+      "previewWidth": 580,
+      "previewHeight": 1260,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-02.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.36.59.jpeg",
+      "originalSha256": "d47c0aeb1fd87ce24da3a9be7a50ddde6ae4f6e9c4f8891d6f5195a05872dc63",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-03.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.37.09.jpeg",
+      "originalSha256": "3d56a2bc19073e6334be8cfaffb22752b82a44f236d145cd2f9fc231541e3580",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-04.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.37.43.jpeg",
+      "originalSha256": "63993ee0fe9aa071214d5aa0d5f366ad044dba1b241f9cc80d7c10bfa71e0aa6",
+      "previewWidth": 580,
+      "previewHeight": 1260,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-05.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.37.55.jpeg",
+      "originalSha256": "97db60da649740fc353eef4e78093cb64cb8c35ecccdc87017f2a174dbae709b",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-06.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.38.30.jpeg",
+      "originalSha256": "2b3c44aa82e463362a8b07903dc60e8eb7acba8d162214862fd3aee896e65ac1",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-07.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-01 at 20.38.51.jpeg",
+      "originalSha256": "daa77ddde4674f69b79f0eca78d132aea5067e9b7e9fe2f521148c172ce3f508",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-08.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-03 at 08.23.20.jpeg",
+      "originalSha256": "92070a28933092172a12f01058419a4906d978769e79c327a0c82f2944027ee2",
+      "previewWidth": 900,
+      "previewHeight": 714,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-09.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-03 at 15.11.12.jpeg",
+      "originalSha256": "8286e00e950259df1f86b9b719dbb5cabd13fa041e442199ad984c0666af3601",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-10.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-15 at 20.21.02.jpeg",
+      "originalSha256": "d47c0aeb1fd87ce24da3a9be7a50ddde6ae4f6e9c4f8891d6f5195a05872dc63",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-11.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-26 at 20.58.50 (1).jpeg",
+      "originalSha256": "6a7f3a22d584a4edcf2008b6ef5b9ac65ea388571aa8d54e6e2dcdb4844d0c55",
+      "previewWidth": 900,
+      "previewHeight": 1200,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-12.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-08-26 at 20.58.50.jpeg",
+      "originalSha256": "d05f2c23ddba457051662b8748e7cae7d775a24b5c29be9a85684f2677d58323",
+      "previewWidth": 900,
+      "previewHeight": 675,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    },
+    {
+      "image": "assets/family-archive/studio-13.avif",
+      "sourceFile": "CERAMIC Creations EJL/WhatsApp Image 2026-09-20 at 21.42.00.jpeg",
+      "originalSha256": "24b34b5157bb98482e70f5374503ea30f0f6d32297ecc000c6965a4d93e6c903",
+      "previewWidth": 900,
+      "previewHeight": 506,
+      "method": "Proportionate AVIF preview; EXIF orientation applied; no retouching"
+    }
+  ]
+}

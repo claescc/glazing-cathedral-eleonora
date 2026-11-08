@@ -315,7 +315,7 @@
     $("shelves").innerHTML = list
       .map(
         (b) =>
-          `<article class="reading-shelf-book" style="--book-accent:${esc(bookVisual(b).accent)}">${cover(b)}<div><h3>${esc(bookVisual(b).title)}</h3>${bookVisual(b).author ? `<p class="reading-author">${esc(bookVisual(b).author)}</p>` : ""}<p>${b.pages} pages in file · ${b.recipePages.length} related pages</p>${b.status === "unreadable" ? "<p>A readable replacement is needed.</p>" : `<div class="shelf-actions"><button data-source-open="${b.id}">Open source</button><button data-source-filter="${b.id}">Explore pages</button></div>`}</div></article>`,
+          `<article class="reading-shelf-book" style="--book-accent:${esc(bookVisual(b).accent)}">${cover(b)}<div><h3>${esc(bookVisual(b).title)}</h3>${bookVisual(b).author ? `<p class="reading-author">${esc(bookVisual(b).author)}</p>` : ""}<p>${b.pages} pages in file · ${b.recipePages.length} related pages</p>${b.status === "unreadable" ? `<p>A readable replacement is needed.</p>${b.recoveryUrl ? `<a href="${esc(b.recoveryUrl)}" target="_blank" rel="noopener">Publisher or official edition listing ↗</a>` : ""}` : `<div class="shelf-actions"><button data-source-open="${b.id}">Open source</button><button data-source-filter="${b.id}">Explore pages</button></div>`}</div></article>`,
       )
       .join("");
   }

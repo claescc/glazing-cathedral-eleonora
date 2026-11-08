@@ -1,0 +1,23 @@
+[
+  {
+    "original": "The Chemistry of Clay-Organic Reactions - Benny K. G. Theng.pdf",
+    "corrected": "Source recovery/Failed downloads/The Chemistry of Clay-Organic Reactions - Benny K. G. Theng.html",
+    "format": "HTML 404 response",
+    "sha256": "d465172175d35d493fb1633e237700022bd849fa123164790b168b8318acb090",
+    "role": "failed-source-download"
+  },
+  {
+    "original": "_OceanofPDF.com_ClayCraft_-_Guide_to_Glaze_n_Surface_Decoration_2025_-_ClayCraft copy.pdf",
+    "corrected": "Logo E.C./Eleonora Ceramics brand banner.png",
+    "format": "PNG",
+    "sha256": "6bf924df7dd7a3ac2b63c4bb08279642832182711293b01cb178ef1b5c47e69a",
+    "role": "brand-asset"
+  },
+  {
+    "original": "_OceanofPDF.com_ClayCraft_-_Guide_to_Glaze_n_Surface_Decoration_2025_-_ClayCraft.pdf",
+    "corrected": "Source recovery/Failed downloads/_OceanofPDF.com_ClayCraft_-_Guide_to_Glaze_n_Surface_Decoration_2025_-_ClayCraft.html",
+    "format": "HTML 404 response",
+    "sha256": "d465172175d35d493fb1633e237700022bd849fa123164790b168b8318acb090",
+    "role": "failed-source-download"
+  }
+]

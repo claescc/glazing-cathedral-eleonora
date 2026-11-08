@@ -11,11 +11,13 @@ def slug(s):
  s=unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode()
  return re.sub('[^a-z0-9]+','-',s.lower()).strip('-')[:100]
 materials=re.compile(r'feldspar|frit\b|silica|whiting|kaolin|nepheline|wollastonite|ball clay|bentonite|dolomite|wood ash|gerstley|quartz|zinc oxide|copper oxide|cobalt oxide|potash|china clay',re.I)
-previous = {b['sha256']: b for b in json.loads((OUT/'catalogue.json').read_text())} if (OUT/'catalogue.json').exists() else {}
+previous = {b['file']: b for b in json.loads((OUT/'catalogue.json').read_text())} if (OUT/'catalogue.json').exists() else {}
 def process(path):
  key=slug(path.stem)+'-'+hashlib.sha256(path.read_bytes()).hexdigest()[:8]
  item={'id':key,'name':path.stem,'file':str(path.relative_to(LIB)),'pages':0,'recipePages':[],'status':'text-indexed','sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
- prior=previous.get(item['sha256'])
+ prior=previous.get(item['file'])
+ if prior and prior['sha256'] != item['sha256']: prior=None
+ if prior and prior['status']=='unreadable': return dict(prior,file=item['file']),[]
  if prior and (OUT/(prior['id']+'.json')).exists():
   pages=json.loads((OUT/(prior['id']+'.json')).read_text())
   return dict(prior,file=item['file']), [dict(book=prior['id'],**p) for p in pages if p['text'].strip()]
@@ -48,6 +50,7 @@ def process(path):
  (OUT/(key+'.json')).write_text(json.dumps(pages,ensure_ascii=False),encoding='utf-8')
  return item,search
 files=sorted(p for p in LIB.rglob('*.pdf') if p.name != 'Ceramics_Cathedral_Confluence_Starter.pdf' and 'Colour Pallete' not in p.parts)
+files += [LIB/b['file'] for b in previous.values() if b['status']=='unreadable' and (LIB/b['file']).exists() and LIB/b['file'] not in files]
 books=[];corpus=[]
 with ThreadPoolExecutor(max_workers=4) as ex:
  for b,s in ex.map(process,files):
@@ -56,7 +59,7 @@ with ThreadPoolExecutor(max_workers=4) as ex:
 # Exact duplicate publications stay in the provenance ledger, but are not double-counted.
 seen={}
 for b in books:
- if b['sha256'] in seen:b['duplicateOf']=seen[b['sha256']]
+ if b['sha256'] in seen and b['status']!='unreadable':b['duplicateOf']=seen[b['sha256']]
  else:seen[b['sha256']]=b['id']
 corpus=[p for p in corpus if not next(b for b in books if b['id']==p['book']).get('duplicateOf')]
 (OUT/'catalogue.json').write_text(json.dumps(books,ensure_ascii=False),encoding='utf-8')
