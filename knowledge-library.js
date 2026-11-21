@@ -1,6 +1,21 @@
 /* Shared source-reading paths. Titles and passages remain attributed to a book. */
 (() => {
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // Short, visually checked teaching notes complement the full source reader.
+  const learning = document.getElementById('path');
+  if (learning) {
+    const note = document.createElement('article');
+    note.id = 'carving-clay-readiness';
+    note.className = 'knowledge-paths';
+    note.innerHTML = `<h3>Carving: match the clay stage to the cut</h3>
+      <p>Hilda Carr distinguishes two working points within leather-hard clay:</p>
+      <ul><li><strong>Sgraffito:</strong> work toward the drier end, before bone dry, to remove the slip layer rather than cut deeply into the body.</li>
+      <li><strong>Faceting:</strong> work toward the softer end, with slight tackiness, so a larger tool can remove sections of clay.</li></ul>
+      <p>The useful question is therefore which cut you are making, rather than whether the piece has reached one universal carving stage.</p>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “The State of Clay”, PDF page 9. Printed page number and edition/year are not established for this supplied page. Original explanation based on the source; source page visually checked 21 November 2026.</p>
+      <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=9#source-library">Read Carr’s source page →</a>`;
+    learning.append(note);
+  }
   const names = {
     path: ['Theory and studio practice', 'Read the supplied books alongside the lessons.'],
     kiln: ['Kilns, heat and firing practice', 'Follow the firing guidance back to its source.'],

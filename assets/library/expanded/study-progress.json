@@ -1,0 +1,21 @@
+{
+  "updated": "2026-11-21",
+  "scope": "Incremental teaching integration; does not certify complete library coverage",
+  "entries": [
+    {
+      "bookId": "carve-your-clay-hilda-carr-eb4c3f28",
+      "sourceSHA256": "eb4c3f286412f712b95bd879dbbbade3a271114707950538e758e6d3f02e970b",
+      "title": "Carve Your Clay",
+      "author": "Hilda Carr",
+      "reviewedPdfPages": [
+        9
+      ],
+      "printedPage": null,
+      "editionYear": null,
+      "method": "Original PDF page rendered with Poppler and visually read; extracted text used only for discovery",
+      "topic": "Different leather-hard working stages for sgraffito and faceting",
+      "destination": "learn.html#carving-clay-readiness",
+      "nextReview": "Continue Chapter One from PDF page 13, checking source context and existing coverage before adding another teaching note."
+    }
+  ]
+}
