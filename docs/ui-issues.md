@@ -247,3 +247,13 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Browser error/warning samples contained no website-origin entries.
 - UI-003 remains the larger open issue for later; it was not re-exercised because this run prioritised the newly changed Judith presentation and its Hall of Masters sibling.
 - Keep monitoring enabled: this check does not complete the ongoing monitoring request.
+
+## 21 November 2026 · Shared room-heading reflow correction
+
+- Production observation: Learn at 375 CSS px had document scrollWidth 395 px. The room-frontispiece and caption were the only visible elements extending beyond the viewport.
+- Cause: arched-rooms.css grouped the room heading with main sections and imposed width:100% with higher specificity than the responsive heading width. Combined with V2's explicit side margins this exceeded the available viewport.
+- Correction: scope the main-section width rule to main sections. The shared heading now follows its existing responsive width, margins and 1200 px cap. No content, colour or navigation change.
+- Local browser validation: Learn, Materials and Kiln at 320, 375, 430, 700 and 1440 CSS px; document scrollWidth equals viewport width in all 15 cases. Visually reviewed Learn at 375 px. Build, site check, release target, V2 preservation and diff checks pass.
+- Reference: W3C Understanding SC 1.4.10 Reflow, https://www.w3.org/WAI/WCAG22/Understanding/reflow.html (accessed 2026-11-21). This is a focused reflow correction, not a full accessibility conformance audit or user study. Google's M3 layout overview was consulted at https://m3.material.io/foundations/layout/layout-overview/overview but its text was unavailable in the web extraction; no new M3 specification claim is made.
+- Next UX review: investigate whether the persistent construction notice obstructs primary content or controls on small phones; assess the notice's existing dismissal behaviour before changing it. Colour balance, screen-reader behaviour, Safari and installation remain untested in this run.
+- Publication status: use the following commit's matching Pages run and canonical live measurements as release evidence; local checks alone are not publication proof.
