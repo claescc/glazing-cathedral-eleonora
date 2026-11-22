@@ -1,0 +1,29 @@
+name: Design system CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Select release-check branch locally
+        run: git checkout -B main
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: pnpm run check
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm run test:ui
+      - name: Verify committed production bundles match source
+        run: git diff --exit-code -- cathedral-notice.js assets/design-system/notice.css

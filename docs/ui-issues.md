@@ -266,3 +266,12 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Build, site, V2 preservation, release guard, palette and diff checks passed. This is a scoped browser review, not assistive-technology testing or a complete accessibility audit.
 - Guidance consulted: W3C APG Modal Dialog Pattern https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/ (accessed 2026-11-22), covering modal focus and Escape. Official M3 dialog guidance https://m3.material.io/components/dialogs/guidelines was opened but requires JavaScript; no inaccessible text was inferred.
 - Continue the existing review of persistent notice placement separately. Tailwind/framework and cross-site design-system architecture questions remain pending; this correction uses the existing shared component.
+
+## 22 November 2026 · Production React/TypeScript/Tailwind design-system migration
+
+- Implemented pnpm/Turborepo workspaces, shared React Button/Notice components with Radix Slot composition, a separate Cathedral token preset, and the static-site React adapter.
+- Shared selectors are namespaced. A compiled, content-versioned Tailwind stylesheet replaces the old layout owner; the old stylesheet path remains a compatibility import. Each existing route consumes the new React component through its existing custom-element interface, without changing its content or event contract.
+- Regression testing caught and corrected a dialog-positioning issue introduced by the React mount. The adapter waits for CSS before rendering, and native modal positioning is explicitly viewport-relative.
+- Reproducible browser tests cover Learn and Reading at 320×256, 375×667, 667×375 and 1440×900, requiring the React runtime marker and checking bounds, dismiss/reopen, Escape, focus restoration, token overrides and a dismissible announced error variant. TypeScript, build, site, palette, unchanged preservation baseline and diff checks pass.
+- Added Design system CI: frozen dependencies, build, type/site/preservation checks, browser checks and committed-bundle drift detection. Existing GitHub Pages deployment remains the canonical publication mechanism. The added CI job does not itself change or gate the Pages settings.
+- Next migration work: additional global components, remaining legacy CSS/token consolidation and a compatible Next.js static-export migration. This release does not claim to implement the planned commerce/backend stack. Public M3 conformity beyond the targeted checks remains to be reviewed component by component.

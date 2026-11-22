@@ -1,0 +1,16 @@
+/* Cathedral preset. Other brands supply the same semantic properties. */
+:root, :host {
+  --ui-info: var(--notice-info, #1769c2);
+  --ui-error: var(--notice-error, #c52f3e);
+  --ui-success: var(--notice-success, #217a42);
+  --ui-warning: var(--notice-warning, #f4cc45);
+  --ui-on-status: #fff;
+  --ui-on-warning: #26210e;
+  --ui-warning-action: #675000;
+  --ui-surface: var(--notice-card-background, #fff);
+  --ui-on-surface: var(--notice-card-foreground, #242934);
+  --ui-font: inherit;
+  --ui-control-height: 3rem;
+  --ui-focus-width: 3px;
+  --ui-focus-offset: 3px;
+}

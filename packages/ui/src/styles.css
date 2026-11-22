@@ -1,0 +1,19 @@
+@import './notice-layout.css';
+@import 'tailwindcss/theme.css';
+@import 'tailwindcss/utilities.css';
+@source './*.tsx';
+@theme inline {
+  --spacing-control: var(--ui-control-height);
+  --outline-width-focus: var(--ui-focus-width);
+  --outline-offset-focus: var(--ui-focus-offset);
+}
+/* Semantic adapters preserve the current preset and allow another brand to override. */
+.cnx-info,.cnx-confirmation{--tone:var(--ui-info)}
+.cnx-error{--tone:var(--ui-error)}
+.cnx-success{--tone:var(--ui-success)}
+.cnx-warning{--tone:var(--ui-warning);--on-tone:var(--ui-on-warning)}
+.cnx-card{background:var(--ui-surface);color:var(--ui-on-surface)}
+.cnx-card.cnx-warning .cnx-action{color:var(--ui-warning-action)}
+[data-ui-component="button"]{font-family:var(--ui-font)}
+/* Native modal positioning remains viewport-relative inside the React mount. */
+dialog.cnx-notice.cnx-card{position:fixed;inset:0}

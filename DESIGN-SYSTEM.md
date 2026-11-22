@@ -102,3 +102,24 @@ Cards use an exact 50/50 split between the coloured header and white content are
 ### Approved reference anatomy
 
 The coloured half contains the outlined status icon and title, both centred. The white half contains only the centred message and a flat text action. All semantic types share this structure and dimensions.
+
+## React / TypeScript / Tailwind migration · 22 November 2026
+
+The first production consumer is the shared notice family, including the global construction notice. The library's other components remain on their existing implementation until migrated and checked. The target stack is not yet a claim of a complete Next.js or commerce-platform migration.
+
+- `packages/ui` (`@complexity-nexus/ui`) owns React `Button` and `Notice`, their TypeScript contracts and shared layout. Button uses Radix Slot for composition; Notice retains the native dialog's keyboard and focus behaviour. Components are client boundaries suitable for consumption from a React/Next.js application.
+- `packages/theme-cathedral` supplies semantic CSS custom properties. A different brand supplies the same token contract and can override it at its component host. Colours belong in the preset, not JSX. Existing notice attribute/event contracts remain available through the Cathedral adapter.
+- `apps/cathedral` adapts `<cathedral-notice>` to the React package and compiles Tailwind CSS. No browser Tailwind CDN or runtime compiler is used. The adapter waits for its stylesheet before rendering and unmounts on disconnection.
+- `cathedral-notice.js` and `assets/design-system/notice.css` are committed production bundles. `cathedral-notice.css` is a compatibility import, not another layout owner. Existing static routes consume the migrated component immediately through the same script URL.
+- pnpm workspaces and Turborepo own build/check orchestration. Run `pnpm install --frozen-lockfile`, `pnpm run build`, `pnpm run check`, then `pnpm run test:ui`. Browser tests need `pnpm exec playwright install chromium`; `CHROME_PATH` can select an installed Chrome for local checks.
+- `.github/workflows/design-system-ci.yml` rebuilds, type-checks, runs the existing release/preservation checks and browser regressions, and detects stale committed bundles. The established GitHub Pages production deployment remains in place; this CI job does not change Pages settings or claim to gate that existing deployment.
+
+### Reuse contract
+
+Import `Button` and `Notice` from `@complexity-nexus/ui` in a workspace consumer. Compile `@complexity-nexus/ui/styles` together with the selected theme preset using Tailwind. Add the UI package source to the consumer's Tailwind source detection. Use the Cathedral shadow-root adapter for the current static site; a React consumer can render the components directly. Shared component selectors use the cnx- namespace and data-ui-component attributes, so generic card, label and dialog styles do not leak into a consuming website. Packages are private workspace packages, not published npm releases.
+
+The semantic preset currently includes status colours and their on-colours, surface/on-surface, font, control height and focus dimensions. Geometry defaults are shared component values. Remaining legacy components and comprehensive typography/spacing/elevation/motion token consolidation remain tracked migration work. Material Design 3 remains the governing reference; Radix or Tailwind usage alone does not establish M3 conformance.
+
+### Validation scope
+
+Learn and Reading are exercised at 320×256, 375×667, 667×375 and 1440×900. Tests require the React runtime marker and check dialog geometry, dismissal, reopen/Escape, focus restoration, token-driven colour override and an announced dismissible error variant. Existing content and source assets remain protected by the unchanged preservation baseline. These checks are not a complete accessibility or user-research study.
