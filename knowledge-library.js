@@ -12,7 +12,11 @@
       <ul><li><strong>Sgraffito:</strong> work toward the drier end, before bone dry, to remove the slip layer rather than cut deeply into the body.</li>
       <li><strong>Faceting:</strong> work toward the softer end, with slight tackiness, so a larger tool can remove sections of clay.</li></ul>
       <p>The useful question is therefore which cut you are making, rather than whether the piece has reached one universal carving stage.</p>
-      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “The State of Clay”, PDF page 9. Printed page number and edition/year are not established for this supplied page. Original explanation based on the source; source page visually checked 21 November 2026.</p>
+      <h4>Read the cut: three clues to readiness</h4>
+      <ul><li><strong>Too wet:</strong> removed clay clings to the piece and the cut is untidy; handling can distort the form. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=13#source-library">Carr’s example, PDF page 13</a>.</li>
+      <li><strong>Too dry:</strong> the tool scratches instead of slicing, and the extra force risks cracking or distortion. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=15#source-library">Carr’s example, PDF page 15</a>.</li>
+      <li><strong>Suitable for the cut:</strong> the tool moves smoothly and the removed clay separates readily. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=16#source-library">Carr’s example, PDF page 16</a>.</li></ul>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “The State of Clay”, PDF pages 9, 13, 15 and 16. Printed page number and edition/year are not established for this supplied page. Original explanation based on the source; source pages visually checked 21 and 22 November 2026.</p>
       <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=9#source-library">Read Carr’s source page →</a>`;
     learning.append(note);
   }

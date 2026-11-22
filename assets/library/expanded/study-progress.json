@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "scope": "Incremental teaching integration; does not certify complete library coverage",
   "entries": [
     {
@@ -8,14 +8,35 @@
       "title": "Carve Your Clay",
       "author": "Hilda Carr",
       "reviewedPdfPages": [
-        9
+        9,
+        13,
+        15,
+        16
       ],
       "printedPage": null,
       "editionYear": null,
       "method": "Original PDF page rendered with Poppler and visually read; extracted text used only for discovery",
-      "topic": "Different leather-hard working stages for sgraffito and faceting",
+      "topic": "Technique-dependent carving stage and visible signs of wet, dry and suitable clay",
       "destination": "learn.html#carving-clay-readiness",
-      "nextReview": "Continue Chapter One from PDF page 13, checking source context and existing coverage before adding another teaching note."
+      "nextReview": "Continue Chapter One with Tools for Carving, PDF pages 17 onward. Verify original pages and compare teaching content before adding.",
+      "updates": [
+        {
+          "date": "2026-11-21",
+          "pdfPages": [
+            9
+          ],
+          "addition": "Sgraffito versus faceting readiness"
+        },
+        {
+          "date": "2026-11-22",
+          "pdfPages": [
+            13,
+            15,
+            16
+          ],
+          "addition": "Observable cut and offcut clues for wet, dry and suitable clay"
+        }
+      ]
     }
   ]
 }
