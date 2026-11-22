@@ -49,3 +49,6 @@ dialog.card{height:min(var(--notice-card-height),calc(100dvh - 32px))}
 @media(min-width:840px){:host([floating]){left:128px}}
 /* Preserve native dialog visibility despite the shared flex card layout. */
 dialog:not([open]){display:none}
+/* Keep the shared dialog within short viewports without shrinking its content. */
+dialog.card{max-height:calc(100dvh - 32px);overflow-y:auto}
+dialog.card .colour-header,dialog.card .body{height:auto;min-height:calc(var(--notice-card-height)/2);flex:0 0 auto}

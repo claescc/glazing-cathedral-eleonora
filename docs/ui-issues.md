@@ -257,3 +257,12 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Reference: W3C Understanding SC 1.4.10 Reflow, https://www.w3.org/WAI/WCAG22/Understanding/reflow.html (accessed 2026-11-21). This is a focused reflow correction, not a full accessibility conformance audit or user study. Google's M3 layout overview was consulted at https://m3.material.io/foundations/layout/layout-overview/overview but its text was unavailable in the web extraction; no new M3 specification claim is made.
 - Next UX review: investigate whether the persistent construction notice obstructs primary content or controls on small phones; assess the notice's existing dismissal behaviour before changing it. Colour balance, screen-reader behaviour, Safari and installation remain untested in this run.
 - Publication status: use the following commit's matching Pages run and canonical live measurements as release evidence; local checks alone are not publication proof.
+
+## 22 November 2026 · Shared notice dialog in short viewports
+
+- Production reproduction: at 667 × 375 CSS px the construction dialog was 480 px high, from y=-52.5 to 427.5. Its frame extended above and below the viewport. Escape already closed it correctly.
+- Scoped shared-component correction: restore the viewport maximum height and internal vertical scrolling for dialog.card. Preserve each content half's minimum size using the existing notice-card-height token. Inline peer cards and the closed-dialog visibility rule remain unchanged.
+- Browser checks on Learn and Materials at 375×667, 667×375, 320×256 and 1440×900: dialog fits inside the viewport; contents remain scrollable; Continue closes; trigger reopens; Escape closes and focus returns to the trigger. All eight combinations passed. Visually inspected the open landscape dialog.
+- Build, site, V2 preservation, release guard, palette and diff checks passed. This is a scoped browser review, not assistive-technology testing or a complete accessibility audit.
+- Guidance consulted: W3C APG Modal Dialog Pattern https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/ (accessed 2026-11-22), covering modal focus and Escape. Official M3 dialog guidance https://m3.material.io/components/dialogs/guidelines was opened but requires JavaScript; no inaccessible text was inferred.
+- Continue the existing review of persistent notice placement separately. Tailwind/framework and cross-site design-system architecture questions remain pending; this correction uses the existing shared component.
