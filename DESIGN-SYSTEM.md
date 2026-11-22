@@ -123,3 +123,7 @@ The semantic preset currently includes status colours and their on-colours, surf
 ### Validation scope
 
 Learn and Reading are exercised at 320×256, 375×667, 667×375 and 1440×900. Tests require the React runtime marker and check dialog geometry, dismissal, reopen/Escape, focus restoration, token-driven colour override and an announced dismissible error variant. Existing content and source assets remain protected by the unchanged preservation baseline. These checks are not a complete accessibility or user-research study.
+
+### Dismissible labels · 22 November 2026
+
+`Notice` supports `dismissible` for label, card and alert presentations. Label dismissal is a separate named button with the shared control size; it calls `onDismiss`. Persistence remains a consumer responsibility: the Cathedral's construction notice saves explicit dismissal for the current tab. Closing its explanatory dialog alone does not dismiss the label. `--ui-inline-gap` is the preset token for label-group spacing.

@@ -11,6 +11,8 @@
   --ui-on-surface: var(--notice-card-foreground, #242934);
   --ui-font: inherit;
   --ui-control-height: 3rem;
+  --ui-inline-gap: 0.5rem;
+  --ui-floating-notice-offset: 10rem;
   --ui-focus-width: 3px;
   --ui-focus-offset: 3px;
 }

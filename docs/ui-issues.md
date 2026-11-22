@@ -275,3 +275,13 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Reproducible browser tests cover Learn and Reading at 320×256, 375×667, 667×375 and 1440×900, requiring the React runtime marker and checking bounds, dismiss/reopen, Escape, focus restoration, token overrides and a dismissible announced error variant. TypeScript, build, site, palette, unchanged preservation baseline and diff checks pass.
 - Added Design system CI: frozen dependencies, build, type/site/preservation checks, browser checks and committed-bundle drift detection. Existing GitHub Pages deployment remains the canonical publication mechanism. The added CI job does not itself change or gate the Pages settings.
 - Next migration work: additional global components, remaining legacy CSS/token consolidation and a compatible Next.js static-export migration. This release does not claim to implement the planned commerce/backend stack. Public M3 conformity beyond the targeted checks remains to be reviewed component by component.
+
+## 22 November 2026 · Dismissible shared floating notice
+
+- Live mobile inspection after closing the modal found only the Under construction trigger; no control could remove the persistent floating label.
+- Added a labelled 48 px dismissal button to the shared React Notice label variant when dismissible is supplied. The component emits its existing notice-dismiss callback/event; the consumer owns persistence. Shared label-group spacing uses a preset token.
+- The global construction-notice consumer now remembers explicit dismissal in sessionStorage for this tab, including navigation between rooms. If storage is unavailable, dismissal still works on the current page. Other Notice consumers do not inherit construction-specific persistence.
+- Extended the repeatable browser suite on Learn and Reading across short, portrait, landscape and expanded viewports: dismissal-button size and viewport bounds, pointer activation, hidden state and persistence on the sibling route; the alert variant is also dismissed with Enter. Existing modal, theme and announced-alert tests remain.
+- Build, type/site/palette and unchanged preservation checks are required before publication. Verify both matching CI and Pages runs and actual canonical runtime after push; local checks alone do not establish delivery.
+- The compact floating offset uses --ui-floating-notice-offset to place the label above the back-to-top row; this corrected an interception found during testing.
+- Next review: mobile source-library search and reader controls, with emphasis on finding the next page and returning to the source list. Continue component migration from observed use cases.

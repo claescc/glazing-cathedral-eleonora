@@ -43,10 +43,19 @@ try{
     // Exercise a distinct variant and its public dismiss event through the adapter.
     await page.evaluate(()=>{const e=document.createElement('cathedral-notice');e.id='variant-test';e.setAttribute('kind','error');e.setAttribute('heading','Example error');e.setAttribute('message','Correct the highlighted value.');e.setAttribute('dismissible','');e.setAttribute('announce','');e.addEventListener('notice-dismiss',()=>e.dataset.dismissed='yes');document.body.append(e);});
     const variant=page.locator('#variant-test');await variant.locator('[role="alert"]').waitFor();
-    await variant.locator('.cnx-close').click();assert.equal(await variant.getAttribute('data-dismissed'),'yes');
+    await variant.locator('.cnx-close').focus();await page.keyboard.press('Enter');assert.equal(await variant.getAttribute('data-dismissed'),'yes');
     assert.equal(await variant.isVisible(),false);
+    const dismiss=host.getByRole('button',{name:'Dismiss Under construction'});
+    const dismissSize=await dismiss.boundingBox();
+    assert.ok(dismissSize.width>=48 && dismissSize.height>=48);
+    assert.ok(dismissSize.x>=0 && dismissSize.x+dismissSize.width<=width);
+    await dismiss.click();
+    assert.equal(await host.isVisible(),false);
+    assert.equal(await page.evaluate(()=>sessionStorage.getItem('cathedral-construction-dismissed')),'yes');
+    await page.goto(`${base}${route==='learn'?'reading':'learn'}.html`,{waitUntil:'domcontentloaded'});
+    assert.equal(await page.locator('#constructionNotice').count(),0,'Dismissal must persist between rooms in this tab');
     assert.deepEqual(errors,[]);
-    console.log(`PASS ${route} ${width}x${height}: React runtime, dialog bounds, dismiss/reopen, Escape, focus, theme override, alert variant`);
+    console.log(`PASS ${route} ${width}x${height}: React runtime, dialog bounds, dismiss/reopen, Escape, focus, theme override, alert variant, label dismissal and room-navigation persistence`);
     await page.close();
   }
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}

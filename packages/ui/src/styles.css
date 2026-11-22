@@ -17,3 +17,11 @@
 [data-ui-component="button"]{font-family:var(--ui-font)}
 /* Native modal positioning remains viewport-relative inside the React mount. */
 dialog.cnx-notice.cnx-card{position:fixed;inset:0}
+
+/* Dismissible floating labels share one layout across consumers. */
+.cnx-label-group{display:inline-flex;align-items:center;gap:var(--ui-inline-gap);max-width:100%}
+.cnx-label-group .cnx-label{min-width:0}
+.cnx-label-dismiss{min-width:var(--ui-control-height);padding:0;border:0;background:var(--tone);color:var(--on-tone);font-size:1.5rem}
+
+/* Compact floating notices occupy a separate row above page utilities. */
+@media(max-width:839px){:host([floating]){bottom:calc(var(--ui-floating-notice-offset) + env(safe-area-inset-bottom))}}

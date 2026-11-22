@@ -21,7 +21,10 @@ export function Notice({kind, presentation, title, message, actionLabel, openOnc
   }, [presentation, openOnce]);
   const icon = <Icon kind={kind}/>;
   if (presentation === 'label') return <>
-    <Button className={`cnx-label cnx-${kind}`} aria-haspopup="dialog" onClick={()=>dialog.current?.showModal()}>{icon}{title}</Button>
+    <div className="cnx-label-group" data-ui-component="notice-label">
+      <Button className={`cnx-label cnx-${kind}`} aria-haspopup="dialog" onClick={()=>dialog.current?.showModal()}>{icon}{title}</Button>
+      {dismissible && <Button className={`cnx-label-dismiss cnx-${kind} inline-flex items-center justify-center`} aria-label={`Dismiss ${title}`} onClick={onDismiss}>×</Button>}
+    </div>
     <dialog ref={dialog} className={`cnx-notice cnx-${kind} cnx-card`} data-ui-component="notice-dialog" aria-labelledby={id} aria-describedby={`${id}-message`}>
       <div className="cnx-colour-header flex flex-col items-center text-center">{icon}<h2 className="cnx-heading" id={id}>{title}</h2></div>
       <div className="cnx-body flex min-w-0 flex-col items-center"><p className="cnx-message" id={`${id}-message`}>{message}</p><Button className="cnx-action" onClick={()=>dialog.current?.close()}>{actionLabel || 'Close'}</Button></div>
