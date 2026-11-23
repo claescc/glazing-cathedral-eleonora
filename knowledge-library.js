@@ -19,6 +19,16 @@
       <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “The State of Clay”, PDF pages 9, 13, 15 and 16. Printed page number and edition/year are not established for this supplied page. Original explanation based on the source; source pages visually checked 21 and 22 November 2026.</p>
       <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=9#source-library">Read Carr’s source page →</a>`;
     learning.append(note);
+    const tools = document.createElement('article');
+    tools.id = 'carving-tool-sampler';
+    tools.className = 'knowledge-paths';
+    tools.innerHTML = `<h3>Choose the carving tool by the mark</h3>
+      <p>Carr associates loop tools with fluting, texture and angular cuts; a flexible steel rib with broader scraping and shallow curves on drier clay; and a ball-tipped sgraffito tool with fine lines. A scoop tool offers broader scraping with its side and detail with its point.</p>
+      <p>Her sampler exercise uses a slab allowed to firm slightly: compare a tool’s different faces, lighter and heavier pressure, free movement and a straightedge. This lets you compare the marks before committing them to a finished form.</p>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “Tools for Carving”, PDF pages 17 and 18. Original synthesis; both source pages visually checked 23 November 2026. Edition/year and printed page numbers are not established here.</p>
+      <p><a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=17#source-library">Read the sampler exercise, PDF page 17 →</a> · <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=18#source-library">Read Carr’s tool descriptions, PDF page 18 →</a></p>`;
+    learning.append(tools);
+
   }
   const names = {
     path: ['Theory and studio practice', 'Read the supplied books alongside the lessons.'],

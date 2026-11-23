@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "scope": "Incremental teaching integration; does not certify complete library coverage",
   "entries": [
     {
@@ -11,14 +11,16 @@
         9,
         13,
         15,
-        16
+        16,
+        17,
+        18
       ],
       "printedPage": null,
       "editionYear": null,
       "method": "Original PDF page rendered with Poppler and visually read; extracted text used only for discovery",
       "topic": "Technique-dependent carving stage and visible signs of wet, dry and suitable clay",
       "destination": "learn.html#carving-clay-readiness",
-      "nextReview": "Continue Chapter One with Tools for Carving, PDF pages 17 onward. Verify original pages and compare teaching content before adding.",
+      "nextReview": "Continue Chapter One with the illustrated tools and Forming section from PDF page 19 onward; inspect original pages and check existing knowledge coverage first.",
       "updates": [
         {
           "date": "2026-11-21",
@@ -35,8 +37,25 @@
             16
           ],
           "addition": "Observable cut and offcut clues for wet, dry and suitable clay"
+        },
+        {
+          "date": "2026-11-23",
+          "pdfPages": [
+            17,
+            18
+          ],
+          "addition": "Tool-to-mark guide and slab sampler exercise",
+          "destination": "learn.html#carving-tool-sampler"
         }
       ]
     }
-  ]
+  ],
+  "inventoryCheck": {
+    "date": "2026-11-23",
+    "scope": "Top-level PDF filenames against source catalogue; filename check does not prove full hash/content coverage",
+    "rootPdfFiles": 63,
+    "notMatchedByExactCatalogueFilename": [
+      "Ceramics_Cathedral_Confluence_Starter.pdf"
+    ]
+  }
 }
