@@ -8,4 +8,9 @@
   notice.id='constructionNotice';
   notice.addEventListener('notice-dismiss',()=>{try {sessionStorage.setItem(dismissalKey,'yes');} catch {}});
   document.body.append(notice);
+  // Floating utilities yield to the closing navigation, without hiding the dialog.
+  const footer=document.querySelector('.site-footer');
+  if(footer) new IntersectionObserver(entries=>{
+    notice.toggleAttribute('data-footer-visible',entries[0].isIntersecting);
+  }).observe(footer);
 })();

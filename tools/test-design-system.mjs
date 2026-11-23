@@ -65,6 +65,10 @@ try{
     const trigger=host.locator('.cnx-label');await trigger.click();await page.keyboard.press('Escape');
     assert.equal(await dialog.isVisible(),false);
     assert.equal(await trigger.evaluate(e=>e===e.getRootNode().activeElement),true);
+    await page.locator('.site-footer').scrollIntoViewIfNeeded();
+    await trigger.waitFor({state:'hidden'});
+    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+    await trigger.waitFor({state:'visible'});
     // Storefront tokens change colour without changing component source or behaviour.
     await host.evaluate(e=>e.style.setProperty('--ui-warning','rgb(12, 34, 56)'));
     assert.equal(await trigger.evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(12, 34, 56)');
@@ -128,8 +132,8 @@ try{
       await page.reload({waitUntil:'domcontentloaded'});
       await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,3000))]));
       const height=await page.evaluate(()=>document.documentElement.scrollHeight);
-      for(let y=0;y<height;y+=780){await page.evaluate(y=>scrollTo(0,y),y);await page.waitForTimeout(40);}
-      await page.evaluate(()=>scrollTo(0,0));await page.waitForTimeout(150);
+      for(let y=0;y<height;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
+      await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
       await page.screenshot({path:`${folder}/${route}-${width}-full.png`,fullPage:true});
       const footer=page.locator('.site-footer');await footer.scrollIntoViewIfNeeded();await page.waitForTimeout(150);
       if(route==='index') {
@@ -144,8 +148,8 @@ try{
         await page.waitForTimeout(450);
         assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
         const stateHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
-        for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo(0,y),y);await page.waitForTimeout(40);}
-        await page.evaluate(()=>scrollTo(0,0));await page.waitForTimeout(150);
+        for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
+        await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
         await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
         await footer.scrollIntoViewIfNeeded();
         const textAudit=await page.evaluate(auditTextContrast);

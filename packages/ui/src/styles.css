@@ -65,3 +65,6 @@ dialog.cnx-notice.cnx-card{position:fixed;inset:0}
 :root[data-theme] .type-card { --family-ink:var(--v2-ink); }
 :root[data-theme] #recipes .task-navigation a strong { color:var(--v2-ink); }
 :root[data-theme] .reading-cover figcaption { background:var(--v2-canvas); color:var(--v2-ink); }
+
+/* A consumer can reserve the footer for its content while retaining modal access. */
+:host([floating][data-footer-visible]) .cnx-label-group { visibility:hidden; }
