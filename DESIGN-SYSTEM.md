@@ -149,3 +149,8 @@ Run `pnpm run audit:pages` after building. It checks 13 public routes at 320, 37
 ### Settings choice rows · 23 November 2026
 
 Appearance rows and the dialog close action use `--ui-control-height`, shared with reader and footer controls. The whole label is the radio hit area; the visual radio remains native. Compact dialogs retain internal scrolling on short viewports. Regression checks cover Home and Reading at small, standard mobile and expanded sizes, whole-row activation and Escape/focus return. No additional theme or page-specific sizing token is introduced.
+
+
+### Complete long-page audit evidence
+
+The audit waits for Reading results, fonts and visible image decoding, including open media-component shadow roots, before computing screenshot height. It checks document stability and PNG dimensions, and captures separate footers. Long pages over 16000 CSS px also produce overlapping viewport tiles with a scroll-range manifest; use those tiles to review the complete long page because a full-page raster with the expected dimensions can still be visually incomplete. `AUDIT_ROUTES=reading` is an explicitly scoped diagnostic only; default and CI runs retain all public routes.

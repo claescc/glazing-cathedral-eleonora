@@ -27,6 +27,45 @@ async function freshPage(options) {
   await session.send('Network.enable');await session.send('Network.setCacheDisabled',{cacheDisabled:true});await session.send('Network.clearBrowserCache');
   return page;
 }
+async function settlePageContent(page) {
+  if(await page.locator('body').getAttribute('data-page')==='reading') {
+    await page.waitForFunction(()=>/\d/.test(document.querySelector('#sourceCount')?.textContent||''));
+  }
+  await page.waitForFunction(()=>document.fonts.status==='loaded');
+  const pending=await page.evaluate(async()=>{
+    const roots=[document];
+    for(let i=0;i<roots.length;i++)for(const element of roots[i].querySelectorAll('*'))if(element.shadowRoot)roots.push(element.shadowRoot);
+    const images=roots.flatMap(root=>[...root.querySelectorAll('img')]).filter(image=>image.checkVisibility());
+    for(const image of images)image.loading='eager';
+    await Promise.race([
+      Promise.all(images.map(image=>image.decode().catch(()=>{}))),
+      new Promise(resolve=>setTimeout(resolve,20000)),
+    ]);
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    return images.filter(image=>!image.complete).map(image=>image.currentSrc||image.src);
+  });
+  assert.deepEqual(pending,[],'Visible content images must finish loading before full-page capture');
+}
+async function captureLongPageTiles(page,folder,name,height) {
+  if(height<=16000)return [];
+  const viewport=page.viewportSize();
+  const last=Math.max(0,height-viewport.height);
+  const tiles=[];
+  await mkdir(`${folder}/${name}-tiles`,{recursive:true});
+  for(let next=0;;next+=viewport.height-200){
+    const top=Math.min(next,last);
+    await page.evaluate(top=>scrollTo({top,behavior:'instant'}),top);
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    const actual=await page.evaluate(()=>scrollY);
+    const path=`${name}-tiles/${String(tiles.length).padStart(3,'0')}.png`;
+    await page.screenshot({path:`${folder}/${path}`});
+    tiles.push({path,top:actual,bottom:actual+viewport.height});
+    if(top===last)break;
+  }
+  assert.equal(tiles[0].top,0);
+  assert.ok(tiles.at(-1).bottom>=height,'Viewport tiles must reach the document end');
+  return tiles;
+}
 async function showFooter(page,footer) {
   await footer.scrollIntoViewIfNeeded();
   // Scroll/IntersectionObserver callbacks run asynchronously after scrolling.
@@ -154,7 +193,10 @@ try{
   if(process.env.FULL_PAGE_AUDIT==='1') {
     const folder=resolve(root,'.audit-artifacts');await mkdir(folder,{recursive:true});
     const reports=[];
-    const cases=['index','atlas','glaze-families','recipes','layering','learn','kiln','materials','restoration','masters','tribute','notebook','reading'].flatMap(route=>[320,375,1440].map(width=>({route,width})));
+    const allRoutes=['index','atlas','glaze-families','recipes','layering','learn','kiln','materials','restoration','masters','tribute','notebook','reading'];
+    const routes=process.env.AUDIT_ROUTES?process.env.AUDIT_ROUTES.split(','):allRoutes;
+    assert.ok(routes.length&&routes.every(route=>allRoutes.includes(route)),'Unknown audit route');
+    const cases=routes.flatMap(route=>[320,375,1440].map(width=>({route,width})));
     await Promise.all(Array.from({length:3},async()=>{while(cases.length){
       const {route,width}=cases.shift();
       const page=await freshPage({viewport:{width,height:900},serviceWorkers:'block'});
@@ -165,6 +207,7 @@ try{
       await page.goto(`${base}${route}.html?visual-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
       await page.reload({waitUntil:'domcontentloaded'});
       await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,3000))]));
+      await settlePageContent(page);
       const height=await page.evaluate(()=>document.documentElement.scrollHeight);
       for(let y=0;y<height;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
       await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
@@ -181,10 +224,15 @@ try{
         await page.reload({waitUntil:'domcontentloaded'});
         await page.waitForTimeout(450);
         assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
+        await settlePageContent(page);
         const stateHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
         for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
         await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
-        await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
+        const capture=await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
+        assert.equal(capture.readUInt32BE(20),stateHeight,`${route}/${width}/${theme}: full-page PNG height must cover the document`);
+        const captureHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
+        assert.equal(captureHeight,stateHeight,`${route}/${width}/${theme}: document height changed during capture`);
+        const tileCaptures=await captureLongPageTiles(page,folder,`${route}-${width}-${theme}`,captureHeight);
         await showFooter(page,footer);
         const textAudit=await page.evaluate(auditTextContrast);
         assert.deepEqual(textAudit.failures,[],`${route}/${width}/${theme}: text below 7:1`);
@@ -212,7 +260,7 @@ try{
           await page.locator('#roomGrid').screenshot({path:`${folder}/rooms-${width}-${theme}.png`});
           await showFooter(page,footer);
         }
-        await footer.screenshot({path:`${folder}/${route}-${width}-${theme}-footer.png`});themes.push({...result,textAudit});
+        await footer.screenshot({path:`${folder}/${route}-${width}-${theme}-footer.png`});themes.push({...result,textAudit,tileCaptures});
       }
       assert.equal(errors.length,0,`${route}/${width}: runtime errors ${errors.join('; ')}`);
       reports.push({route,width,height,errors,themes});
@@ -220,6 +268,6 @@ try{
       await page.close();
     }}));
     reports.sort((a,b)=>a.route.localeCompare(b.route)||a.width-b.width);
-    await writeFile(`${folder}/report.json`,JSON.stringify({date:new Date().toISOString(),base,scope:'13 routes × 3 widths; full-page captures and footer checks in 3 themes; homepage room text checks require 7:1. Construction notice dismissed. Other interaction states are covered only by the targeted tests.',reports},null,2));
+    await writeFile(`${folder}/report.json`,JSON.stringify({date:new Date().toISOString(),base,scope:`${routes.length} routes × 3 widths × 3 themes; full-page and footer captures. Pages over 16000px additionally have overlapping viewport tiles with verified document-end coverage; use these for long-page visual review. Text floor 7:1. Construction notice dismissed; other interactions covered only by targeted tests.`,reports},null,2));
   }
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}
