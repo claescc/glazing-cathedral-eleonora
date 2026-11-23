@@ -306,3 +306,13 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - The scheduled 04:00/16:00 review was updated to include these explicit requirements. Remaining framework/component migration and the separate PWA implementation remain outstanding; this correction does not complete those projects.
 
 - Follow-up live check with the construction notice undismissed found its floating label covering mobile footer links. The global consumer now supplies a footer-visible state; only the shared floating label yields, leaving its dialog untouched. Targeted notice tests cover yielding and returning after scrolling away.
+
+
+## 23 November 2026 · Scheduled Appearance touch-target review
+
+- Fresh-context production measurements on Home at 375 and 1440 CSS px found all four Appearance rows at 40 px high and the close button at 44 × 44 px. These were below the existing 48 px shared-control baseline; this finding is not classified as a WCAG 2.2 AA target-size failure.
+- Shared Tailwind-package styles now size the native settings choice rows and close action using `--ui-control-height`, matching the reader/footer control token rather than introducing a page-specific value.
+- Added settings regressions on Home and Reading at 320×256, 375×667 and 1440×900: 48 px hit areas, dialog viewport bounds, activation at the bottom edge of the whole row, Escape and focus return. Existing preference persistence/System-switching tests remain.
+- At 375×667 with root text enlarged to 200%, visual review found the heading splitting within its word. The shared settings header now wraps its close action when needed; tests require the full heading word to fit and no internal horizontal overflow. Control height grows with the rem token.
+- Initial all-route production audit stopped on a back-to-top visibility assertion. Six repeated live Recipe-footer checks at 320 px did not reproduce a persistent overlay. The audit now waits for actual footer intersection and the resulting hidden utility state, accounting for asynchronous scroll/IntersectionObserver callbacks; it retains the same assertion instead of weakening it. The local full rerun passed all 117 route/width/appearance states with the stricter synchronized assertion; canonical verification remains required after publishing.
+- Guidance checked 2026-11-23: Google Android Developers, Make apps more accessible, recommends 48 dp touch targets (https://developer.android.com/guide/topics/ui/accessibility/apps); the project uses a 48 CSS px token for web controls. W3C WCAG 2.2 SC 2.5.8 AA uses 24 CSS px with exceptions, while SC 2.5.5 AAA uses 44 CSS px (https://www.w3.org/TR/WCAG22/). The Android dp recommendation and web CSS-pixel acceptance criterion are distinguished.

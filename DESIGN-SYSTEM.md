@@ -144,3 +144,8 @@ The homepage room grid is permanent navigation. `.room-discovery` is a non-inter
 The shared footer layout lives in `packages/ui/src/footer-layout.css` and uses preset tokens. It provides sufficient wordmark width, normal word wrapping, readable dedication/credits and 48 px footer links. The back-to-top utility yields while the footer is in view.
 
 Run `pnpm run audit:pages` after building. It checks 13 public routes at 320, 375 and 1440 CSS px in all three appearances, with cache disabled and cleared before reloads. It captures full pages and footers, checks document overflow and footer wordmark geometry, and applies the project's 7:1 floor to rendered text on solid/composited CSS surfaces. The report lists excluded image/gradient surfaces. Pseudo-elements, canvas, shadow roots, disabled states and assistive-technology behaviour need separate checks; this suite is not a declaration of legal compliance. Appearance controls, persistence/System switching, notice interactions and reader navigation retain targeted tests. CI retains audit artifacts for inspection. Screenshots must be inspected, not merely generated.
+
+
+### Settings choice rows · 23 November 2026
+
+Appearance rows and the dialog close action use `--ui-control-height`, shared with reader and footer controls. The whole label is the radio hit area; the visual radio remains native. Compact dialogs retain internal scrolling on short viewports. Regression checks cover Home and Reading at small, standard mobile and expanded sizes, whole-row activation and Escape/focus return. No additional theme or page-specific sizing token is introduced.

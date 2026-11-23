@@ -68,3 +68,11 @@ dialog.cnx-notice.cnx-card{position:fixed;inset:0}
 
 /* A consumer can reserve the footer for its content while retaining modal access. */
 :host([floating][data-footer-visible]) .cnx-label-group { visibility:hidden; }
+
+/* Choice rows and dialog actions share the same token as other touch controls. */
+.settings-dialog label { min-block-size:var(--ui-control-height); }
+.settings-dialog .settings-heading button { min-inline-size:var(--ui-control-height); min-block-size:var(--ui-control-height); }
+
+.settings-dialog .settings-heading { flex-wrap:wrap; }
+.settings-dialog .settings-heading h2 { flex:1 1 12ch; overflow-wrap:normal; word-break:normal; }
+.settings-dialog .settings-heading button { margin-inline-start:auto; }

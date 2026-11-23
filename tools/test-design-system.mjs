@@ -27,7 +27,41 @@ async function freshPage(options) {
   await session.send('Network.enable');await session.send('Network.setCacheDisabled',{cacheDisabled:true});await session.send('Network.clearBrowserCache');
   return page;
 }
+async function showFooter(page,footer) {
+  await footer.scrollIntoViewIfNeeded();
+  // Scroll/IntersectionObserver callbacks run asynchronously after scrolling.
+  // Require both real footer intersection and the resulting utility state.
+  await page.waitForFunction(()=>{
+    const rect=document.querySelector('.site-footer').getBoundingClientRect();
+    return rect.top<innerHeight&&rect.bottom>0&&document.querySelector('.back-to-top')?.hidden;
+  });
+}
 try{
+  for(const route of ['index','reading'])for(const [width,height] of [[320,256],[375,667],[1440,900]]) {
+    const page=await freshPage({viewport:{width,height}});
+    await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+    await page.goto(`${base}${route}.html`,{waitUntil:'domcontentloaded'});await page.reload({waitUntil:'domcontentloaded'});
+    await page.locator('#settingsButton').click();
+    const dialog=page.locator('#settingsDialog');
+    const bounds=await dialog.boundingBox();assert.ok(bounds.x>=0&&bounds.y>=0&&bounds.x+bounds.width<=width&&bounds.y+bounds.height<=height,'Settings must fit the viewport');
+    for(const size of await dialog.locator('label').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {width:r.width,height:r.height}})))assert.ok(size.width>=48&&size.height>=48,'Appearance choice rows require 48px hit areas');
+    const close=await page.locator('#settingsClose').boundingBox();assert.ok(close.width>=48&&close.height>=48,'Settings close requires a 48px hit area');
+    const last=dialog.locator('label').last();await last.click({position:{x:8,y:46}});
+    assert.equal(await page.locator('input[name="appearance"][value="contrast"]').isChecked(),true,'The bottom edge of the whole choice row activates the radio');
+    if(width===375) {
+      await page.evaluate(()=>document.documentElement.style.fontSize='200%');
+      await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,3000))]));
+      await dialog.evaluate(e=>e.scrollTop=0);
+      const reflow=await dialog.evaluate(e=>{const title=e.querySelector('h2');const canvas=document.createElement('canvas');const ctx=canvas.getContext('2d');ctx.font=getComputedStyle(title).font;return {client:e.clientWidth,scroll:e.scrollWidth,title:title.getBoundingClientRect().width,word:ctx.measureText(title.textContent).width}});
+      assert.ok(reflow.scroll<=reflow.client,'Enlarged settings text must not overflow horizontally');
+      assert.ok(reflow.title>=reflow.word,'Settings heading must fit without splitting its word');
+      await last.click();
+    }
+    await page.keyboard.press('Escape');assert.equal(await dialog.isVisible(),false);
+    assert.equal(await page.locator('#settingsButton').evaluate(e=>e===document.activeElement),true,'Escape returns focus to Settings');
+    console.log(`PASS settings ${route} ${width}x${height}: 48px controls, viewport fit, full-row activation and Escape focus`);
+    await page.close();
+  }
   {
     const page=await freshPage({viewport:{width:375,height:900}});
     await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
@@ -135,7 +169,7 @@ try{
       for(let y=0;y<height;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
       await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
       await page.screenshot({path:`${folder}/${route}-${width}-full.png`,fullPage:true});
-      const footer=page.locator('.site-footer');await footer.scrollIntoViewIfNeeded();await page.waitForTimeout(150);
+      const footer=page.locator('.site-footer');await showFooter(page,footer);await page.waitForTimeout(150);
       if(route==='index') {
         assert.equal(await page.locator('details.room-discovery').count(),0,'Room discovery must not collapse');
         assert.ok(await page.locator('#roomGrid .room-card').count()>=8,'All rooms, including future additions, stay visible');
@@ -151,7 +185,7 @@ try{
         for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
         await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
         await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
-        await footer.scrollIntoViewIfNeeded();
+        await showFooter(page,footer);
         const textAudit=await page.evaluate(auditTextContrast);
         assert.deepEqual(textAudit.failures,[],`${route}/${width}/${theme}: text below 7:1`);
         const result=await footer.evaluate(e=>{
@@ -176,7 +210,7 @@ try{
           }));
           for(const card of rooms)for(const text of card)assert.ok(text.ratio>=7,`${theme}: room contrast ${text.text}: ${text.ratio}`);
           await page.locator('#roomGrid').screenshot({path:`${folder}/rooms-${width}-${theme}.png`});
-          await footer.scrollIntoViewIfNeeded();
+          await showFooter(page,footer);
         }
         await footer.screenshot({path:`${folder}/${route}-${width}-${theme}-footer.png`});themes.push({...result,textAudit});
       }
