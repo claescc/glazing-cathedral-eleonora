@@ -5,7 +5,8 @@
   "scripts": {
     "build": "turbo run build",
     "check": "turbo run check",
-    "test:ui": "node tools/test-design-system.mjs"
+    "test:ui": "node tools/test-design-system.mjs",
+    "audit:pages": "FULL_PAGE_AUDIT=1 node tools/test-design-system.mjs"
   },
   "devDependencies": {
     "turbo": "^2.5.0",

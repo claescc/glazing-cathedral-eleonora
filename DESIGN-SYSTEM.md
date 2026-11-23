@@ -133,3 +133,14 @@ Learn and Reading are exercised at 320×256, 375×667, 667×375 and 1440×900. T
 `PageNavigation` is a reusable React/TypeScript component built from the shared Button and token-based Tailwind styles. The current synchronous source reader consumes deterministic HTML pre-rendered from that component at build time; its existing page-data loading and event handlers remain in the reader adapter. This is a static React consumer, not a claim that the reader is fully hydrated in React.
 
 On compact screens, Previous and Next share the first row, with the labelled page field below. Expanded screens use a single row. Buttons and page input use the shared 48 px control baseline. The Cathedral preset maps navigation surfaces to the site's current light/dark/contrast colour aliases. `assets/design-system/page-navigation.js` is generated and checked by CI. The shared stylesheet is linked before reader initialization; legacy reader rules explicitly exclude migrated controls.
+
+
+## Appearance and permanent room discovery · 23 November 2026
+
+The Cathedral preset in `packages/theme-cathedral/tokens.css` now owns the corrected light, dark and high-contrast foreground/background roles consumed by the shared Tailwind stylesheet. System remains a preference that selects one of these three appearances. Legacy component adapters in `packages/ui/src/styles.css` pair surfaces and text explicitly while migration continues; do not introduce another page-specific palette. Room identity colours use dark readable accents in light mode, light readable accents in dark mode and black in high contrast. Photographs keep their source colours.
+
+The homepage room grid is permanent navigation. `.room-discovery` is a non-interactive container, not a details/summary disclosure. All current and future room entries must remain visible without opening a control.
+
+The shared footer layout lives in `packages/ui/src/footer-layout.css` and uses preset tokens. It provides sufficient wordmark width, normal word wrapping, readable dedication/credits and 48 px footer links. The back-to-top utility yields while the footer is in view.
+
+Run `pnpm run audit:pages` after building. It checks 13 public routes at 320, 375 and 1440 CSS px in all three appearances, with cache disabled and cleared before reloads. It captures full pages and footers, checks document overflow and footer wordmark geometry, and applies the project's 7:1 floor to rendered text on solid/composited CSS surfaces. The report lists excluded image/gradient surfaces. Pseudo-elements, canvas, shadow roots, disabled states and assistive-technology behaviour need separate checks; this suite is not a declaration of legal compliance. Appearance controls, persistence/System switching, notice interactions and reader navigation retain targeted tests. CI retains audit artifacts for inspection. Screenshots must be inspected, not merely generated.

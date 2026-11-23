@@ -1,4 +1,5 @@
 @import './notice-layout.css';
+@import './footer-layout.css';
 @import 'tailwindcss/theme.css';
 @import 'tailwindcss/utilities.css';
 @source './*.tsx';
@@ -32,3 +33,35 @@ dialog.cnx-notice.cnx-card{position:fixed;inset:0}
 .cnx-page-navigation-number{grid-column:1/-1;grid-row:2;display:flex;align-items:center;justify-content:center;gap:var(--ui-inline-gap);color:var(--ui-on-surface)}
 .cnx-page-navigation-input{box-sizing:border-box;min-height:var(--ui-control-height);width:5rem;max-width:100%;padding:var(--ui-inline-gap);border:1px solid var(--ui-outline);border-radius:var(--ui-control-radius);background:var(--ui-surface);color:var(--ui-on-surface);font:inherit}
 @media(min-width:640px){.cnx-page-navigation{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}.cnx-page-navigation-number{grid-column:auto;grid-row:auto}}
+
+/* Room discovery is permanent navigation, never a disclosure. */
+:root[data-theme] #roomGrid .room-card { background:var(--v2-canvas)!important; color:var(--v2-ink)!important; }
+:root[data-theme] #roomGrid .room-copy, :root[data-theme] #roomGrid .room-card h3 { color:var(--v2-ink)!important; }
+:root[data-theme] #roomGrid .room-card p { color:var(--v2-muted)!important; }
+:root[data-theme] #roomGrid .room-card :is(.room-kicker,.room-enter) { color:var(--ui-room-accent)!important; }
+:root[data-theme] #roomGrid .room-enter { border-color:var(--v2-line); }
+:root[data-theme] #roomGrid .room-card:focus-visible { outline-color:var(--v2-ink)!important; }
+
+/* Text shortcuts and the keyboard skip link use explicit paired roles. */
+:root[data-theme] .library-shortcuts a { background:transparent!important; color:var(--v2-accent)!important; }
+:root[data-theme] .skip-link { background:var(--v2-ink); color:var(--v2-canvas); }
+
+/* Legacy consumers share paired surface roles during component migration. */
+:root[data-theme] :is(.recipe-volume,.chapter-book,.amphora-card,.judith-records article,#timeline .event,.masters-feature) {
+  background:var(--v2-canvas)!important; color:var(--v2-ink)!important;
+  --cathedral-card-ink:var(--v2-ink);
+}
+:root[data-theme] :is(#recipeRail .recipe-volume,.chapter-book,.amphora-card,.judith-records article,#timeline .event,.masters-feature) :is(h2,h3,p,a,strong,span,b,figcaption,small,time) { color:var(--v2-ink)!important; }
+:root[data-theme] :is(.studio-alert,.studio-alert-dark,.lab-save,.reading-more-pages,#atlasMore,#recipeMore,.shelf-actions button) { background:var(--v2-panel)!important; color:var(--v2-ink)!important; }
+:root[data-theme] :is(.studio-alert,.studio-alert-dark,.shelf-actions button,.reading-more-pages) :is(p,strong,span) { color:inherit!important; }
+:root[data-theme] .masters-feature-copy b { background:var(--v2-panel)!important; color:var(--v2-ink)!important; }
+:root[data-theme] .judith-subjects .judith-subject h2 { color:var(--v2-ink)!important; }
+:root[data-theme] :is(#kindTabs,#viewTabs) button[aria-pressed="true"] { background:var(--v2-ink)!important; color:var(--v2-canvas)!important; }
+:root[data-theme] :is(#kindTabs,#viewTabs) button[aria-pressed="true"] span { color:inherit!important; }
+:root[data-theme] .atlas-navigation a { background:var(--v2-panel)!important; color:var(--v2-ink)!important; }
+:root[data-theme] .atlas-navigation a :is(strong,small) { color:var(--v2-ink)!important; }
+:root[data-theme] body .skip-link { background:var(--v2-ink)!important; color:var(--v2-canvas)!important; }
+
+:root[data-theme] .type-card { --family-ink:var(--v2-ink); }
+:root[data-theme] #recipes .task-navigation a strong { color:var(--v2-ink); }
+:root[data-theme] .reading-cover figcaption { background:var(--v2-canvas); color:var(--v2-ink); }

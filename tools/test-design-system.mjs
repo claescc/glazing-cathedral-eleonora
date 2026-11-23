@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
-import {readFile} from 'node:fs/promises';
+import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {resolve, extname} from 'node:path';
 import {chromium} from 'playwright';
+import {auditTextContrast} from './audit-text-contrast.mjs';
 const root=resolve(import.meta.dirname,'..');
 let server;
 let base=process.env.DESIGN_SYSTEM_BASE_URL;
@@ -20,11 +21,38 @@ if(!base){
   base=`http://127.0.0.1:${server.address().port}/`;
 }
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
+async function freshPage(options) {
+  const page=await browser.newPage({...options,serviceWorkers:'block'});
+  const session=await page.context().newCDPSession(page);
+  await session.send('Network.enable');await session.send('Network.setCacheDisabled',{cacheDisabled:true});await session.send('Network.clearBrowserCache');
+  return page;
+}
 try{
+  {
+    const page=await freshPage({viewport:{width:375,height:900}});
+    await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+    await page.goto(`${base}index.html`,{waitUntil:'domcontentloaded'});await page.reload({waitUntil:'domcontentloaded'});
+    for(const theme of ['light','dark','contrast']) {
+      await page.locator('#settingsButton').click();
+      await page.locator(`input[name="appearance"][value="${theme}"]`).check();
+      assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
+      await page.locator('#settingsClose').click();
+      await page.reload({waitUntil:'domcontentloaded'});
+      assert.equal(await page.locator('html').getAttribute('data-theme'),theme,'Appearance persists after reload');
+    }
+    await page.locator('#settingsButton').click();await page.locator('input[name="appearance"][value="auto"]').check();await page.locator('#settingsClose').click();
+    await page.emulateMedia({colorScheme:'dark',contrast:'no-preference'});await page.waitForFunction(t=>document.documentElement.dataset.theme===t,'dark');
+    await page.emulateMedia({colorScheme:'light',contrast:'more'});await page.waitForFunction(t=>document.documentElement.dataset.theme===t,'contrast');
+    await page.emulateMedia({colorScheme:'light',contrast:'no-preference'});await page.waitForFunction(t=>document.documentElement.dataset.theme===t,'light');
+    console.log('PASS appearance: real controls, three presets, reload persistence and System preferences');
+    await page.close();
+  }
   for(const route of ['learn','reading'])for(const [width,height] of [[320,256],[375,667],[667,375],[1440,900]]){
-    const page=await browser.newPage({viewport:{width,height}});
+    const page=await freshPage({viewport:{width,height}});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
+    await page.addInitScript(()=>sessionStorage.removeItem('cathedral-construction-seen'));
     await page.goto(`${base}${route}.html`,{waitUntil:'domcontentloaded'});
+    await page.reload({waitUntil:'domcontentloaded'});
     const host=page.locator('#constructionNotice');
     await host.locator('dialog[open]').waitFor();
     assert.equal(await host.getAttribute('data-ui-runtime'),'react-tailwind');
@@ -59,9 +87,10 @@ try{
     await page.close();
   }
   for(const [width,height] of [[320,667],[375,667],[1440,900]]) {
-    const page=await browser.newPage({viewport:{width,height}});
+    const page=await freshPage({viewport:{width,height}});
     await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
     await page.goto(`${base}reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&page=13#source-library`,{waitUntil:'domcontentloaded'});
+    await page.reload({waitUntil:'domcontentloaded'});
     const navigation=page.locator('#sourceReader [data-ui-component="page-navigation"]');
     await navigation.waitFor();
     await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='13');
@@ -83,5 +112,76 @@ try{
     assert.equal(await page.locator('#sourceReader').isVisible(),false);
     console.log(`PASS reader ${width}x${height}: shared navigation, 48px controls, aligned Previous/Next, page changes, first-page boundary and close`);
     await page.close();
+  }
+  if(process.env.FULL_PAGE_AUDIT==='1') {
+    const folder=resolve(root,'.audit-artifacts');await mkdir(folder,{recursive:true});
+    const reports=[];
+    const cases=['index','atlas','glaze-families','recipes','layering','learn','kiln','materials','restoration','masters','tribute','notebook','reading'].flatMap(route=>[320,375,1440].map(width=>({route,width})));
+    await Promise.all(Array.from({length:3},async()=>{while(cases.length){
+      const {route,width}=cases.shift();
+      const page=await freshPage({viewport:{width,height:900},serviceWorkers:'block'});
+      const errors=[];page.on('pageerror',e=>errors.push(e.message));
+      await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+      const session=await page.context().newCDPSession(page);
+      await session.send('Network.enable');await session.send('Network.setCacheDisabled',{cacheDisabled:true});await session.send('Network.clearBrowserCache');
+      await page.goto(`${base}${route}.html?visual-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+      await page.reload({waitUntil:'domcontentloaded'});
+      await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,3000))]));
+      const height=await page.evaluate(()=>document.documentElement.scrollHeight);
+      for(let y=0;y<height;y+=780){await page.evaluate(y=>scrollTo(0,y),y);await page.waitForTimeout(40);}
+      await page.evaluate(()=>scrollTo(0,0));await page.waitForTimeout(150);
+      await page.screenshot({path:`${folder}/${route}-${width}-full.png`,fullPage:true});
+      const footer=page.locator('.site-footer');await footer.scrollIntoViewIfNeeded();await page.waitForTimeout(150);
+      if(route==='index') {
+        assert.equal(await page.locator('details.room-discovery').count(),0,'Room discovery must not collapse');
+        assert.ok(await page.locator('#roomGrid .room-card').count()>=8,'All rooms, including future additions, stay visible');
+      }
+      const themes=[];
+      for(const theme of ['light','dark','contrast']) {
+        await page.evaluate(t=>localStorage.setItem('eleonora-appearance-v2',t),theme);
+        await session.send('Network.clearBrowserCache');
+        await page.reload({waitUntil:'domcontentloaded'});
+        await page.waitForTimeout(450);
+        assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
+        const stateHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
+        for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo(0,y),y);await page.waitForTimeout(40);}
+        await page.evaluate(()=>scrollTo(0,0));await page.waitForTimeout(150);
+        await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
+        await footer.scrollIntoViewIfNeeded();
+        const textAudit=await page.evaluate(auditTextContrast);
+        assert.deepEqual(textAudit.failures,[],`${route}/${width}/${theme}: text below 7:1`);
+        const result=await footer.evaluate(e=>{
+          const rgb=s=>s.match(/[\d.]+/g).slice(0,3).map(Number);
+          const luminance=s=>rgb(s).map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4}).reduce((v,x,i)=>v+x*[.2126,.7152,.0722][i],0);
+          const bg=getComputedStyle(e).backgroundColor;
+          const contrast=c=>{const a=luminance(c),b=luminance(bg);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05)};
+          const text=[...e.querySelectorAll('blockquote,p,a,.footer-eleonora,strong')].map(x=>({text:x.textContent.trim().slice(0,90),ratio:contrast(getComputedStyle(x).color)}));
+          const brand=e.querySelector('.footer-brand > span');const canvas=document.createElement('canvas');const ctx=canvas.getContext('2d');ctx.font=getComputedStyle(brand).font;
+          return {theme:document.documentElement.dataset.theme,text,brandWidth:brand.getBoundingClientRect().width,longestWordWidth:ctx.measureText('Cathedral').width,footerOverflow:e.scrollWidth>e.clientWidth,documentOverflow:document.documentElement.scrollWidth>innerWidth};
+        });
+        assert.equal(await page.locator('.back-to-top').isVisible(),false,'Page utility must not cover footer links');
+        assert.ok(!result.documentOverflow,`${route}/${width}/${theme}: document overflow`);
+        assert.ok(!result.footerOverflow,`${route}/${width}: footer overflow`);
+        assert.ok(result.brandWidth>=result.longestWordWidth,`${route}/${width}: wordmark crushed`);
+        for(const x of result.text)assert.ok(x.ratio>=7,`${route}/${width}/${theme}: footer contrast ${x.text} ${x.ratio}`);
+        if(route==='index') {
+          const rooms=await page.locator('#roomGrid .room-card').evaluateAll(cards=>cards.map(card=>{
+            const lum=s=>s.match(/[\d.]+/g).slice(0,3).map(Number).map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4}).reduce((a,x,i)=>a+x*[.2126,.7152,.0722][i],0);
+            const bg=lum(getComputedStyle(card).backgroundColor);
+            return [...card.querySelectorAll('h3,p,.room-kicker,.room-enter')].map(el=>{const fg=lum(getComputedStyle(el).color);return {text:el.textContent,ratio:(Math.max(bg,fg)+.05)/(Math.min(bg,fg)+.05)}});
+          }));
+          for(const card of rooms)for(const text of card)assert.ok(text.ratio>=7,`${theme}: room contrast ${text.text}: ${text.ratio}`);
+          await page.locator('#roomGrid').screenshot({path:`${folder}/rooms-${width}-${theme}.png`});
+          await footer.scrollIntoViewIfNeeded();
+        }
+        await footer.screenshot({path:`${folder}/${route}-${width}-${theme}-footer.png`});themes.push({...result,textAudit});
+      }
+      assert.equal(errors.length,0,`${route}/${width}: runtime errors ${errors.join('; ')}`);
+      reports.push({route,width,height,errors,themes});
+      console.log(`AUDIT ${route} ${width}: full-page capture, cache disabled + cleared + reload, footer geometry and 3 themes; documentOverflow=${themes[0].documentOverflow}; errors=${errors.length}`);
+      await page.close();
+    }}));
+    reports.sort((a,b)=>a.route.localeCompare(b.route)||a.width-b.width);
+    await writeFile(`${folder}/report.json`,JSON.stringify({date:new Date().toISOString(),base,scope:'13 routes × 3 widths; full-page captures and footer checks in 3 themes; homepage room text checks require 7:1. Construction notice dismissed. Other interaction states are covered only by the targeted tests.',reports},null,2));
   }
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}

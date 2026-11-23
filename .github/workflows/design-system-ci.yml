@@ -24,6 +24,11 @@ jobs:
       - run: pnpm run build
       - run: pnpm run check
       - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm run test:ui
+      - run: pnpm run audit:pages
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: page-visual-audit
+          path: .audit-artifacts/
       - name: Verify committed production bundles match source
         run: git diff --exit-code -- cathedral-notice.js assets/design-system/notice.css assets/design-system/page-navigation.js

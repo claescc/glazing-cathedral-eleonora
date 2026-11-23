@@ -6,7 +6,14 @@
   button.hidden = true;
   button.innerHTML = '<span aria-hidden="true">↑</span> Back to top';
   document.body.append(button);
-  const update = () => { button.hidden = window.scrollY < 400; };
+  const footer = document.querySelector('.site-footer');
+  const update = () => {
+    const bounds = footer?.getBoundingClientRect();
+    const footerVisible = bounds && bounds.top < innerHeight && bounds.bottom > 0;
+    button.hidden = window.scrollY < 400 || Boolean(footerVisible);
+  };
+  if (footer) new IntersectionObserver(update).observe(footer);
+  window.addEventListener('resize', update);
   window.addEventListener('scroll', update, { passive: true });
   button.addEventListener('click', () => {
     const target = Array.from(document.querySelectorAll('main h1, main h2, main')).find(element => element.getClientRects().length);

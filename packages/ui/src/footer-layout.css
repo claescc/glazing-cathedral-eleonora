@@ -1,0 +1,19 @@
+/* Shared footer layout. Compatibility classes isolate it from the retained V1 rules. */
+:root .cnx-site-footer.site-footer{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr);align-items:start;gap:var(--ui-footer-gap);width:100%;max-width:none;margin:2.5rem 0 0;padding:var(--ui-footer-padding) max(1.25rem,calc((100% - var(--ui-footer-width))/2));background:var(--ui-footer-surface);color:var(--ui-footer-ink);border:0}
+.cnx-site-footer.site-footer>*{min-width:0;max-width:100%}
+.cnx-site-footer.site-footer .ceramic-mural{grid-column:1/-1;width:min(100%,36rem);max-width:36rem;margin:0 auto}
+.cnx-site-footer.site-footer .ceramic-mural img{display:block;width:100%;height:auto;max-height:none}
+.cnx-site-footer.site-footer .ceramic-mural figcaption{display:block;color:var(--ui-footer-muted);font-size:.875rem;text-align:center}
+.cnx-site-footer.site-footer .footer-dedication{grid-column:1/-1;margin:0;padding:0;text-align:center;border:0}
+.cnx-site-footer.site-footer .footer-dedication blockquote{margin:0 auto 1rem;max-width:42rem;color:var(--ui-footer-ink);font-size:clamp(1.5rem,2vw,1.75rem);line-height:1.4}
+.cnx-site-footer.site-footer .footer-dedication p{max-width:42rem;margin:0 auto;color:var(--ui-footer-muted);font-size:1rem;line-height:1.7}
+.cnx-site-footer.site-footer .footer-identity{display:grid;align-content:start;justify-items:start;gap:1rem;margin:0;padding:0;min-width:0}
+.cnx-site-footer.site-footer .footer-brand{display:flex;align-items:center;gap:1rem;min-width:0;max-width:100%;font-size:1.25rem;line-height:1.4;color:var(--ui-footer-ink);word-break:normal;overflow-wrap:normal}
+.cnx-site-footer.site-footer .footer-brand img{flex:0 0 48px;width:48px;height:48px}
+.cnx-site-footer.site-footer .footer-brand span{min-width:0;overflow-wrap:normal;word-break:normal}
+.cnx-site-footer.site-footer .footer-eleonora{font-size:1rem;color:var(--ui-footer-muted)}
+.cnx-site-footer.site-footer .footer-credit{margin:0;padding:0;border:0;color:var(--ui-footer-muted);font-size:1rem;line-height:1.6}
+.cnx-site-footer.site-footer .footer-credit strong{display:block;margin:0;color:var(--ui-footer-ink);font-size:1.0625rem;overflow-wrap:normal;word-break:normal}
+.cnx-site-footer.site-footer .footer-links{display:flex;flex-direction:row;flex-wrap:wrap;align-items:start;justify-content:flex-start;gap:.25rem 1.25rem;font-size:1rem}
+.cnx-site-footer.site-footer .footer-links a{display:inline-flex;align-items:center;min-height:48px;color:var(--ui-footer-ink);text-decoration:underline;text-underline-offset:.2em;overflow-wrap:normal;word-break:normal}
+@media(min-width:840px){:root .cnx-site-footer.site-footer{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}.cnx-site-footer.site-footer .footer-links{flex-direction:column}}

@@ -1,8 +1,14 @@
 /* Cathedral preset. Other brands supply the same semantic properties. */
 :root, :host {
-  --ui-info: var(--notice-info, #1769c2);
-  --ui-error: var(--notice-error, #c52f3e);
-  --ui-success: var(--notice-success, #217a42);
+  --ui-footer-surface: var(--v2-card, #f2e2da);
+  --ui-footer-ink: var(--v2-ink, #332d28);
+  --ui-footer-muted: var(--v2-muted, #6b5d54);
+  --ui-footer-width: 1200px;
+  --ui-footer-gap: 2rem;
+  --ui-footer-padding: 2rem;
+  --ui-info: var(--notice-info, #0b4384);
+  --ui-error: var(--notice-error, #8f1b2b);
+  --ui-success: var(--notice-success, #12542c);
   --ui-warning: var(--notice-warning, #f4cc45);
   --ui-on-status: #fff;
   --ui-on-warning: #26210e;
@@ -24,3 +30,35 @@
   --ui-surface: var(--surface, #fff);
   --ui-on-surface: var(--text, #242934);
 }
+
+/* Appearance presets are the single source for text/surface pairs. */
+:root, :root[data-theme="light"] {
+  --v2-canvas: #fffaf7; --v2-panel: #fff0e9; --v2-card: #f2e2da;
+  --v2-ink: #332d28; --v2-line: #decfc5;
+  --v2-muted: #50443d;
+  --v2-accent: #633018;
+  --ui-room-accent: #633018;
+}
+:root[data-theme="dark"] {
+  --v2-canvas: #24201c; --v2-panel: #302720; --v2-card: #3a2e27;
+  --v2-ink: #f6e9df; --v2-line: #685347;
+  --v2-muted: #eadbd0;
+  --v2-accent: #ffd1ad;
+  --ui-room-accent: #ffd1ad;
+}
+:root[data-theme="contrast"] {
+  --v2-canvas: #fff; --v2-panel: #fff; --v2-card: #fff;
+  --v2-ink: #000; --v2-muted: #000; --v2-accent: #000;
+  --v2-line: #000;
+  --ui-room-accent: #000;
+}
+
+:root[data-theme="light"] [data-room-tone="cobalt"] { --ui-room-accent: #173e73; }
+:root[data-theme="light"] [data-room-tone="rose"] { --ui-room-accent: #732342; }
+:root[data-theme="light"] [data-room-tone="ember"] { --ui-room-accent: #742b0e; }
+:root[data-theme="light"] [data-room-tone="ochre"] { --ui-room-accent: #574013; }
+:root[data-theme="light"] [data-room-tone="jade"] { --ui-room-accent: #154b38; }
+:root[data-theme="light"] [data-room-tone="amethyst"] { --ui-room-accent: #503068; }
+:root[data-theme="light"] [data-room-tone="terracotta"] { --ui-room-accent: #673322; }
+:root[data-theme="light"] [data-room-tone="teal"] { --ui-room-accent: #074955; }
+:root[data-theme="dark"] [data-room-tone] { --ui-room-accent: var(--story-light); }

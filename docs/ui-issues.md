@@ -294,3 +294,13 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Local browser checks at 320, 375 and 1440 px verify 48 px paging controls, viewport bounds, aligned Previous/Next, next/previous actions, page-number entry, first-page disabled boundary, URL state and reader close. Existing eight shared-notice regressions also pass. Visually checked 375 px reader. Build, TypeScript, site, palette, V2 preservation and diff checks pass.
 - Reuse uses existing current production flow; all original sources and the preservation baseline remain intact. Reader data/state remains in the existing adapter; no claim of a complete React reader migration.
 - Next review: source search loading/error states and keyboard return from a directly opened source page. PWA remains separate outstanding work.
+
+
+## 23 November 2026 · Room visibility, appearance contrast and footer correction
+
+- User screenshots exposed room navigation hidden inside a disclosure, pale text on light cards, disappearing text in high contrast, and a footer wordmark crushed into fragments. Narrow notice/reader checks had not covered these states.
+- Removed the homepage details/summary wrapper. Room navigation remains visible as entries are added.
+- Corrected shared appearance tokens and legacy adapters for room cards, recipe/chapter cards, archive records, source controls, safety notices, family labels, task navigation and source-preview captions. The same component families now pair foreground and background in all three modes. Coloured room accents remain in light/dark modes with a 7:1 text target.
+- Added the shared token-driven footer layout and made back-to-top yield to footer content. Source assets, text passages and preservation baseline remain intact.
+- Added cache-cleared responsive full-page/footer capture coverage, actual rendered-text contrast checks, room-visibility and wordmark/overflow regressions, and actual Appearance-control/persistence/System tests. Design system CI runs the page audit and uploads its report/images. Image/gradient surfaces and other excluded states are explicitly recorded rather than represented as measured contrast.
+- The scheduled 04:00/16:00 review was updated to include these explicit requirements. Remaining framework/component migration and the separate PWA implementation remain outstanding; this correction does not complete those projects.
