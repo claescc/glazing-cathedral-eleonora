@@ -285,3 +285,12 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Build, type/site/palette and unchanged preservation checks are required before publication. Verify both matching CI and Pages runs and actual canonical runtime after push; local checks alone do not establish delivery.
 - The compact floating offset uses --ui-floating-notice-offset to place the label above the back-to-top row; this corrected an interception found during testing.
 - Next review: mobile source-library search and reader controls, with emphasis on finding the next page and returning to the source list. Continue component migration from observed use cases.
+
+## 23 November 2026 · Source-reader navigation migrated to shared component
+
+- Live 375 px reader inspection showed Previous on the first row and Next alone on the second, with paging controls below the project's 48 px interaction baseline.
+- Implemented the reusable React PageNavigation component, pre-rendered for the synchronous source-reader adapter and styled with shared Tailwind/token CSS. Compact Previous/Next now align; direct page entry is labelled below them. Expanded controls share a row.
+- Validation found legacy ID selectors overriding shared control sizes. Migrated controls are now excluded from those legacy rules. The compiled stylesheet loads in the document head before initialization to avoid unstyled controls.
+- Local browser checks at 320, 375 and 1440 px verify 48 px paging controls, viewport bounds, aligned Previous/Next, next/previous actions, page-number entry, first-page disabled boundary, URL state and reader close. Existing eight shared-notice regressions also pass. Visually checked 375 px reader. Build, TypeScript, site, palette, V2 preservation and diff checks pass.
+- Reuse uses existing current production flow; all original sources and the preservation baseline remain intact. Reader data/state remains in the existing adapter; no claim of a complete React reader migration.
+- Next review: source search loading/error states and keyboard return from a directly opened source page. PWA remains separate outstanding work.

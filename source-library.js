@@ -21,6 +21,10 @@
   dialog.id = "sourceReader";
   dialog.setAttribute("aria-labelledby", "sourceTitle");
   dialog.innerHTML = `<header><div><small id="sourceCitation"></small><h2 id="sourceTitle"></h2></div><button id="sourceClose" type="button" aria-label="Close source page">Close ×</button></header><nav aria-label="Source page navigation"><button id="sourcePrev" type="button">← Previous page</button><label>Page in file <input id="sourcePageNumber" type="number" min="1"></label><button id="sourceNext" type="button">Next page →</button></nav><div id="sourcePageBody"></div>`;
+  const sharedNavigation = window.cathedralPageNavigation;
+  if (sharedNavigation) {
+    dialog.querySelector('nav[aria-label="Source page navigation"]').outerHTML = sharedNavigation.html;
+  }
   const chapterDetails = document.createElement("details");
   chapterDetails.className = "source-note";
   chapterDetails.hidden = true;

@@ -58,4 +58,30 @@ try{
     console.log(`PASS ${route} ${width}x${height}: React runtime, dialog bounds, dismiss/reopen, Escape, focus, theme override, alert variant, label dismissal and room-navigation persistence`);
     await page.close();
   }
+  for(const [width,height] of [[320,667],[375,667],[1440,900]]) {
+    const page=await browser.newPage({viewport:{width,height}});
+    await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+    await page.goto(`${base}reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&page=13#source-library`,{waitUntil:'domcontentloaded'});
+    const navigation=page.locator('#sourceReader [data-ui-component="page-navigation"]');
+    await navigation.waitFor();
+    await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='13');
+    for(const id of ['sourcePrev','sourceNext','sourcePageNumber']) {
+      const box=await page.locator('#'+id).boundingBox();
+      assert.ok(box.height>=48 && box.x>=0 && box.x+box.width<=width,`${id}: ${JSON.stringify(box)}`);
+    }
+    const previous=await page.locator('#sourcePrev').boundingBox();
+    const next=await page.locator('#sourceNext').boundingBox();
+    assert.ok(Math.abs(previous.y-next.y)<1,'Previous and Next must share a row');
+    await page.locator('#sourceNext').click();
+    await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='14');
+    await page.locator('#sourcePrev').click();
+    await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='13');
+    await page.locator('#sourcePageNumber').fill('1');await page.locator('#sourcePageNumber').press('Tab');
+    await page.waitForFunction(()=>document.querySelector('#sourcePrev').disabled);
+    assert.equal(new URL(page.url()).searchParams.get('page'),'1');
+    await page.locator('#sourceClose').click();
+    assert.equal(await page.locator('#sourceReader').isVisible(),false);
+    console.log(`PASS reader ${width}x${height}: shared navigation, 48px controls, aligned Previous/Next, page changes, first-page boundary and close`);
+    await page.close();
+  }
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}

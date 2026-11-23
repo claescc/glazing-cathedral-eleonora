@@ -12,7 +12,15 @@
   --ui-font: inherit;
   --ui-control-height: 3rem;
   --ui-inline-gap: 0.5rem;
+  --ui-page-navigation-padding: 0.65rem;
+  --ui-outline: var(--outline-soft, #decfc5);
+  --ui-control-radius: 0.375rem;
   --ui-floating-notice-offset: 10rem;
   --ui-focus-width: 3px;
   --ui-focus-offset: 3px;
+}
+/* Page navigation follows the consumer's light, dark and high-contrast surfaces. */
+.cnx-page-navigation {
+  --ui-surface: var(--surface, #fff);
+  --ui-on-surface: var(--text, #242934);
 }

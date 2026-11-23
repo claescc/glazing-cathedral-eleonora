@@ -127,3 +127,9 @@ Learn and Reading are exercised at 320×256, 375×667, 667×375 and 1440×900. T
 ### Dismissible labels · 22 November 2026
 
 `Notice` supports `dismissible` for label, card and alert presentations. Label dismissal is a separate named button with the shared control size; it calls `onDismiss`. Persistence remains a consumer responsibility: the Cathedral's construction notice saves explicit dismissal for the current tab. Closing its explanatory dialog alone does not dismiss the label. `--ui-inline-gap` is the preset token for label-group spacing.
+
+### Shared page navigation · 23 November 2026
+
+`PageNavigation` is a reusable React/TypeScript component built from the shared Button and token-based Tailwind styles. The current synchronous source reader consumes deterministic HTML pre-rendered from that component at build time; its existing page-data loading and event handlers remain in the reader adapter. This is a static React consumer, not a claim that the reader is fully hydrated in React.
+
+On compact screens, Previous and Next share the first row, with the labelled page field below. Expanded screens use a single row. Buttons and page input use the shared 48 px control baseline. The Cathedral preset maps navigation surfaces to the site's current light/dark/contrast colour aliases. `assets/design-system/page-navigation.js` is generated and checked by CI. The shared stylesheet is linked before reader initialization; legacy reader rules explicitly exclude migrated controls.
