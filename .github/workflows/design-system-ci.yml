@@ -30,5 +30,6 @@ jobs:
         with:
           name: page-visual-audit
           path: .audit-artifacts/
+          include-hidden-files: true
       - name: Verify committed production bundles match source
         run: git diff --exit-code -- cathedral-notice.js assets/design-system/notice.css assets/design-system/page-navigation.js
