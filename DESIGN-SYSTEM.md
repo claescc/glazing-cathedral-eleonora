@@ -164,3 +164,8 @@ The existing reader adapter owns source URL state and native-dialog return behav
 ### Reader close action · 25 November 2026
 
 The reader's Close action is pre-rendered from the shared React Button with the reusable `cnx-button-surface` treatment. It shares the existing token-driven surface-button styling with pagination controls and consumes the site's current appearance roles. Legacy reader sizing selectors exclude shared controls. The existing generated reader-controls object retains its pagination HTML API and adds the close-action HTML; the reader adapter attaches its native-dialog close behaviour after insertion.
+
+
+### Source-action readiness · 25 November 2026
+
+The source-reader adapter attaches recipe source actions when both the selected formula and catalogue mapping are available. Formula updates and catalogue completion call the same synchronizer. A recipe opened during catalogue loading gains its source action when loading completes, with no reopen required and no duplicate action. The shared reader's close/focus contract remains the same.

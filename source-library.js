@@ -359,7 +359,7 @@
   document.addEventListener("library-filter-change", renderShelves);
   // Add a page-level source link to recipe records without changing their formulas.
   const modal = document.getElementById("formulaBlock");
-  new MutationObserver(() => {
+  function syncRecipeSourceAction() {
     if (modal.querySelector(".open-source-page")) return;
     const x = typeof selected !== "undefined" ? selected : null;
     if (!x) return;
@@ -376,13 +376,14 @@
                 ? b.name.startsWith("June Perry Pink")
                 : false,
       )?.id;
-    if (!id || !x.page) return;
+    if (!id || !x.page || !bookMap.has(id)) return;
     const button = document.createElement("button");
     button.className = "open-source-page";
     button.textContent = `Read the original source · PDF page ${x.page}`;
     button.onclick = () => openPage(id, x.page, button);
     modal.append(button);
-  }).observe(modal, { childList: true });
+  }
+  new MutationObserver(syncRecipeSourceAction).observe(modal, { childList: true });
   Promise.all(["assets/library/expanded/catalogue.json", "assets/library/expanded/visuals/index.json"].map(async url => {
     const r = await fetch(url);
     if (!r.ok) throw Error("Source catalogue unavailable");
@@ -392,6 +393,7 @@
       visuals = visualData;
       books = data;
       books.forEach((b) => bookMap.set(b.id, b));
+      syncRecipeSourceAction();
       const unique = books.filter((b) => !b.duplicateOf),
         readable = unique.filter((b) => b.status !== "unreadable"),
         pages = readable.reduce((n, b) => n + b.textPages, 0),

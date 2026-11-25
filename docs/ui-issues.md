@@ -333,3 +333,10 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 
 - Follow-up open-reader measurement: Close was about 38 px high at both 375 and 1440 px, below the shared 48 px control baseline. Migrated it to the shared React Button and a reusable token-driven surface treatment; paging and close retain their own accessible labels and handlers. Regression checks require the shared marker and 48 px height for Close too.
 - A postdeployment notice-yield wait ran before lazy media had settled. The targeted notice test now uses the existing content-readiness and actual-footer-intersection helpers before asserting label visibility, retaining the same hide/return requirements.
+
+
+## 25 November 2026 · Recipe source-action readiness
+
+- A live return-path regression timed out waiting for a recipe's original-source action. Controlled production reproduction held catalogue loading until after opening the first recipe: action count was zero before release and remained zero after catalogue availability. The observer previously ran only when formula content changed, so catalogue completion did not retry source linking.
+- The same source-action synchronizer now runs on formula changes and on catalogue readiness. It requires the book mapping before exposing the action and avoids duplicate buttons. Formulas and citations remain unchanged.
+- Deterministic regression cases at 320, 375 and 1440 px explicitly hold the catalogue request, open a recipe first, then release the request and require exactly one usable source action without reopening. They also verify reader opening, return focus and unchanged recipe URL.

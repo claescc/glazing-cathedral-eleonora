@@ -202,9 +202,15 @@ try{
     await page.keyboard.press('Escape');
     await page.waitForFunction(()=>!new URL(location.href).searchParams.has('book'));
     assert.equal(await opener.evaluate(e=>e===document.activeElement),true,'Escape returns focus to the source opener');
+    let releaseCatalogue;
+    const catalogueGate=new Promise(resolve=>releaseCatalogue=resolve);
+    await page.route('**/assets/library/expanded/catalogue.json',async route=>{await catalogueGate;await route.continue();});
     await page.goto(`${base}recipes.html?review=reader-return`,{waitUntil:'domcontentloaded'});
     await page.locator('#recipeRail .recipe-volume').first().click();
+    assert.equal(await page.locator('.open-source-page').count(),0,'Source action waits for its catalogue mapping');
+    releaseCatalogue();
     const recipeOpener=page.locator('.open-source-page');await recipeOpener.waitFor();
+    assert.equal(await recipeOpener.count(),1,'An already-open recipe gains exactly one action when its catalogue is ready');
     const recipeAddress=page.url();
     await recipeOpener.evaluate(e=>{document.activeElement?.blur();e.click();});
     await page.locator('#sourceReader[open]').waitFor();
