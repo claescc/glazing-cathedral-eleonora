@@ -221,6 +221,48 @@ try{
     console.log(`PASS reader ${width}x${height}: shared navigation, 48px controls, aligned Previous/Next, page changes, first-page boundary, clean close URL, reload and focus return`);
     await page.close();
   }
+  for(const [width,height] of [[320,667],[375,667],[1440,900]]) {
+    for(const theme of ['light','dark','contrast']) {
+      const page=await freshPage({viewport:{width,height}});
+      await page.addInitScript(theme=>{sessionStorage.setItem('cathedral-construction-dismissed','yes');localStorage.setItem('eleonora-appearance-v2',theme);},theme);
+      let attempts=0,releaseRetry;
+      const retryGate=new Promise(resolve=>releaseRetry=resolve);
+      await page.route('**/assets/library/expanded/carve-your-clay-hilda-carr-eb4c3f28.json',async route=>{
+        attempts++;
+        if(attempts<=2) await route.fulfill({status:503,body:'Source temporarily unavailable'});
+        else {await retryGate;await route.continue();}
+      });
+      await page.goto(`${base}reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&page=20`,{waitUntil:'domcontentloaded'});
+      const retry=page.locator('#sourceRetry');await retry.waitFor();
+      assert.equal(await page.locator('#sourceTitle').textContent(),'Source unavailable');
+      assert.equal(await retry.getAttribute('data-ui-component'),'button');
+      const box=await retry.boundingBox();assert.ok(box.height>=48&&box.width>=48&&box.x>=0&&box.x+box.width<=width);
+      assert.equal(await page.locator('#sourcePageBody').getAttribute('aria-busy'),'false');
+      assert.equal(await page.locator('#sourcePageNumber').isDisabled(),true);
+      assert.match(await page.locator('#sourceReader [role="status"]').textContent(),/could not be loaded/);
+      await retry.focus();await retry.press('Enter');
+      await page.waitForFunction(()=>document.querySelector('#sourceRetry')&&document.querySelector('#sourcePageBody').getAttribute('aria-busy')==='false');
+      assert.equal(attempts,2,'Failed retry may be retried again');
+      assert.equal(await retry.count(),1,'Recovery must not duplicate the action');
+      await retry.focus();await retry.press('Enter');
+      await page.waitForFunction(()=>document.querySelector('#sourcePageBody').getAttribute('aria-busy')==='true');
+      assert.equal(await page.locator('#sourcePageNumber').isDisabled(),true);
+      assert.equal(await page.locator('#sourceReader [role="status"]').textContent(),'Opening source page…');
+      releaseRetry();
+      await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='20'&&!document.querySelector('#sourcePageNumber').disabled);
+      assert.equal(attempts,3);assert.equal(await retry.count(),0);
+      assert.equal(await page.locator('#sourceClose').evaluate(e=>e===document.activeElement),true,'Replacing Retry retains focus inside the reader');
+      assert.equal(await page.locator('#sourcePageBody').getAttribute('aria-busy'),'false');
+      assert.equal(await page.locator('#sourceReader [role="status"]').textContent(),'Source page 20 loaded.');
+      await page.locator('#sourceNext').click();
+      await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='21');
+      await page.keyboard.press('Escape');
+      await page.waitForFunction(()=>document.activeElement?.id==='sourceSearch');
+      assert.equal(new URL(page.url()).searchParams.has('book'),false);
+      console.log(`PASS reader recovery ${width} ${theme}: repeated failure, shared 48px Retry, requested page, loading status, navigation and focus return`);
+      await page.close();
+    }
+  }
   if(process.env.FULL_PAGE_AUDIT==='1') {
     const folder=resolve(root,'.audit-artifacts');await mkdir(folder,{recursive:true});
     const reports=[];

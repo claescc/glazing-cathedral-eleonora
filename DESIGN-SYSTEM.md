@@ -169,3 +169,12 @@ The reader's Close action is pre-rendered from the shared React Button with the 
 ### Source-action readiness · 25 November 2026
 
 The source-reader adapter attaches recipe source actions when both the selected formula and catalogue mapping are available. Formula updates and catalogue completion call the same synchronizer. A recipe opened during catalogue loading gains its source action when loading completes, with no reopen required and no duplicate action. The shared reader's close/focus contract remains the same.
+
+
+## 25 November 2026 · Source-reader failure recovery
+
+- Controlled fresh-context production reproduction returned HTTP 503 for a source-page request: the reader exposed only Close and disabled paging, with no in-place recovery. Visitors were told to close and try again.
+- Added an in-place Try again action rendered from the existing shared React Button and surface tokens. It retains the requested book/page and the original return target/address. The failure heading now says Source unavailable instead of retaining Opening source page.
+- A persistent polite status region reports loading, failure and loaded page; the page body exposes its busy state. Retry replacement retains keyboard focus on the persistent Close control. This is markup/browser verification, not a claim of tested screen-reader speech.
+- Deterministic regressions at 320, 375 and 1440 px in light, dark and high contrast simulate two successive failures, hold the successful retry to check loading state, then require requested page 20, working Next, Escape, URL cleanup and return focus. Retry must use the shared Button, fit the viewport and measure at least 48 px in both dimensions.
+- Guidance consulted 2026-11-25: W3C WAI, Understanding SC 4.1.3 Status Messages, https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html. The status region exposes changing progress/error information without moving focus to the message. No full accessibility-conformance claim is made.

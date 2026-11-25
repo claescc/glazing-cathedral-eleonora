@@ -31,6 +31,11 @@
   chapterDetails.hidden = true;
   chapterDetails.innerHTML = `<summary>Chapters and sections from this source</summary><nav class="source-chapters" aria-label="Source chapters"></nav>`;
   dialog.querySelector("#sourcePageBody").before(chapterDetails);
+  const readerStatus = document.createElement("p");
+  readerStatus.className = "sr-only";
+  readerStatus.setAttribute("role", "status");
+  readerStatus.setAttribute("aria-atomic", "true");
+  dialog.querySelector("#sourcePageBody").before(readerStatus);
   let chapterIndex = {};
   fetch("assets/library/expanded/chapters.json").then(r => r.ok ? r.json() : {}).then(data => chapterIndex = data).catch(() => {});
   chapterDetails.addEventListener("click", event => {
@@ -124,6 +129,7 @@
       address.hash = "source-library";
       history.replaceState(null, "", address);
     }
+    readerStatus.textContent = `Source page ${p.page} loaded.`;
     dialog.scrollTop = 0;
   }
   async function openPage(bookId, page = 1, opener = document.activeElement) {
@@ -138,7 +144,11 @@
     $("sourcePageNumber").disabled = true;
     $("sourceTitle").textContent = "Opening source page…";
     $("sourceCitation").textContent = readerBook.name;
+    // Keep focus on a persistent control while replacing a retry action.
+    if (document.activeElement?.id === "sourceRetry") $("sourceClose").focus();
     $("sourcePageBody").innerHTML = "";
+    $("sourcePageBody").setAttribute("aria-busy", "true");
+    readerStatus.textContent = "Opening source page…";
     if (!dialog.open) {
       const active = opener;
       readerReturnTarget = active && active !== document.body &&
@@ -159,13 +169,17 @@
       const chapters = chapterIndex[readerBook.id]?.chapters || [];
       chapterDetails.hidden = !chapters.length;
       chapterDetails.querySelector("nav").innerHTML = chapters.map(c => `<button type="button" data-chapter-page="${c.page}">${esc(c.title)} · page ${c.page}</button>`).join("");
-      $("sourcePageNumber").disabled = false;
       if (!pages.length) throw Error("No pages");
+      $("sourcePageBody").setAttribute("aria-busy", "false");
+      $("sourcePageNumber").disabled = false;
       showPage(page - 1);
     } catch (e) {
       if (request !== readerRequest) return;
-      $("sourcePageBody").textContent =
-        "This source could not be loaded. Close and try again.";
+      $("sourcePageBody").setAttribute("aria-busy", "false");
+      $("sourceTitle").textContent = "Source unavailable";
+      readerStatus.textContent = "This source could not be loaded. Try again.";
+      $("sourcePageBody").innerHTML = `<p>This source could not be loaded.</p>${sharedNavigation?.retryButton || '<button id="sourceRetry" type="button">Try again</button>'}`;
+      $("sourceRetry").onclick = () => openPage(bookId, page);
     }
   }
   $("sourceClose").onclick = () => dialog.close();
