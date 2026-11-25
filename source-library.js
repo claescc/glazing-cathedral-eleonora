@@ -46,7 +46,9 @@
     readerPages = [],
     readerBook = null,
     readerIndex = 0,
-    readerRequest = 0;
+    readerRequest = 0,
+    readerReturnTarget = null,
+    readerReturnAddress = null;
   const bookMap = new Map(),
     pageCache = new Map();
   let visuals = { books: {}, pages: {} };
@@ -123,7 +125,7 @@
     }
     dialog.scrollTop = 0;
   }
-  async function openPage(bookId, page = 1) {
+  async function openPage(bookId, page = 1, opener = document.activeElement) {
     const request = ++readerRequest;
     readerBook = bookMap.get(bookId);
     if (!readerBook) return;
@@ -136,7 +138,19 @@
     $("sourceTitle").textContent = "Opening source page…";
     $("sourceCitation").textContent = readerBook.name;
     $("sourcePageBody").innerHTML = "";
-    if (!dialog.open) dialog.showModal();
+    if (!dialog.open) {
+      const active = opener;
+      readerReturnTarget = active && active !== document.body &&
+        !dialog.contains(active) && active.matches('a[href],button,input,select,textarea,[tabindex]')
+        ? active : null;
+      readerReturnAddress = null;
+      if (document.body.dataset.page === 'reading') {
+        readerReturnAddress = new URL(location.href);
+        readerReturnAddress.searchParams.delete('book');
+        readerReturnAddress.searchParams.delete('page');
+      }
+      dialog.showModal();
+    }
     try {
       const pages = await getPages(readerBook);
       if (request !== readerRequest) return;
@@ -154,7 +168,18 @@
     }
   }
   $("sourceClose").onclick = () => dialog.close();
-  dialog.addEventListener("close", () => readerRequest++);
+  dialog.addEventListener("close", () => {
+    readerRequest++;
+    if (readerReturnAddress) history.replaceState(null, "", readerReturnAddress);
+    const target = readerReturnTarget;
+    readerReturnTarget = null;
+    readerReturnAddress = null;
+    if (target?.isConnected && target.getClientRects().length &&
+        getComputedStyle(target).visibility !== 'hidden' && !target.matches(':disabled')) {
+      target.focus({ preventScroll: true });
+    }
+    else if (document.body.dataset.page === 'reading') $("sourceSearch").focus();
+  });
   $("sourcePrev").onclick = () => showPage(readerIndex - 1);
   $("sourceNext").onclick = () => showPage(readerIndex + 1);
   $("sourcePageNumber").onchange = (e) => showPage(Number(e.target.value) - 1);
@@ -292,7 +317,7 @@
     const explore = e.target.closest("[data-explore]");
     if (explore) { selectBook(explore.dataset.explore); return; }
     const b = e.target.closest("[data-book]");
-    if (b) openPage(b.dataset.book, Number(b.dataset.page));
+    if (b) openPage(b.dataset.book, Number(b.dataset.page), b);
   };
   function selectBook(id) {
     $("sourceBook").value = id;
@@ -326,7 +351,7 @@
   oldReading.addEventListener("click", (e) => {
     const open = e.target.closest("[data-source-open]"),
       filter = e.target.closest("[data-source-filter]");
-    if (open) openPage(open.dataset.sourceOpen);
+    if (open) openPage(open.dataset.sourceOpen, 1, open);
     if (filter) selectBook(filter.dataset.sourceFilter);
   });
   $("bookSearch").oninput = renderShelves;
@@ -354,7 +379,7 @@
     const button = document.createElement("button");
     button.className = "open-source-page";
     button.textContent = `Read the original source · PDF page ${x.page}`;
-    button.onclick = () => openPage(id, x.page);
+    button.onclick = () => openPage(id, x.page, button);
     modal.append(button);
   }).observe(modal, { childList: true });
   Promise.all(["assets/library/expanded/catalogue.json", "assets/library/expanded/visuals/index.json"].map(async url => {

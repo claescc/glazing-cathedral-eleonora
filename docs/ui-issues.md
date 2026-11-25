@@ -320,3 +320,13 @@ Measured document scrollWidth: 1348 CSS-px on Judith tribute and Hall of Masters
 - Capture inspection found the Reading Room's initial full-page images could end before the footer while catalogue content/images were still loading. The audit now waits for Reading results and waits for fonts and decodes visible content images, including images inside open component shadow roots, before computing capture size, and checks that document height stays stable during capture. This corrects audit coverage; separate footer images remain required.
 
 - A long Reading Room full-page raster still did not visibly show its footer despite matching the stable document height. Long pages now also produce overlapping 900 px viewport captures with a manifest proving coverage from scroll position zero to the document end. These viewport tiles are the review evidence for long pages; PNG height alone is not treated as proof of complete rendering. `AUDIT_ROUTES` permits explicitly scoped local diagnostics; default/CI coverage remains all 13 routes.
+
+
+## 25 November 2026 · Source-reader return path
+
+- Fresh-context live reproduction at 375×667: closing a directly linked source left `book`/`page` in the address; reload reopened the explicitly closed dialog. Focus returned to the page body.
+- The shared reader adapter now receives the actual opening control from its click handlers and saves its return address when the dialog first opens. Closing via its button or Escape clears reader-owned book/page query parameters on Reading while preserving other query parameters and the original hash. Ordinary source openers regain focus; directly opened Reading sources fall back to library search.
+- Existing in-flight request invalidation remains in the close handler. The correction preserves the recipe route URL when the same reader is opened from a formula.
+- Regression cases at 320, 375 and 1440 px cover direct source links, normal close, reload staying closed, retained unrelated query state, search fallback focus, result-button focus return and the actual recipe-source opener. Existing page navigation, notice and appearance checks remain.
+- Reference: W3C WAI, Dialog (Modal) Pattern, https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/ (accessed 2026-11-25), recommends returning focus to the invoking element or a logical workflow target when that is unavailable. Library search is this product's fallback for direct source links. This is a targeted keyboard/browser review, not assistive-technology testing or a full conformance audit.
+- Next interaction review: source-search empty/error/loading states and recovery controls. Separate PWA and broader component migration work remain outstanding.

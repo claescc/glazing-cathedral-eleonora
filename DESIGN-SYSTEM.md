@@ -154,3 +154,8 @@ Appearance rows and the dialog close action use `--ui-control-height`, shared wi
 ### Complete long-page audit evidence
 
 The audit waits for Reading results, fonts and visible image decoding, including open media-component shadow roots, before computing screenshot height. It checks document stability and PNG dimensions, and captures separate footers. Long pages over 16000 CSS px also produce overlapping viewport tiles with a scroll-range manifest; use those tiles to review the complete long page because a full-page raster with the expected dimensions can still be visually incomplete. `AUDIT_ROUTES=reading` is an explicitly scoped diagnostic only; default and CI runs retain all public routes.
+
+
+### Source-reader return contract · 25 November 2026
+
+The existing reader adapter owns source URL state and native-dialog return behaviour. When a Reading source closes, its book/page parameters are removed while other query parameters and the pre-open hash are retained. Reloading that closed view must keep it closed. The original opening control regains focus when it is still rendered; direct Reading links return to source search. Reader use from a recipe retains that route's URL and opening control. Both the close action and Escape use the same native close handler.

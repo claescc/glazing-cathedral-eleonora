@@ -166,7 +166,7 @@ try{
   for(const [width,height] of [[320,667],[375,667],[1440,900]]) {
     const page=await freshPage({viewport:{width,height}});
     await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
-    await page.goto(`${base}reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&page=13#source-library`,{waitUntil:'domcontentloaded'});
+    await page.goto(`${base}reading.html?review=reader-return&book=carve-your-clay-hilda-carr-eb4c3f28&page=13#source-library`,{waitUntil:'domcontentloaded'});
     await page.reload({waitUntil:'domcontentloaded'});
     const navigation=page.locator('#sourceReader [data-ui-component="page-navigation"]');
     await navigation.waitFor();
@@ -187,7 +187,30 @@ try{
     assert.equal(new URL(page.url()).searchParams.get('page'),'1');
     await page.locator('#sourceClose').click();
     assert.equal(await page.locator('#sourceReader').isVisible(),false);
-    console.log(`PASS reader ${width}x${height}: shared navigation, 48px controls, aligned Previous/Next, page changes, first-page boundary and close`);
+    await page.waitForFunction(()=>!new URL(location.href).searchParams.has('book'));
+    assert.equal(new URL(page.url()).searchParams.has('page'),false);
+    assert.equal(new URL(page.url()).searchParams.get('review'),'reader-return','Unrelated query state must survive closing');
+    assert.equal(await page.locator('#sourceSearch').evaluate(e=>e===document.activeElement),true,'Direct reader links return focus to source search');
+    await page.reload({waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>/\d/.test(document.querySelector('#sourceCount')?.textContent||''));
+    assert.equal(await page.locator('#sourceReader').isVisible(),false,'Reload must not reopen an explicitly closed reader');
+    const opener=page.locator('#sourceResults [data-book]').first();
+    await opener.click();await page.locator('#sourceReader[open]').waitFor();
+    await page.waitForFunction(()=>!document.querySelector('#sourcePageNumber').disabled);
+    await page.keyboard.press('Escape');
+    await page.waitForFunction(()=>!new URL(location.href).searchParams.has('book'));
+    assert.equal(await opener.evaluate(e=>e===document.activeElement),true,'Escape returns focus to the source opener');
+    await page.goto(`${base}recipes.html?review=reader-return`,{waitUntil:'domcontentloaded'});
+    await page.locator('#recipeRail .recipe-volume').first().click();
+    const recipeOpener=page.locator('.open-source-page');await recipeOpener.waitFor();
+    const recipeAddress=page.url();
+    await recipeOpener.evaluate(e=>{document.activeElement?.blur();e.click();});
+    await page.locator('#sourceReader[open]').waitFor();
+    await page.waitForFunction(()=>!document.querySelector('#sourcePageNumber').disabled);
+    await page.keyboard.press('Escape');
+    await page.waitForFunction(()=>document.activeElement?.matches('.open-source-page'));
+    assert.equal(page.url(),recipeAddress,'Reader must preserve the recipe route URL');
+    console.log(`PASS reader ${width}x${height}: shared navigation, 48px controls, aligned Previous/Next, page changes, first-page boundary, clean close URL, reload and focus return`);
     await page.close();
   }
   if(process.env.FULL_PAGE_AUDIT==='1') {
