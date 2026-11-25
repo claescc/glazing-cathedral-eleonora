@@ -159,3 +159,8 @@ The audit waits for Reading results, fonts and visible image decoding, including
 ### Source-reader return contract · 25 November 2026
 
 The existing reader adapter owns source URL state and native-dialog return behaviour. When a Reading source closes, its book/page parameters are removed while other query parameters and the pre-open hash are retained. Reloading that closed view must keep it closed. The original opening control regains focus when it is still rendered; direct Reading links return to source search. Reader use from a recipe retains that route's URL and opening control. Both the close action and Escape use the same native close handler.
+
+
+### Reader close action · 25 November 2026
+
+The reader's Close action is pre-rendered from the shared React Button with the reusable `cnx-button-surface` treatment. It shares the existing token-driven surface-button styling with pagination controls and consumes the site's current appearance roles. Legacy reader sizing selectors exclude shared controls. The existing generated reader-controls object retains its pagination HTML API and adds the close-action HTML; the reader adapter attaches its native-dialog close behaviour after insertion.

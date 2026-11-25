@@ -138,7 +138,8 @@ try{
     const trigger=host.locator('.cnx-label');await trigger.click();await page.keyboard.press('Escape');
     assert.equal(await dialog.isVisible(),false);
     assert.equal(await trigger.evaluate(e=>e===e.getRootNode().activeElement),true);
-    await page.locator('.site-footer').scrollIntoViewIfNeeded();
+    await settlePageContent(page);
+    await showFooter(page,page.locator('.site-footer'));
     await trigger.waitFor({state:'hidden'});
     await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
     await trigger.waitFor({state:'visible'});
@@ -171,9 +172,10 @@ try{
     const navigation=page.locator('#sourceReader [data-ui-component="page-navigation"]');
     await navigation.waitFor();
     await page.waitForFunction(()=>document.querySelector('#sourcePageNumber').value==='13');
-    for(const id of ['sourcePrev','sourceNext','sourcePageNumber']) {
+    assert.equal(await page.locator('#sourceClose').getAttribute('data-ui-component'),'button','Reader close uses the shared Button');
+    for(const id of ['sourcePrev','sourceNext','sourcePageNumber','sourceClose']) {
       const box=await page.locator('#'+id).boundingBox();
-      assert.ok(box.height>=48 && box.x>=0 && box.x+box.width<=width,`${id}: ${JSON.stringify(box)}`);
+      assert.ok(box.height>=48 && box.width>=48 && box.x>=0 && box.x+box.width<=width,`${id}: ${JSON.stringify(box)}`);
     }
     const previous=await page.locator('#sourcePrev').boundingBox();
     const next=await page.locator('#sourceNext').boundingBox();

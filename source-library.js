@@ -25,6 +25,7 @@
   if (sharedNavigation) {
     dialog.querySelector('nav[aria-label="Source page navigation"]').outerHTML = sharedNavigation.html;
   }
+  if (sharedNavigation?.closeButton) dialog.querySelector('#sourceClose').outerHTML = sharedNavigation.closeButton;
   const chapterDetails = document.createElement("details");
   chapterDetails.className = "source-note";
   chapterDetails.hidden = true;

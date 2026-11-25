@@ -26,7 +26,7 @@
   --ui-focus-offset: 3px;
 }
 /* Page navigation follows the consumer's light, dark and high-contrast surfaces. */
-.cnx-page-navigation {
+.cnx-page-navigation, .cnx-button-surface {
   --ui-surface: var(--surface, #fff);
   --ui-on-surface: var(--text, #242934);
 }
