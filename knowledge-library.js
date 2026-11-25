@@ -16,7 +16,7 @@
       <ul><li><strong>Too wet:</strong> removed clay clings to the piece and the cut is untidy; handling can distort the form. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=13#source-library">Carr’s example, PDF page 13</a>.</li>
       <li><strong>Too dry:</strong> the tool scratches instead of slicing, and the extra force risks cracking or distortion. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=15#source-library">Carr’s example, PDF page 15</a>.</li>
       <li><strong>Suitable for the cut:</strong> the tool moves smoothly and the removed clay separates readily. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=16#source-library">Carr’s example, PDF page 16</a>.</li></ul>
-      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “The State of Clay”, PDF pages 9, 13, 15 and 16. Printed page number and edition/year are not established for this supplied page. Original explanation based on the source; source pages visually checked 21 and 22 November 2026.</p>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, 2020, Chapter One: Basics, “The State of Clay”, PDF pages 9, 13, 15 and 16. Printed page numbers are not established for these supplied pages. Publication details verified on PDF page 411, 25 November 2026. Original explanation based on the source; source pages visually checked 21 and 22 November 2026.</p>
       <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=9#source-library">Read Carr’s source page →</a>`;
     learning.append(note);
     const tools = document.createElement('article');
@@ -25,9 +25,18 @@
     tools.innerHTML = `<h3>Choose the carving tool by the mark</h3>
       <p>Carr associates loop tools with fluting, texture and angular cuts; a flexible steel rib with broader scraping and shallow curves on drier clay; and a ball-tipped sgraffito tool with fine lines. A scoop tool offers broader scraping with its side and detail with its point.</p>
       <p>Her sampler exercise uses a slab allowed to firm slightly: compare a tool’s different faces, lighter and heavier pressure, free movement and a straightedge. This lets you compare the marks before committing them to a finished form.</p>
-      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Chapter One: Basics, “Tools for Carving”, PDF pages 17 and 18. Original synthesis; both source pages visually checked 23 November 2026. Edition/year and printed page numbers are not established here.</p>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, 2020, Chapter One: Basics, “Tools for Carving”, PDF pages 17 and 18. Original synthesis; both source pages visually checked 23 November 2026. Printed page numbers are not established here. Publication details verified on PDF page 411, 25 November 2026.</p>
       <p><a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=17#source-library">Read the sampler exercise, PDF page 17 →</a> · <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=18#source-library">Read Carr’s tool descriptions, PDF page 18 →</a></p>`;
     learning.append(tools);
+    const forming = document.createElement('article');
+    forming.id = 'carving-forming-allowance';
+    forming.className = 'knowledge-paths';
+    forming.innerHTML = `<h3>Plan the form before you carve</h3>
+      <p>Carr’s forming advice is to leave material for the planned cuts: allow “extra thickness in your walls” because carving can remove substantial sections of clay. This passage gives no universal wall-thickness measurement. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=20#source-library">Forming, PDF page 20 →</a></p>
+      <ul><li><strong>Wheel-thrown forms:</strong> rotation can become part of the carving process, adding movement to the marks. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=21#source-library">Throwing, PDF page 21 →</a>.</li>
+      <li><strong>Slab-built forms:</strong> the surface can be worked flat before assembly. Carr’s example rolls a slab over a design carved into linoleum, contrasting this route with a thrown form. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=22#source-library">Hand-building, PDF page 22 →</a>.</li></ul>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, Chapter One: Basics, “Forming”, “Throwing” and “Hand-building”, PDF pages 20–22. Short quotation and original synthesis; source pages visually checked 25 November 2026. Printed page numbers are not established for these supplied pages. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
+    learning.append(forming);
 
   }
   const names = {

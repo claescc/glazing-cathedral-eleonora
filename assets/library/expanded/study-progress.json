@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23",
+  "updated": "2026-11-25",
   "scope": "Incremental teaching integration; does not certify complete library coverage",
   "entries": [
     {
@@ -13,14 +13,19 @@
         15,
         16,
         17,
-        18
+        18,
+        19,
+        20,
+        21,
+        22,
+        411
       ],
       "printedPage": null,
-      "editionYear": null,
+      "editionYear": 2020,
       "method": "Original PDF page rendered with Poppler and visually read; extracted text used only for discovery",
       "topic": "Technique-dependent carving stage and visible signs of wet, dry and suitable clay",
       "destination": "learn.html#carving-clay-readiness",
-      "nextReview": "Continue Chapter One with the illustrated tools and Forming section from PDF page 19 onward; inspect original pages and check existing knowledge coverage first.",
+      "nextReview": "Continue Forming with Pinching, Slip-casting and Slump Molding from PDF page 23 onward; visually inspect original pages and compare with existing teaching notes before adding material.",
       "updates": [
         {
           "date": "2026-11-21",
@@ -46,16 +51,39 @@
           ],
           "addition": "Tool-to-mark guide and slab sampler exercise",
           "destination": "learn.html#carving-tool-sampler"
+        },
+        {
+          "date": "2026-11-25",
+          "pdfPages": [
+            19,
+            20,
+            21,
+            22,
+            411
+          ],
+          "addition": "Forming allowance for carving, wheel rotation and flat-slab decoration before assembly; verified publication metadata",
+          "destination": "learn.html#carving-forming-allowance"
         }
-      ]
+      ],
+      "publicationDetails": {
+        "publisher": "Quarry Books",
+        "firstPublishedYear": 2020,
+        "digitalISBN": "978-1-63159-850-0",
+        "verifiedPdfPage": 411,
+        "verifiedDate": "2026-11-25",
+        "editionNumber": null
+      }
     }
   ],
   "inventoryCheck": {
-    "date": "2026-11-23",
-    "scope": "Top-level PDF filenames against source catalogue; filename check does not prove full hash/content coverage",
-    "rootPdfFiles": 63,
+    "date": "2026-11-25",
+    "scope": "Recursive .pdf filenames against exact catalogue relative paths; this is not a full byte/hash or semantic-coverage audit",
+    "recursivePdfFiles": 110,
     "notMatchedByExactCatalogueFilename": [
-      "Ceramics_Cathedral_Confluence_Starter.pdf"
-    ]
+      "Ceramics_Cathedral_Confluence_Starter.pdf",
+      "Colour Pallete/CeramicsCathedral_Pallete8sections_LDC.pdf"
+    ],
+    "unmatchedClassification": "Both are project documentation, not ceramic teaching sources; no new uncatalogued ceramic source PDF identified by filename.",
+    "activeSourceHashVerified": "eb4c3f286412f712b95bd879dbbbade3a271114707950538e758e6d3f02e970b"
   }
 }
