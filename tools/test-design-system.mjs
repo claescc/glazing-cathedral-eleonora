@@ -263,6 +263,21 @@ try{
       await page.close();
     }
   }
+  for(const width of [320,375,1440]) {
+    const page=await freshPage({viewport:{width,height:667}});
+    await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+    await page.goto(`${base}atlas.html`,{waitUntil:'domcontentloaded'});await page.reload({waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.querySelector('#resultCount')?.textContent.includes('Showing'));
+    for(const scale of [1,2]) {
+      await page.evaluate(scale=>document.documentElement.style.fontSize=`${scale*100}%`,scale);
+      const layout=await page.locator('.atlas-result').evaluate(el=>{const r=el.getBoundingClientRect(),s=getComputedStyle(el);const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');ctx.font=s.font;return {width:r.width,height:r.height,lineHeight:parseFloat(s.lineHeight),minWordWidth:ctx.measureText('Showing').width,overflow:document.documentElement.scrollWidth>innerWidth};});
+      assert.ok(layout.width>=layout.minWordWidth,`Atlas count must fit its longest word: ${JSON.stringify(layout)}`);
+      assert.ok(layout.height<=layout.lineHeight*3,`Atlas count must stay readable: ${JSON.stringify(layout)}`);
+      assert.equal(layout.overflow,false,`Atlas overflow at ${width}px / ${scale*100}% text`);
+    }
+    console.log(`PASS Atlas results ${width}: readable count and no overflow at 100%/200% root text`);
+    await page.close();
+  }
   if(process.env.FULL_PAGE_AUDIT==='1') {
     const folder=resolve(root,'.audit-artifacts');await mkdir(folder,{recursive:true});
     const reports=[];

@@ -178,3 +178,12 @@ The source-reader adapter attaches recipe source actions when both the selected 
 - A persistent polite status region reports loading, failure and loaded page; the page body exposes its busy state. Retry replacement retains keyboard focus on the persistent Close control. This is markup/browser verification, not a claim of tested screen-reader speech.
 - Deterministic regressions at 320, 375 and 1440 px in light, dark and high contrast simulate two successive failures, hold the successful retry to check loading state, then require requested page 20, working Next, Escape, URL cleanup and return focus. Retry must use the shared Button, fit the viewport and measure at least 48 px in both dimensions.
 - Guidance consulted 2026-11-25: W3C WAI, Understanding SC 4.1.3 Status Messages, https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html. The status region exposes changing progress/error information without moving focus to the message. No full accessibility-conformance claim is made.
+
+
+## 25 November 2026 · Compact catalogue results toolbar
+
+- The scheduled all-route live capture review exposed the Atlas count wrapping almost letter by letter at 320 px. The compact three-column grid assigned remaining width to the count after the fixed-width sort and view controls. No horizontal document overflow occurred, so the previous overflow check did not detect it.
+- The shared Tailwind-package results-toolbar adapter now reserves a full compact row for its count and allows the existing sort/view controls to wrap below, using the shared inline-gap token. Expanded layout and content order remain unchanged. No content is hidden.
+- Added count geometry and no-overflow checks at 320, 375 and 1440 px, including 200% root text: the count must fit its longest word and remain within three text lines. The full all-route/appearance audit and actual capture inspection remain required.
+
+- Guidance consulted 2026-11-25: W3C WAI, Understanding SC 1.4.4 Resize Text, https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html. Root-text enlargement is a targeted stress check, not a complete browser-zoom or legal-conformance audit. The preset exposes the compact track minimum as --ui-compact-control-track (8rem).

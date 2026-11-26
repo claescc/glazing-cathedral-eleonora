@@ -78,3 +78,16 @@ dialog.cnx-notice.cnx-card{position:fixed;inset:0}
 .settings-dialog .settings-heading button { margin-inline-start:auto; }
 
 .cnx-button-surface{min-inline-size:var(--ui-control-height)}
+
+/* Catalogue counts keep a readable row; task controls wrap as a group below. */
+@media(max-width:599px){
+ .cnx-results-toolbar.atlas-bottom-row{display:flex;flex-wrap:wrap;gap:var(--ui-inline-gap)}
+ .cnx-results-toolbar .cnx-results-count{flex:1 0 100%;min-inline-size:0;overflow-wrap:normal;word-break:normal}
+ .cnx-results-toolbar > :not(.cnx-results-count){flex:0 1 auto;max-inline-size:100%}
+ .cnx-results-toolbar .atlas-sort select{max-inline-size:100%}
+}
+
+@media(max-width:599px){
+ .atlas-navigation{grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--ui-compact-control-track,8rem)),1fr))}
+ #atlasFilterPanel{grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--ui-compact-control-track,8rem)),1fr))}
+}

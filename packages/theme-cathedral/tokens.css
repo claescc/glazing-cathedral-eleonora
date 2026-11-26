@@ -62,3 +62,5 @@
 :root[data-theme="light"] [data-room-tone="terracotta"] { --ui-room-accent: #673322; }
 :root[data-theme="light"] [data-room-tone="teal"] { --ui-room-accent: #074955; }
 :root[data-theme="dark"] [data-room-tone] { --ui-room-accent: var(--story-light); }
+
+:root{--ui-compact-control-track:8rem}
