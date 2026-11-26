@@ -37,6 +37,16 @@
       <li><strong>Slab-built forms:</strong> the surface can be worked flat before assembly. Carr’s example rolls a slab over a design carved into linoleum, contrasting this route with a thrown form. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=22#source-library">Hand-building, PDF page 22 →</a>.</li></ul>
       <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, Chapter One: Basics, “Forming”, “Throwing” and “Hand-building”, PDF pages 20–22. Short quotation and original synthesis; source pages visually checked 25 November 2026. Printed page numbers are not established for these supplied pages. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
     learning.append(forming);
+    const methods = document.createElement('article');
+    methods.id = 'carving-forming-methods';
+    methods.className = 'knowledge-paths';
+    methods.innerHTML = `<h3>Match carving to the forming method</h3>
+      <ul><li><strong>Pinched forms:</strong> Carr suggests letting freer carving complement the irregular character of a pinch pot. This is presented as her design advice. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=23#source-library">Pinching, PDF page 23 →</a>.</li>
+      <li><strong>Slip-cast forms:</strong> successive layers of differently coloured casting slip can become part of the decoration: carving exposes the underlying colours. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=24#source-library">Slip-casting, PDF page 24 →</a>.</li>
+      <li><strong>Mould-supported forms:</strong> a concave slump mould supports the clay while leaving the inside accessible; clay placed over a convex hump mould leaves the outside accessible. Choose the support with the surface you want to work on in mind. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=25#source-library">Slump-molding, PDF page 25 →</a>.</li></ul>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, Chapter One: Basics, “Pinching”, “Slip-casting” and “Slump-molding”, PDF pages 23–25. Original synthesis; source pages visually checked 26 November 2026. Printed page numbers are not established for these supplied pages. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
+    learning.append(methods);
+
 
   }
   const names = {
