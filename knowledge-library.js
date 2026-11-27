@@ -46,6 +46,16 @@
       <li><strong>Mould-supported forms:</strong> a concave slump mould supports the clay while leaving the inside accessible; clay placed over a convex hump mould leaves the outside accessible. Choose the support with the surface you want to work on in mind. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=25#source-library">Slump-molding, PDF page 25 →</a>.</li></ul>
       <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, Chapter One: Basics, “Pinching”, “Slip-casting” and “Slump-molding”, PDF pages 23–25. Original synthesis; source pages visually checked 26 November 2026. Printed page numbers are not established for these supplied pages. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
     learning.append(methods);
+    const grooves = document.createElement('article');
+    grooves.id = 'carving-combing-and-inlay';
+    grooves.className = 'knowledge-paths';
+    grooves.innerHTML = `<h3>Grooves for texture or for coloured inlay</h3>
+      <p>Carr’s technique overview gives narrow grooves two different roles:</p>
+      <ul><li><strong>Combing:</strong> a toothed tool makes “narrow, parallel grooves” that become the surface texture. Carr keeps the pot on the wheel to help her make accurate lines. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=32#source-library">Combing, PDF page 32 →</a>.</li>
+      <li><strong>Slip inlay:</strong> a fine tool cuts channels to receive coloured slip. Carr’s sequence lets the slip harden before scraping away the surplus to reveal the pattern. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=35#source-library">Inlaying, PDF page 35 →</a>.</li></ul>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, “Key Techniques”, “Combing” and “Inlaying”, PDF pages 32 and 35. Short quotation and original synthesis; source pages visually checked 27 November 2026. Printed page numbers are not established for these supplied pages. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
+    learning.append(grooves);
+
 
 
   }
