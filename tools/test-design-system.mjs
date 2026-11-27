@@ -290,6 +290,36 @@ try{
     console.log(`PASS Atlas results ${width}: readable count and no overflow at 100%/200% root text`);
     await page.close();
   }
+  for(const route of ['index','atlas','glaze-families','recipes','layering','learn','kiln','materials','restoration','masters','tribute','notebook']) {
+    for(const width of (['index','recipes'].includes(route)?[375,1440]:[375])) {
+      const page=await freshPage({viewport:{width,height:667}});
+      await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+      const indices=[];
+      await page.route('**/assets/library/expanded/search*',async request=>{indices.push(request.request().url());await request.abort();});
+      await page.route('**/assets/library/expanded/recipe-search.json',async request=>{indices.push(request.request().url());await request.abort();});
+      await page.goto(`${base}${route}.html`,{waitUntil:'domcontentloaded'});await page.reload({waitUntil:'domcontentloaded'});
+      await page.waitForFunction(()=>document.querySelector('#sourceBook')?.options.length>1);
+      await page.waitForTimeout(100);
+      assert.equal(await page.locator('#source-library').isVisible(),false);
+      assert.deepEqual(indices,[],`${route}/${width}: hidden library must not request its text index`);
+      console.log(`PASS deferred source search ${route}/${width}: catalogue ready, no hidden-index requests`);
+      await page.close();
+    }
+  }
+  {
+    const page=await freshPage({viewport:{width:375,height:667}});
+    await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
+    const indices=[];page.on('request',r=>{if(/\/expanded\/search-/.test(r.url()))indices.push(r.url());});
+    await page.goto(`${base}reading.html`,{waitUntil:'domcontentloaded'});await page.reload({waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>/\d/.test(document.querySelector('#sourceCount')?.textContent||''));
+    assert.ok(indices.length>1,'Reading retains its full-text index');
+    const originalCount=await page.locator('#sourceCount').textContent();
+    await page.locator('#sourceSearch').fill('sgraffito');
+    await page.waitForFunction(original=>{const text=document.querySelector('#sourceCount')?.textContent||'';return text!==original&&/\d/.test(text)&&!text.includes('Searching');},originalCount);
+    assert.ok(await page.locator('#sourceResults .source-hit').count()>0,'Reading search remains usable');
+    console.log('PASS Reading search: index, query and source hits remain available');
+    await page.close();
+  }
   if(process.env.FULL_PAGE_AUDIT==='1') {
     const folder=resolve(root,'.audit-artifacts');await mkdir(folder,{recursive:true});
     const reports=[];

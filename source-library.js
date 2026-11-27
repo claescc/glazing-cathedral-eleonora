@@ -435,7 +435,8 @@
       document.querySelector('[data-book-filter="indexed"]').textContent =
         "With recipe pages";
       renderShelves();
-      search();
+      // Other rooms share source-reader links, not the hidden full-text catalogue.
+      if (document.body.dataset.page === "reading") search();
       const requested = new URLSearchParams(location.search);
       if (requested.has("book") && bookMap.has(requested.get("book"))) {
         openPage(requested.get("book"), Number(requested.get("page")) || 1);
