@@ -21,8 +21,20 @@ if(!base){
   base=`http://127.0.0.1:${server.address().port}/`;
 }
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
+// Cold live inspections retain fresh contexts/cache clearing, but pace network
+// admission globally so page loads do not burst requests at the Pages host.
+const liveRequestInterval=base.startsWith('https://ceramicscathedral.com/')?25:0;
+let liveRequestQueue=Promise.resolve();
 async function freshPage(options) {
   const page=await browser.newPage({...options,serviceWorkers:'block'});
+  if(liveRequestInterval) await page.route('**/*',async route=>{
+    liveRequestQueue=liveRequestQueue.then(async()=>{
+      if(page.isClosed()||route.request().failure())return;
+      await new Promise(resolve=>setTimeout(resolve,liveRequestInterval));
+      if(!page.isClosed()) await route.continue().catch(error=>{if(!page.isClosed()&&!route.request().failure())throw error;});
+    });
+    await liveRequestQueue;
+  });
   const session=await page.context().newCDPSession(page);
   await session.send('Network.enable');await session.send('Network.setCacheDisabled',{cacheDisabled:true});await session.send('Network.clearBrowserCache');
   return page;
@@ -67,7 +79,7 @@ async function captureLongPageTiles(page,folder,name,height) {
   return tiles;
 }
 async function showFooter(page,footer) {
-  await footer.scrollIntoViewIfNeeded();
+  await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
   // Scroll/IntersectionObserver callbacks run asynchronously after scrolling.
   // Require both real footer intersection and the resulting utility state.
   await page.waitForFunction(()=>{
@@ -285,42 +297,41 @@ try{
     const routes=process.env.AUDIT_ROUTES?process.env.AUDIT_ROUTES.split(','):allRoutes;
     assert.ok(routes.length&&routes.every(route=>allRoutes.includes(route)),'Unknown audit route');
     const cases=routes.flatMap(route=>[320,375,1440].map(width=>({route,width})));
-    await Promise.all(Array.from({length:3},async()=>{while(cases.length){
+    await Promise.all(Array.from({length:1},async()=>{while(cases.length){
       const {route,width}=cases.shift();
-      const page=await freshPage({viewport:{width,height:900},serviceWorkers:'block'});
-      const errors=[];page.on('pageerror',e=>errors.push(e.message));
-      await page.addInitScript(()=>sessionStorage.setItem('cathedral-construction-dismissed','yes'));
-      const session=await page.context().newCDPSession(page);
-      await session.send('Network.enable');await session.send('Network.setCacheDisabled',{cacheDisabled:true});await session.send('Network.clearBrowserCache');
-      await page.goto(`${base}${route}.html?visual-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
-      await page.reload({waitUntil:'domcontentloaded'});
-      await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,3000))]));
-      await settlePageContent(page);
-      const height=await page.evaluate(()=>document.documentElement.scrollHeight);
-      for(let y=0;y<height;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
-      await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
-      await page.screenshot({path:`${folder}/${route}-${width}-full.png`,fullPage:true});
-      const footer=page.locator('.site-footer');await showFooter(page,footer);await page.waitForTimeout(150);
-      if(route==='index') {
-        assert.equal(await page.locator('details.room-discovery').count(),0,'Room discovery must not collapse');
-        assert.ok(await page.locator('#roomGrid .room-card').count()>=8,'All rooms, including future additions, stay visible');
-      }
+      const errors=[];
+      let height;
       const themes=[];
       for(const theme of ['light','dark','contrast']) {
-        await page.evaluate(t=>localStorage.setItem('eleonora-appearance-v2',t),theme);
-        await session.send('Network.clearBrowserCache');
+        const page=await freshPage({viewport:{width,height:900}});
+        page.on('pageerror',e=>errors.push(e.message));
+        await page.addInitScript(theme=>{
+          sessionStorage.setItem('cathedral-construction-dismissed','yes');
+          localStorage.setItem('eleonora-appearance-v2',theme);
+        },theme);
+        await page.goto(`${base}${route}.html?visual-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
         await page.reload({waitUntil:'domcontentloaded'});
         await page.waitForTimeout(450);
         assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
-        await settlePageContent(page);
-        const stateHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
-        for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
-        await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
-        const capture=await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
+        let stateHeight,captureHeight,capture;
+        for(let attempt=0;attempt<3;attempt++) {
+          await settlePageContent(page);
+          stateHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
+          for(let y=0;y<stateHeight;y+=780){await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);await page.waitForTimeout(40);}
+          await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
+          capture=await page.screenshot({path:`${folder}/${route}-${width}-${theme}-full.png`,fullPage:true});
+          captureHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
+          if(capture.readUInt32BE(20)===stateHeight&&captureHeight===stateHeight)break;
+          console.log(`RETAKE ${route}/${width}/${theme}: layout changed during capture (attempt ${attempt+1})`);
+        }
         assert.equal(capture.readUInt32BE(20),stateHeight,`${route}/${width}/${theme}: full-page PNG height must cover the document`);
-        const captureHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
         assert.equal(captureHeight,stateHeight,`${route}/${width}/${theme}: document height changed during capture`);
+        if(theme==='light') {
+          height=stateHeight;
+          await writeFile(`${folder}/${route}-${width}-full.png`,capture);
+        }
         const tileCaptures=await captureLongPageTiles(page,folder,`${route}-${width}-${theme}`,captureHeight);
+        const footer=page.locator('.site-footer');
         await showFooter(page,footer);
         const textAudit=await page.evaluate(auditTextContrast);
         assert.deepEqual(textAudit.failures,[],`${route}/${width}/${theme}: text below 7:1`);
@@ -339,6 +350,8 @@ try{
         assert.ok(result.brandWidth>=result.longestWordWidth,`${route}/${width}: wordmark crushed`);
         for(const x of result.text)assert.ok(x.ratio>=7,`${route}/${width}/${theme}: footer contrast ${x.text} ${x.ratio}`);
         if(route==='index') {
+          assert.equal(await page.locator('details.room-discovery').count(),0,'Room discovery must not collapse');
+          assert.ok(await page.locator('#roomGrid .room-card').count()>=8,'All rooms stay visible');
           const rooms=await page.locator('#roomGrid .room-card').evaluateAll(cards=>cards.map(card=>{
             const lum=s=>s.match(/[\d.]+/g).slice(0,3).map(Number).map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4}).reduce((a,x,i)=>a+x*[.2126,.7152,.0722][i],0);
             const bg=lum(getComputedStyle(card).backgroundColor);
@@ -349,13 +362,13 @@ try{
           await showFooter(page,footer);
         }
         await footer.screenshot({path:`${folder}/${route}-${width}-${theme}-footer.png`});themes.push({...result,textAudit,tileCaptures});
+        await page.close();
       }
       assert.equal(errors.length,0,`${route}/${width}: runtime errors ${errors.join('; ')}`);
       reports.push({route,width,height,errors,themes});
       console.log(`AUDIT ${route} ${width}: full-page capture, cache disabled + cleared + reload, footer geometry and 3 themes; documentOverflow=${themes[0].documentOverflow}; errors=${errors.length}`);
-      await page.close();
     }}));
     reports.sort((a,b)=>a.route.localeCompare(b.route)||a.width-b.width);
-    await writeFile(`${folder}/report.json`,JSON.stringify({date:new Date().toISOString(),base,scope:`${routes.length} routes × 3 widths × 3 themes; full-page and footer captures. Pages over 16000px additionally have overlapping viewport tiles with verified document-end coverage; use these for long-page visual review. Text floor 7:1. Construction notice dismissed; other interactions covered only by targeted tests.`,reports},null,2));
+    await writeFile(`${folder}/report.json`,JSON.stringify({date:new Date().toISOString(),base,liveRequestIntervalMs:liveRequestInterval,scope:`${routes.length} routes × 3 widths × 3 themes; fresh browser context per theme, full-page and footer captures. Pages over 16000px additionally have overlapping viewport tiles with verified document-end coverage; use these for long-page visual review. Text floor 7:1. Construction notice dismissed; other interactions covered only by targeted tests.`,reports},null,2));
   }
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}

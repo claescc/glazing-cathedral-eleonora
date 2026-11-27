@@ -187,3 +187,8 @@ The source-reader adapter attaches recipe source actions when both the selected 
 - Added count geometry and no-overflow checks at 320, 375 and 1440 px, including 200% root text: the count must fit its longest word and remain within three text lines. The full all-route/appearance audit and actual capture inspection remain required.
 
 - Guidance consulted 2026-11-25: W3C WAI, Understanding SC 1.4.4 Resize Text, https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html. Root-text enlargement is a targeted stress check, not a complete browser-zoom or legal-conformance audit. The preset exposes the compact track minimum as --ui-compact-control-track (8rem).
+
+
+## 27 November 2026 · Live inspection isolation
+
+The page audit uses a separate browser context for each appearance capture, with cache clearing/disabling, a reload and blocked service workers. Canonical live requests are paced through one queue with a 25 ms admission interval; local/CI runs retain their original request delivery. The report includes the interval, exact route/width/appearance coverage and long-page tile manifests. A partial or rate-limited run is not a successful full-site visual review.
