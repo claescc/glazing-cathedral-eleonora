@@ -320,6 +320,7 @@ try{
     console.log('PASS Reading search: index, query and source hits remain available');
     await page.close();
   }
+  const recoveryEvidence=resolve(root,'.audit-artifacts');await mkdir(recoveryEvidence,{recursive:true});
   for(const width of [320,375,1440]) for(const theme of ['light','dark','contrast']) {
     const page=await freshPage({viewport:{width,height:667}});
     await page.addInitScript(theme=>{localStorage.setItem('eleonora-appearance-v2',theme);sessionStorage.setItem('cathedral-construction-dismissed','yes');},theme);
@@ -344,7 +345,7 @@ try{
     const bounds=await retry.boundingBox();assert.ok(bounds.width>=48&&bounds.height>=48);
     const contrast=await page.evaluate(auditTextContrast);assert.equal(contrast.failures.length,0);
     await retry.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
-    await page.screenshot({path:`/private/tmp/search-retry-${width}-${theme}.png`});
+    await page.screenshot({path:resolve(recoveryEvidence,`search-retry-${width}-${theme}.png`)});
     recover=true;await retry.focus();await page.keyboard.press('Enter');
     await page.waitForFunction(()=>document.querySelector('#sourceResults').getAttribute('aria-busy')==='true');
     assert.equal(await page.locator('#sourceResults').isVisible(),false);
