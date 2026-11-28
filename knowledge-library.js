@@ -55,6 +55,15 @@
       <li><strong>Slip inlay:</strong> a fine tool cuts channels to receive coloured slip. Carr’s sequence lets the slip harden before scraping away the surplus to reveal the pattern. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=35#source-library">Inlaying, PDF page 35 →</a>.</li></ul>
       <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, “Key Techniques”, “Combing” and “Inlaying”, PDF pages 32 and 35. Short quotation and original synthesis; source pages visually checked 27 November 2026. Printed page numbers are not established for these supplied pages. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
     learning.append(grooves);
+    const sequence = document.createElement('article');
+    sequence.id = 'carving-before-expansion';
+    sequence.className = 'knowledge-paths';
+    sequence.innerHTML = `<h3>Stretch the carved line or cut a flat face</h3>
+      <p>Carr’s technique overview distinguishes two ways of changing a thrown form:</p>
+      <ul><li><strong>Carve, then expand:</strong> in her midway-throwing method, the design is cut into a freshly thrown cylinder before its sides are pushed outward. Expanding the form stretches and distorts the carved lines. Carr points to her Bellied Bowl project. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=37#source-library">Midway throwing, PDF page 37 →</a>.</li>
+      <li><strong>Slice flat faces:</strong> faceting uses a wire or knife to remove flat strips. Carr distinguishes the effects of straight and wavy wires and points to her Faceted Jug project. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=40#source-library">Faceting, PDF page 40 →</a>.</li></ul>
+      <p>Source: Hilda Carr, <cite>Carve Your Clay</cite>, Quarry Books, first published 2020, “Key Techniques”, “Midway Throwing” and “Faceting”, PDF pages 37 and 40. Original synthesis; both source pages visually checked 28 November 2026. Printed page numbers are not established for these supplied pages. These are technique overviews; the linked pages identify their corresponding projects. <a href="reading.html?book=carve-your-clay-hilda-carr-eb4c3f28&amp;page=411#source-library">Publication details, PDF page 411 →</a>.</p>`;
+    learning.append(sequence);
 
 
 

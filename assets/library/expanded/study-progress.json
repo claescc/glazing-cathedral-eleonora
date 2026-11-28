@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "scope": "Incremental teaching integration; does not certify complete library coverage",
   "entries": [
     {
@@ -31,6 +31,11 @@
         33,
         34,
         35,
+        36,
+        37,
+        38,
+        39,
+        40,
         411
       ],
       "printedPage": null,
@@ -38,7 +43,7 @@
       "method": "Original PDF page rendered with Poppler and visually read; extracted text used only for discovery",
       "topic": "Technique-dependent carving stage and visible signs of wet, dry and suitable clay",
       "destination": "learn.html#carving-clay-readiness",
-      "nextReview": "Continue Key Techniques from PDF page 36 onward; return to the reviewed-but-not-newly-integrated overviews listed in deferredIntegration during the corresponding project reviews. Visually verify source pages and avoid equating review/indexing with teaching integration.",
+      "nextReview": "Continue Key Techniques from PDF page 41 onward; revisit deferred overviews during the corresponding project reviews. Review and indexing do not establish full teaching integration.",
       "updates": [
         {
           "date": "2026-11-21",
@@ -107,6 +112,22 @@
           ],
           "addition": "Combing as parallel surface texture versus coloured-slip inlay with a fill/harden/scrape sequence",
           "destination": "learn.html#carving-combing-and-inlay"
+        },
+        {
+          "date": "2026-11-28",
+          "pdfPages": [
+            37,
+            40
+          ],
+          "contextReviewedPdfPages": [
+            36,
+            37,
+            38,
+            39,
+            40
+          ],
+          "addition": "Midway throwing stretches carved lines through subsequent expansion; faceting removes flat strips with a wire or knife.",
+          "destination": "learn.html#carving-before-expansion"
         }
       ],
       "publicationDetails": {
@@ -137,12 +158,21 @@
           ],
           "status": "Reviewed overview; not claimed as fully integrated",
           "reason": "Retain incising, fluting, geometric-pattern, texture and impression overviews for the corresponding project-level reviews. Existing tool/forming notes cover parts of this material."
+        },
+        {
+          "pdfPages": [
+            36,
+            38,
+            39
+          ],
+          "status": "Visually reviewed; no new teaching addition",
+          "reason": "Sharp-angle shaping and marbled-surface carving retained for project-level review; coloured casting-slip layers overlap the existing forming-method lesson."
         }
       ]
     }
   ],
   "inventoryCheck": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "scope": "Recursive .pdf filenames against exact catalogue relative paths; this is not a full byte/hash or semantic-coverage audit",
     "recursivePdfFiles": 110,
     "notMatchedByExactCatalogueFilename": [
