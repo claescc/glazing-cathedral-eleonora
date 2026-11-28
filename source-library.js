@@ -26,6 +26,13 @@
     dialog.querySelector('nav[aria-label="Source page navigation"]').outerHTML = sharedNavigation.html;
   }
   if (sharedNavigation?.closeButton) dialog.querySelector('#sourceClose').outerHTML = sharedNavigation.closeButton;
+  const searchRetry = document.createElement("button");
+  searchRetry.id = "sourceSearchRetry";
+  searchRetry.type = "button";
+  searchRetry.hidden = true;
+  searchRetry.textContent = "Try again";
+  section.querySelector("#sourceCount").after(searchRetry);
+  if (sharedNavigation?.searchRetryButton) searchRetry.outerHTML = sharedNavigation.searchRetryButton;
   const chapterDetails = document.createElement("details");
   chapterDetails.className = "source-note";
   chapterDetails.hidden = true;
@@ -276,6 +283,11 @@
   let searchRequest = 0;
   async function search() {
     const request = ++searchRequest;
+    if (document.activeElement === $("sourceSearchRetry")) $("sourceSearch").focus({ preventScroll: true });
+    $("sourceSearchRetry").hidden = true;
+    $("sourceResults").hidden = true;
+    $("sourceResults").setAttribute("aria-busy", "true");
+    $("sourceMore").hidden = true;
     $("sourceCount").textContent = "Searching the library…";
     try {
       const pages = await loadCorpus();
@@ -298,12 +310,17 @@
       limit = 6;
       pageLimits.clear();
       paintResults();
+      $("sourceResults").hidden = false;
     } catch (e) {
       if (request !== searchRequest) return;
       $("sourceCount").textContent =
-        "The search index could not load. Change a filter to retry.";
+        "The search index could not load. Try again to keep your search and filters.";
+      $("sourceSearchRetry").hidden = false;
+    } finally {
+      if (request === searchRequest) $("sourceResults").setAttribute("aria-busy", "false");
     }
   }
+  $("sourceSearchRetry").onclick = search;
   let timer;
   $("sourceSearch").oninput = () => {
     clearTimeout(timer);

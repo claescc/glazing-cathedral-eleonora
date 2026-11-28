@@ -192,3 +192,8 @@ The source-reader adapter attaches recipe source actions when both the selected 
 ## 27 November 2026 · Live inspection isolation
 
 The page audit uses a separate browser context for each appearance capture, with cache clearing/disabling, a reload and blocked service workers. Canonical live requests are paced through one queue with a 25 ms admission interval; local/CI runs retain their original request delivery. The report includes the interval, exact route/width/appearance coverage and long-page tile manifests. A partial or rate-limited run is not a successful full-site visual review.
+
+
+### Search-index recovery · 28 November 2026
+
+The static Reading adapter consumes a pre-rendered shared React Button for search retries. The generated reader-controls object adds searchRetryButton without changing its existing keys. Current query/filter state stays in the existing controls. The result region exposes busy state, hides stale results during loading/failure, and restores them only after the current request succeeds. Retry activation returns focus to the persistent search field before hiding the action; status text remains in the existing role=status region. Surface/foreground and 48 px control values remain owned by the shared Tailwind styles and injectable theme tokens.

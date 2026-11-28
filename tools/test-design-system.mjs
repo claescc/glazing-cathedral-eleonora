@@ -320,6 +320,53 @@ try{
     console.log('PASS Reading search: index, query and source hits remain available');
     await page.close();
   }
+  for(const width of [320,375,1440]) for(const theme of ['light','dark','contrast']) {
+    const page=await freshPage({viewport:{width,height:667}});
+    await page.addInitScript(theme=>{localStorage.setItem('eleonora-appearance-v2',theme);sessionStorage.setItem('cathedral-construction-dismissed','yes');},theme);
+    let recover=false,release,book;
+    await page.route('**/assets/library/expanded/search-parts.json',route=>route.fulfill({status:503,body:'unavailable'}));
+    await page.route('**/assets/library/expanded/recipe-search.json',async route=>{
+      if(!recover)return route.fulfill({status:503,body:'unavailable'});
+      await new Promise(resolve=>release=resolve);
+      await route.fulfill({contentType:'application/json',body:JSON.stringify([{book,page:1,text:'recovery fixture',recipeCandidate:true}])});
+    });
+    await page.goto(`${base}reading.html`,{waitUntil:'domcontentloaded'});await page.reload({waitUntil:'domcontentloaded'});
+    const retry=page.locator('#sourceSearchRetry');
+    await retry.waitFor({state:'visible'});
+    await page.locator('#readingFilters summary').click();
+    book=await page.locator('#sourceBook option').nth(1).getAttribute('value');
+    await page.locator('#sourceSearch').fill('recovery');
+    await page.locator('#sourceBook').selectOption(book);
+    await page.locator('#sourceScope').selectOption('recipes');
+    // Let the input debounce finish before the explicit retry.
+    await page.waitForTimeout(300);await retry.waitFor({state:'visible'});
+    assert.equal(await retry.getAttribute('data-ui-component'),'button');
+    const bounds=await retry.boundingBox();assert.ok(bounds.width>=48&&bounds.height>=48);
+    const contrast=await page.evaluate(auditTextContrast);assert.equal(contrast.failures.length,0);
+    await retry.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+    await page.screenshot({path:`/private/tmp/search-retry-${width}-${theme}.png`});
+    recover=true;await retry.focus();await page.keyboard.press('Enter');
+    await page.waitForFunction(()=>document.querySelector('#sourceResults').getAttribute('aria-busy')==='true');
+    assert.equal(await page.locator('#sourceResults').isVisible(),false);
+    assert.equal(await page.locator('#sourceMore').isVisible(),false);
+    assert.equal(await page.locator('#sourceSearch').evaluate(el=>el===document.activeElement),true);
+    while(!release)await page.waitForTimeout(10);release();
+    await page.waitForFunction(()=>document.querySelector('#sourceCount').textContent==='1 pages · 1 sources');
+    assert.equal(await page.locator('#sourceSearch').inputValue(),'recovery');
+    assert.equal(await page.locator('#sourceBook').inputValue(),book);
+    assert.equal(await page.locator('#sourceScope').inputValue(),'recipes');
+    assert.equal(await page.locator('#sourceResults .source-hit').count(),1);
+    assert.equal(await page.locator('#sourceResults').getAttribute('aria-busy'),'false');
+    assert.equal(await retry.isVisible(),false);
+    await page.locator('#sourceSearch').fill('unmatched-fixture-word');
+    await page.waitForFunction(()=>document.querySelector('#sourceCount').textContent==='0 pages · 0 sources');
+    assert.ok((await page.locator('#sourceResults').innerText()).includes('No matching pages'));
+    await page.locator('#sourceScope').selectOption('all');await retry.waitFor({state:'visible'});
+    assert.equal(await page.locator('#sourceResults').isVisible(),false,'Old results must not remain visible after a failed scope change');
+    assert.equal(await page.locator('#sourceMore').isVisible(),false);
+    console.log(`PASS search recovery ${width}/${theme}: shared retry, busy state, retained filters, focus, empty and stale results`);
+    await page.close();
+  }
   if(process.env.FULL_PAGE_AUDIT==='1') {
     const folder=resolve(root,'.audit-artifacts');await mkdir(folder,{recursive:true});
     const reports=[];
